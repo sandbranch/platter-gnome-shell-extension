@@ -1,8 +1,12 @@
 {
   "uuid": "platter@sandbranch.github.io",
   "name": "Platter",
-  "description": "Puts the album art and track info of whatever is playing on your desktop, in themes rescued from CoverGloobus.\n\nPlatter is a floating desktop widget that follows any MPRIS2 player. It ships sixteen restored themes and can convert more from the original CoverGloobus and NowPlaying skins you still have.",
-  "shell-version": ["48", "49", "50"],
+  "description": "Puts the album art and track info of whatever is playing on your desktop, in themes rescued from CoverGloobus.\n\nPlatter is a floating desktop widget that follows any MPRIS2 player. It sits behind your windows the way CoverGloobus did, or floats above them. It ships 43 restored themes and can convert more from the original CoverGloobus and NowPlaying skins you still have.",
+  "shell-version": [
+    "48",
+    "49",
+    "50"
+  ],
   "settings-schema": "org.gnome.shell.extensions.platter",
   "gettext-domain": "platter",
   "url": "https://github.com/sandbranch/platter-gnome-shell-extension",

@@ -34,6 +34,13 @@ export default class PlatterExtension extends Extension {
 
         Main.layoutManager.connectObject('monitors-changed', () => this._position(), this);
 
+        // The overview transforms the workspaces in 3D, but chrome is never
+        // transformed with them, so a floating widget hangs flat in front of
+        // the animation and reads as a glitch. Main.overview is not a GObject
+        // on every shell we support, so these are plain handler ids.
+        this._overviewIds = ['showing', 'hidden'].map(
+            signal => Main.overview.connect(signal, () => this._update()));
+
         this._watcher.setPreferred(this._settings.get_string('preferred-player'));
         this._rebuild();
     }
@@ -41,6 +48,8 @@ export default class PlatterExtension extends Extension {
     disable() {
         this._settings?.disconnectObject(this);
         Main.layoutManager.disconnectObject(this);
+        this._overviewIds?.forEach(id => Main.overview.disconnect(id));
+        this._overviewIds = null;
         this._teardown();
         this._watcher?.destroy();
         this._watcher = null;
@@ -121,7 +130,8 @@ export default class PlatterExtension extends Extension {
 
         const noPlayer = this._watcher.players.length === 0;
         const stopped = track.status !== 'Playing';
-        const hide = (noPlayer && !this._settings.get_boolean('show-when-no-player')) ||
+        const hide = Main.overview.visibleTarget ||
+            (noPlayer && !this._settings.get_boolean('show-when-no-player')) ||
             (stopped && this._settings.get_boolean('hide-when-stopped'));
         this._widget.visible = !hide;
     }

@@ -1,0 +1,99 @@
+{
+  "format": "platter-theme/0",
+  "id": "lucid-light",
+  "name": "Lucid-light",
+  "canvas": {
+    "width": 320,
+    "height": 79
+  },
+  "attribution": {
+    "author": "NowPlaying screenlet (magicrobomonkey, vrunner)",
+    "source_url": "https://web.archive.org/web/2011/http://www.gnome-look.org/CONTENT/content-files/69988-NowPlaying.tar.bz2",
+    "license": "GPL-2.0-or-later",
+    "original_app": "nowplaying",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "Released inside the NowPlaying screenlet package. NowPlayingScreenlet.py carries the GNU GPL v2-or-later header in full, and the package states no separate terms for the themes it bundles. Vinyl is the one exception and is not included: its own skin.xml states CC BY-NC-SA."
+  },
+  "fonts": [
+    {
+      "family": "Frutiger Linotype",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 79,
+      "src": "toast.png"
+    },
+    {
+      "type": "artwork",
+      "x": 254,
+      "y": 12,
+      "width": 50,
+      "height": 50
+    },
+    {
+      "type": "text",
+      "x": 17,
+      "y": 14,
+      "width": 230,
+      "bind": "title",
+      "font": {
+        "family": "Frutiger Linotype",
+        "size": 8,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 41
+      }
+    },
+    {
+      "type": "text",
+      "x": 17,
+      "y": 37,
+      "width": 230,
+      "bind": "artist",
+      "font": {
+        "family": "Frutiger Linotype",
+        "size": 7,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 44
+      }
+    },
+    {
+      "type": "text",
+      "x": 17,
+      "y": 52,
+      "width": 230,
+      "bind": "album",
+      "font": {
+        "family": "Frutiger Linotype",
+        "size": 7,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 44
+      }
+    }
+  ]
+}

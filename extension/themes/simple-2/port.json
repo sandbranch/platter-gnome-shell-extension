@@ -1,0 +1,52 @@
+{
+  "ported": "2026-08-19",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "upstream-1.6/simple",
+    "skin_xml_sha256": "7c9b6f5730faa72aeeefef9ef1b0ad04c3a62c4c23f1586e2679803689632641",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "next.png",
+      "nostar.png",
+      "play.png",
+      "prev.png",
+      "star.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [
+    {
+      "at": "playercontrols[4]/prev[0]",
+      "taken": "width=20 from the asset"
+    },
+    {
+      "at": "playercontrols[4]/prev[0]",
+      "taken": "height=16 from the asset"
+    },
+    {
+      "at": "playercontrols[4]/play[1]",
+      "taken": "width=20 from the asset"
+    },
+    {
+      "at": "playercontrols[4]/play[1]",
+      "taken": "height=16 from the asset"
+    },
+    {
+      "at": "playercontrols[4]/next[2]",
+      "taken": "width=20 from the asset"
+    },
+    {
+      "at": "playercontrols[4]/next[2]",
+      "taken": "height=16 from the asset"
+    }
+  ],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "<playercontrols> at 106,298 is ignored, exactly as 1.7 ignores it: its children carry absolute positions",
+    "distribution non-free: no terms found; silence is not permission"
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "format": "platter-theme/0",
+  "id": "h-k-nowplaying",
+  "name": "H-K-nowplaying",
+  "canvas": {
+    "width": 370,
+    "height": 79
+  },
+  "attribution": {
+    "author": "NowPlaying screenlet (magicrobomonkey, vrunner)",
+    "source_url": "https://web.archive.org/web/2011/http://www.gnome-look.org/CONTENT/content-files/69988-NowPlaying.tar.bz2",
+    "license": "GPL-2.0-or-later",
+    "original_app": "nowplaying",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "Released inside the NowPlaying screenlet package. NowPlayingScreenlet.py carries the GNU GPL v2-or-later header in full, and the package states no separate terms for the themes it bundles. Vinyl is the one exception and is not included: its own skin.xml states CC BY-NC-SA."
+  },
+  "fonts": [
+    {
+      "family": "Vibrocentric",
+      "bundled": false,
+      "reason": "Vibrocentric.ttf ships with the theme, but whether it may be redistributed is unresolved"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 370,
+      "height": 79,
+      "src": "background.png"
+    },
+    {
+      "type": "artwork",
+      "x": 232,
+      "y": 16,
+      "width": 43,
+      "height": 43
+    },
+    {
+      "type": "image",
+      "x": 227,
+      "y": 11,
+      "width": 53,
+      "height": 53,
+      "src": "frame.png"
+    },
+    {
+      "type": "text",
+      "x": 10,
+      "y": 14,
+      "width": 200,
+      "bind": "title",
+      "font": {
+        "family": "Vibrocentric",
+        "size": 9,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000bb",
+        "dx": 1,
+        "dy": 1
+      },
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 50
+      }
+    },
+    {
+      "type": "text",
+      "x": 10,
+      "y": 36,
+      "width": 200,
+      "bind": "artist",
+      "font": {
+        "family": "Vibrocentric",
+        "size": 8,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000bb",
+        "dx": 1,
+        "dy": 1
+      },
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 50
+      }
+    },
+    {
+      "type": "text",
+      "x": 10,
+      "y": 52,
+      "width": 200,
+      "bind": "album",
+      "font": {
+        "family": "Vibrocentric",
+        "size": 8,
+        "weight": "normal",
+        "style": "italic"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000bb",
+        "dx": 1,
+        "dy": 1
+      },
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 50
+      }
+    },
+    {
+      "type": "button",
+      "x": 325,
+      "y": 0,
+      "width": 20,
+      "height": 79,
+      "action": "previous",
+      "states": {
+        "default": {
+          "normal": "prev.png",
+          "hover": "prev-hover.png",
+          "pressed": "prev-pressed.png"
+        }
+      }
+    },
+    {
+      "type": "button",
+      "x": 345,
+      "y": 0,
+      "width": 21,
+      "height": 79,
+      "action": "next",
+      "states": {
+        "default": {
+          "normal": "next.png",
+          "hover": "next-hover.png",
+          "pressed": "next-pressed.png"
+        }
+      }
+    },
+    {
+      "type": "button",
+      "x": 366,
+      "y": 0,
+      "width": 29,
+      "height": 79,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "play.png",
+          "hover": "play-hover.png",
+          "pressed": "play-pressed.png"
+        },
+        "playing": {
+          "normal": "pause.png",
+          "hover": "pause-hover.png",
+          "pressed": "pause-pressed.png"
+        }
+      }
+    }
+  ]
+}

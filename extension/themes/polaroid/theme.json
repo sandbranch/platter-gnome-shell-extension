@@ -1,0 +1,136 @@
+{
+  "format": "platter-theme/0",
+  "id": "polaroid",
+  "name": "polaroid",
+  "canvas": {
+    "width": 200,
+    "height": 250
+  },
+  "attribution": {
+    "author": "unknown",
+    "source_url": "https://launchpad.net/covergloobus",
+    "license": "GPL-3.0",
+    "original_app": "covergloobus",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "Released as part of the CoverGloobus source package, which is GPL-3.0 (COPYING in the tarball). The themes are build targets of that package - each has its own Makefile.am registered in configure.ac and is installed by make install - so they were distributed under its licence."
+  },
+  "fonts": [
+    {
+      "family": "Lucida Grande",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 34,
+      "y": 32,
+      "width": 135,
+      "height": 135,
+      "src": "nocover.png"
+    },
+    {
+      "type": "artwork",
+      "x": 34,
+      "y": 32,
+      "width": 135,
+      "height": 135
+    },
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 200,
+      "height": 230,
+      "src": "case.png"
+    },
+    {
+      "type": "text",
+      "x": 0,
+      "y": 172,
+      "width": 200,
+      "bind": "title",
+      "font": {
+        "family": "Lucida Grande",
+        "size": 9,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#000000ff",
+      "shadow": {
+        "color": "#ffffffff",
+        "dx": 1,
+        "dy": 1
+      },
+      "align": "center",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 18
+      }
+    },
+    {
+      "type": "rating",
+      "x": 85,
+      "y": 189,
+      "width": 15,
+      "height": 15,
+      "star": "star.png",
+      "empty": "nostar.png",
+      "spacing": 2,
+      "direction": "horizontal"
+    },
+    {
+      "type": "button",
+      "x": 30,
+      "y": 189,
+      "action": "previous",
+      "states": {
+        "default": {
+          "normal": "prev.png",
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 20,
+      "height": 16
+    },
+    {
+      "type": "button",
+      "x": 47,
+      "y": 189,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "play.png",
+          "hover": null,
+          "pressed": null
+        },
+        "playing": {
+          "normal": null,
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 20,
+      "height": 16
+    },
+    {
+      "type": "button",
+      "x": 65,
+      "y": 189,
+      "action": "next",
+      "states": {
+        "default": {
+          "normal": "next.png",
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 20,
+      "height": 16
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "ported": "2026-08-19",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "wayback-69988-NowPlaying/69988-NowPlaying.tar.bz2:NowPlaying/themes/default",
+    "skin_xml_sha256": "70e811a3a9caf8b3657e441608a648b7a103f4bb5e849c12dfb5d6d749f02093",
+    "app": "nowplaying"
+  },
+  "assets": {
+    "copied": [
+      "bg-2.png",
+      "next-hover.png",
+      "next-pressed.png",
+      "next.png",
+      "nowplaying-bg.svg",
+      "nowplaying-fg.svg",
+      "pause-hover.png",
+      "pause-pressed.png",
+      "pause.png",
+      "play-hover.png",
+      "play-pressed.png",
+      "play.png",
+      "prev-hover.png",
+      "prev-pressed.png",
+      "prev.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [],
+  "lossy": [],
+  "inferred": [
+    {
+      "at": "playercontrols[8]/prev[0]",
+      "inferred": "normal artwork 'prev.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[8]/prev[0]",
+      "inferred": "hover artwork 'prev-hover.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[8]/prev[0]",
+      "inferred": "pressed artwork 'prev-pressed.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[8]/prev[0]",
+      "inferred": "position computed from <playercontrols> x/y/spacing, which NowPlaying centres the row on"
+    },
+    {
+      "at": "playercontrols[8]/play_pause[1]",
+      "inferred": "normal artwork 'play.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[8]/play_pause[1]",
+      "inferred": "hover artwork 'play-hover.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[8]/play_pause[1]",
+      "inferred": "pressed artwork 'play-pressed.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[8]/play_pause[1]",
+      "inferred": "normal artwork 'pause.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[8]/play_pause[1]",
+      "inferred": "hover artwork 'pause-hover.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[8]/play_pause[1]",
+      "inferred": "pressed artwork 'pause-pressed.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[8]/play_pause[1]",
+      "inferred": "position computed from <playercontrols> x/y/spacing, which NowPlaying centres the row on"
+    },
+    {
+      "at": "playercontrols[8]/next[2]",
+      "inferred": "normal artwork 'next.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[8]/next[2]",
+      "inferred": "hover artwork 'next-hover.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[8]/next[2]",
+      "inferred": "pressed artwork 'next-pressed.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[8]/next[2]",
+      "inferred": "position computed from <playercontrols> x/y/spacing, which NowPlaying centres the row on"
+    }
+  ],
+  "notes": [
+    "playername is NowPlaying's; CoverGloobus never read it",
+    "distribution non-free: no terms found; silence is not permission",
+    "renamed testskin-2 -> nowplaying-default: NowPlaying's own stock theme, from its themes/default. Named TestSkin in the file; renamed for what it actually is."
+  ]
+}

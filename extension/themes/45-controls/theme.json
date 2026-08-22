@@ -1,0 +1,117 @@
+{
+  "format": "platter-theme/0",
+  "id": "45-controls",
+  "name": "45 Controls",
+  "canvas": {
+    "width": 400,
+    "height": 150
+  },
+  "attribution": {
+    "author": "unknown",
+    "source_url": "https://launchpad.net/covergloobus",
+    "license": "GPL-3.0",
+    "original_app": "covergloobus",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "Released as part of the CoverGloobus source package, which is GPL-3.0 (COPYING in the tarball). The themes are build targets of that package - each has its own Makefile.am registered in configure.ac and is installed by make install - so they were distributed under its licence."
+  },
+  "fonts": [
+    {
+      "family": "HandelGotDLig",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 19,
+      "y": 17,
+      "width": 112,
+      "height": 112,
+      "visible": "playing",
+      "src": "nocover.png"
+    },
+    {
+      "type": "image",
+      "x": 19,
+      "y": 17,
+      "width": 112,
+      "height": 112,
+      "visible": "stopped",
+      "src": "noSong.png"
+    },
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 220,
+      "height": 148,
+      "src": "45.png"
+    },
+    {
+      "type": "artwork",
+      "x": 19,
+      "y": 17,
+      "width": 112,
+      "height": 112
+    },
+    {
+      "type": "text",
+      "x": 225,
+      "y": 66,
+      "bind": "title",
+      "font": {
+        "family": "HandelGotDLig",
+        "size": 10,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000bb",
+        "dx": 1,
+        "dy": 1
+      },
+      "wrap": false
+    },
+    {
+      "type": "text",
+      "x": 225,
+      "y": 84,
+      "bind": "artist",
+      "font": {
+        "family": "HandelGotDLig",
+        "size": 9,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000bb",
+        "dx": 1,
+        "dy": 1
+      },
+      "wrap": false
+    },
+    {
+      "type": "text",
+      "x": 225,
+      "y": 100,
+      "bind": "album",
+      "font": {
+        "family": "HandelGotDLig",
+        "size": 9,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000bb",
+        "dx": 1,
+        "dy": 1
+      },
+      "wrap": false
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+# Built bundles
+*.shell-extension.zip
+/build/
+
+# Compiled schemas: made at install time, never committed
+gschemas.compiled
+*.gschema.compiled
+
+# Compiled translations
+*.mo
+
+__pycache__/
+*.py[co]
+
+*~
+.#*

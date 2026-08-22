@@ -1,0 +1,105 @@
+{
+  "format": "platter-theme/0",
+  "id": "holo",
+  "name": "Holo",
+  "canvas": {
+    "width": 219,
+    "height": 194
+  },
+  "attribution": {
+    "author": "alezzacreative (MUSTAPHA ASBBAR)",
+    "source_url": "https://www.deviantart.com/alezzacreative/art/Holo-CoverGloobus-skin-313902523",
+    "license": "attribution-required",
+    "original_app": "covergloobus",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "skin.xml header, in his own words: \"this theme is free to distribute, mod and such as long as you accredit it back to MUSTAPHA ASBBAR, http://alezzacreative.deviantart.com\". Modification explicitly allowed. Third confirmation of the same boilerplate; his page says all rights reserved, as all thirteen of his do."
+  },
+  "fonts": [],
+  "layers": [
+    {
+      "type": "image",
+      "x": 0,
+      "y": 117,
+      "width": 219,
+      "height": 68,
+      "src": "base.png"
+    },
+    {
+      "type": "artwork",
+      "x": 49,
+      "y": 5,
+      "width": 126,
+      "height": 126,
+      "round": 0
+    },
+    {
+      "type": "image",
+      "x": 44,
+      "y": 1,
+      "width": 135,
+      "height": 136,
+      "src": "overlay.png"
+    },
+    {
+      "type": "seekbar",
+      "x": 18,
+      "y": 143,
+      "width": 181,
+      "height": 28,
+      "back": "seekbar.back.png",
+      "fill": "seekbar.top.png",
+      "orientation": "horizontal"
+    },
+    {
+      "type": "button",
+      "x": 44,
+      "y": 170,
+      "action": "previous",
+      "states": {
+        "default": {
+          "normal": "prev.png",
+          "hover": "prev.over.png",
+          "pressed": null
+        }
+      },
+      "width": 26,
+      "height": 22
+    },
+    {
+      "type": "button",
+      "x": 99,
+      "y": 170,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "play.png",
+          "hover": "play.over.png",
+          "pressed": null
+        },
+        "playing": {
+          "normal": "pause.png",
+          "hover": "pause.over.png",
+          "pressed": null
+        }
+      },
+      "width": 26,
+      "height": 22
+    },
+    {
+      "type": "button",
+      "x": 153,
+      "y": 170,
+      "action": "next",
+      "states": {
+        "default": {
+          "normal": "next.png",
+          "hover": "next.over.png",
+          "pressed": null
+        }
+      },
+      "width": 26,
+      "height": 22
+    }
+  ]
+}

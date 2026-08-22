@@ -1,0 +1,56 @@
+{
+  "format": "platter-theme/0",
+  "id": "drk",
+  "name": "DRK",
+  "canvas": {
+    "width": 185,
+    "height": 185
+  },
+  "attribution": {
+    "author": "alezzacreative (MUSTAPHA ASBBAR)",
+    "source_url": "https://www.deviantart.com/alezzacreative/art/DRK-CoverGloobus-skin-311869412",
+    "license": "attribution-required",
+    "original_app": "covergloobus",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "skin.xml header, in his own words: \"this theme is free to distribute, mod and such as long as you accredit it back to MUSTAPHA ASBBAR\". Fourth confirmation of the identical boilerplate; every one of his pages says all rights reserved and every one of his files says the opposite."
+  },
+  "fonts": [],
+  "layers": [
+    {
+      "type": "artwork",
+      "x": 19,
+      "y": 19,
+      "width": 147,
+      "height": 147,
+      "round": 0,
+      "mask": "mask.png"
+    },
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 185,
+      "height": 185,
+      "src": "background.png"
+    },
+    {
+      "type": "image",
+      "x": 10,
+      "y": 10,
+      "width": 166,
+      "height": 147,
+      "src": "overlay.png"
+    },
+    {
+      "type": "seekbar",
+      "x": 19,
+      "y": 163,
+      "width": 148,
+      "height": 4,
+      "back": "seekbar.back.png",
+      "fill": "seekbar.top.png",
+      "orientation": "horizontal"
+    }
+  ]
+}

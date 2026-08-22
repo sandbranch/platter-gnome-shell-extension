@@ -1,0 +1,169 @@
+{
+  "format": "platter-theme/0",
+  "id": "jesse",
+  "name": "Jesse",
+  "canvas": {
+    "width": 400,
+    "height": 220
+  },
+  "attribution": {
+    "author": "speedracker (uploader)",
+    "source_url": "https://www.deviantart.com/speedracker/art/Rustycage-New-Covergloobus-Theme-525980027",
+    "license": "attribution-required",
+    "original_app": "covergloobus",
+    "upstream_author": "MUSTAPHA ASBBAR / alezzacreative",
+    "distribution": "free",
+    "license_note": "skin.xml: \"this theme is free to distribute, mod and such as long as you accredit it back to MUSTAPHA ASBBAR, http://alezzacreative.deviantart.com\". Modification is explicitly allowed."
+  },
+  "fonts": [
+    {
+      "family": "Gabriola",
+      "bundled": false,
+      "reason": "Gabriola.ttf ships with the theme, but whether it may be redistributed is unresolved"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 0,
+      "y": 10,
+      "width": 353,
+      "height": 215,
+      "src": "Background.png"
+    },
+    {
+      "type": "artwork",
+      "x": 40,
+      "y": 50,
+      "width": 100,
+      "height": 100,
+      "round": 0
+    },
+    {
+      "type": "image",
+      "x": 30,
+      "y": 42,
+      "width": 120,
+      "height": 128,
+      "src": "case.png"
+    },
+    {
+      "type": "seekbar",
+      "x": 120,
+      "y": 190,
+      "width": 205,
+      "height": 5,
+      "back": "seekbar.back.png",
+      "fill": "seekbar.top.png",
+      "orientation": "horizontal"
+    },
+    {
+      "type": "text",
+      "x": 48,
+      "y": 182,
+      "width": 100,
+      "bind": "position",
+      "font": {
+        "family": "Gabriola",
+        "size": 15,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "align": "left",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 25
+      }
+    },
+    {
+      "type": "button",
+      "x": 170,
+      "y": 140,
+      "action": "previous",
+      "states": {
+        "default": {
+          "normal": "prev.png",
+          "hover": "prev.over.png",
+          "pressed": null
+        }
+      },
+      "width": 28,
+      "height": 28
+    },
+    {
+      "type": "button",
+      "x": 215,
+      "y": 128,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "pause.png",
+          "hover": "pause.over.png",
+          "pressed": null
+        },
+        "playing": {
+          "normal": "play.png",
+          "hover": "play.over.png",
+          "pressed": null
+        }
+      },
+      "width": 40,
+      "height": 40
+    },
+    {
+      "type": "button",
+      "x": 275,
+      "y": 140,
+      "action": "next",
+      "states": {
+        "default": {
+          "normal": "next.png",
+          "hover": "next.over.png",
+          "pressed": null
+        }
+      },
+      "width": 28,
+      "height": 28
+    },
+    {
+      "type": "text",
+      "x": 155,
+      "y": 70,
+      "width": 300,
+      "bind": "artist",
+      "font": {
+        "family": "Gabriola",
+        "size": 14,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 55
+      }
+    },
+    {
+      "type": "text",
+      "x": 155,
+      "y": 100,
+      "width": 250,
+      "bind": "title",
+      "font": {
+        "family": "Gabriola",
+        "size": 14,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 55
+      }
+    }
+  ]
+}

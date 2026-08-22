@@ -1,0 +1,166 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the platter package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: platter\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-22 22:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: extension/prefs.js:25 extension/prefs.js:29 extension/prefs.js:36
+msgid "Theme"
+msgstr ""
+
+#: extension/prefs.js:30
+msgid ""
+"Themes are read from the extension, from ~/.local/share/platter/themes, and "
+"from an extra directory if you name one."
+msgstr ""
+
+#: extension/prefs.js:45
+msgid "Extra theme directory"
+msgstr ""
+
+#: extension/prefs.js:55
+msgid "Appearance"
+msgstr ""
+
+#: extension/prefs.js:57
+msgid "Scale"
+msgstr ""
+
+#: extension/prefs.js:58
+msgid "Opacity"
+msgstr ""
+
+#: extension/prefs.js:66
+msgid "Add a theme"
+msgstr ""
+
+#: extension/prefs.js:67
+msgid ""
+"Platter converts themes made for CoverGloobus and NowPlaying. Point it at "
+"the folder or the archive exactly as you downloaded it."
+msgstr ""
+
+#: extension/prefs.js:72
+msgid "Import a theme"
+msgstr ""
+
+#: extension/prefs.js:74
+msgid "Folder…"
+msgstr ""
+
+#: extension/prefs.js:77
+msgid "Archive…"
+msgstr ""
+
+#: extension/prefs.js:84
+msgid "Choose a theme folder"
+msgstr ""
+
+#: extension/prefs.js:98
+msgid ""
+"No archive tool is installed here. Unpack the theme yourself and import the "
+"folder."
+msgstr ""
+
+#: extension/prefs.js:102
+msgid "Theme archives"
+msgstr ""
+
+#: extension/prefs.js:110
+msgid "Choose a theme archive"
+msgstr ""
+
+#: extension/prefs.js:124
+msgid "Converted themes are kept in"
+msgstr ""
+
+#: extension/prefs.js:129
+msgid "Open this folder"
+msgstr ""
+
+#: extension/prefs.js:147
+msgid "Converting…"
+msgstr ""
+
+#: extension/prefs.js:175
+msgid "No themes found"
+msgstr ""
+
+#: extension/prefs.js:187 extension/prefs.js:198
+msgid "Placement"
+msgstr ""
+
+#: extension/prefs.js:191
+msgid "Where it sits"
+msgstr ""
+
+#: extension/prefs.js:192
+msgid ""
+"On the desktop it lives behind your windows, the way CoverGloobus did. "
+"Floating keeps it above everything."
+msgstr ""
+
+#: extension/prefs.js:200
+msgid "On the desktop"
+msgstr ""
+
+#: extension/prefs.js:200
+msgid "Floating above windows"
+msgstr ""
+
+#: extension/prefs.js:209
+msgid "Monitor"
+msgstr ""
+
+#: extension/prefs.js:210
+msgid "minus one follows the primary monitor"
+msgstr ""
+
+#: extension/prefs.js:211
+msgid "Left offset"
+msgstr ""
+
+#: extension/prefs.js:212
+msgid "Top offset"
+msgstr ""
+
+#: extension/prefs.js:215
+msgid "Lock in place"
+msgstr ""
+
+#: extension/prefs.js:215
+msgid "Stop the widget being dragged"
+msgstr ""
+
+#: extension/prefs.js:220
+msgid "Player"
+msgstr ""
+
+#: extension/prefs.js:223
+msgid "Preferred player"
+msgstr ""
+
+#: extension/prefs.js:230
+msgid "Hide when nothing is playing"
+msgstr ""
+
+#: extension/prefs.js:237
+msgid "Stay visible with no player running"
+msgstr ""
+
+#: extension/prefs.js:238
+msgid "Useful while designing a theme"
+msgstr ""

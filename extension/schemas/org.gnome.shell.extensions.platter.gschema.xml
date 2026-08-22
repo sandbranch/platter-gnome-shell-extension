@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <enum id="org.gnome.shell.extensions.platter.placement">
+    <value nick="desktop" value="0"/>
+    <value nick="floating" value="1"/>
+  </enum>
+  <enum id="org.gnome.shell.extensions.platter.anchor">
+    <value nick="top-left" value="0"/>
+    <value nick="top-right" value="1"/>
+    <value nick="bottom-left" value="2"/>
+    <value nick="bottom-right" value="3"/>
+  </enum>
+  <schema id="org.gnome.shell.extensions.platter"
+          path="/org/gnome/shell/extensions/platter/">
+
+    <key name="theme" type="s">
+      <default>"platter-anno"</default>
+      <summary>Theme id</summary>
+      <description>Directory name of the theme under the themes search path.</description>
+    </key>
+    <key name="theme-path" type="s">
+      <default>""</default>
+      <summary>Extra theme directory</summary>
+      <description>Searched before the bundled themes. Empty means only bundled themes and ~/.local/share/platter/themes.</description>
+    </key>
+
+    <key name="placement" enum="org.gnome.shell.extensions.platter.placement">
+      <default>"desktop"</default>
+      <summary>Where the widget sits</summary>
+      <description>desktop: behind windows, like the original. floating: above everything.</description>
+    </key>
+    <key name="monitor" type="i">
+      <default>-1</default>
+      <summary>Monitor index, or -1 for primary</summary>
+    </key>
+    <key name="anchor" enum="org.gnome.shell.extensions.platter.anchor">
+      <default>"bottom-right"</default>
+      <summary>Which corner the widget is measured from</summary>
+      <description>Offsets are from this corner, so the widget keeps its place when the resolution changes or a monitor is unplugged.</description>
+    </key>
+    <key name="position-x" type="i">
+      <default>60</default>
+      <summary>Offset from the anchor corner, horizontally</summary>
+    </key>
+    <key name="position-y" type="i">
+      <default>60</default>
+      <summary>Offset from the anchor corner, vertically</summary>
+    </key>
+    <key name="scale" type="d">
+      <range min="0.25" max="4.0"/>
+      <default>1.0</default>
+      <summary>Scale factor applied to the whole theme canvas</summary>
+    </key>
+    <key name="opacity" type="d">
+      <range min="0.1" max="1.0"/>
+      <default>1.0</default>
+      <summary>Overall opacity</summary>
+    </key>
+
+    <key name="locked" type="b">
+      <default>false</default>
+      <summary>Prevent dragging the widget</summary>
+    </key>
+    <key name="hide-when-stopped" type="b">
+      <default>false</default>
+      <summary>Hide entirely when nothing is playing</summary>
+    </key>
+    <key name="preferred-player" type="s">
+      <default>""</default>
+      <summary>Bus name suffix of the player to follow</summary>
+      <description>Empty follows whichever player is playing, preferring the most recently active.</description>
+    </key>
+    <key name="show-when-no-player" type="b">
+      <default>false</default>
+      <summary>Stay visible when no MPRIS player is running at all</summary>
+    </key>
+  </schema>
+</schemalist>

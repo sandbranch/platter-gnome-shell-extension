@@ -1,0 +1,45 @@
+{
+  "ported": "2026-08-19",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "upstream-1.6/Ibex",
+    "skin_xml_sha256": "416e69d95e198c6903fec6190e5781b6a213838b6ba995a674c7c4340602f7f9",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "case.png",
+      "case1.png",
+      "nostar.png",
+      "star.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [
+    {
+      "at": "artistname[3]",
+      "from": "maxchqars",
+      "to": "maxchars",
+      "why": "known misspelling"
+    }
+  ],
+  "derived": [],
+  "lossy": [
+    {
+      "at": "artistname[3]",
+      "dropped": "font weight 'Book' flattened to normal"
+    },
+    {
+      "at": "titlename[4]",
+      "dropped": "font weight 'Book' flattened to normal"
+    },
+    {
+      "at": "albumname[5]",
+      "dropped": "font weight 'Book' flattened to normal"
+    }
+  ],
+  "inferred": [],
+  "notes": [
+    "distribution non-free: no terms found; silence is not permission"
+  ]
+}

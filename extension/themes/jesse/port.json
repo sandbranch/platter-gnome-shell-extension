@@ -1,0 +1,63 @@
+{
+  "ported": "2026-08-19",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "deviantart-Rustycage-New/rustycage_new_covergloobus_theme_by_speedracker_d8p5ksb.7z:Rustycage",
+    "skin_xml_sha256": "b134f9f3a4634dc63ea5e33f8f99ef0aacca9e3cf2f55271c2454defecea89b8",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "Background.png",
+      "case.png",
+      "next.over.png",
+      "next.png",
+      "pause.over.png",
+      "pause.png",
+      "play.over.png",
+      "play.png",
+      "prev.over.png",
+      "prev.png",
+      "seekbar.back.png",
+      "seekbar.top.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [
+    {
+      "at": "playercontrols[5]/prev[0]",
+      "taken": "width=28 from the asset"
+    },
+    {
+      "at": "playercontrols[5]/prev[0]",
+      "taken": "height=28 from the asset"
+    },
+    {
+      "at": "playercontrols[5]/play[1]",
+      "taken": "width=40 from the asset"
+    },
+    {
+      "at": "playercontrols[5]/play[1]",
+      "taken": "height=40 from the asset"
+    },
+    {
+      "at": "playercontrols[5]/next[2]",
+      "taken": "width=28 from the asset"
+    },
+    {
+      "at": "playercontrols[5]/next[2]",
+      "taken": "height=28 from the asset"
+    }
+  ],
+  "lossy": [
+    {
+      "at": "fonts",
+      "dropped": "Gabriola.ttf left behind: a bundled font is not a licensed font"
+    }
+  ],
+  "inferred": [],
+  "notes": [
+    "distribution free: redistribution and modification both permitted"
+  ]
+}

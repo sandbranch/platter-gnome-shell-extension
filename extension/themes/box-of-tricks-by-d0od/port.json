@@ -1,0 +1,52 @@
+{
+  "ported": "2026-08-19",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "upstream-1.6/BoxOfTricks",
+    "skin_xml_sha256": "50a7e775a5a1ab76d2839511b84e45778a6fd950fa681d5aab9dd95f22a0e367",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "case.png",
+      "next.png",
+      "overlay.png",
+      "play.png",
+      "prev.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [
+    {
+      "at": "playercontrols[6]/prev[0]",
+      "taken": "width=60 from the asset"
+    },
+    {
+      "at": "playercontrols[6]/prev[0]",
+      "taken": "height=30 from the asset"
+    },
+    {
+      "at": "playercontrols[6]/play[1]",
+      "taken": "width=60 from the asset"
+    },
+    {
+      "at": "playercontrols[6]/play[1]",
+      "taken": "height=30 from the asset"
+    },
+    {
+      "at": "playercontrols[6]/next[2]",
+      "taken": "width=60 from the asset"
+    },
+    {
+      "at": "playercontrols[6]/next[2]",
+      "taken": "height=30 from the asset"
+    }
+  ],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "<playercontrols> at 100,200 is ignored, exactly as 1.7 ignores it: its children carry absolute positions",
+    "distribution free: redistribution and modification both permitted"
+  ]
+}

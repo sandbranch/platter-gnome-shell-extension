@@ -1,0 +1,173 @@
+{
+  "format": "platter-theme/0",
+  "id": "lunatic",
+  "name": "Lunatic",
+  "canvas": {
+    "width": 800,
+    "height": 210
+  },
+  "attribution": {
+    "author": "gabriela2400",
+    "source_url": "https://www.deviantart.com/gabriela2400/art/Lunatic-for-Covergloobus-158037835",
+    "license": "attribution-required",
+    "original_app": "covergloobus",
+    "upstream_author": "OtisBee",
+    "distribution": "free",
+    "license_note": "skin.xml: \"free to distribute, mod and such as long as you accredit it back to =OtisBee (otisbee.deviantart.com)\"."
+  },
+  "fonts": [
+    {
+      "family": "Bebas",
+      "bundled": false,
+      "reason": "BEBAS___.TTF ships with the theme, but whether it may be redistributed is unresolved"
+    },
+    {
+      "family": "DIRT2 DEATH",
+      "bundled": false,
+      "reason": "dirt2death.ttf ships with the theme, but whether it may be redistributed is unresolved"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 112,
+      "y": 50,
+      "width": 136,
+      "height": 136,
+      "src": "nocover.png"
+    },
+    {
+      "type": "artwork",
+      "x": 110,
+      "y": 52,
+      "width": 136,
+      "height": 136
+    },
+    {
+      "type": "image",
+      "x": 48,
+      "y": 20,
+      "width": 300,
+      "height": 200,
+      "src": "case.png"
+    },
+    {
+      "type": "image",
+      "x": 257,
+      "y": 52,
+      "width": 37,
+      "height": 37,
+      "src": "menu1.png"
+    },
+    {
+      "type": "text",
+      "x": 320,
+      "y": 50,
+      "width": 800,
+      "bind": "artist",
+      "font": {
+        "family": "DIRT2 DEATH",
+        "size": 44,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffff79",
+      "align": "left",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 40
+      }
+    },
+    {
+      "type": "text",
+      "x": 330,
+      "y": 95,
+      "width": 800,
+      "bind": "album",
+      "font": {
+        "family": "Bebas",
+        "size": 10,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#000000ff",
+      "align": "left",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 50
+      }
+    },
+    {
+      "type": "text",
+      "x": 320,
+      "y": 112,
+      "width": 800,
+      "bind": "title",
+      "font": {
+        "family": "Bebas",
+        "size": 10,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#000000ff",
+      "align": "left",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 50
+      }
+    },
+    {
+      "type": "button",
+      "x": 264,
+      "y": 90,
+      "action": "previous",
+      "states": {
+        "default": {
+          "normal": "prev.png",
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 23,
+      "height": 23
+    },
+    {
+      "type": "button",
+      "x": 264,
+      "y": 115,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "play.png",
+          "hover": null,
+          "pressed": null
+        },
+        "playing": {
+          "normal": null,
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 23,
+      "height": 23
+    },
+    {
+      "type": "button",
+      "x": 264,
+      "y": 140,
+      "action": "next",
+      "states": {
+        "default": {
+          "normal": "next.png",
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 23,
+      "height": 23
+    }
+  ]
+}

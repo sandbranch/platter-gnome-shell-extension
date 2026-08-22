@@ -1,0 +1,193 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://quidest.studio/platter/theme-v0.schema.json",
+  "title": "Platter theme, v0",
+  "type": "object",
+  "required": ["format", "id", "name", "canvas", "attribution", "layers"],
+  "properties": {
+    "format": { "const": "platter-theme/0" },
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "name": { "type": "string", "minLength": 1 },
+    "canvas": {
+      "type": "object",
+      "required": ["width", "height"],
+      "properties": {
+        "width": { "type": "integer", "minimum": 1 },
+        "height": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "attribution": {
+      "type": "object",
+      "required": ["author", "license", "distribution"],
+      "properties": {
+        "author": { "type": "string" },
+        "upstream_author": { "type": ["string", "null"] },
+        "source_url": { "type": "string" },
+        "license": { "type": "string" },
+        "license_note": { "type": "string" },
+        "original_app": { "type": "string" },
+        "distribution": { "enum": ["free", "free-nc", "non-free"] }
+      }
+    },
+    "fonts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["family", "bundled"],
+        "properties": {
+          "family": { "type": "string" },
+          "bundled": { "type": "boolean" },
+          "file": { "type": "string" },
+          "reason": { "type": "string" }
+        }
+      }
+    },
+    "layers": { "type": "array", "items": { "$ref": "#/$defs/layer" } }
+  },
+  "$defs": {
+    "reflect": {
+      "type": "object",
+      "properties": {
+        "gap": { "type": "integer" },
+        "height": { "type": "integer" },
+        "alpha": { "type": "number", "minimum": 0, "maximum": 1 },
+        "resize": { "type": "number", "minimum": 0 }
+      }
+    },
+    "box": {
+      "type": "object",
+      "required": ["type", "x", "y"],
+      "properties": {
+        "type": { "type": "string" },
+        "x": { "type": "integer" },
+        "y": { "type": "integer" },
+        "width": { "type": "integer" },
+        "height": { "type": "integer" },
+        "visible": { "enum": ["always", "playing", "stopped"] }
+      }
+    },
+    "layer": {
+      "allOf": [{ "$ref": "#/$defs/box" }],
+      "oneOf": [
+        {
+          "properties": {
+            "type": { "const": "image" },
+            "src": { "type": "string" },
+            "round": { "type": "integer", "minimum": 0 },
+            "opacity": { "type": "number", "minimum": 0, "maximum": 1 },
+            "mask": { "type": "string" },
+            "reflect": { "$ref": "#/$defs/reflect" }
+          },
+          "required": ["src"]
+        },
+        {
+          "properties": {
+            "type": { "const": "artwork" },
+            "round": { "type": "integer", "minimum": 0 },
+            "opacity": { "type": "number" },
+            "mask": { "type": "string" },
+            "reflect": { "$ref": "#/$defs/reflect" }
+          }
+        },
+        {
+          "properties": {
+            "type": { "const": "text" },
+            "bind": {
+              "enum": ["title", "artist", "album", "genre", "track", "year",
+                       "length", "position", "player"]
+            },
+            "font": {
+              "type": "object",
+              "properties": {
+                "family": { "type": "string" },
+                "size": { "type": "number" },
+                "weight": { "enum": ["normal", "bold"] },
+                "style": { "enum": ["normal", "italic", "oblique"] }
+              }
+            },
+            "color": { "type": "string", "pattern": "^#[0-9a-fA-F]{8}$" },
+            "shadow": {
+              "type": "object",
+              "properties": {
+                "color": { "type": "string", "pattern": "^#[0-9a-fA-F]{8}$" },
+                "dx": { "type": "integer" },
+                "dy": { "type": "integer" }
+              }
+            },
+            "align": { "enum": ["left", "center", "right"] },
+            "valign": { "enum": ["top", "middle", "bottom"] },
+            "wrap": { "type": "boolean" },
+            "overflow": {
+              "type": "object",
+              "properties": {
+                "mode": { "enum": ["scroll", "ellipsize-word", "ellipsize-char", "clip"] },
+                "maxchars": { "type": "integer", "minimum": 1 }
+              }
+            },
+            "reflect": { "$ref": "#/$defs/reflect" }
+          },
+          "required": ["bind"]
+        },
+        {
+          "properties": {
+            "type": { "const": "rating" },
+            "star": { "type": "string" },
+            "empty": { "type": "string" },
+            "hover": { "type": ["string", "null"] },
+            "spacing": { "type": "integer" },
+            "direction": { "enum": ["horizontal", "vertical"] }
+          },
+          "required": ["star", "empty"]
+        },
+        {
+          "properties": {
+            "type": { "const": "button" },
+            "action": { "enum": ["previous", "play_pause", "next", "mute", "quit"] },
+            "states": {
+              "type": "object",
+              "properties": {
+                "default": { "$ref": "#/$defs/buttonstate" },
+                "playing": { "$ref": "#/$defs/buttonstate" }
+              },
+              "required": ["default"]
+            },
+            "reflect": { "$ref": "#/$defs/reflect" }
+          },
+          "required": ["action", "states"]
+        },
+        {
+          "properties": {
+            "type": { "const": "seekbar" },
+            "orientation": { "enum": ["horizontal", "vertical"] },
+            "back": { "type": ["string", "null"] },
+            "fill": { "type": ["string", "null"] },
+            "thumb": {
+              "type": "object",
+              "properties": {
+                "src": { "type": "string" },
+                "width": { "type": "integer" },
+                "height": { "type": "integer" },
+                "slice": {
+                  "type": "object",
+                  "properties": {
+                    "top": { "type": "integer" }, "right": { "type": "integer" },
+                    "bottom": { "type": "integer" }, "left": { "type": "integer" }
+                  }
+                }
+              },
+              "required": ["src"]
+            }
+          }
+        }
+      ]
+    },
+    "buttonstate": {
+      "type": "object",
+      "properties": {
+        "normal": { "type": ["string", "null"] },
+        "hover": { "type": ["string", "null"] },
+        "pressed": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

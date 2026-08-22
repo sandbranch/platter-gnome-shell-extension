@@ -1,0 +1,55 @@
+{
+  "ported": "2026-08-19",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "deviantart-ANDROID-ICE-CREAM-SANDWICH/android_ice_cream_sandwich_covergloobus_skin_by_alezzacreative_d5a738z.zip:ice cream sandwich/ICS 1",
+    "skin_xml_sha256": "b7d2a39a98ad4dea4645a75f83c8b92e4618de2f16455841f7f11468eab632ef",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "bg.png",
+      "grip.png",
+      "next.png",
+      "pause.png",
+      "play.png",
+      "prev.png",
+      "seekbar.back.png",
+      "seekbar.top.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [
+    {
+      "at": "playercontrols[5]/prev[0]",
+      "taken": "width=10 from the asset"
+    },
+    {
+      "at": "playercontrols[5]/prev[0]",
+      "taken": "height=7 from the asset"
+    },
+    {
+      "at": "playercontrols[5]/play[1]",
+      "taken": "width=5 from the asset"
+    },
+    {
+      "at": "playercontrols[5]/play[1]",
+      "taken": "height=7 from the asset"
+    },
+    {
+      "at": "playercontrols[5]/next[2]",
+      "taken": "width=10 from the asset"
+    },
+    {
+      "at": "playercontrols[5]/next[2]",
+      "taken": "height=7 from the asset"
+    }
+  ],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "<playercontrols> at 100,200 is ignored, exactly as 1.7 ignores it: its children carry absolute positions",
+    "distribution free: redistribution and modification both permitted"
+  ]
+}

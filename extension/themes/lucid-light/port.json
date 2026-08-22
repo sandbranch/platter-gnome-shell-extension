@@ -1,0 +1,22 @@
+{
+  "ported": "2026-08-19",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "wayback-69988-NowPlaying/69988-NowPlaying.tar.bz2:NowPlaying/themes/lucid-light",
+    "skin_xml_sha256": "9cb5abc6dceeb66b3e0601b07a9c9cfa9a251ca6ee95538f6adf779d42c7fd41",
+    "app": "nowplaying"
+  },
+  "assets": {
+    "copied": [
+      "toast.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "distribution non-free: no terms found; silence is not permission"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "ported": "2026-08-19",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "upstream-1.6/45Controls",
+    "skin_xml_sha256": "7efc57713c53d89ac8dfd0d1995640d9e5c1bf5615be40684a427a0cd19d4d09",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "45.png",
+      "noSong.png",
+      "nocover.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "display= is honoured: NowPlaying defined it, 1.6 parsed it without drawing it, and 1.7 dropped it, so these themes have never once shown what their author wrote",
+    "distribution non-free: no terms found; silence is not permission"
+  ]
+}

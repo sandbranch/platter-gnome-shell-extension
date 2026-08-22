@@ -1,0 +1,30 @@
+{
+  "ported": "2026-08-19",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "deviantart-Faenza-Alternate/faenza_alternate_covergloobus_by_arturoilhuitemoc_d39iear.zip:Faenza Alternate",
+    "skin_xml_sha256": "86c64f36200c76666c1c783234ecd6372a6e3b3612cca1006ab6b5904a7db3ae",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "audio-x-generic.svg",
+      "media-playback-pause.svg",
+      "media-playback-start.svg",
+      "media-skip-backward.svg",
+      "media-skip-forward.svg",
+      "no-star.svg",
+      "none.svg",
+      "overlay.svg",
+      "star.svg"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "distribution free: redistribution and modification both permitted"
+  ]
+}

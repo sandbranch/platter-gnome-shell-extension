@@ -1,0 +1,62 @@
+{
+  "ported": "2026-08-19",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "personal-archive-Lunatic",
+    "skin_xml_sha256": "8923613ec4eaf35bb0e958157d6eedb996a0b538a5caf60f5b53aaa4cfed0d8f",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "case.png",
+      "menu1.png",
+      "next.png",
+      "nocover.png",
+      "play.png",
+      "prev.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [
+    {
+      "at": "playercontrols[7]/prev[0]",
+      "taken": "width=23 from the asset"
+    },
+    {
+      "at": "playercontrols[7]/prev[0]",
+      "taken": "height=23 from the asset"
+    },
+    {
+      "at": "playercontrols[7]/play[1]",
+      "taken": "width=23 from the asset"
+    },
+    {
+      "at": "playercontrols[7]/play[1]",
+      "taken": "height=23 from the asset"
+    },
+    {
+      "at": "playercontrols[7]/next[2]",
+      "taken": "width=23 from the asset"
+    },
+    {
+      "at": "playercontrols[7]/next[2]",
+      "taken": "height=23 from the asset"
+    }
+  ],
+  "lossy": [
+    {
+      "at": "fonts",
+      "dropped": "BEBAS___.TTF left behind: a bundled font is not a licensed font"
+    },
+    {
+      "at": "fonts",
+      "dropped": "dirt2death.ttf left behind: a bundled font is not a licensed font"
+    }
+  ],
+  "inferred": [],
+  "notes": [
+    "<playercontrols> at 100,200 is ignored, exactly as 1.7 ignores it: its children carry absolute positions",
+    "distribution free: redistribution and modification both permitted"
+  ]
+}

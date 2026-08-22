@@ -1,0 +1,63 @@
+{
+  "format": "platter-theme/0",
+  "id": "platter-anno",
+  "name": "Anno",
+  "canvas": { "width": 300, "height": 380 },
+  "attribution": {
+    "author": "Platter",
+    "source_url": "",
+    "license": "CC0-1.0",
+    "license_note": "Our own artwork, dedicated to the public domain. The reference theme has to be freely usable, since it is what everyone will copy to start their own.",
+    "original_app": "platter",
+    "upstream_author": null,
+    "distribution": "free"
+  },
+  "fonts": [
+    { "family": "DejaVu Sans", "bundled": false,
+      "reason": "present on essentially every Linux desktop; the renderer falls back to the default sans if not" },
+    { "family": "DejaVu Sans Mono", "bundled": false,
+      "reason": "used by the button artwork; any monospace substitutes acceptably" }
+  ],
+  "layers": [
+    { "type": "image", "src": "panel.svg", "x": 0, "y": 0, "width": 300, "height": 380 },
+
+    { "type": "image", "src": "nocover.svg", "x": 50, "y": 28, "width": 200, "height": 200,
+      "visible": "stopped" },
+    { "type": "artwork", "x": 50, "y": 28, "width": 200, "height": 200 },
+
+    { "type": "text", "bind": "year", "x": 0, "y": 236, "width": 300, "height": 76,
+      "font": { "family": "DejaVu Sans", "size": 64, "weight": "bold", "style": "normal" },
+      "color": "#ffffff16", "align": "center", "valign": "top", "wrap": false,
+      "overflow": { "mode": "clip" } },
+
+    { "type": "text", "bind": "title", "x": 20, "y": 252, "width": 260, "height": 18,
+      "font": { "family": "DejaVu Sans", "size": 13, "weight": "bold", "style": "normal" },
+      "color": "#e0245eff", "align": "center", "valign": "middle", "wrap": false,
+      "overflow": { "mode": "scroll", "maxchars": 34 } },
+
+    { "type": "text", "bind": "artist", "x": 20, "y": 274, "width": 260, "height": 16,
+      "font": { "family": "DejaVu Sans", "size": 11, "weight": "normal", "style": "normal" },
+      "color": "#9a9a9aff", "align": "center", "valign": "middle", "wrap": false,
+      "overflow": { "mode": "ellipsize-word", "maxchars": 40 } },
+
+    { "type": "text", "bind": "album", "x": 20, "y": 294, "width": 260, "height": 16,
+      "font": { "family": "DejaVu Sans", "size": 11, "weight": "normal", "style": "normal" },
+      "color": "#4aa3ffff", "align": "center", "valign": "middle", "wrap": false,
+      "overflow": { "mode": "ellipsize-word", "maxchars": 40 } },
+
+    { "type": "seekbar", "x": 20, "y": 320, "width": 260, "height": 24,
+      "orientation": "horizontal", "back": "bars_back.svg", "fill": "bars_fill.svg" },
+
+    { "type": "button", "action": "previous", "x": 52, "y": 352, "width": 60, "height": 20,
+      "states": { "default": { "normal": "prev.svg", "hover": "prev_hover.svg", "pressed": null } } },
+
+    { "type": "button", "action": "play_pause", "x": 120, "y": 352, "width": 60, "height": 20,
+      "states": {
+        "default": { "normal": "play.svg", "hover": "play_hover.svg", "pressed": null },
+        "playing": { "normal": "pause.svg", "hover": "pause_hover.svg", "pressed": null }
+      } },
+
+    { "type": "button", "action": "next", "x": 188, "y": 352, "width": 60, "height": 20,
+      "states": { "default": { "normal": "next.svg", "hover": "next_hover.svg", "pressed": null } } }
+  ]
+}

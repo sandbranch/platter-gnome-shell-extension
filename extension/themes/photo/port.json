@@ -1,0 +1,24 @@
+{
+  "ported": "2026-08-19",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "xfce-look-1110988-Photo/135109-Photo_CoverGloobus01.zip:Photo",
+    "skin_xml_sha256": "f4e572a4a5dc8ab2698d333a376e1938b557a7ee56879c0201144b260721f67c",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "bg.png",
+      "no_cover.png",
+      "overlay.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "distribution non-free: unresolved terms: Pling licensetype-1 (unconfirmed)"
+  ]
+}

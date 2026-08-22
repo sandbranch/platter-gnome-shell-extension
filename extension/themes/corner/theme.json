@@ -1,0 +1,104 @@
+{
+  "format": "platter-theme/0",
+  "id": "corner",
+  "name": "Corner",
+  "canvas": {
+    "width": 207,
+    "height": 207
+  },
+  "attribution": {
+    "author": "unknown",
+    "source_url": "https://launchpad.net/covergloobus",
+    "license": "GPL-3.0",
+    "original_app": "nowplaying",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "Released as part of the CoverGloobus source package, which is GPL-3.0 (COPYING in the tarball). The themes are build targets of that package - each has its own Makefile.am registered in configure.ac and is installed by make install - so they were distributed under its licence."
+  },
+  "fonts": [
+    {
+      "family": "Sans",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 207,
+      "height": 207,
+      "src": "nowplaying-bg.svg"
+    },
+    {
+      "type": "artwork",
+      "x": 0,
+      "y": 14,
+      "width": 193,
+      "height": 193
+    },
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 207,
+      "height": 207,
+      "src": "bg-2.png"
+    },
+    {
+      "type": "text",
+      "x": 5,
+      "y": 166,
+      "bind": "title",
+      "font": {
+        "family": "Sans",
+        "size": 10,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#000000ff",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 19
+      }
+    },
+    {
+      "type": "text",
+      "x": 5,
+      "y": 181,
+      "bind": "artist",
+      "font": {
+        "family": "Sans",
+        "size": 9,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#000000ff",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 26
+      }
+    },
+    {
+      "type": "text",
+      "x": 5,
+      "y": 192,
+      "bind": "album",
+      "font": {
+        "family": "Sans",
+        "size": 9,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#000000ff",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 30
+      }
+    }
+  ]
+}

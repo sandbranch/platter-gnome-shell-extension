@@ -1,0 +1,109 @@
+#!/usr/bin/env python3
+"""Make the small preview each theme shows in Platter's preferences.
+
+Themes carry the screenshot their author published, which is the honest picture
+of them but far too big to ship: at full size they are 2.6MB of a bundle that
+has 5MB to spend in total. This writes a `thumbnail.jpg` beside each one, small
+enough to travel and large enough to choose by - and small enough that the
+theme list can keep growing without the size ceiling ever being the reason it
+stops.
+
+JPEG, and flattened onto white. These previews are photographs of a desktop,
+which is the content PNG is worst at; at 320px the difference is invisible and
+the saving is around fivefold. Transparency goes with it, which costs nothing:
+a preview is looked at, not composited.
+
+Thumbnails are committed rather than built at pack time, so that whoever
+installs from a checkout sees the same previews as everyone else and the
+extension never scales an image at runtime.
+
+    tools/make-thumbnails            # anything missing or out of date
+    tools/make-thumbnails --all      # redo every one
+"""
+
+from __future__ import annotations
+
+import argparse
+import pathlib
+
+import gi
+gi.require_version("GdkPixbuf", "2.0")
+from gi.repository import GdkPixbuf  # noqa: E402
+
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+THEMES = ROOT / "extension" / "themes"
+
+# Wide enough to tell two dark themes apart at a glance, cheap enough to forget
+# about.
+WIDTH = 320
+QUALITY = "82"
+# Sources in the order we prefer them: the author's own screenshot first.
+SOURCES = ("screenshot.png", "screenshot.jpg", "preview.png")
+
+
+def source_for(theme: pathlib.Path) -> pathlib.Path | None:
+    for name in SOURCES:
+        found = theme / name
+        if found.is_file():
+            return found
+    return None
+
+
+def flatten(pixbuf):
+    """Drop the alpha channel onto white.
+
+    composite_color_simple keeps the channel it composites, and the JPEG
+    encoder refuses RGBA outright, so the destination has to be created without
+    alpha in the first place.
+    """
+    if not pixbuf.get_has_alpha():
+        return pixbuf
+    width, height = pixbuf.get_width(), pixbuf.get_height()
+    flat = GdkPixbuf.Pixbuf.new(GdkPixbuf.Colorspace.RGB, False, 8, width, height)
+    flat.fill(0xffffffff)
+    pixbuf.composite(flat, 0, 0, width, height, 0, 0, 1, 1,
+                     GdkPixbuf.InterpType.NEAREST, 255)
+    return flat
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("--all", action="store_true", help="redo every thumbnail")
+    ap.add_argument("--width", type=int, default=WIDTH)
+    args = ap.parse_args()
+
+    made = skipped = 0
+    missing: list[str] = []
+
+    for theme in sorted(p for p in THEMES.iterdir() if p.is_dir()):
+        source = source_for(theme)
+        if source is None:
+            missing.append(theme.name)
+            continue
+
+        target = theme / "thumbnail.jpg"
+        if target.is_file() and not args.all and \
+                target.stat().st_mtime >= source.stat().st_mtime:
+            skipped += 1
+            continue
+
+        pixbuf = GdkPixbuf.Pixbuf.new_from_file(str(source))
+        width, height = pixbuf.get_width(), pixbuf.get_height()
+        if width > args.width:
+            height = max(1, round(height * args.width / width))
+            width = args.width
+            pixbuf = pixbuf.scale_simple(width, height,
+                                         GdkPixbuf.InterpType.BILINEAR)
+        flatten(pixbuf).savev(str(target), "jpeg", ["quality"], [QUALITY])
+        made += 1
+
+    total = sum(1 for p in THEMES.iterdir() if p.is_dir())
+    print(f"{made} written, {skipped} already current, of {total} themes")
+    if missing:
+        print(f"no picture to work from: {', '.join(missing)}")
+        print("  these show no preview; render one with platter-ref/tools/preview.py")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

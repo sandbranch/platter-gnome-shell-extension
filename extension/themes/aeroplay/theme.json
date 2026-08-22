@@ -1,0 +1,180 @@
+{
+  "format": "platter-theme/0",
+  "id": "aeroplay",
+  "name": "aeroplay",
+  "canvas": {
+    "width": 574,
+    "height": 145
+  },
+  "attribution": {
+    "author": "NowPlaying screenlet (magicrobomonkey, vrunner)",
+    "source_url": "https://web.archive.org/web/2011/http://www.gnome-look.org/CONTENT/content-files/69988-NowPlaying.tar.bz2",
+    "license": "GPL-2.0-or-later",
+    "original_app": "nowplaying",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "Released inside the NowPlaying screenlet package. NowPlayingScreenlet.py carries the GNU GPL v2-or-later header in full, and the package states no separate terms for the themes it bundles. Vinyl is the one exception and is not included: its own skin.xml states CC BY-NC-SA."
+  },
+  "fonts": [
+    {
+      "family": "Frutiger Linotype",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 574,
+      "height": 145,
+      "src": "toast2.png"
+    },
+    {
+      "type": "image",
+      "x": 449,
+      "y": 37,
+      "width": 72,
+      "height": 70,
+      "src": "userbg.png"
+    },
+    {
+      "type": "artwork",
+      "x": 452,
+      "y": 37,
+      "width": 68,
+      "height": 69
+    },
+    {
+      "type": "image",
+      "x": 446,
+      "y": 31,
+      "width": 80,
+      "height": 80,
+      "src": "user.png"
+    },
+    {
+      "type": "text",
+      "x": 207,
+      "y": 39,
+      "width": 230,
+      "bind": "title",
+      "font": {
+        "family": "Frutiger Linotype",
+        "size": 9,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000bb",
+        "dx": 1,
+        "dy": 1
+      },
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 50
+      }
+    },
+    {
+      "type": "text",
+      "x": 207,
+      "y": 62,
+      "width": 230,
+      "bind": "artist",
+      "font": {
+        "family": "Frutiger Linotype",
+        "size": 8,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000bb",
+        "dx": 1,
+        "dy": 1
+      },
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 50
+      }
+    },
+    {
+      "type": "text",
+      "x": 207,
+      "y": 77,
+      "width": 230,
+      "bind": "album",
+      "font": {
+        "family": "Frutiger Linotype",
+        "size": 8,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000bb",
+        "dx": 1,
+        "dy": 1
+      },
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 50
+      }
+    },
+    {
+      "type": "button",
+      "x": -22,
+      "y": -7,
+      "width": 35,
+      "height": 77,
+      "action": "previous",
+      "states": {
+        "default": {
+          "normal": "prev.png",
+          "hover": "prev-hover.png",
+          "pressed": "prev-pressed.png"
+        }
+      }
+    },
+    {
+      "type": "button",
+      "x": 13,
+      "y": -7,
+      "width": 70,
+      "height": 77,
+      "action": "next",
+      "states": {
+        "default": {
+          "normal": "next.png",
+          "hover": "next-hover.png",
+          "pressed": "next-pressed.png"
+        }
+      }
+    },
+    {
+      "type": "button",
+      "x": 83,
+      "y": -7,
+      "width": 35,
+      "height": 77,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "play.png",
+          "hover": "play-hover.png",
+          "pressed": "play-pressed.png"
+        },
+        "playing": {
+          "normal": "pause.png",
+          "hover": "pause-hover.png",
+          "pressed": "pause-pressed.png"
+        }
+      }
+    }
+  ]
+}

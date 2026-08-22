@@ -1,0 +1,137 @@
+{
+  "format": "platter-theme/0",
+  "id": "intrepid-ibex-mockup-by-d0od",
+  "name": "intrepid-ibex-mockup by d0od",
+  "canvas": {
+    "width": 180,
+    "height": 284
+  },
+  "attribution": {
+    "author": "unknown",
+    "source_url": "https://launchpad.net/covergloobus",
+    "license": "GPL-3.0",
+    "original_app": "covergloobus",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "Released as part of the CoverGloobus source package, which is GPL-3.0 (COPYING in the tarball). The themes are build targets of that package - each has its own Makefile.am registered in configure.ac and is installed by make install - so they were distributed under its licence."
+  },
+  "fonts": [
+    {
+      "family": "URW Gothic L",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 180,
+      "height": 284,
+      "src": "case.png"
+    },
+    {
+      "type": "artwork",
+      "x": 21,
+      "y": 35,
+      "width": 137,
+      "height": 146
+    },
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 180,
+      "height": 284,
+      "src": "case1.png"
+    },
+    {
+      "type": "text",
+      "x": 16,
+      "y": 190,
+      "width": 150,
+      "bind": "artist",
+      "font": {
+        "family": "URW Gothic L",
+        "size": 8,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000bb",
+        "dx": 1,
+        "dy": 1
+      },
+      "align": "center",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 20
+      }
+    },
+    {
+      "type": "text",
+      "x": 16,
+      "y": 200,
+      "width": 150,
+      "height": 49,
+      "bind": "title",
+      "font": {
+        "family": "URW Gothic L",
+        "size": 8,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#999b9494",
+      "shadow": {
+        "color": "#000000bb",
+        "dx": 1,
+        "dy": 1
+      },
+      "align": "center",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 20
+      }
+    },
+    {
+      "type": "text",
+      "x": 16,
+      "y": 210,
+      "width": 150,
+      "bind": "album",
+      "font": {
+        "family": "URW Gothic L",
+        "size": 8,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#999b9494",
+      "shadow": {
+        "color": "#000000bb",
+        "dx": 1,
+        "dy": 1
+      },
+      "align": "center",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 20
+      }
+    },
+    {
+      "type": "rating",
+      "x": 46,
+      "y": 225,
+      "width": 15,
+      "height": 15,
+      "star": "star.png",
+      "empty": "nostar.png",
+      "spacing": 2,
+      "direction": "horizontal"
+    }
+  ]
+}

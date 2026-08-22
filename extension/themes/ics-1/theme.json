@@ -1,0 +1,153 @@
+{
+  "format": "platter-theme/0",
+  "id": "ics-1",
+  "name": "ICS 1",
+  "canvas": {
+    "width": 226,
+    "height": 55
+  },
+  "attribution": {
+    "author": "alezzacreative (MUSTAPHA ASBBAR)",
+    "source_url": "https://www.deviantart.com/alezzacreative/art/ANDROID-ICE-CREAM-SANDWICH-CoverGloobus-skin-319457843",
+    "license": "attribution-required",
+    "original_app": "covergloobus",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "skin.xml, in both themes: \"this theme is free to distribute, mod and such as long as you accredit it back to MUSTAPHA ASBBAR, http://alezzacreative.deviantart.com\". Modification is explicitly allowed. Word for word the grant Rustycage carries, which is what this download was fetched to test."
+  },
+  "fonts": [
+    {
+      "family": "Sansation",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 226,
+      "height": 55,
+      "src": "bg.png"
+    },
+    {
+      "type": "artwork",
+      "x": 2,
+      "y": 0,
+      "width": 55,
+      "height": 55
+    },
+    {
+      "type": "seekbar",
+      "x": 66,
+      "y": 40,
+      "width": 149,
+      "height": 2,
+      "back": "seekbar.back.png",
+      "fill": "seekbar.top.png",
+      "orientation": "horizontal",
+      "thumb": {
+        "src": "grip.png",
+        "width": 17,
+        "height": 16,
+        "slice": {
+          "top": -7,
+          "right": -5,
+          "bottom": 0,
+          "left": -5
+        }
+      }
+    },
+    {
+      "type": "text",
+      "x": 66,
+      "y": 14,
+      "width": 100,
+      "bind": "position",
+      "font": {
+        "family": "Sansation",
+        "size": 7,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "align": "left",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 44
+      }
+    },
+    {
+      "type": "text",
+      "x": 116,
+      "y": 15,
+      "width": 100,
+      "bind": "length",
+      "font": {
+        "family": "Sansation",
+        "size": 7,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "align": "right",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 44
+      }
+    },
+    {
+      "type": "button",
+      "x": 104,
+      "y": 14,
+      "action": "previous",
+      "states": {
+        "default": {
+          "normal": "prev.png",
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 10,
+      "height": 7
+    },
+    {
+      "type": "button",
+      "x": 136,
+      "y": 14,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "play.png",
+          "hover": null,
+          "pressed": null
+        },
+        "playing": {
+          "normal": "pause.png",
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 5,
+      "height": 7
+    },
+    {
+      "type": "button",
+      "x": 165,
+      "y": 14,
+      "action": "next",
+      "states": {
+        "default": {
+          "normal": "next.png",
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 10,
+      "height": 7
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "ported": "2026-08-19",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "upstream-1.7/BadChoice2",
+    "skin_xml_sha256": "b8df46bf64c2945e250c6d999dc19a6c0fbcd08b1ade770b9c6afe359bdcccc4",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "next.png",
+      "next_hover.png",
+      "noStar.png",
+      "nocover.png",
+      "pause.png",
+      "pause_hover.png",
+      "play.png",
+      "play_hover.png",
+      "prev.png",
+      "prev_hover.png",
+      "shadow.png",
+      "star.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [
+    {
+      "at": "playercontrols[7]/play[1]",
+      "from": "pause_hove",
+      "to": "pause_hover",
+      "why": "known misspelling"
+    }
+  ],
+  "derived": [
+    {
+      "at": "playercontrols[7]/prev[0]",
+      "taken": "width=20 from the asset"
+    },
+    {
+      "at": "playercontrols[7]/prev[0]",
+      "taken": "height=20 from the asset"
+    },
+    {
+      "at": "playercontrols[7]/play[1]",
+      "taken": "width=20 from the asset"
+    },
+    {
+      "at": "playercontrols[7]/play[1]",
+      "taken": "height=20 from the asset"
+    },
+    {
+      "at": "playercontrols[7]/next[2]",
+      "taken": "width=20 from the asset"
+    },
+    {
+      "at": "playercontrols[7]/next[2]",
+      "taken": "height=20 from the asset"
+    }
+  ],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "<playercontrols> at 106,298 is ignored, exactly as 1.7 ignores it: its children carry absolute positions",
+    "distribution free: redistribution and modification both permitted"
+  ]
+}

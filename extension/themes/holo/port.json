@@ -1,0 +1,58 @@
+{
+  "ported": "2026-08-19",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "deviantart-Holo/holo_covergloobus_skin_by_alezzacreative_d56w0qj.zip:Holo",
+    "skin_xml_sha256": "4aee38063facfb8a5fad65a03389fcd304ff656be1047f60c63337a2128bb384",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "base.png",
+      "next.over.png",
+      "next.png",
+      "overlay.png",
+      "pause.over.png",
+      "pause.png",
+      "play.over.png",
+      "play.png",
+      "prev.over.png",
+      "prev.png",
+      "seekbar.back.png",
+      "seekbar.top.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [
+    {
+      "at": "playercontrols[4]/prev[0]",
+      "taken": "width=26 from the asset"
+    },
+    {
+      "at": "playercontrols[4]/prev[0]",
+      "taken": "height=22 from the asset"
+    },
+    {
+      "at": "playercontrols[4]/play[1]",
+      "taken": "width=26 from the asset"
+    },
+    {
+      "at": "playercontrols[4]/play[1]",
+      "taken": "height=22 from the asset"
+    },
+    {
+      "at": "playercontrols[4]/next[2]",
+      "taken": "width=26 from the asset"
+    },
+    {
+      "at": "playercontrols[4]/next[2]",
+      "taken": "height=22 from the asset"
+    }
+  ],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "distribution free: redistribution and modification both permitted"
+  ]
+}

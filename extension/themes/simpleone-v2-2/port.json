@@ -1,0 +1,24 @@
+{
+  "ported": "2026-08-19",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "wayback-69988-NowPlaying/69988-NowPlaying.tar.bz2:NowPlaying/themes/simpleOne_v2_shadows",
+    "skin_xml_sha256": "aa5887f62b9c1689f006008503a50549556f49b8cd910663c068666149824fb1",
+    "app": "nowplaying"
+  },
+  "assets": {
+    "copied": [
+      "base-2.png",
+      "shadow.png",
+      "top.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "distribution non-free: no terms found; silence is not permission"
+  ]
+}

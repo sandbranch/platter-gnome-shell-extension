@@ -1,0 +1,179 @@
+{
+  "format": "platter-theme/0",
+  "id": "t-tip",
+  "name": "T-tip",
+  "canvas": {
+    "width": 400,
+    "height": 130
+  },
+  "attribution": {
+    "author": "unknown",
+    "source_url": "https://github.com/deepin-espanol/covergloobus",
+    "license": "GPL-3.0",
+    "original_app": "covergloobus",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "Released as part of the CoverGloobus source package, which is GPL-3.0 (COPYING in the tarball). The themes are build targets of that package - each has its own Makefile.am registered in configure.ac and is installed by make install - so they were distributed under its licence."
+  },
+  "fonts": [
+    {
+      "family": "URW Gothic L",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 403,
+      "height": 143,
+      "src": "base.png"
+    },
+    {
+      "type": "image",
+      "x": 30,
+      "y": 42,
+      "width": 60,
+      "height": 60,
+      "src": "nocover.png"
+    },
+    {
+      "type": "artwork",
+      "x": 30,
+      "y": 42,
+      "width": 60,
+      "height": 60
+    },
+    {
+      "type": "image",
+      "x": 30,
+      "y": 42,
+      "width": 60,
+      "height": 60,
+      "src": "shadow.png"
+    },
+    {
+      "type": "text",
+      "x": 110,
+      "y": 42,
+      "width": 230,
+      "bind": "title",
+      "font": {
+        "family": "URW Gothic L",
+        "size": 9,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "align": "left",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 25
+      }
+    },
+    {
+      "type": "text",
+      "x": 110,
+      "y": 62,
+      "width": 230,
+      "bind": "artist",
+      "font": {
+        "family": "URW Gothic L",
+        "size": 9,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "align": "left",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 25
+      }
+    },
+    {
+      "type": "text",
+      "x": 110,
+      "y": 82,
+      "width": 230,
+      "bind": "album",
+      "font": {
+        "family": "URW Gothic L",
+        "size": 9,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "align": "left",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 20
+      }
+    },
+    {
+      "type": "rating",
+      "x": 293,
+      "y": 49,
+      "width": 13,
+      "height": 13,
+      "star": "star.png",
+      "empty": "nostar.png",
+      "spacing": 1,
+      "direction": "horizontal"
+    },
+    {
+      "type": "button",
+      "x": 295,
+      "y": 80,
+      "action": "previous",
+      "states": {
+        "default": {
+          "normal": "prev.png",
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 25,
+      "height": 25
+    },
+    {
+      "type": "button",
+      "x": 315,
+      "y": 80,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "pause.png",
+          "hover": null,
+          "pressed": null
+        },
+        "playing": {
+          "normal": "play.png",
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 25,
+      "height": 25
+    },
+    {
+      "type": "button",
+      "x": 335,
+      "y": 80,
+      "action": "next",
+      "states": {
+        "default": {
+          "normal": "next.png",
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 25,
+      "height": 25
+    }
+  ]
+}

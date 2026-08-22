@@ -1,0 +1,192 @@
+{
+  "format": "platter-theme/0",
+  "id": "faenza-alternate",
+  "name": "Faenza Alternate",
+  "canvas": {
+    "width": 192,
+    "height": 256
+  },
+  "attribution": {
+    "author": "arturoilhuitemoc (Ihuitemoc)",
+    "source_url": "https://www.deviantart.com/arturoilhuitemoc/art/Faenza-Alternate-CoverGloobus-197373411",
+    "license": "CC BY-SA 3.0",
+    "original_app": "covergloobus",
+    "upstream_author": "tiheum (Matthieu James), Faenza iconset",
+    "distribution": "free",
+    "license_note": "skin.xml header: \"Licensed under CC Attribution-ShareAlike 3.0\". The first plain CC BY-SA in the corpus - no NonCommercial, no NoDerivatives - which makes it the most permissive licence any theme here carries, and the only one stated as a formal licence rather than as a sentence of prose. Also declares its basis: \"Based on Faenza iconset by tiheum\", which is Matthieu James, GPL. The header's own contact, http://\u0131lhutemoc.tumblr.com, is misspelled with a dotless i and is not resolvable as written."
+  },
+  "fonts": [
+    {
+      "family": "Droid Sans",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 192,
+      "height": 192,
+      "src": "audio-x-generic.svg"
+    },
+    {
+      "type": "artwork",
+      "x": 12,
+      "y": 12,
+      "width": 168,
+      "height": 168,
+      "round": 12
+    },
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 192,
+      "height": 192,
+      "src": "overlay.svg"
+    },
+    {
+      "type": "button",
+      "x": 6,
+      "y": 154,
+      "width": 32,
+      "height": 32,
+      "action": "previous",
+      "states": {
+        "default": {
+          "normal": "none.svg",
+          "hover": "media-skip-backward.svg",
+          "pressed": null
+        }
+      }
+    },
+    {
+      "type": "button",
+      "x": 80,
+      "y": 154,
+      "width": 32,
+      "height": 32,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "none.svg",
+          "hover": "media-playback-start.svg",
+          "pressed": null
+        },
+        "playing": {
+          "normal": "none.svg",
+          "hover": "media-playback-pause.svg",
+          "pressed": null
+        }
+      }
+    },
+    {
+      "type": "button",
+      "x": 154,
+      "y": 154,
+      "width": 32,
+      "height": 32,
+      "action": "next",
+      "states": {
+        "default": {
+          "normal": "none.svg",
+          "hover": "media-skip-forward.svg",
+          "pressed": null
+        }
+      }
+    },
+    {
+      "type": "rating",
+      "x": 40,
+      "y": 188,
+      "width": 16,
+      "height": 16,
+      "star": "star.svg",
+      "empty": "no-star.svg",
+      "spacing": 8,
+      "direction": "horizontal"
+    },
+    {
+      "type": "text",
+      "x": 0,
+      "y": 209,
+      "width": 192,
+      "bind": "title",
+      "font": {
+        "family": "Droid Sans",
+        "size": 8,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#000000ff",
+      "align": "center",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 25
+      }
+    },
+    {
+      "type": "text",
+      "x": 0,
+      "y": 225,
+      "width": 192,
+      "bind": "artist",
+      "font": {
+        "family": "Droid Sans",
+        "size": 8,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#000000ff",
+      "align": "center",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 25
+      }
+    },
+    {
+      "type": "text",
+      "x": 0,
+      "y": 208,
+      "width": 192,
+      "bind": "title",
+      "font": {
+        "family": "Droid Sans",
+        "size": 8,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "align": "center",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 25
+      }
+    },
+    {
+      "type": "text",
+      "x": 0,
+      "y": 224,
+      "width": 192,
+      "bind": "artist",
+      "font": {
+        "family": "Droid Sans",
+        "size": 8,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "align": "center",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 25
+      }
+    }
+  ]
+}

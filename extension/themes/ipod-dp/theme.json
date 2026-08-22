@@ -1,0 +1,176 @@
+{
+  "format": "platter-theme/0",
+  "id": "ipod-dp",
+  "name": "iPod DP",
+  "canvas": {
+    "width": 212,
+    "height": 348
+  },
+  "attribution": {
+    "author": "NowPlaying screenlet (magicrobomonkey, vrunner)",
+    "source_url": "https://web.archive.org/web/2011/http://www.gnome-look.org/CONTENT/content-files/69988-NowPlaying.tar.bz2",
+    "license": "GPL-2.0-or-later",
+    "original_app": "nowplaying",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "Released inside the NowPlaying screenlet package. NowPlayingScreenlet.py carries the GNU GPL v2-or-later header in full, and the package states no separate terms for the themes it bundles. Vinyl is the one exception and is not included: its own skin.xml states CC BY-NC-SA."
+  },
+  "fonts": [
+    {
+      "family": "Sans",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "src": "shellBlack.png",
+      "width": 212,
+      "height": 348
+    },
+    {
+      "type": "image",
+      "x": 24,
+      "y": 28,
+      "src": "screenbg.png",
+      "width": 164,
+      "height": 124
+    },
+    {
+      "type": "image",
+      "x": 27,
+      "y": 31,
+      "src": "screen.png",
+      "width": 158,
+      "height": 118
+    },
+    {
+      "type": "image",
+      "x": 35,
+      "y": 62,
+      "width": 50,
+      "height": 50,
+      "src": "bg-2.png"
+    },
+    {
+      "type": "artwork",
+      "x": 35,
+      "y": 62,
+      "width": 50,
+      "height": 50
+    },
+    {
+      "type": "text",
+      "x": 35,
+      "y": 45,
+      "width": 90,
+      "bind": "player",
+      "font": {
+        "family": "Sans",
+        "size": 7,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#666666cc",
+      "wrap": false
+    },
+    {
+      "type": "text",
+      "x": 92,
+      "y": 62,
+      "width": 90,
+      "bind": "title",
+      "font": {
+        "family": "Sans",
+        "size": 7.5,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#393939ff",
+      "wrap": false
+    },
+    {
+      "type": "text",
+      "x": 92,
+      "y": 76,
+      "width": 90,
+      "bind": "artist",
+      "font": {
+        "family": "Sans",
+        "size": 7.5,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#393939ff",
+      "wrap": false
+    },
+    {
+      "type": "text",
+      "x": 92,
+      "y": 91,
+      "width": 90,
+      "bind": "album",
+      "font": {
+        "family": "Sans",
+        "size": 7.5,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#393939ff",
+      "wrap": false
+    },
+    {
+      "type": "button",
+      "x": 42,
+      "y": 219,
+      "width": 34,
+      "height": 79,
+      "action": "previous",
+      "states": {
+        "default": {
+          "normal": "prev.png",
+          "hover": "prev-hover.png",
+          "pressed": "prev-pressed.png"
+        }
+      }
+    },
+    {
+      "type": "button",
+      "x": 76,
+      "y": 219,
+      "width": 60,
+      "height": 79,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "play.png",
+          "hover": "play-hover.png",
+          "pressed": "play-pressed.png"
+        },
+        "playing": {
+          "normal": "pause.png",
+          "hover": "pause-hover.png",
+          "pressed": "pause-pressed.png"
+        }
+      }
+    },
+    {
+      "type": "button",
+      "x": 136,
+      "y": 219,
+      "width": 34,
+      "height": 79,
+      "action": "next",
+      "states": {
+        "default": {
+          "normal": "next.png",
+          "hover": "next-hover.png",
+          "pressed": "next-pressed.png"
+        }
+      }
+    }
+  ]
+}

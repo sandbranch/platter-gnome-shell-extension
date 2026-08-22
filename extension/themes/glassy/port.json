@@ -1,0 +1,59 @@
+{
+  "ported": "2026-08-19",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "deviantart-Glassy/glassy_covergloobus_skin_by_alezzacreative_d551b9r.zip:Glassy",
+    "skin_xml_sha256": "172aa139422b23eaebcce8bba941060bad00597d6457ac151a4d213df9a9be6d",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "back.png",
+      "next.over.png",
+      "next.png",
+      "overlay.png",
+      "pause.over.png",
+      "pause.png",
+      "play.over.png",
+      "play.png",
+      "prev.over.png",
+      "prev.png",
+      "seekbar.back.png",
+      "seekbar.top.png",
+      "shadow.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [
+    {
+      "at": "playercontrols[5]/prev[0]",
+      "taken": "width=33 from the asset"
+    },
+    {
+      "at": "playercontrols[5]/prev[0]",
+      "taken": "height=34 from the asset"
+    },
+    {
+      "at": "playercontrols[5]/play[1]",
+      "taken": "width=33 from the asset"
+    },
+    {
+      "at": "playercontrols[5]/play[1]",
+      "taken": "height=34 from the asset"
+    },
+    {
+      "at": "playercontrols[5]/next[2]",
+      "taken": "width=33 from the asset"
+    },
+    {
+      "at": "playercontrols[5]/next[2]",
+      "taken": "height=34 from the asset"
+    }
+  ],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "distribution free: redistribution and modification both permitted"
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "format": "platter-theme/0",
+  "id": "orbital",
+  "name": "Orbital",
+  "canvas": {
+    "width": 250,
+    "height": 105
+  },
+  "attribution": {
+    "author": "NowPlaying screenlet (magicrobomonkey, vrunner)",
+    "source_url": "https://web.archive.org/web/2011/http://www.gnome-look.org/CONTENT/content-files/69988-NowPlaying.tar.bz2",
+    "license": "GPL-2.0-or-later",
+    "original_app": "nowplaying",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "Released inside the NowPlaying screenlet package. NowPlayingScreenlet.py carries the GNU GPL v2-or-later header in full, and the package states no separate terms for the themes it bundles. Vinyl is the one exception and is not included: its own skin.xml states CC BY-NC-SA."
+  },
+  "fonts": [
+    {
+      "family": "Sans",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "src": "Shell.svg",
+      "width": 250,
+      "height": 105
+    },
+    {
+      "type": "text",
+      "x": 110,
+      "y": 28,
+      "width": 110,
+      "bind": "title",
+      "font": {
+        "family": "Sans",
+        "size": 7.5,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#666666cc",
+      "wrap": false
+    },
+    {
+      "type": "text",
+      "x": 110,
+      "y": 43,
+      "width": 110,
+      "bind": "artist",
+      "font": {
+        "family": "Sans",
+        "size": 7.5,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#666666cc",
+      "wrap": false
+    },
+    {
+      "type": "text",
+      "x": 110,
+      "y": 58,
+      "width": 110,
+      "bind": "album",
+      "font": {
+        "family": "Sans",
+        "size": 7.5,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#666666cc",
+      "wrap": false
+    },
+    {
+      "type": "button",
+      "x": -14,
+      "y": 36,
+      "width": 20,
+      "height": 14,
+      "action": "previous",
+      "states": {
+        "default": {
+          "normal": "prev.png",
+          "hover": "prev-hover.png",
+          "pressed": "prev-pressed.png"
+        }
+      }
+    },
+    {
+      "type": "button",
+      "x": 6,
+      "y": 36,
+      "width": 30,
+      "height": 14,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "play.png",
+          "hover": "play-hover.png",
+          "pressed": "play-pressed.png"
+        },
+        "playing": {
+          "normal": "pause.png",
+          "hover": "pause-hover.png",
+          "pressed": "pause-pressed.png"
+        }
+      }
+    },
+    {
+      "type": "button",
+      "x": 36,
+      "y": 36,
+      "width": 20,
+      "height": 14,
+      "action": "next",
+      "states": {
+        "default": {
+          "normal": "next.png",
+          "hover": "next-hover.png",
+          "pressed": "next-pressed.png"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install GNOME Shell tooling
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gnome-shell-extension-prefs gjs \
+            libglib2.0-bin gettext libarchive-tools
+
+      # Every module must at least parse and link. prefs.js imports a resource://
+      # path that only exists inside the Shell's preferences process, so it is
+      # checked separately with that import stubbed out.
+      - name: Load the modules
+        run: |
+          for f in extension/lib/*.js; do
+            gjs -c "import('file://$PWD/$f')
+              .then(() => print('ok   $f'))
+              .catch(e => { printerr('FAIL $f: ' + e); imports.system.exit(1); })"
+          done
+
+      - name: Convert and verify the bundled themes
+        run: make check
+
+      - name: Build the bundle
+        run: make pack
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: platter-shell-extension
+          path: build/*.shell-extension.zip

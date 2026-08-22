@@ -1,0 +1,29 @@
+#!/usr/bin/env -S gjs -m
+// Convert a CoverGloobus or NowPlaying theme for Platter. See --help.
+//
+// Runs the extension's own converter, so this and the Import button in
+// Platter's preferences do exactly the same thing.
+
+import GLib from 'gi://GLib';
+import Gio from 'gi://Gio';
+
+const HERE = Gio.File.new_for_path(
+    GLib.canonicalize_filename(import.meta.url.replace(/^file:\/\//, ''), null))
+    .get_parent();
+
+// The repo has tools/ beside extension/; an installed extension has tools/
+// inside it. Look for the library both ways rather than caring which is which.
+const CANDIDATES = [
+    HERE.get_parent().get_child('extension').get_child('lib'),
+    HERE.get_parent().get_child('lib'),
+    HERE.get_child('lib'),
+];
+
+const lib = CANDIDATES.find(dir => dir.get_child('cli.js').query_exists(null));
+if (!lib) {
+    printerr('platter-port: cannot find Platter\'s lib/ next to this script');
+    imports.system.exit(2);
+}
+
+const {main} = await import(`${lib.get_uri()}/cli.js`);
+imports.system.exit(main(ARGV));

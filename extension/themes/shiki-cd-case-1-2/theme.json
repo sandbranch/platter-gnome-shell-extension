@@ -1,0 +1,184 @@
+{
+  "format": "platter-theme/0",
+  "id": "shiki-cd-case-1-2",
+  "name": "Shiki CD Case 1.2",
+  "canvas": {
+    "width": 1200,
+    "height": 270
+  },
+  "attribution": {
+    "author": "d0od + Kshegyaj",
+    "source_url": "https://www.deviantart.com/vicing/art/Shiki-CD-Case-for-covergloobus-155864031",
+    "license": "attribution-required",
+    "original_app": "covergloobus",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "skin.xml: \"free to distribute, mod and such as long as you accredit it back to d0od (omgubuntu.co.uk) and Kshegyaj (kshegzyaj.deviantart.com)\"."
+  },
+  "fonts": [
+    {
+      "family": "DejaVu Sans Mono",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    },
+    {
+      "family": "Tahoma",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 938,
+      "y": 89,
+      "width": 152,
+      "height": 152,
+      "src": "noartwork.png"
+    },
+    {
+      "type": "artwork",
+      "x": 938,
+      "y": 89,
+      "width": 152,
+      "height": 152
+    },
+    {
+      "type": "image",
+      "x": 900,
+      "y": 0,
+      "width": 230,
+      "height": 270,
+      "src": "case.png"
+    },
+    {
+      "type": "image",
+      "x": 938,
+      "y": 89,
+      "width": 150,
+      "height": 150,
+      "src": "overlay.png"
+    },
+    {
+      "type": "text",
+      "x": 0,
+      "y": 207,
+      "width": 930,
+      "bind": "title",
+      "font": {
+        "family": "Tahoma",
+        "size": 12,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "align": "right",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 190
+      }
+    },
+    {
+      "type": "text",
+      "x": 0,
+      "y": 144,
+      "width": 930,
+      "bind": "artist",
+      "font": {
+        "family": "Tahoma",
+        "size": 46,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#eeeeec59",
+      "align": "right",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 43
+      }
+    },
+    {
+      "type": "text",
+      "x": 0,
+      "y": 185,
+      "width": 930,
+      "bind": "album",
+      "font": {
+        "family": "DejaVu Sans Mono",
+        "size": 11,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#eeeeecff",
+      "align": "right",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 100
+      }
+    },
+    {
+      "type": "rating",
+      "x": 822,
+      "y": 120,
+      "width": 20,
+      "height": 20,
+      "star": "star.png",
+      "empty": "nostar.png",
+      "spacing": 3,
+      "direction": "horizontal"
+    },
+    {
+      "type": "button",
+      "x": 860,
+      "y": 227,
+      "action": "previous",
+      "states": {
+        "default": {
+          "normal": "media-seek-backward.png",
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 16,
+      "height": 16
+    },
+    {
+      "type": "button",
+      "x": 888,
+      "y": 227,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "media-playback-start.png",
+          "hover": null,
+          "pressed": null
+        },
+        "playing": {
+          "normal": "media-playback-pause.png",
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 16,
+      "height": 16
+    },
+    {
+      "type": "button",
+      "x": 915,
+      "y": 227,
+      "action": "next",
+      "states": {
+        "default": {
+          "normal": "media-seek-forward.png",
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 16,
+      "height": 16
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "format": "platter-theme/0",
+  "id": "box-of-tricks-by-d0od",
+  "name": "Box Of Tricks by d0od",
+  "canvas": {
+    "width": 800,
+    "height": 250
+  },
+  "attribution": {
+    "author": "d0od + Kshegyaj",
+    "source_url": "https://launchpad.net/covergloobus",
+    "license": "attribution-required",
+    "original_app": "covergloobus",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "free to distribute, mod and such as long as you accredit it back to d0od (omgubuntu.co.uk) and Kshegyaj (kshegzyaj.deviantart.com)"
+  },
+  "fonts": [
+    {
+      "family": "Droid Sans",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 200,
+      "height": 200,
+      "src": "case.png"
+    },
+    {
+      "type": "artwork",
+      "x": 20,
+      "y": 18,
+      "width": 160,
+      "height": 164
+    },
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 200,
+      "height": 200,
+      "src": "overlay.png"
+    },
+    {
+      "type": "text",
+      "x": 189,
+      "y": 116,
+      "bind": "title",
+      "font": {
+        "family": "Droid Sans",
+        "size": 20,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#70707070",
+        "dx": 1,
+        "dy": 1
+      },
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 180
+      }
+    },
+    {
+      "type": "text",
+      "x": 191,
+      "y": 144,
+      "bind": "artist",
+      "font": {
+        "family": "Droid Sans",
+        "size": 11,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#000000ff",
+      "shadow": {
+        "color": "#70707070",
+        "dx": 1,
+        "dy": 1
+      },
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll"
+      }
+    },
+    {
+      "type": "text",
+      "x": 191,
+      "y": 158,
+      "bind": "album",
+      "font": {
+        "family": "Droid Sans",
+        "size": 11,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#70707070",
+        "dx": 1,
+        "dy": 1
+      },
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 100
+      }
+    },
+    {
+      "type": "button",
+      "x": 20,
+      "y": 180,
+      "action": "previous",
+      "states": {
+        "default": {
+          "normal": "prev.png",
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 60,
+      "height": 30
+    },
+    {
+      "type": "button",
+      "x": 70,
+      "y": 180,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "play.png",
+          "hover": null,
+          "pressed": null
+        },
+        "playing": {
+          "normal": null,
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 60,
+      "height": 30
+    },
+    {
+      "type": "button",
+      "x": 120,
+      "y": 180,
+      "action": "next",
+      "states": {
+        "default": {
+          "normal": "next.png",
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 60,
+      "height": 30
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "ported": "2026-08-19",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "wayback-77435-NowPlaying/77435-NowPlaying.tar.gz:NowPlaying/themes/simpleOne_cowanh00",
+    "skin_xml_sha256": "ccbc869abee0cee3473690e306f098f62565223b87c13a15a44e353b24aac0bc",
+    "app": "nowplaying"
+  },
+  "assets": {
+    "copied": [
+      "base-2.png",
+      "next-hover.png",
+      "next-pressed.png",
+      "next.png",
+      "pause-hover.png",
+      "pause-pressed.png",
+      "pause.png",
+      "play-hover.png",
+      "play-pressed.png",
+      "play.png",
+      "prev-hover.png",
+      "prev-pressed.png",
+      "prev.png",
+      "shadow.png",
+      "top.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [],
+  "lossy": [],
+  "inferred": [
+    {
+      "at": "playercontrols[5]/prev[0]",
+      "inferred": "normal artwork 'prev.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[5]/prev[0]",
+      "inferred": "hover artwork 'prev-hover.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[5]/prev[0]",
+      "inferred": "pressed artwork 'prev-pressed.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[5]/prev[0]",
+      "inferred": "position computed from <playercontrols> x/y/spacing, which NowPlaying centres the row on"
+    },
+    {
+      "at": "playercontrols[5]/play_pause[1]",
+      "inferred": "normal artwork 'play.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[5]/play_pause[1]",
+      "inferred": "hover artwork 'play-hover.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[5]/play_pause[1]",
+      "inferred": "pressed artwork 'play-pressed.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[5]/play_pause[1]",
+      "inferred": "normal artwork 'pause.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[5]/play_pause[1]",
+      "inferred": "hover artwork 'pause-hover.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[5]/play_pause[1]",
+      "inferred": "pressed artwork 'pause-pressed.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[5]/play_pause[1]",
+      "inferred": "position computed from <playercontrols> x/y/spacing, which NowPlaying centres the row on"
+    },
+    {
+      "at": "playercontrols[5]/next[2]",
+      "inferred": "normal artwork 'next.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[5]/next[2]",
+      "inferred": "hover artwork 'next-hover.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[5]/next[2]",
+      "inferred": "pressed artwork 'next-pressed.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[5]/next[2]",
+      "inferred": "position computed from <playercontrols> x/y/spacing, which NowPlaying centres the row on"
+    }
+  ],
+  "notes": [
+    "distribution non-free: no terms found; silence is not permission"
+  ]
+}

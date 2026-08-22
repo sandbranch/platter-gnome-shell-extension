@@ -1,0 +1,186 @@
+{
+  "format": "platter-theme/0",
+  "id": "dirty",
+  "name": "dirty",
+  "canvas": {
+    "width": 350,
+    "height": 250
+  },
+  "attribution": {
+    "author": "unknown",
+    "source_url": "https://launchpad.net/covergloobus",
+    "license": "GPL-3.0",
+    "original_app": "covergloobus",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "Released as part of the CoverGloobus source package, which is GPL-3.0 (COPYING in the tarball). The themes are build targets of that package - each has its own Makefile.am registered in configure.ac and is installed by make install - so they were distributed under its licence."
+  },
+  "fonts": [
+    {
+      "family": "Lucida Grande",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "rating",
+      "x": 190,
+      "y": 100,
+      "width": 20,
+      "height": 20,
+      "star": "star.png",
+      "empty": "nostar.png",
+      "spacing": 3,
+      "direction": "horizontal"
+    },
+    {
+      "type": "image",
+      "x": 32,
+      "y": 8,
+      "width": 140,
+      "height": 140,
+      "src": "nocover.png"
+    },
+    {
+      "type": "artwork",
+      "x": 32,
+      "y": 8,
+      "width": 140,
+      "height": 140
+    },
+    {
+      "type": "image",
+      "x": 32,
+      "y": 8,
+      "width": 150,
+      "height": 215,
+      "src": "case.png"
+    },
+    {
+      "type": "text",
+      "x": 190,
+      "y": 47,
+      "width": 230,
+      "bind": "title",
+      "font": {
+        "family": "Lucida Grande",
+        "size": 11,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000ff",
+        "dx": 1,
+        "dy": 1
+      },
+      "align": "left",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 13
+      }
+    },
+    {
+      "type": "text",
+      "x": 190,
+      "y": 65,
+      "width": 230,
+      "bind": "artist",
+      "font": {
+        "family": "Lucida Grande",
+        "size": 10,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000ff",
+        "dx": 1,
+        "dy": 1
+      },
+      "align": "left",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 15
+      }
+    },
+    {
+      "type": "text",
+      "x": 190,
+      "y": 80,
+      "width": 230,
+      "bind": "album",
+      "font": {
+        "family": "Lucida Grande",
+        "size": 10,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000ff",
+        "dx": 1,
+        "dy": 1
+      },
+      "align": "left",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 15
+      }
+    },
+    {
+      "type": "button",
+      "x": 190,
+      "y": 130,
+      "action": "previous",
+      "states": {
+        "default": {
+          "normal": "prev.png",
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 20,
+      "height": 16
+    },
+    {
+      "type": "button",
+      "x": 210,
+      "y": 130,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "play.png",
+          "hover": null,
+          "pressed": null
+        },
+        "playing": {
+          "normal": null,
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 20,
+      "height": 16
+    },
+    {
+      "type": "button",
+      "x": 230,
+      "y": 130,
+      "action": "next",
+      "states": {
+        "default": {
+          "normal": "next.png",
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 20,
+      "height": 16
+    }
+  ]
+}

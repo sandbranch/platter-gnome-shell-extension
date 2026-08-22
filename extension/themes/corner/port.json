@@ -1,0 +1,24 @@
+{
+  "ported": "2026-08-19",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "upstream-1.6/corner",
+    "skin_xml_sha256": "733dc43b0b90d468987e265c9703e5c34517ad233850fcf8751ac00ce439c1fe",
+    "app": "nowplaying"
+  },
+  "assets": {
+    "copied": [
+      "bg-2.png",
+      "nowplaying-bg.svg"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "distribution non-free: no terms found; silence is not permission",
+    "renamed testskin -> corner: skin.xml declares name=\"TestSkin\", the placeholder its author never changed. The theme is CoverGloobus 1.6's 'corner', featured by OMG! Ubuntu in 2009 as 'Corner 4 Nowplaying'."
+  ]
+}

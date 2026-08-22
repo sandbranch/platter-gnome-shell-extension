@@ -1,0 +1,175 @@
+{
+  "format": "platter-theme/0",
+  "id": "box-of-tricks-mod-by-d0od",
+  "name": "Box Of Tricks Mod By d0od",
+  "canvas": {
+    "width": 200,
+    "height": 280
+  },
+  "attribution": {
+    "author": "d0od + Kshegyaj",
+    "source_url": "https://launchpad.net/covergloobus",
+    "license": "attribution-required",
+    "original_app": "covergloobus",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "free to distribute, mod and such as long as you accredit it back to d0od (omgubuntu.co.uk) and Kshegyaj (kshegzyaj.deviantart.com)"
+  },
+  "fonts": [
+    {
+      "family": "Trebuchet MS",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 0,
+      "y": 2,
+      "width": 200,
+      "height": 200,
+      "src": "case.png"
+    },
+    {
+      "type": "artwork",
+      "x": 20,
+      "y": 20,
+      "width": 160,
+      "height": 164
+    },
+    {
+      "type": "image",
+      "x": 0,
+      "y": 2,
+      "width": 200,
+      "height": 200,
+      "src": "overlay.png"
+    },
+    {
+      "type": "text",
+      "x": 0,
+      "y": -2,
+      "width": 200,
+      "bind": "title",
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 10,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000bb",
+        "dx": 1,
+        "dy": 1
+      },
+      "align": "center",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 41
+      }
+    },
+    {
+      "type": "text",
+      "x": 0,
+      "y": 215,
+      "width": 200,
+      "bind": "artist",
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 9,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000bb",
+        "dx": 1,
+        "dy": 1
+      },
+      "align": "center",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 43
+      }
+    },
+    {
+      "type": "text",
+      "x": 0,
+      "y": 225,
+      "width": 200,
+      "bind": "album",
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 9,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000bb",
+        "dx": 1,
+        "dy": 1
+      },
+      "align": "center",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 35
+      }
+    },
+    {
+      "type": "button",
+      "x": 20,
+      "y": 182,
+      "action": "previous",
+      "states": {
+        "default": {
+          "normal": "prev.png",
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 60,
+      "height": 30
+    },
+    {
+      "type": "button",
+      "x": 70,
+      "y": 182,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "play.png",
+          "hover": null,
+          "pressed": null
+        },
+        "playing": {
+          "normal": null,
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 60,
+      "height": 30
+    },
+    {
+      "type": "button",
+      "x": 120,
+      "y": 182,
+      "action": "next",
+      "states": {
+        "default": {
+          "normal": "next.png",
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 60,
+      "height": 30
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "format": "platter-theme/0",
+  "id": "photo",
+  "name": "Photo",
+  "canvas": {
+    "width": 300,
+    "height": 200
+  },
+  "attribution": {
+    "author": "unknown",
+    "source_url": "https://www.xfce-look.org/p/1110988/",
+    "license": "attribution-required",
+    "original_app": "covergloobus",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "skin.xml, in the author's own words: \"Feel free to modify and share with friends! IF modified, please give credit to the original author.\" Modification and sharing both granted, credit required."
+  },
+  "fonts": [
+    {
+      "family": "Purisa",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 25,
+      "y": 22,
+      "width": 148,
+      "height": 158,
+      "src": "bg.png"
+    },
+    {
+      "type": "image",
+      "x": 31,
+      "y": 27,
+      "width": 128,
+      "height": 128,
+      "src": "no_cover.png"
+    },
+    {
+      "type": "artwork",
+      "x": 31,
+      "y": 27,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "type": "image",
+      "x": 2,
+      "y": 2,
+      "width": 185,
+      "height": 168,
+      "src": "overlay.png"
+    },
+    {
+      "type": "text",
+      "x": 20,
+      "y": 2,
+      "width": 151,
+      "bind": "artist",
+      "font": {
+        "family": "Purisa",
+        "size": 11,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000ff",
+        "dx": 1,
+        "dy": 1
+      },
+      "align": "center",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 50
+      }
+    },
+    {
+      "type": "text",
+      "x": 28,
+      "y": 157,
+      "width": 132,
+      "bind": "album",
+      "font": {
+        "family": "Purisa",
+        "size": 9,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#000000ff",
+      "shadow": {
+        "color": "#000000ff",
+        "dx": 1,
+        "dy": 1
+      },
+      "align": "center",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 50
+      }
+    },
+    {
+      "type": "text",
+      "x": 2,
+      "y": 177,
+      "width": 185,
+      "bind": "title",
+      "font": {
+        "family": "Purisa",
+        "size": 10,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000ff",
+        "dx": 1,
+        "dy": 1
+      },
+      "align": "center",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 50
+      }
+    }
+  ]
+}

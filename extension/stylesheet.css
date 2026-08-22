@@ -1,0 +1,20 @@
+/* Platter draws its themes rather than styling them, so there is very little
+ * here on purpose: a theme's own artwork decides how the widget looks, and any
+ * colour or border imposed from this file would fight it. */
+
+.platter-widget {
+    /* The widget is a canvas the theme paints on. No background, no padding,
+     * no border - anything here would show through a theme's transparency. */
+    background: none;
+}
+
+.platter-artwork {
+    /* Album art the player has not supplied yet. Faintly visible rather than
+     * invisible, so a theme with no nocover.png of its own still shows where
+     * the artwork belongs. */
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.platter-rating {
+    spacing: 0;
+}

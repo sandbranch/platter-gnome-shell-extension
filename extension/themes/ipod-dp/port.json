@@ -1,0 +1,124 @@
+{
+  "ported": "2026-08-19",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "wayback-69988-NowPlaying/69988-NowPlaying.tar.bz2:NowPlaying/themes/ipod",
+    "skin_xml_sha256": "b4e0ce07ee5190695a1d88b3b6db576ea3b1a94a0fa5585d9759868faca36cd2",
+    "app": "nowplaying"
+  },
+  "assets": {
+    "copied": [
+      "bg-2.png",
+      "next-hover.png",
+      "next-pressed.png",
+      "next.png",
+      "pause-hover.png",
+      "pause-pressed.png",
+      "pause.png",
+      "play-hover.png",
+      "play-pressed.png",
+      "play.png",
+      "prev-hover.png",
+      "prev-pressed.png",
+      "prev.png",
+      "screen.png",
+      "screenbg.png",
+      "shellBlack.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [
+    {
+      "at": "image[0]",
+      "taken": "width=212 from the asset"
+    },
+    {
+      "at": "image[0]",
+      "taken": "height=348 from the asset"
+    },
+    {
+      "at": "image[1]",
+      "taken": "width=164 from the asset"
+    },
+    {
+      "at": "image[1]",
+      "taken": "height=124 from the asset"
+    },
+    {
+      "at": "image[2]",
+      "taken": "width=158 from the asset"
+    },
+    {
+      "at": "image[2]",
+      "taken": "height=118 from the asset"
+    }
+  ],
+  "lossy": [],
+  "inferred": [
+    {
+      "at": "playercontrols[9]/prev[0]",
+      "inferred": "normal artwork 'prev.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[9]/prev[0]",
+      "inferred": "hover artwork 'prev-hover.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[9]/prev[0]",
+      "inferred": "pressed artwork 'prev-pressed.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[9]/prev[0]",
+      "inferred": "position computed from <playercontrols> x/y/spacing, which NowPlaying centres the row on"
+    },
+    {
+      "at": "playercontrols[9]/play_pause[1]",
+      "inferred": "normal artwork 'play.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[9]/play_pause[1]",
+      "inferred": "hover artwork 'play-hover.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[9]/play_pause[1]",
+      "inferred": "pressed artwork 'play-pressed.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[9]/play_pause[1]",
+      "inferred": "normal artwork 'pause.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[9]/play_pause[1]",
+      "inferred": "hover artwork 'pause-hover.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[9]/play_pause[1]",
+      "inferred": "pressed artwork 'pause-pressed.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[9]/play_pause[1]",
+      "inferred": "position computed from <playercontrols> x/y/spacing, which NowPlaying centres the row on"
+    },
+    {
+      "at": "playercontrols[9]/next[2]",
+      "inferred": "normal artwork 'next.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[9]/next[2]",
+      "inferred": "hover artwork 'next-hover.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[9]/next[2]",
+      "inferred": "pressed artwork 'next-pressed.png' from NowPlaying's naming"
+    },
+    {
+      "at": "playercontrols[9]/next[2]",
+      "inferred": "position computed from <playercontrols> x/y/spacing, which NowPlaying centres the row on"
+    }
+  ],
+  "notes": [
+    "playername is NowPlaying's; CoverGloobus never read it",
+    "distribution non-free: no terms found; silence is not permission"
+  ]
+}

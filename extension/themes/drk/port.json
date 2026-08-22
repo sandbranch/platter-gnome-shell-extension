@@ -1,0 +1,26 @@
+{
+  "ported": "2026-08-19",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "deviantart-DRK/drk_covergloobus_skin_by_alezzacreative_d55ofz8.zip:DRK",
+    "skin_xml_sha256": "874f4838d36d7c423cd581b88971adc938a98f3836453a78d446c352f14f1ac6",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "background.png",
+      "mask.png",
+      "overlay.png",
+      "seekbar.back.png",
+      "seekbar.top.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "distribution free: redistribution and modification both permitted"
+  ]
+}

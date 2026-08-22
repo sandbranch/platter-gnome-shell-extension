@@ -1,0 +1,125 @@
+{
+  "format": "platter-theme/0",
+  "id": "lucid-dark",
+  "name": "Lucid-dark",
+  "canvas": {
+    "width": 370,
+    "height": 175
+  },
+  "attribution": {
+    "author": "unknown",
+    "source_url": "https://launchpad.net/covergloobus",
+    "license": "GPL-3.0",
+    "original_app": "covergloobus",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "Released as part of the CoverGloobus source package, which is GPL-3.0 (COPYING in the tarball). The themes are build targets of that package - each has its own Makefile.am registered in configure.ac and is installed by make install - so they were distributed under its licence."
+  },
+  "fonts": [
+    {
+      "family": "Lucida Grande",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "artwork",
+      "x": 30,
+      "y": 13,
+      "width": 120,
+      "height": 120
+    },
+    {
+      "type": "image",
+      "x": 3,
+      "y": -2,
+      "width": 160,
+      "height": 150,
+      "src": "case.png"
+    },
+    {
+      "type": "text",
+      "x": 165,
+      "y": 45,
+      "width": 230,
+      "bind": "title",
+      "font": {
+        "family": "Lucida Grande",
+        "size": 11,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000ff",
+        "dx": 1,
+        "dy": 1
+      },
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 41
+      }
+    },
+    {
+      "type": "text",
+      "x": 165,
+      "y": 60,
+      "width": 230,
+      "bind": "artist",
+      "font": {
+        "family": "Lucida Grande",
+        "size": 10,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000ff",
+        "dx": 1,
+        "dy": 1
+      },
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 44
+      }
+    },
+    {
+      "type": "text",
+      "x": 165,
+      "y": 75,
+      "width": 230,
+      "bind": "album",
+      "font": {
+        "family": "Lucida Grande",
+        "size": 10,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000ff",
+        "dx": 1,
+        "dy": 1
+      },
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 44
+      }
+    },
+    {
+      "type": "rating",
+      "x": 165,
+      "y": 100,
+      "width": 20,
+      "height": 20,
+      "star": "star.png",
+      "empty": "noStar.png",
+      "spacing": 3,
+      "direction": "horizontal"
+    }
+  ]
+}

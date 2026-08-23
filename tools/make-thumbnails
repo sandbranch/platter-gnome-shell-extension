@@ -54,6 +54,14 @@ CROPS = {
     # Original skin.xml genuinely declares an 800x280 canvas with everything
     # packed into the left 200px - true to the source, but not to a thumbnail.
     "box-of-tricks-mod-by-d0od-2": (0, 0, 200, 280),
+    # These placeholder renders leave most of their declared canvas empty -
+    # under a third of it actual content - which also left their pale text
+    # sitting on bare backdrop instead of the theme's own artwork.
+    "gsm-dp-2": (0, 0, 180, 122),
+    "simpleone-dark": (0, 0, 205, 122),
+    "simpleone-v2": (0, 4, 225, 129),
+    "simpleone-v2-2": (0, 4, 226, 129),
+    "simpleone-v2-3": (0, 4, 147, 160),
 }
 
 

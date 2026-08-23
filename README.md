@@ -42,6 +42,11 @@ Needs GNOME Shell 48, 49, or 50.
 Open **Preferences**, pick a theme, and it's on your desktop. That's the whole
 interaction — no config files, no restart.
 
+One caveat worth knowing: buttons — play/pause, skip, the seekbar — only
+respond to clicks in **Floating** placement. GNOME Shell doesn't route input
+to anything drawn behind your windows, so Desktop placement looks great but
+isn't clickable yet.
+
 Got an old CoverGloobus or NowPlaying skin sitting around from way back? Feed
 it to Platter and it just works: **Preferences → Theme → Add a theme**, point
 it at the file, done. Whatever it looked like then is what it looks like now.

@@ -14,14 +14,23 @@ jobs:
       - name: Install GNOME Shell tooling
         run: |
           sudo apt-get update
-          sudo apt-get install -y gnome-shell-extension-prefs gjs \
+          sudo apt-get install -y gnome-shell gnome-shell-extension-prefs gjs \
             libglib2.0-bin gettext libarchive-tools
 
       # Every module must at least parse and link. prefs.js imports a resource://
       # path that only exists inside the Shell's preferences process, so it is
       # checked separately with that import stubbed out.
+      #
+      # widget.js pulls in Clutter/St, and package installs their typelibs and
+      # libst.so under Mutter's own versioned directories - real gnome-shell
+      # knows to look there, but a standalone gjs does not, so both paths have
+      # to be given explicitly or "Requiring Clutter... not found" is all you
+      # get for the trouble.
       - name: Load the modules
         run: |
+          MUTTER_DIR="$(dirname "$(find /usr/lib -maxdepth 3 -iname 'Clutter-*.typelib' | head -1)")"
+          export GI_TYPELIB_PATH="$MUTTER_DIR:/usr/lib/gnome-shell"
+          export LD_LIBRARY_PATH="/usr/lib/gnome-shell"
           for f in extension/lib/*.js; do
             gjs -c "import('file://$PWD/$f')
               .then(() => print('ok   $f'))

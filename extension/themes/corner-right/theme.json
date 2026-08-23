@@ -1,7 +1,7 @@
 {
   "format": "platter-theme/0",
-  "id": "corner",
-  "name": "Corner",
+  "id": "corner-right",
+  "name": "Corner (Right)",
   "canvas": {
     "width": 207,
     "height": 207
@@ -13,7 +13,7 @@
     "original_app": "nowplaying",
     "upstream_author": null,
     "distribution": "free",
-    "license_note": "The bundled CoverGloobus 1.6 source (a real bzr checkout, platter-ref/upstream/covergloobus-1.6) shows every commit adding or touching this theme made by Jordi Hernandez <jordi@vengance> / <j.hernandezp@gmail.com> - the same person credited elsewhere in this corpus as BadChoice, and CoverGloobus's own lead developer. No other name appears in that history for this file. Committer isn't automatically designer, but across nine themes and dozens of commits with zero other names, this is the best evidence available."
+    "license_note": "The bundled CoverGloobus 1.6 source (a real bzr checkout, platter-ref/upstream/covergloobus-1.6) shows every commit adding or touching this theme made by Jordi Hernandez <jordi@vengance> / <j.hernandezp@gmail.com> - the same person credited elsewhere in this corpus as BadChoice, and CoverGloobus's own lead developer. No other name appears in that history for this file. Committer isn't automatically designer, but across nine themes and dozens of commits with zero other names, this is the best evidence available. This variant is Platter's own mirror of corner-left: the background art and layout flipped left-to-right, permitted by the same GPL-3.0."
   },
   "fonts": [
     {
@@ -33,7 +33,7 @@
     },
     {
       "type": "artwork",
-      "x": 0,
+      "x": 14,
       "y": 14,
       "width": 193,
       "height": 193
@@ -50,6 +50,8 @@
       "type": "text",
       "x": 5,
       "y": 166,
+      "width": 197,
+      "align": "right",
       "bind": "title",
       "font": {
         "family": "Sans",
@@ -68,6 +70,8 @@
       "type": "text",
       "x": 5,
       "y": 181,
+      "width": 197,
+      "align": "right",
       "bind": "artist",
       "font": {
         "family": "Sans",
@@ -86,6 +90,8 @@
       "type": "text",
       "x": 5,
       "y": 192,
+      "width": 197,
+      "align": "right",
       "bind": "album",
       "font": {
         "family": "Sans",

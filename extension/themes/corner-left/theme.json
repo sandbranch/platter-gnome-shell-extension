@@ -1,0 +1,104 @@
+{
+  "format": "platter-theme/0",
+  "id": "corner-left",
+  "name": "Corner (Left)",
+  "canvas": {
+    "width": 207,
+    "height": 207
+  },
+  "attribution": {
+    "author": "Jordi Puigdellivol Hernandez (BadChoice)",
+    "source_url": "https://launchpad.net/covergloobus",
+    "license": "GPL-3.0",
+    "original_app": "nowplaying",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "The bundled CoverGloobus 1.6 source (a real bzr checkout, platter-ref/upstream/covergloobus-1.6) shows every commit adding or touching this theme made by Jordi Hernandez <jordi@vengance> / <j.hernandezp@gmail.com> - the same person credited elsewhere in this corpus as BadChoice, and CoverGloobus's own lead developer. No other name appears in that history for this file. Committer isn't automatically designer, but across nine themes and dozens of commits with zero other names, this is the best evidence available."
+  },
+  "fonts": [
+    {
+      "family": "Sans",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 207,
+      "height": 207,
+      "src": "nowplaying-bg.svg"
+    },
+    {
+      "type": "artwork",
+      "x": 0,
+      "y": 14,
+      "width": 193,
+      "height": 193
+    },
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 207,
+      "height": 207,
+      "src": "bg-2.png"
+    },
+    {
+      "type": "text",
+      "x": 5,
+      "y": 166,
+      "bind": "title",
+      "font": {
+        "family": "Sans",
+        "size": 10,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#000000ff",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 19
+      }
+    },
+    {
+      "type": "text",
+      "x": 5,
+      "y": 181,
+      "bind": "artist",
+      "font": {
+        "family": "Sans",
+        "size": 9,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#000000ff",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 26
+      }
+    },
+    {
+      "type": "text",
+      "x": 5,
+      "y": 192,
+      "bind": "album",
+      "font": {
+        "family": "Sans",
+        "size": 9,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#000000ff",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 30
+      }
+    }
+  ]
+}

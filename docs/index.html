@@ -68,8 +68,17 @@
   .btn-ghost { border-color: var(--line); color: var(--ink); }
   .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
-  .disc-art { display: flex; align-items: center; justify-content: center; }
-  .disc-art svg { width: 100%; max-width: 320px; height: auto; }
+  .collage { position: relative; height: 320px; }
+  .collage img {
+    position: absolute; width: 190px; border-radius: 12px; border: 6px solid var(--bg-raised);
+    box-shadow: 0 10px 30px rgba(36,31,26,0.18);
+  }
+  @media (prefers-color-scheme: dark) { .collage img { box-shadow: 0 10px 30px rgba(0,0,0,0.5); } }
+  .collage img:nth-child(1) { left: 8%; top: 46px; transform: rotate(-9deg); z-index: 1; }
+  .collage img:nth-child(2) { left: 34%; top: 4px; transform: rotate(6deg); z-index: 2; }
+  .collage img:nth-child(3) { left: 30%; top: 96px; transform: rotate(-3deg); z-index: 3; }
+  .collage img:nth-child(4) { left: 58%; top: 30px; transform: rotate(11deg); z-index: 2; }
+  @media (max-width: 800px) { .collage { height: 260px; } .collage img { width: 150px; } }
 
   section { padding: 40px 0; border-top: 1px solid var(--line); }
   section > .wrap > h2 { font-size: 1.7rem; margin-bottom: 0.6em; }
@@ -150,17 +159,11 @@
         <a class="btn btn-ghost" href="#install">Install it</a>
       </div>
     </div>
-    <div class="disc-art">
-      <svg viewBox="0 0 200 200" aria-hidden="true">
-        <circle cx="100" cy="100" r="98" fill="none" stroke="var(--line)" stroke-width="1"/>
-        <circle cx="100" cy="100" r="88" fill="var(--ink)"/>
-        <circle cx="100" cy="100" r="80" fill="none" stroke="var(--bg)" stroke-width="0.6" opacity="0.5"/>
-        <circle cx="100" cy="100" r="68" fill="none" stroke="var(--bg)" stroke-width="0.6" opacity="0.5"/>
-        <circle cx="100" cy="100" r="56" fill="none" stroke="var(--bg)" stroke-width="0.6" opacity="0.5"/>
-        <circle cx="100" cy="100" r="44" fill="none" stroke="var(--bg)" stroke-width="0.6" opacity="0.5"/>
-        <circle cx="100" cy="100" r="34" fill="var(--accent)"/>
-        <circle cx="100" cy="100" r="4" fill="var(--bg)"/>
-      </svg>
+    <div class="collage">
+      <img src="assets/thumbs/jesse.jpg" alt="Jesse theme">
+      <img src="assets/thumbs/holo.jpg" alt="Holo theme">
+      <img src="assets/thumbs/coversutra.jpg" alt="Coversutra theme">
+      <img src="assets/thumbs/platter-anno.jpg" alt="Anno theme">
     </div>
   </div>
 </section>

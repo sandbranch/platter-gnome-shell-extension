@@ -7,13 +7,13 @@
     "height": 130
   },
   "attribution": {
-    "author": "unknown",
+    "author": "Jordi Puigdellivol Hernandez (BadChoice)",
     "source_url": "https://github.com/deepin-espanol/covergloobus",
     "license": "GPL-3.0",
     "original_app": "covergloobus",
     "upstream_author": null,
     "distribution": "free",
-    "license_note": "Released as part of the CoverGloobus source package, which is GPL-3.0 (COPYING in the tarball). The themes are build targets of that package - each has its own Makefile.am registered in configure.ac and is installed by make install - so they were distributed under its licence."
+    "license_note": "This theme only exists in CoverGloobus 1.7, not the 1.6 bzr checkout used to credit the other bundled themes. Its commit on the 1.7 GitHub mirror (256f0c8, \"ToolTip theme added\", 2010-05-19) is authored by Jordi Puigdellívol <jordi@BadChoice> - the same person credited elsewhere in this corpus as BadChoice."
   },
   "fonts": [
     {

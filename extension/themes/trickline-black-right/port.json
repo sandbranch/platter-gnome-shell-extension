@@ -1,0 +1,54 @@
+{
+  "ported": "2026-08-23",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "deviantart-Trickline/trickline_for_covergloobus_by_gabriela2400_d2yer35.zip:TrickLine for Covergloobus/TrickLine for CG Black Right",
+    "skin_xml_sha256": "d6ef4dfb7838b947b5593b03fa783ef085f77266f8b2d03f3879d9efee9632ad",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "case.png",
+      "next.png",
+      "next1.png",
+      "nocover.png",
+      "pause.png",
+      "pause1.png",
+      "prev.png",
+      "prev1.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [
+    {
+      "at": "playercontrols[5]/prev[0]",
+      "taken": "width=20 from the asset"
+    },
+    {
+      "at": "playercontrols[5]/prev[0]",
+      "taken": "height=20 from the asset"
+    },
+    {
+      "at": "playercontrols[5]/play[1]",
+      "taken": "width=20 from the asset"
+    },
+    {
+      "at": "playercontrols[5]/play[1]",
+      "taken": "height=20 from the asset"
+    },
+    {
+      "at": "playercontrols[5]/next[2]",
+      "taken": "width=20 from the asset"
+    },
+    {
+      "at": "playercontrols[5]/next[2]",
+      "taken": "height=20 from the asset"
+    }
+  ],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "distribution free: redistribution and modification both permitted"
+  ]
+}

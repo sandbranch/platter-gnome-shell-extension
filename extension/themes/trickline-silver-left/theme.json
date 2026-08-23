@@ -1,0 +1,142 @@
+{
+  "format": "platter-theme/0",
+  "id": "trickline-silver-left",
+  "name": "TrickLine Silver (Left)",
+  "canvas": {
+    "width": 585,
+    "height": 86
+  },
+  "attribution": {
+    "author": "gabriela2400 (port of Slifer2006's original CD Art Display skin)",
+    "source_url": "https://www.deviantart.com/gabriela2400/art/Trickline-for-Covergloobus-178727585",
+    "license": "attribution-required",
+    "original_app": "covergloobus",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "Read me.txt, verbatim: \"Trickline for covergloobus ported by gabriela2400 / original Trickline cad skin by Slifer2006 http://slifer2006.deviantart.com/ / If use please credit\". Ported from a CD Art Display skin with the original author's design credited; gabriela2400 grants use with attribution."
+  },
+  "fonts": [
+    {
+      "family": "Surface",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 585,
+      "height": 86,
+      "src": "case.png"
+    },
+    {
+      "type": "image",
+      "x": 15,
+      "y": 13,
+      "width": 62,
+      "height": 62,
+      "src": "nocover.png",
+      "round": 10
+    },
+    {
+      "type": "artwork",
+      "x": 15,
+      "y": 13,
+      "width": 62,
+      "height": 62,
+      "round": 10
+    },
+    {
+      "type": "text",
+      "x": 85,
+      "y": 16,
+      "width": 240,
+      "bind": "artist",
+      "font": {
+        "family": "Surface",
+        "size": 11,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#edd3ebff",
+      "align": "left",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 45
+      }
+    },
+    {
+      "type": "text",
+      "x": 86,
+      "y": 30,
+      "width": 240,
+      "bind": "title",
+      "font": {
+        "family": "Surface",
+        "size": 10,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#d8d8d8ff",
+      "align": "left",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 45
+      }
+    },
+    {
+      "type": "button",
+      "x": 20,
+      "y": 50,
+      "action": "previous",
+      "states": {
+        "default": {
+          "normal": "prev1.png",
+          "hover": "prev.png",
+          "pressed": null
+        }
+      },
+      "width": 20,
+      "height": 20
+    },
+    {
+      "type": "button",
+      "x": 35,
+      "y": 50,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "pause1.png",
+          "hover": "pause.png",
+          "pressed": null
+        },
+        "playing": {
+          "normal": null,
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 20,
+      "height": 20
+    },
+    {
+      "type": "button",
+      "x": 50,
+      "y": 50,
+      "action": "next",
+      "states": {
+        "default": {
+          "normal": "next1.png",
+          "hover": "next.png",
+          "pressed": null
+        }
+      },
+      "width": 20,
+      "height": 20
+    }
+  ]
+}

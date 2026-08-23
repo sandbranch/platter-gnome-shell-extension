@@ -1,0 +1,55 @@
+{
+  "ported": "2026-08-23",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "deviantart-Trickline/trickline_for_covergloobus_by_gabriela2400_d2yer35.zip:TrickLine for Covergloobus/TrickLine for CG Rainbow Left",
+    "skin_xml_sha256": "df62ad95f1b2c02ffc348b220d5649eff8b03daca095056406a12e35007b2b85",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "case.png",
+      "next.png",
+      "next1.png",
+      "nocover.png",
+      "pause.png",
+      "pause1.png",
+      "prev.png",
+      "prev1.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [
+    {
+      "at": "playercontrols[5]/prev[0]",
+      "taken": "width=20 from the asset"
+    },
+    {
+      "at": "playercontrols[5]/prev[0]",
+      "taken": "height=20 from the asset"
+    },
+    {
+      "at": "playercontrols[5]/play[1]",
+      "taken": "width=20 from the asset"
+    },
+    {
+      "at": "playercontrols[5]/play[1]",
+      "taken": "height=20 from the asset"
+    },
+    {
+      "at": "playercontrols[5]/next[2]",
+      "taken": "width=20 from the asset"
+    },
+    {
+      "at": "playercontrols[5]/next[2]",
+      "taken": "height=20 from the asset"
+    }
+  ],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "<playercontrols> at 106,298 is ignored, exactly as 1.7 ignores it: its children carry absolute positions",
+    "distribution free: redistribution and modification both permitted"
+  ]
+}

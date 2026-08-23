@@ -46,11 +46,11 @@ Got an old CoverGloobus or NowPlaying skin sitting around from way back? Feed
 it to Platter and it just works: **Preferences → Theme → Add a theme**, point
 it at the file, done. Whatever it looked like then is what it looks like now.
 
-Platter ships with **49 themes**, and the [full gallery is on the
+Platter ships with **55 themes**, and the [full gallery is on the
 website](https://sandbranch.github.io/platter-gnome-shell-extension/#themes)
 — go look before you go hunting for more, there's a good chance your favourite
 one from a decade ago is already sitting in there. Everything else this
-project has tracked down — 76 more skins, most of them still alive on the
+project has tracked down — 79 more skins, most of them still alive on the
 DeviantArt pages people posted them to years ago — is credited in
 [docs/credits.md](docs/credits.md), along with the honest explanation of why
 not every last one of them made it into the box.

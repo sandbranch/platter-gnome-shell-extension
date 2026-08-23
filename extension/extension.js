@@ -12,6 +12,22 @@ import {PlayerWatcher} from './lib/mpris.js';
 import {PlatterWidget} from './lib/widget.js';
 import * as Theme from './lib/theme.js';
 
+/* Named window edge that must stay reachable, in pixels, when a stale
+ * offset - saved for another monitor, another theme's size, or before
+ * monitor geometry had settled at login - would otherwise put the whole
+ * widget outside the visible area with no on-screen way to drag it back. */
+const MIN_VISIBLE = 32;
+
+function clampToMonitor(x, y, width, height, monitor) {
+    const visibleW = Math.min(MIN_VISIBLE, width);
+    const visibleH = Math.min(MIN_VISIBLE, height);
+    const clampedX = Math.min(Math.max(x, monitor.x - width + visibleW),
+        monitor.x + monitor.width - visibleW);
+    const clampedY = Math.min(Math.max(y, monitor.y - height + visibleH),
+        monitor.y + monitor.height - visibleH);
+    return [clampedX, clampedY];
+}
+
 export default class PlatterExtension extends Extension {
     enable() {
         this._settings = this.getSettings();
@@ -165,7 +181,9 @@ export default class PlatterExtension extends Extension {
             ? monitor.x + monitor.width - width - dx : monitor.x + dx;
         const y = anchor.startsWith('bottom')
             ? monitor.y + monitor.height - height - dy : monitor.y + dy;
-        this._widget.set_position(Math.round(x), Math.round(y));
+
+        const [clampedX, clampedY] = clampToMonitor(x, y, width, height, monitor);
+        this._widget.set_position(Math.round(clampedX), Math.round(clampedY));
     }
 
     /** Drag to move, unless locked. Where it lands is where it stays. */
@@ -214,7 +232,9 @@ export default class PlatterExtension extends Extension {
             // dropping it near an edge keeps it near that edge for good.
             const anchor = this._settings.get_string('anchor');
             const [width, height] = [widget.width, widget.height];
-            const [x, y] = widget.get_position();
+            const [droppedX, droppedY] = widget.get_position();
+            const [x, y] = clampToMonitor(droppedX, droppedY, width, height, monitor);
+            widget.set_position(Math.round(x), Math.round(y));
             this._settings.set_int('position-x', Math.round(anchor.endsWith('right')
                 ? monitor.x + monitor.width - width - x : x - monitor.x));
             this._settings.set_int('position-y', Math.round(anchor.startsWith('bottom')

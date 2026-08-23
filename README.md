@@ -2,9 +2,9 @@
 
 <p align="center"><img src="extension/themes/cross-the-line/screenshot.png" width="420" alt="Cross The Line theme"></p>
 <p align="center">
-<img src="extension/themes/coversutra/screenshot.png" width="205" alt="Coversutra theme">
+<img src="extension/themes/coversutra/screenshot.png" width="260" alt="Coversutra theme">
 &nbsp;&nbsp;
-<img src="extension/themes/jesse/screenshot.png" width="205" alt="Jesse theme">
+<img src="extension/themes/jesse/screenshot.png" width="260" alt="Jesse theme">
 </p>
 
 **The album art of whatever you're playing, living right there on your desktop.**

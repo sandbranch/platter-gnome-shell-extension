@@ -28,7 +28,7 @@ Requires GNOME Shell 48, 49 or 50.
 
 ## Themes
 
-Platter ships **43 restored themes**, each with a preview in the picker —
+Platter ships **44 themes** (42 restored, 2 written from scratch), each with a preview in the picker —
 a list of names tells you nothing about what you are choosing. They are
 credited in [Themes and credits](#themes-and-credits) below.
 
@@ -77,8 +77,8 @@ each one that's actually free to install.
 
 ## Themes and credits
 
-**103 themes by 33 people**, recovered from DeviantArt, gnome-look, the
-original source tarballs and personal archives. **43 ship with Platter**, marked ✔
+**104 themes by 33 people**, recovered from DeviantArt, gnome-look, the
+original source tarballs and personal archives. **44 ship with Platter**, marked ✔
 below. Every theme is credited with a link to where it still lives, shipped or not.
 
 The ones that don't ship are held back on permission, not quality. A theme is
@@ -97,10 +97,10 @@ project can give its author.
 
 ### The people who made them
 
-[73ll0](https://www.deviantart.com/www) (1) · [Aaron (awhite92)](https://www.deviantart.com/www) (1) · [aaron-a-arts](https://www.deviantart.com/www) (3) · [Alex Almeida (arcanamoon)](https://www.deviantart.com/www) (7) · [alezzacreative (MUSTAPHA ASBBAR)](https://www.deviantart.com/www) (5) · [Algalord-Gnome](https://www.deviantart.com/www) (1) · [artbhatta](https://www.deviantart.com/www) (1) · [arturoilhuitemoc (Ihuitemoc)](https://www.deviantart.com/www) (1) · cowanh00 (modification); NowPlaying screenlet by magicrobomonkey, extended by vrunner (1) · [d0od](https://www.deviantart.com/www) (1) · [d0od + Kshegyaj](https://www.deviantart.com/www) (4) · DJD (DJDP) (1) · [gabriela2400](https://www.deviantart.com/www) (7) · [jivebs](https://www.deviantart.com/www) (4) · Jordi Puigdellivol Hernandez (BadChoice) (3) · [larryni](https://www.deviantart.com/www) (3) · Laurent Baumann (1) · [leonardomdq](https://www.deviantart.com/www) (10) · [liliumcruentus](https://www.deviantart.com/www) (2) · [Nerten](https://www.deviantart.com/www) (1) · NowPlaying screenlet (magicrobomonkey, vrunner) (14) · [orsobasso](https://www.deviantart.com/www) (1) · Platter (1) · [rabra](https://www.deviantart.com/www) (1) · [rikarud0](https://www.deviantart.com/www) (1) · [scherezada](https://www.deviantart.com/www) (1) · [speedracker (uploader)](https://www.deviantart.com/www) (1) · [taylantatli](https://www.deviantart.com/www) (1) · [theconso](https://www.deviantart.com/www) (3) · Theconso (1) · [Twentyeight-Ten](https://www.deviantart.com/www) (2) · [xegi90](https://www.deviantart.com/www) (3) · Author unrecorded (15)
+[73ll0](https://www.deviantart.com/www) (1) · [Aaron (awhite92)](https://www.deviantart.com/www) (1) · [aaron-a-arts](https://www.deviantart.com/www) (3) · [Alex Almeida (arcanamoon)](https://www.deviantart.com/www) (7) · [alezzacreative (MUSTAPHA ASBBAR)](https://www.deviantart.com/www) (5) · [Algalord-Gnome](https://www.deviantart.com/www) (1) · [artbhatta](https://www.deviantart.com/www) (1) · [arturoilhuitemoc (Ihuitemoc)](https://www.deviantart.com/www) (1) · cowanh00 (modification); NowPlaying screenlet by magicrobomonkey, extended by vrunner (1) · [d0od](https://www.deviantart.com/www) (1) · [d0od + Kshegyaj](https://www.deviantart.com/www) (4) · DJD (DJDP) (1) · [gabriela2400](https://www.deviantart.com/www) (7) · [jivebs](https://www.deviantart.com/www) (4) · Jordi Puigdellivol Hernandez (BadChoice) (3) · [larryni](https://www.deviantart.com/www) (3) · Laurent Baumann (1) · [leonardomdq](https://www.deviantart.com/www) (10) · [liliumcruentus](https://www.deviantart.com/www) (2) · [Nerten](https://www.deviantart.com/www) (1) · NowPlaying screenlet (magicrobomonkey, vrunner) (14) · [orsobasso](https://www.deviantart.com/www) (1) · Platter (2) · [rabra](https://www.deviantart.com/www) (1) · [rikarud0](https://www.deviantart.com/www) (1) · [scherezada](https://www.deviantart.com/www) (1) · [speedracker (uploader)](https://www.deviantart.com/www) (1) · [taylantatli](https://www.deviantart.com/www) (1) · [theconso](https://www.deviantart.com/www) (3) · Theconso (1) · [Twentyeight-Ten](https://www.deviantart.com/www) (2) · [xegi90](https://www.deviantart.com/www) (3) · Author unrecorded (15)
 
 <details>
-<summary><b>All 103 themes</b> — ✔ marks the 43 that ship with Platter</summary>
+<summary><b>All 104 themes</b> — ✔ marks the 44 that ship with Platter</summary>
 
 | | Theme | Author | For | Stated terms | Where it lives |
 | --- | --- | --- | --- | --- | --- |
@@ -178,6 +178,7 @@ project can give its author.
 | ✔ | Sweeth_Bleu | NowPlaying screenlet (magicrobomonkey, vrunner) | NowPlaying | GPL-2.0-or-later | [link](https://web.archive.org/web/2011/http://www.gnome-look.org/CONTENT/content-files/69988-NowPlaying.tar.bz2) |
 |  | covergloobus | orsobasso | CoverGloobus | CC BY-NC-SA 3.0 | [link](https://www.deviantart.com/orsobasso/art/Elementary-Covergloobus-1-0-not-supported-177128308) |
 | ✔ | Anno | Platter | Platter | CC0-1.0 | — |
+| ✔ | Gloobus Plain & Simple | Platter | Platter | CC0-1.0 | — |
 |  | BowtieGloobus Classic | rabra | CoverGloobus | all rights reserved | [link](https://www.deviantart.com/rabra/art/BowtieGloobus-Classic-162570370) |
 |  | Light | rikarud0 | CoverGloobus | all rights reserved | [link](https://www.deviantart.com/rikarud0/art/RadiantLight-Covergloobus-158629423) |
 |  | Run Transparent | scherezada | CoverGloobus | not stated | [link](https://www.deviantart.com/scherezada/art/Run-Transparent-158104440) |

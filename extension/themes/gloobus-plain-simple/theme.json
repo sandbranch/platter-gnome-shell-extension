@@ -1,0 +1,135 @@
+{
+  "format": "platter-theme/0",
+  "id": "gloobus-plain-simple",
+  "name": "Gloobus Plain & Simple",
+  "canvas": {
+    "width": 320,
+    "height": 112
+  },
+  "attribution": {
+    "author": "Platter",
+    "source_url": "",
+    "license": "CC0-1.0",
+    "license_note": "Our own artwork, dedicated to the public domain, same as platter-anno.",
+    "original_app": "platter",
+    "upstream_author": null,
+    "distribution": "free"
+  },
+  "fonts": [
+    {
+      "family": "DejaVu Sans",
+      "bundled": false,
+      "reason": "present on essentially every Linux desktop; the renderer falls back to the default sans if not"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "src": "panel.svg",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 112
+    },
+    {
+      "type": "image",
+      "src": "nocover.svg",
+      "x": 14,
+      "y": 14,
+      "width": 84,
+      "height": 84,
+      "visible": "stopped"
+    },
+    {
+      "type": "artwork",
+      "x": 14,
+      "y": 14,
+      "width": 84,
+      "height": 84,
+      "round": 6
+    },
+    {
+      "type": "text",
+      "bind": "title",
+      "x": 112,
+      "y": 13,
+      "width": 194,
+      "height": 18,
+      "font": { "family": "DejaVu Sans", "size": 13, "weight": "bold", "style": "normal" },
+      "color": "#ffffffff",
+      "align": "left",
+      "wrap": false,
+      "overflow": { "mode": "ellipsize-word", "maxchars": 28 }
+    },
+    {
+      "type": "text",
+      "bind": "artist",
+      "x": 112,
+      "y": 34,
+      "width": 194,
+      "height": 16,
+      "font": { "family": "DejaVu Sans", "size": 11, "weight": "normal", "style": "normal" },
+      "color": "#c9c9c9ff",
+      "align": "left",
+      "wrap": false,
+      "overflow": { "mode": "ellipsize-word", "maxchars": 32 }
+    },
+    {
+      "type": "text",
+      "bind": "album",
+      "x": 112,
+      "y": 52,
+      "width": 194,
+      "height": 14,
+      "font": { "family": "DejaVu Sans", "size": 10, "weight": "normal", "style": "italic" },
+      "color": "#e2a63dff",
+      "align": "left",
+      "wrap": false,
+      "overflow": { "mode": "ellipsize-word", "maxchars": 34 }
+    },
+    {
+      "type": "rating",
+      "x": 112,
+      "y": 72,
+      "width": 13,
+      "height": 13,
+      "spacing": 3,
+      "star": "star.svg",
+      "empty": "nostar.svg"
+    },
+    {
+      "type": "button",
+      "action": "previous",
+      "x": 112,
+      "y": 90,
+      "width": 18,
+      "height": 18,
+      "states": {
+        "default": { "normal": "prev.svg", "hover": "prev_hover.svg", "pressed": null }
+      }
+    },
+    {
+      "type": "button",
+      "action": "play_pause",
+      "x": 140,
+      "y": 90,
+      "width": 18,
+      "height": 18,
+      "states": {
+        "default": { "normal": "play.svg", "hover": "play_hover.svg", "pressed": null },
+        "playing": { "normal": "pause.svg", "hover": "pause_hover.svg", "pressed": null }
+      }
+    },
+    {
+      "type": "button",
+      "action": "next",
+      "x": 168,
+      "y": 90,
+      "width": 18,
+      "height": 18,
+      "states": {
+        "default": { "normal": "next.svg", "hover": "next_hover.svg", "pressed": null }
+      }
+    }
+  ]
+}

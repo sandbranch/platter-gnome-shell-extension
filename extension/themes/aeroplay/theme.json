@@ -128,8 +128,8 @@
     },
     {
       "type": "button",
-      "x": -22,
-      "y": -7,
+      "x": 36,
+      "y": 33,
       "width": 35,
       "height": 77,
       "action": "previous",
@@ -143,8 +143,8 @@
     },
     {
       "type": "button",
-      "x": 13,
-      "y": -7,
+      "x": 71,
+      "y": 33,
       "width": 70,
       "height": 77,
       "action": "next",
@@ -158,8 +158,8 @@
     },
     {
       "type": "button",
-      "x": 83,
-      "y": -7,
+      "x": 141,
+      "y": 33,
       "width": 35,
       "height": 77,
       "action": "play_pause",

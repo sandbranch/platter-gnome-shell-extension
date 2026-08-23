@@ -596,18 +596,28 @@ class Porter {
         return layers;
     }
 
-    /* x is the middle of the row and y its bottom, per NowPlaying's own default
-     * skin, which is the only documentation the layout ever had. */
+    /* Not pixels: NowPlaying's Theme.py divides x/y by the skin's own
+     * width/height and hands the result to gtk.Alignment(xalign, yalign) as
+     * the row's position within the whole window. gtk.Alignment places its
+     * child by scaling those fractions against the leftover space (window
+     * size minus child size), not by centring or bottom-anchoring in pixels -
+     * verified against NowPlaying/UI/Theme.py's parseSkinXML and
+     * PlayerControls, not the skin format's own (misleading) comment. */
     layOutRow(row) {
         for (const [layer, where] of row.members)
             this.sized(layer, layer.states.default.normal, where);
         const widths = row.members.map(([layer]) => layer.width || 0);
+        const heights = row.members.map(([layer]) => layer.height || 0);
         const total = widths.reduce((sum, w) => sum + w, 0) +
             row.spacing * (row.members.length - 1);
-        let x = row.x - Math.trunc(total / 2);
+        const rowHeight = Math.max(0, ...heights);
+        const xd = this.canvasWidth ? row.x / this.canvasWidth : 0;
+        const yd = this.canvasHeight ? row.y / this.canvasHeight : 0;
+        let x = Math.round(xd * (this.canvasWidth - total));
+        const y = Math.round(yd * (this.canvasHeight - rowHeight));
         row.members.forEach(([layer], i) => {
             layer.x = x;
-            layer.y = row.y - (layer.height || 0);
+            layer.y = y;
             x += widths[i] + row.spacing;
         });
     }
@@ -666,6 +676,8 @@ class Porter {
             throw new Error('the skin has no usable width/height, and 1.7 exits ' +
                 'on that rather than guessing');
         }
+        this.canvasWidth = width;
+        this.canvasHeight = height;
 
         const layers = [];
         skin.children.forEach((node, n) => {

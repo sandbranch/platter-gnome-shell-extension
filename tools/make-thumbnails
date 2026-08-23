@@ -42,6 +42,10 @@ WIDTH = 320
 QUALITY = "82"
 # Sources in the order we prefer them: the author's own screenshot first.
 SOURCES = ("screenshot.png", "screenshot.jpg", "preview.png")
+# A screenshot is only preferred because it's usually more honest than our own
+# placeholder render - not here: the author's screenshot is over a desert
+# wallpaper with a giant watermark bleeding through the text.
+FORCE_PREVIEW = {"shiki-cd-case-1-2"}
 # Warm grey, matching the docs site's --tile-bg: better than white behind a
 # translucent or drop-shadowed widget, still neutral enough for any theme.
 BACKGROUND = 0xe6dfd0ff
@@ -62,11 +66,13 @@ CROPS = {
     "simpleone-v2": (0, 4, 225, 129),
     "simpleone-v2-2": (0, 4, 226, 129),
     "simpleone-v2-3": (0, 4, 147, 160),
+    "shiki-cd-case-1-2": (790, 40, 1120, 265),
 }
 
 
 def source_for(theme: pathlib.Path) -> pathlib.Path | None:
-    for name in SOURCES:
+    names = ("preview.png",) if theme.name in FORCE_PREVIEW else SOURCES
+    for name in names:
         found = theme / name
         if found.is_file():
             return found

@@ -105,8 +105,15 @@ export const PlayerWatcher = GObject.registerClass({
         this._pick();
     }
 
+    /** The chosen entry, looked up live rather than a point-in-time copy -
+     * a copy went stale the moment anything replaced entry.track without
+     * going through _pick() again. */
+    _entry() {
+        return this._current ? this._players.get(this._current) : null;
+    }
+
     get track() {
-        return this._current?.track ?? {...EMPTY_TRACK};
+        return this._entry()?.track ?? {...EMPTY_TRACK};
     }
 
     get players() {
@@ -137,7 +144,11 @@ export const PlayerWatcher = GObject.registerClass({
                 try {
                     entry.proxy = Gio.DBusProxy.new_finish(res);
                 } catch (e) {
+                    // Unlike _removePlayer, nothing else re-picks after this, so
+                    // a proxy that never resolves used to leave _current
+                    // pointing at an entry no longer in _players.
                     this._players.delete(busName);
+                    this._pick();
                     return;
                 }
                 entry.proxy.connect('g-properties-changed', () => this._refresh(busName));
@@ -157,7 +168,7 @@ export const PlayerWatcher = GObject.registerClass({
 
     _removePlayer(busName) {
         this._players.delete(busName);
-        if (this._current?.busName === busName)
+        if (this._current === busName)
             this._current = null;
         this._pick();
     }
@@ -184,11 +195,23 @@ export const PlayerWatcher = GObject.registerClass({
             // and what gets stored is whatever the prefs list showed. Matching
             // those case-sensitively made the setting quietly inert.
             const want = this._preferred.toLowerCase();
-            for (const [busName, entry] of this._players) {
+            for (const busName of this._players.keys()) {
                 if (busName.slice(MPRIS_PREFIX.length).toLowerCase().startsWith(want))
-                    chosen = {busName, ...entry};
+                    chosen = busName;
             }
         }
+
+        // Without a preferred player, stay on whoever is already chosen
+        // unless it disappeared or something else actually started playing -
+        // otherwise a player that pauses (rank frozen at its last "seen") can
+        // still lose the pick to some other idle player that merely ranks
+        // higher, flickering the widget between two things nobody is playing.
+        if (!chosen && this._current && this._players.has(this._current)) {
+            const anyPlaying = [...this._players.values()].some(e => e.track.status === 'Playing');
+            if (this._entry().track.status === 'Playing' || !anyPlaying)
+                chosen = this._current;
+        }
+
         if (!chosen) {
             let best = -1;
             for (const [busName, entry] of this._players) {
@@ -196,7 +219,7 @@ export const PlayerWatcher = GObject.registerClass({
                     ? entry.seen + 1e15 : entry.seen;
                 if (rank > best) {
                     best = rank;
-                    chosen = {busName, ...entry};
+                    chosen = busName;
                 }
             }
         }
@@ -207,7 +230,7 @@ export const PlayerWatcher = GObject.registerClass({
 
     /** Position is not signalled, so it has to be asked for while playing. */
     _schedulePolling() {
-        const playing = this._current?.track.status === 'Playing';
+        const playing = this._entry()?.track.status === 'Playing';
         if (playing && !this._pollId) {
             this._pollId = GLib.timeout_add_seconds(GLib.PRIORITY_DEFAULT, 1, () => {
                 this._readPosition();
@@ -225,10 +248,11 @@ export const PlayerWatcher = GObject.registerClass({
      * wherever the track happened to be when the widget appeared. It has to be
      * asked for over the wire, every tick, which is what the poll is for. */
     _readPosition() {
-        const entry = this._current;
+        const busName = this._current;
+        const entry = this._entry();
         if (!entry?.proxy)
             return;
-        this._bus.call(entry.busName, OBJECT_PATH,
+        this._bus.call(busName, OBJECT_PATH,
             'org.freedesktop.DBus.Properties', 'Get',
             new GLib.Variant('(ss)', [PLAYER_IFACE, 'Position']),
             new GLib.VariantType('(v)'), Gio.DBusCallFlags.NONE, 1000, null,
@@ -240,7 +264,10 @@ export const PlayerWatcher = GObject.registerClass({
                 } catch (e) {
                     return;   // withdrawn mid-poll; the next tick will retry
                 }
-                const track = this._current?.track;
+                // The current pick may have moved on while this call was in
+                // flight - write the position onto whichever entry it was
+                // actually asked of, not whatever is chosen now.
+                const track = this._players.get(busName)?.track;
                 if (!track)
                     return;
                 track.positionUs = us;
@@ -256,7 +283,7 @@ export const PlayerWatcher = GObject.registerClass({
     }
 
     invoke(method) {
-        const proxy = this._current?.proxy;
+        const proxy = this._entry()?.proxy;
         if (!proxy) {
             log(`Platter: nothing to send ${method} to`);
             return;

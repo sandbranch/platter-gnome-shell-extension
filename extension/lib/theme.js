@@ -7,8 +7,14 @@
 
 import Gio from 'gi://Gio';
 import GLib from 'gi://GLib';
+import GdkPixbuf from 'gi://GdkPixbuf';
+import Rsvg from 'gi://Rsvg';
+
+const cairo = imports.cairo;
 
 export const FORMAT = 'platter-theme/0';
+
+const RASTER_CACHE_ROOT = GLib.build_filenamev([GLib.get_user_cache_dir(), 'platter', 'raster']);
 
 const LAYER_TYPES = new Set(['image', 'artwork', 'text', 'rating', 'button', 'seekbar']);
 
@@ -110,4 +116,68 @@ export function asset(theme, name) {
         return null;
     const path = GLib.build_filenamev([theme.path, name]);
     return GLib.file_test(path, GLib.FileTest.EXISTS) ? path : null;
+}
+
+/* scale is a Clutter actor transform by default: the widget is drawn at its
+ * native size and the result stretched, so a scaled theme is a resampled
+ * bitmap - twice, for raster assets, since background-size: contain already
+ * resampled once. This renders each asset directly at the size it will
+ * actually be shown at instead: SVGs go through Rsvg/cairo at the target
+ * pixel size rather than being upscaled from a native-size raster, and PNGs
+ * are resampled once instead of twice. Renders are cached on disk keyed by
+ * theme path, asset name and scale, since a theme's assets do not change
+ * between tracks. */
+export function assetAtScale(theme, name, scale) {
+    const path = asset(theme, name);
+    if (!path || !scale || Math.abs(scale - 1) < 0.01)
+        return path;
+
+    const cacheDir = GLib.build_filenamev(
+        [RASTER_CACHE_ROOT, GLib.compute_checksum_for_string(GLib.ChecksumType.SHA256, theme.path, -1).slice(0, 16)]);
+    const cachePath = GLib.build_filenamev([cacheDir, `${name.replace(/[/\\]/g, '_')}@${scale}x.png`]);
+
+    if (isFresh(cachePath, path))
+        return cachePath;
+
+    try {
+        GLib.mkdir_with_parents(cacheDir, 0o755);
+        if (path.toLowerCase().endsWith('.svg'))
+            rasterizeSvg(path, cachePath, scale);
+        else
+            rasterizeRaster(path, cachePath, scale);
+        return cachePath;
+    } catch (e) {
+        logError(e, `Platter: could not rasterize ${path} at ${scale}x`);
+        return path;   // native size beats no image at all
+    }
+}
+
+function isFresh(cachePath, sourcePath) {
+    try {
+        const mtime = f => Gio.File.new_for_path(f)
+            .query_info('time::modified', Gio.FileQueryInfoFlags.NONE, null)
+            .get_modification_date_time();
+        return mtime(cachePath).compare(mtime(sourcePath)) >= 0;
+    } catch (e) {
+        return false;   // no cache yet, or it was removed from under us
+    }
+}
+
+function rasterizeSvg(path, outPath, scale) {
+    const handle = Rsvg.Handle.new_from_file(path);
+    const dim = handle.get_dimensions();
+    const w = Math.max(1, Math.round(dim.width * scale));
+    const h = Math.max(1, Math.round(dim.height * scale));
+    const surface = new cairo.ImageSurface(cairo.Format.ARGB32, w, h);
+    const cr = new cairo.Context(surface);
+    cr.scale(w / dim.width, h / dim.height);
+    handle.render_cairo(cr);
+    surface.writeToPNG(outPath);
+}
+
+function rasterizeRaster(path, outPath, scale) {
+    const [, width, height] = GdkPixbuf.Pixbuf.get_file_info(path);
+    const w = Math.max(1, Math.round(width * scale));
+    const h = Math.max(1, Math.round(height * scale));
+    GdkPixbuf.Pixbuf.new_from_file_at_scale(path, w, h, false).savev(outPath, 'png', [], []);
 }

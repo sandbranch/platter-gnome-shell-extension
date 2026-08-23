@@ -26,7 +26,7 @@ export default class PlatterExtension extends Extension {
             'changed::position-x', () => this._position(),
             'changed::position-y', () => this._position(),
             'changed::anchor', () => this._position(),
-            'changed::scale', () => this._applyScale(),
+            'changed::scale', () => this._rebuild(),
             'changed::opacity', () => this._applyOpacity(),
             'changed::preferred-player',
             () => this._watcher.setPreferred(this._settings.get_string('preferred-player')),
@@ -85,7 +85,7 @@ export default class PlatterExtension extends Extension {
         if (!theme)
             return;   // load() has already said why
 
-        this._widget = new PlatterWidget(theme);
+        this._widget = new PlatterWidget(theme, this._settings.get_double('scale'));
         this._widget.connect('action', (widget, action) => this._act(action));
         this._addDragging();
 
@@ -104,7 +104,6 @@ export default class PlatterExtension extends Extension {
             Main.layoutManager.trackChrome(this._widget);
         }
 
-        this._applyScale();
         this._applyOpacity();
         this._position();
         this._update();
@@ -136,12 +135,6 @@ export default class PlatterExtension extends Extension {
         this._widget.visible = !hide;
     }
 
-    _applyScale() {
-        const scale = this._settings.get_double('scale');
-        this._widget?.set_scale(scale, scale);
-        this._position();   // scaling moves an anchored widget's far edge
-    }
-
     _applyOpacity() {
         if (this._widget)
             this._widget.opacity = Math.round(this._settings.get_double('opacity') * 255);
@@ -164,8 +157,7 @@ export default class PlatterExtension extends Extension {
             return;
 
         const anchor = this._settings.get_string('anchor');
-        const scale = this._settings.get_double('scale');
-        const [width, height] = [this._widget.width * scale, this._widget.height * scale];
+        const [width, height] = [this._widget.width, this._widget.height];
         const dx = this._settings.get_int('position-x');
         const dy = this._settings.get_int('position-y');
 
@@ -221,8 +213,7 @@ export default class PlatterExtension extends Extension {
             // Store where it landed as a distance from its anchor corner, so
             // dropping it near an edge keeps it near that edge for good.
             const anchor = this._settings.get_string('anchor');
-            const scale = this._settings.get_double('scale');
-            const [width, height] = [widget.width * scale, widget.height * scale];
+            const [width, height] = [widget.width, widget.height];
             const [x, y] = widget.get_position();
             this._settings.set_int('position-x', Math.round(anchor.endsWith('right')
                 ? monitor.x + monitor.width - width - x : x - monitor.x));

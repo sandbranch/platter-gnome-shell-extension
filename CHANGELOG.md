@@ -20,25 +20,37 @@ First release.
 - Preferences for placement, monitor, anchor corner, scale, opacity, and which
   player to follow.
 - `docs/making-themes.md`, a guide to writing and porting themes.
+- Scale-aware rendering: layer geometry and font sizes are multiplied by
+  `scale` and assets are rasterised at that target size — SVGs rendered
+  directly via Rsvg/cairo instead of upscaled from a native-size raster, PNGs
+  resampled once instead of twice — rather than stretching the whole widget
+  as a Clutter actor transform.
+- `rating` layers draw their stars, text `shadow` is painted, and button
+  `pressed` states are used when a theme declares them.
 
 ### Known gaps
 
-`rating` layers are positioned but draw no stars yet. `reflect`, `mask`, text
-`shadow`, `valign`, scrolling text and button `pressed` states are carried
-through conversion and stored, but not painted. `docs/making-themes.md` lists
-them so nobody wastes an evening on one.
+`reflect`, `mask`, `valign` and scrolling text are carried through conversion
+and stored, but not painted. `docs/making-themes.md` lists them so nobody
+wastes an evening on one.
 
 ### Later
-
-**Scale-aware rendering.** `scale` is currently a Clutter actor transform:
-the widget is drawn at its native size and the result is stretched, so a scaled
-theme is a resampled bitmap. SVG assets are already supported end to end — the
-porter measures them with librsvg and six shipped themes use them — but they
-gain nothing from it, because they are rasterised at native size before the
-transform applies. Multiplying layer geometry by the scale and loading assets
-at that size instead would make SVG themes genuinely resolution-independent,
-and would resample raster themes once rather than twice.
 
 **Other now-playing apps of the same era** — Bowtie, CD Art Display, Rainmeter —
 whose skins were widely cross-ported with CoverGloobus's. The format was
 designed not to preclude it.
+
+**Clickable buttons in desktop placement.** `desktop` placement draws the
+widget in `Main.layoutManager._backgroundGroup`, a layer modern Mutter/Shell
+excludes from input routing entirely — buttons there are dead regardless of
+whether anything covers the widget, confirmed empirically on Shell 50.1, and
+there is no supported flag left to opt an actor back in (the old
+`affectsInputRegion` chrome-tracking hook is gone). Desktop Icons NG works
+around the same wall by not drawing inside the shell process at all: it
+launches its own window and re-lowers it to the bottom of the stack every time
+something tries to raise it, so it gets real input as a genuine client
+surface rather than a shell actor. Giving desktop placement working buttons
+would mean the same move — a windowed surface instead of a `_backgroundGroup`
+actor, plus the raise-and-relower dance DING needs — which is a real
+rearchitecture, not a tweak, so it stays a later idea rather than something
+this release blocks on.

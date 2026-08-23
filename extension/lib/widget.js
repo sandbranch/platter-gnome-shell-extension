@@ -29,14 +29,14 @@ function cssColour(hex) {
     return `rgba(${r},${g},${b},${(a / 255).toFixed(3)})`;
 }
 
-function fontStyle(font) {
+function fontStyle(font, scale) {
     if (!font)
         return '';
     const parts = [];
     if (font.family)
         parts.push(`font-family: "${font.family}";`);
     if (font.size)
-        parts.push(`font-size: ${font.size}pt;`);
+        parts.push(`font-size: ${font.size * scale}pt;`);
     if (font.weight === 'bold')
         parts.push('font-weight: bold;');
     if (font.style && font.style !== 'normal')
@@ -59,15 +59,16 @@ function roundStyle(radius) {
 export const PlatterWidget = GObject.registerClass({
     Signals: {'action': {param_types: [GObject.TYPE_STRING]}},
 }, class PlatterWidget extends St.Widget {
-    constructor(theme) {
+    constructor(theme, scale = 1) {
         super({
             layout_manager: new Clutter.FixedLayout(),
-            width: theme.canvas.width,
-            height: theme.canvas.height,
+            width: theme.canvas.width * scale,
+            height: theme.canvas.height * scale,
             reactive: true,
             style_class: 'platter-widget',
         });
         this._theme = theme;
+        this._scale = scale;
         this._texts = [];
         this._artwork = [];
         this._seekbars = [];
@@ -84,11 +85,11 @@ export const PlatterWidget = GObject.registerClass({
     }
 
     _place(actor, layer) {
-        actor.set_position(layer.x, layer.y);
+        actor.set_position(layer.x * this._scale, layer.y * this._scale);
         if (layer.width)
-            actor.set_width(layer.width);
+            actor.set_width(layer.width * this._scale);
         if (layer.height)
-            actor.set_height(layer.height);
+            actor.set_height(layer.height * this._scale);
         actor._visibleWhen = layer.visible || 'always';
         this.add_child(actor);
         return actor;
@@ -97,9 +98,9 @@ export const PlatterWidget = GObject.registerClass({
     _build(layer) {
         switch (layer.type) {
         case 'image': {
-            const path = Theme.asset(this._theme, layer.src);
+            const path = Theme.assetAtScale(this._theme, layer.src, this._scale);
             const bin = new St.Bin({
-                style: `${backgroundStyle(path)} ${roundStyle(layer.round)}`,
+                style: `${backgroundStyle(path)} ${roundStyle((layer.round || 0) * this._scale)}`,
             });
             if (typeof layer.opacity === 'number')
                 bin.opacity = Math.round(layer.opacity * 255);
@@ -109,16 +110,20 @@ export const PlatterWidget = GObject.registerClass({
         case 'artwork': {
             const bin = new St.Bin({
                 style_class: 'platter-artwork',
-                style: roundStyle(layer.round),
+                style: roundStyle((layer.round || 0) * this._scale),
             });
-            bin._round = layer.round;
+            bin._round = (layer.round || 0) * this._scale;
             this._place(bin, layer);
             this._artwork.push(bin);
             break;
         }
         case 'text': {
+            const shadow = layer.shadow
+                ? `text-shadow: ${(layer.shadow.dx || 0) * this._scale}px ` +
+                    `${(layer.shadow.dy || 0) * this._scale}px 0px ${cssColour(layer.shadow.color)};`
+                : '';
             const label = new St.Label({
-                style: `${fontStyle(layer.font)} color: ${cssColour(layer.color)};`,
+                style: `${fontStyle(layer.font, this._scale)} color: ${cssColour(layer.color)}; ${shadow}`,
             });
             label.clutter_text.set_line_wrap(!!layer.wrap);
             label.clutter_text.set_ellipsize(
@@ -137,61 +142,90 @@ export const PlatterWidget = GObject.registerClass({
             break;
         }
         case 'seekbar': {
+            const width = layer.width * this._scale, height = layer.height * this._scale;
             const group = new St.Widget({layout_manager: new Clutter.FixedLayout()});
             const back = new St.Bin({
-                style: backgroundStyle(Theme.asset(this._theme, layer.back)),
-                width: layer.width, height: layer.height,
+                style: backgroundStyle(Theme.assetAtScale(this._theme, layer.back, this._scale)),
+                width, height,
             });
             const fill = new St.Bin({
-                style: backgroundStyle(Theme.asset(this._theme, layer.fill)),
-                height: layer.height,
+                style: backgroundStyle(Theme.assetAtScale(this._theme, layer.fill, this._scale)),
+                height,
             });
             // The fill asset must not squash as it grows, so it keeps the full
             // width and the group clips it - which is what "progress" looks like.
-            fill.set_width(layer.width);
+            fill.set_width(width);
             const clip = new St.Widget({
                 layout_manager: new Clutter.FixedLayout(),
-                width: 0, height: layer.height, clip_to_allocation: true,
+                width: 0, height, clip_to_allocation: true,
             });
             clip.add_child(fill);
             group.add_child(back);
             group.add_child(clip);
             this._place(group, layer);
-            this._seekbars.push({clip, full: layer.width});
+            this._seekbars.push({clip, full: width});
             break;
         }
         case 'button': {
             const states = layer.states || {};
             const button = new St.Button({
-                style: backgroundStyle(Theme.asset(this._theme,
-                    states.default?.normal)),
+                style: backgroundStyle(Theme.assetAtScale(this._theme,
+                    states.default?.normal, this._scale)),
                 reactive: true, can_focus: true, track_hover: true,
             });
             button._states = states;
             button._action = layer.action;
             button.connect('notify::hover', () => this._paintButton(button));
+            button.connect('notify::pressed', () => this._paintButton(button));
             button.connect('clicked', () => this.emit('action', layer.action));
             this._place(button, layer);
             this._buttons.push(button);
             break;
         }
         case 'rating': {
-            const group = new St.BoxLayout({style_class: 'platter-rating'});
-            group._layer = layer;
-            this._place(group, layer);
-            this._rating = group;
+            // width/height/spacing are per-star, not the group's own box, so
+            // this bypasses _place() rather than have it squash the row to
+            // one star's width.
+            const box = new Clutter.BoxLayout({
+                orientation: layer.direction === 'vertical'
+                    ? Clutter.Orientation.VERTICAL : Clutter.Orientation.HORIZONTAL,
+                spacing: Math.round((layer.spacing || 0) * this._scale),
+            });
+            const group = new St.Widget({layout_manager: box, style_class: 'platter-rating'});
+            group.set_position(layer.x * this._scale, layer.y * this._scale);
+            group._visibleWhen = layer.visible || 'always';
+            this.add_child(group);
+
+            const stars = [];
+            for (let i = 0; i < 5; i++) {
+                const star = new St.Bin({
+                    width: layer.width * this._scale, height: layer.height * this._scale,
+                });
+                group.add_child(star);
+                stars.push(star);
+            }
+            this._rating = {
+                stars,
+                full: Theme.assetAtScale(this._theme, layer.star, this._scale),
+                empty: Theme.assetAtScale(this._theme, layer.empty, this._scale),
+            };
             break;
         }
         }
     }
 
     _paintButton(button) {
-        const set = (button._action === 'play_pause' && this._playing && button._states.playing)
-            ? button._states.playing : button._states.default;
-        if (!set)
-            return;
-        const name = (button.hover && set.hover) ? set.hover : set.normal;
-        button.set_style(backgroundStyle(Theme.asset(this._theme, name)));
+        const def = button._states.default || {};
+        // A theme's "playing" state is a per-field override of "default", not a
+        // replacement - many ported themes declare it as {normal: null, ...} to
+        // mean "no distinct look while playing, keep showing the default icon",
+        // and picking the object wholesale painted that null as no icon at all.
+        const playing = button._action === 'play_pause' && this._playing
+            ? button._states.playing : null;
+        const pick = field => (playing && playing[field]) || def[field];
+        const name = (button.pressed && pick('pressed')) ? pick('pressed')
+            : (button.hover && pick('hover')) ? pick('hover') : pick('normal');
+        button.set_style(backgroundStyle(Theme.assetAtScale(this._theme, name, this._scale)));
     }
 
     /** Point the widget at a track. Called on every MPRIS change. */
@@ -224,5 +258,11 @@ export const PlatterWidget = GObject.registerClass({
 
         for (const button of this._buttons)
             this._paintButton(button);
+
+        if (this._rating) {
+            const {stars, full, empty} = this._rating;
+            const filled = Math.max(0, Math.min(5, track.rating || 0));
+            stars.forEach((bin, i) => bin.set_style(backgroundStyle(i < filled ? full : empty)));
+        }
     }
 });

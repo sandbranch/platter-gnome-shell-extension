@@ -150,13 +150,10 @@ today. Worth knowing before you spend an evening on a reflection.
 
 | Field | Where | Status |
 | --- | --- | --- |
-| `rating` layers | — | Positioned but **no stars drawn yet** |
 | `reflect` | `image`, `artwork` | Not drawn — no St equivalent |
 | `mask` | `image` | Not drawn — no St equivalent |
-| `shadow` | `text` | Not drawn |
 | `valign` | `text` | Not applied; `align` works |
 | `overflow.mode: "scroll"` | `text` | Falls back to no ellipsis |
-| `pressed` state | `button` | Only `normal` and `hover` are used |
 
 ## Testing what you have made
 

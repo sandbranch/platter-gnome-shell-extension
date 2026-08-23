@@ -67,6 +67,19 @@ The smallest theme that works:
 }
 ```
 
+Here's what that kind of layer list turns into on screen — this is
+`gloobus-plain-simple`, one of Platter's own shipped themes, with every layer
+it declares outlined and labelled against the actual render:
+
+![gloobus-plain-simple with every layer boxed and labelled](images/gloobus-plain-simple-layers.png)
+
+Same idea as the snippet above, just with one of each layer type instead of
+two: a background `image`, an `artwork` box for the cover, three `text`
+layers bound to `title`/`artist`/`album`, a `rating`, and three `button`s. The
+theme's whole `theme.json` is right there in
+[`extension/themes/gloobus-plain-simple/`](../extension/themes/gloobus-plain-simple/theme.json)
+if you want to see the numbers that produced those exact boxes.
+
 Things worth knowing before you start:
 
 - **`canvas` is a fixed pixel canvas** and every layer is positioned absolutely
@@ -90,7 +103,15 @@ Things worth knowing before you start:
 ```
 Leave out `width`/`height` and Platter reads them off the file. `round` gives
 rounded corners in pixels. `visible` is `always` (default), `playing`, or
-`stopped` — which is how you show a placeholder only when nothing is on.
+`stopped` — which is how you show a placeholder only when nothing is on:
+
+![The same theme playing, with real art, next to it stopped, showing the nocover placeholder instead](images/gloobus-plain-simple-states.png)
+
+`gloobus-plain-simple` gets this by layering a `"visible": "stopped"` image
+(a plain music-note icon) directly underneath its `artwork` layer. When
+something's playing, the `artwork` layer draws over it and the icon never
+shows; when nothing is, `artwork` has nothing to draw and the icon underneath
+is all that's left to see.
 
 ### `artwork` — the album cover
 ```json

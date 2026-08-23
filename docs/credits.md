@@ -24,7 +24,7 @@ beside it is the only thank-you this project has left to give its author.
 
 ## The people who made them
 
-[73ll0](https://www.deviantart.com/www) (2) · [Aaron (awhite92)](https://www.deviantart.com/www) (1) · [aaron-a-arts](https://www.deviantart.com/www) (3) · alespana (1) · [Alex Almeida (arcanamoon)](https://www.deviantart.com/www) (7) · [alezzacreative (MUSTAPHA ASBBAR)](https://www.deviantart.com/www) (7) · [Algalord-Gnome](https://www.deviantart.com/www) (1) · [artbhatta](https://www.deviantart.com/www) (1) · [arturoilhuitemoc (Ihuitemoc)](https://www.deviantart.com/www) (1) · cowanh00 (modification); NowPlaying screenlet by magicrobomonkey, extended by vrunner (1) · [d0od](https://www.deviantart.com/www) (1) · [d0od + Kshegyaj](https://www.deviantart.com/www) (4) · DJD (DJDP) (1) · [gabriela2400](https://www.deviantart.com/www) (8) · Giorgi "DrAcid" Maghlakelidze (1) · idroy (2) · [jivebs](https://www.deviantart.com/www) (5) · Jordi Puigdellivol Hernandez (BadChoice) (3) · kzkggaara (1) · [larryni](https://www.deviantart.com/www) (3) · Laurent Baumann (1) · [leonardomdq](https://www.deviantart.com/www) (10) · [liliumcruentus](https://www.deviantart.com/www) (3) · [Nerten](https://www.deviantart.com/www) (1) · NowPlaying screenlet (magicrobomonkey, vrunner) (14) · noyth (1) · [orsobasso](https://www.deviantart.com/www) (1) · paran0idx (3) · Platter (2) · [rabra](https://www.deviantart.com/www) (1) · raizon1 (1) · [rikarud0](https://www.deviantart.com/www) (1) · [scherezada](https://www.deviantart.com/www) (1) · slaytanicdude (1) · sosoinlove (2) · [speedracker (uploader)](https://www.deviantart.com/www) (1) · [taylantatli](https://www.deviantart.com/www) (1) · [theconso](https://www.deviantart.com/www) (3) · Theconso (1) · tiz-huglife (1) · [Twentyeight-Ten](https://www.deviantart.com/www) (2) · [xegi90](https://www.deviantart.com/www) (3) · Author unrecorded (16)
+[73ll0](https://www.deviantart.com/www) (2) · [Aaron (awhite92)](https://www.deviantart.com/www) (1) · [aaron-a-arts](https://www.deviantart.com/www) (3) · alespana (1) · [Alex Almeida (arcanamoon)](https://www.deviantart.com/www) (7) · [alezzacreative (MUSTAPHA ASBBAR)](https://www.deviantart.com/www) (7) · [Algalord-Gnome](https://www.deviantart.com/www) (1) · [artbhatta](https://www.deviantart.com/www) (1) · [arturoilhuitemoc (Ihuitemoc)](https://www.deviantart.com/www) (1) · cowanh00 (modification); NowPlaying screenlet by magicrobomonkey, extended by vrunner (1) · [d0od](https://www.deviantart.com/www) (2) · [d0od + Kshegyaj](https://www.deviantart.com/www) (4) · DJD (DJDP) (1) · [gabriela2400](https://www.deviantart.com/www) (8) · Giorgi "DrAcid" Maghlakelidze (1) · idroy (2) · [jivebs](https://www.deviantart.com/www) (5) · Jordi Puigdellivol Hernandez (BadChoice) (12) · kzkggaara (1) · [larryni](https://www.deviantart.com/www) (3) · Laurent Baumann (1) · [leonardomdq](https://www.deviantart.com/www) (10) · [liliumcruentus](https://www.deviantart.com/www) (3) · [Nerten](https://www.deviantart.com/www) (1) · NowPlaying screenlet (magicrobomonkey, vrunner) (14) · noyth (1) · [orsobasso](https://www.deviantart.com/www) (1) · paran0idx (3) · Platter (2) · [rabra](https://www.deviantart.com/www) (1) · raizon1 (1) · [rikarud0](https://www.deviantart.com/www) (1) · [scherezada](https://www.deviantart.com/www) (1) · slaytanicdude (1) · sosoinlove (2) · [speedracker (uploader)](https://www.deviantart.com/www) (1) · [taylantatli](https://www.deviantart.com/www) (1) · [theconso](https://www.deviantart.com/www) (3) · Theconso (1) · tiz-huglife (1) · [Twentyeight-Ten](https://www.deviantart.com/www) (2) · [xegi90](https://www.deviantart.com/www) (3) · Author unrecorded (6)
 
 ## All 125 themes
 
@@ -139,21 +139,21 @@ beside it is the only thank-you this project has left to give its author.
 |  | Bent Edge | xegi90 | CoverGloobus | all rights reserved | [link](https://www.deviantart.com/xegi90/art/Bent-Edge-for-CoverGloobus-179655537) |
 |  | Bent Edge Tape | xegi90 | CoverGloobus | all rights reserved | [link](https://www.deviantart.com/xegi90/art/Bent-Edge-for-CoverGloobus-179655537) |
 |  | Slick | xegi90 | CoverGloobus | all rights reserved | [link](https://www.deviantart.com/xegi90/art/SLICK-for-CoverGloobus-178428865) |
-| ✔ | 45 Controls | *unrecorded* | CoverGloobus | GPL-3.0 | [link](https://launchpad.net/covergloobus) |
-| ✔ | Corner | *unrecorded* | NowPlaying | GPL-3.0 | [link](https://launchpad.net/covergloobus) |
+| ✔ | 45 Controls | Jordi Puigdellivol Hernandez (BadChoice) | CoverGloobus | GPL-3.0 | [link](https://launchpad.net/covergloobus) |
+| ✔ | Corner | Jordi Puigdellivol Hernandez (BadChoice) | NowPlaying | GPL-3.0 | [link](https://launchpad.net/covergloobus) |
 |  | Corner (4-corner pack) | *unrecorded* | NowPlaying | not stated | [link](https://www.gnome-look.org/p/144317/) |
 |  | Bitmap Ambiance | *unrecorded* | CoverGloobus | not stated | [link](https://www.gnome-look.org/p/128112/) |
 |  | Bitmap Ambiance (gaara variant) | kzkggaara | CoverGloobus | not stated | [link](https://www.gnome-look.org/p/137386/) |
-| ✔ | Coversutra | *unrecorded* | CoverGloobus | GPL-3.0 | [link](https://launchpad.net/covergloobus) |
-| ✔ | dirty | *unrecorded* | CoverGloobus | GPL-3.0 | [link](https://launchpad.net/covergloobus) |
-| ✔ | intrepid-ibex-mockup by d0od | *unrecorded* | CoverGloobus | GPL-3.0 | [link](https://launchpad.net/covergloobus) |
-| ✔ | Lucid-dark | *unrecorded* | CoverGloobus | GPL-3.0 | [link](https://launchpad.net/covergloobus) |
+| ✔ | Coversutra | Jordi Puigdellivol Hernandez (BadChoice) | CoverGloobus | GPL-3.0 | [link](https://launchpad.net/covergloobus) |
+| ✔ | dirty | Jordi Puigdellivol Hernandez (BadChoice) | CoverGloobus | GPL-3.0 | [link](https://launchpad.net/covergloobus) |
+| ✔ | intrepid-ibex-mockup by d0od | d0od | CoverGloobus | GPL-3.0 | [link](https://launchpad.net/covergloobus) |
+| ✔ | Lucid-dark | Jordi Puigdellivol Hernandez (BadChoice) | CoverGloobus | GPL-3.0 | [link](https://launchpad.net/covergloobus) |
 |  | Panel | *unrecorded* | CoverGloobus | Pling licensetype-1 (unconfirmed) | [link](https://www.gnome-look.org/p/1111078/) |
 | ✔ | Photo | Giorgi "DrAcid" Maghlakelidze | CoverGloobus | attribution-required | [link](https://www.xfce-look.org/p/1110988/) |
-| ✔ | polaroid | *unrecorded* | CoverGloobus | GPL-3.0 | [link](https://launchpad.net/covergloobus) |
-| ✔ | Postcard | *unrecorded* | CoverGloobus | GPL-3.0 | [link](https://launchpad.net/covergloobus) |
-| ✔ | Postcard | *unrecorded* | CoverGloobus | GPL-3.0 | [link](https://launchpad.net/covergloobus) |
-| ✔ | simple | *unrecorded* | CoverGloobus | GPL-3.0 | [link](https://launchpad.net/covergloobus) |
+| ✔ | polaroid | Jordi Puigdellivol Hernandez (BadChoice) | CoverGloobus | GPL-3.0 | [link](https://launchpad.net/covergloobus) |
+| ✔ | Postcard | Jordi Puigdellivol Hernandez (BadChoice) | CoverGloobus | GPL-3.0 | [link](https://launchpad.net/covergloobus) |
+| ✔ | Postcard | Jordi Puigdellivol Hernandez (BadChoice) | CoverGloobus | GPL-3.0 | [link](https://launchpad.net/covergloobus) |
+| ✔ | simple | Jordi Puigdellivol Hernandez (BadChoice) | CoverGloobus | GPL-3.0 | [link](https://launchpad.net/covergloobus) |
 |  | simple | *unrecorded* | CoverGloobus | Pling licensetype-1 (unconfirmed) | [link](https://www.gnome-look.org/p/1110965/) |
 |  | Sphere | *unrecorded* | CoverGloobus | Pling licensetype-1 (unconfirmed) | [link](https://www.gnome-look.org/p/1111161/) |
 | ✔ | T-tip | *unrecorded* | CoverGloobus | GPL-3.0 | [link](https://github.com/deepin-espanol/covergloobus) |

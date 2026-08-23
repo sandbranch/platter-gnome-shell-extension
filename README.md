@@ -1,7 +1,7 @@
 # Platter
 
-<p><img src="extension/themes/cross-the-line/screenshot.png" width="420" alt="Cross The Line theme"></p>
-<table><tr>
+<p align="center"><img src="extension/themes/cross-the-line/screenshot.png" width="420" alt="Cross The Line theme"></p>
+<table align="center"><tr>
 <td><img src="extension/themes/coversutra/screenshot.png" width="205" alt="Coversutra theme"></td>
 <td><img src="extension/themes/jesse/screenshot.png" width="205" alt="Jesse theme"></td>
 </tr></table>

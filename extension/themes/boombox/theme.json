@@ -1,0 +1,59 @@
+{
+  "format": "platter-theme/0",
+  "id": "boombox",
+  "name": "Boombox",
+  "canvas": {
+    "width": 400,
+    "height": 280
+  },
+  "attribution": {
+    "author": "Platter",
+    "source_url": "",
+    "license": "CC0-1.0",
+    "license_note": "Our own artwork, dedicated to the public domain, same as platter-anno and gloobus-plain-simple.",
+    "original_app": "platter",
+    "upstream_author": null,
+    "distribution": "free"
+  },
+  "fonts": [
+    {
+      "family": "DejaVu Sans",
+      "bundled": false,
+      "reason": "present on essentially every Linux desktop; the renderer falls back to the default sans if not"
+    }
+  ],
+  "layers": [
+    { "type": "image", "src": "chassis.svg", "x": 0, "y": 0, "width": 400, "height": 280 },
+
+    { "type": "image", "src": "nocover.svg", "x": 156, "y": 78, "width": 88, "height": 76, "visible": "stopped" },
+    { "type": "artwork", "x": 156, "y": 78, "width": 88, "height": 76, "round": 4 },
+
+    { "type": "seekbar", "x": 151, "y": 49, "width": 98, "height": 14,
+      "back": "tuner-back.svg", "fill": "tuner-fill.svg" },
+
+    { "type": "button", "action": "previous", "x": 154, "y": 168, "width": 26, "height": 22,
+      "states": { "default": { "normal": "rewind.svg", "hover": "rewind_hover.svg", "pressed": null } } },
+    { "type": "button", "action": "play_pause", "x": 187, "y": 168, "width": 26, "height": 22,
+      "states": {
+        "default": { "normal": "play.svg", "hover": "play_hover.svg", "pressed": null },
+        "playing": { "normal": "pause.svg", "hover": "pause_hover.svg", "pressed": null }
+      } },
+    { "type": "button", "action": "next", "x": 220, "y": 168, "width": 26, "height": 22,
+      "states": { "default": { "normal": "forward.svg", "hover": "forward_hover.svg", "pressed": null } } },
+
+    { "type": "text", "bind": "title", "x": 48, "y": 199, "width": 304, "height": 16,
+      "font": { "family": "DejaVu Sans", "size": 13, "weight": "bold", "style": "normal" },
+      "color": "#2c2e30ff", "align": "center", "wrap": false,
+      "overflow": { "mode": "ellipsize-word", "maxchars": 26 } },
+    { "type": "text", "bind": "artist", "x": 48, "y": 217, "width": 304, "height": 12,
+      "font": { "family": "DejaVu Sans", "size": 9, "weight": "normal", "style": "normal" },
+      "color": "#4b4f52ff", "align": "center", "wrap": false,
+      "overflow": { "mode": "ellipsize-word", "maxchars": 34 } },
+    { "type": "text", "bind": "album", "x": 48, "y": 230, "width": 304, "height": 11,
+      "font": { "family": "DejaVu Sans", "size": 8, "weight": "normal", "style": "italic" },
+      "color": "#6f7479ff", "align": "center", "wrap": false,
+      "overflow": { "mode": "ellipsize-word", "maxchars": 38 } },
+
+    { "type": "image", "src": "soundwaves.svg", "x": 40, "y": 246, "width": 320, "height": 18, "visible": "playing" }
+  ]
+}

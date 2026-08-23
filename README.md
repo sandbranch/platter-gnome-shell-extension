@@ -72,7 +72,8 @@ is the first place to look.
 Bundled fonts are never copied, whatever a theme's licence says — a font
 shipping inside a theme is not evidence its author had the right to ship it.
 `theme.json` names the families a theme wants so you can install them yourself;
-[docs/fonts.md](docs/fonts.md) sets out the reasoning.
+[docs/fonts.md](docs/fonts.md) sets out the reasoning and lists where to get
+each one that's actually free to install.
 
 ## Themes and credits
 

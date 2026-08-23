@@ -3,12 +3,14 @@
 A GNOME Shell extension that puts the album art and track info of whatever is
 playing back on your desktop.
 
-Platter revives **CoverGloobus**, a Linux desktop now-playing widget from
-2009–2012 by the Gloobus Developers. It sits on the desktop behind your windows
-the way the original did, follows any MPRIS2 player, and draws itself from a
-theme rather than a fixed design. Every maintained alternative today is a
-top-bar controller with one look; the themeable desktop widget is the thing
-that went missing.
+Platter brings back **CoverGloobus**, a lovely little Linux desktop widget from
+2009–2012 that the Gloobus Developers built and the world mostly forgot. It
+sits on your desktop behind the windows, the way the original did, follows
+whatever's playing on any MPRIS2 player, and wears a different outfit for
+every mood, since it draws itself from a theme instead of one fixed look.
+Everything still maintained today lives cooped up in the top bar, one design,
+take it or leave it. The themeable desktop widget is the thing that quietly
+disappeared, and it deserved better.
 
 The name is the turntable platter — the thing the record spins on.
 
@@ -21,22 +23,40 @@ make install
 ```
 
 Then log out and back in. GNOME Shell caches extension modules for the life of
-the session, so disabling and re-enabling will keep running the old code — this
-catches everyone once.
+the session, so just disabling and re-enabling keeps running the old code — a
+rite of passage that catches everyone exactly once.
 
 Requires GNOME Shell 48, 49 or 50.
 
 ## Themes
 
-Platter ships **49 themes** (47 restored, 2 written from scratch), each with a preview in the picker —
-a list of names tells you nothing about what you are choosing. They are
-credited in [Themes and credits](#themes-and-credits) below.
+<table><tr>
+<td><img src="extension/themes/jesse/thumbnail.jpg" width="140" alt="Jesse theme"></td>
+<td><img src="extension/themes/holo/thumbnail.jpg" width="140" alt="Holo theme"></td>
+<td><img src="extension/themes/coversutra/thumbnail.jpg" width="140" alt="Coversutra theme"></td>
+<td><img src="extension/themes/mh1/thumbnail.jpg" width="140" alt="mH1 theme"></td>
+</tr><tr>
+<td><img src="extension/themes/bulles/thumbnail.jpg" width="140" alt="Bulles theme"></td>
+<td><img src="extension/themes/cross-the-line/thumbnail.jpg" width="140" alt="Cross The Line theme"></td>
+<td><img src="extension/themes/glass/thumbnail.jpg" width="140" alt="Glass theme"></td>
+<td><img src="extension/themes/platter-anno/thumbnail.jpg" width="140" alt="Anno theme"></td>
+</tr></table>
+
+**[→ Browse all 49 themes on the website](https://sandbranch.github.io/platter-gnome-shell-extension/#themes)**,
+where a picture is worth the thousand words the credits table below is about
+to spend.
+
+Platter ships **49 of them** (47 restored, 2 written from scratch), each with
+its own preview right there in the picker so you're never choosing blind off
+a list of names. Full credits live down in
+[Themes and credits](#themes-and-credits).
 
 Hundreds more were made for CoverGloobus at its peak, scattered across
-DeviantArt, gnome-look and file hosts that no longer exist. 76 more are
-catalogued below with a link to where each still lives. They are not
-redistributed here — their authors either allowed less or never said anything —
-but nothing stops **you** downloading one and converting it yourself.
+DeviantArt, gnome-look and file hosts that don't exist anymore. 76 of those
+are catalogued below too, each with a link to wherever it still lives online.
+They're not bundled here — their authors either asked for less than full reuse
+or never weighed in at all — but nothing's stopping **you** from grabbing one
+and converting it yourself in about the time it takes to read this sentence.
 
 **Preferences → Theme → Add a theme → Folder… or Archive…**
 
@@ -59,15 +79,16 @@ anything.
 
 ### What conversion actually does
 
-The converter follows what CoverGloobus 1.7's parser *did*, not what its theme
-documentation claimed; the two disagree, and the parser is what themes were
-tested against. It repairs the misspellings the corpus really contains, takes a
-missing width or height from the asset's own pixel size the way 1.7 does, and
-writes a `port.json` beside every theme saying what it repaired, what it
-measured, what it had to infer, and what it could not carry across at all.
+The converter plays by the same rules CoverGloobus 1.7's parser actually
+followed, not what its documentation claimed — the two don't agree, and every
+theme out there was tested against the parser, typos and all. So it quietly
+fixes the misspellings the corpus is riddled with, measures a missing width or
+height straight off the asset the way 1.7 did, and leaves a `port.json` beside
+every theme confessing exactly what it patched, what it measured, what it had
+to guess at, and what it just couldn't bring along.
 
-A conversion that loses something says so. If a theme looks wrong, `port.json`
-is the first place to look.
+Nothing gets lost silently. If a theme looks off, `port.json` is where it
+already told you why.
 
 Bundled fonts are never copied, whatever a theme's licence says — a font
 shipping inside a theme is not evidence its author had the right to ship it.
@@ -77,27 +98,36 @@ each one that's actually free to install.
 
 ## Themes and credits
 
-**125 themes by 43 people**, recovered from DeviantArt, gnome-look, the
-original source tarballs and personal archives. **49 ship with Platter**, marked ✔
-below. Every theme is credited with a link to where it still lives, shipped or not.
+**125 themes by 43 people**, dug up from DeviantArt, gnome-look, old source
+tarballs, and a few personal archives that never left anyone's hard drive
+until now. **49 of them ship with Platter**, marked ✔ below — but every single
+one gets a link back to wherever it still lives, shipped or not, because
+somebody made this and that's worth remembering.
 
-The ones that don't ship are held back on permission, not quality. A theme is
-only redistributed here if its author allowed both redistribution *and*
-modification, because converting a `skin.xml` is modification. Where somebody
-said less, or never said anything, it stays out — silence is not permission.
+None of the ones sitting on the sidelines are there because they're not good
+enough — plenty are gorgeous. They're sitting out because nobody's said it's
+okay yet. Turning a `skin.xml` into a Platter theme means changing it, so a
+theme only joins the party here if its author signed off on both sharing it
+*and* changing it. If an author asked for less than that, or never said
+anything either way, we leave it be — quiet isn't the same as yes.
 
-That limits this repository, not you. Download an unmarked theme from its link
-and convert it on your own machine and nothing has been redistributed by
-anyone: **Preferences → Theme → Add a theme**.
+That's a limit on this repository, not on you, though. Grab any theme from its
+link, convert it on your own machine, and nobody's redistributed a thing:
+**Preferences → Theme → Add a theme**, and it's yours to enjoy.
 
-These were made between roughly 2009 and 2012, mostly by people posting skins
-for fun. Some of those pages have not had a visitor in years. Where a theme is
-good — and many are very good — the link beside it is the only credit this
-project can give its author.
+These were made between roughly 2009 and 2012 by people posting skins purely
+because it was fun to do. Some of those pages haven't had a visitor in years.
+Where a theme is good — and honestly, a lot of them still are — the link
+beside it is the only thank-you this project has left to give its author.
 
 ### The people who made them
 
+<details>
+<summary><b>All 43</b>, and how many themes each is credited with</summary>
+
 [73ll0](https://www.deviantart.com/www) (2) · [Aaron (awhite92)](https://www.deviantart.com/www) (1) · [aaron-a-arts](https://www.deviantart.com/www) (3) · alespana (1) · [Alex Almeida (arcanamoon)](https://www.deviantart.com/www) (7) · [alezzacreative (MUSTAPHA ASBBAR)](https://www.deviantart.com/www) (7) · [Algalord-Gnome](https://www.deviantart.com/www) (1) · [artbhatta](https://www.deviantart.com/www) (1) · [arturoilhuitemoc (Ihuitemoc)](https://www.deviantart.com/www) (1) · cowanh00 (modification); NowPlaying screenlet by magicrobomonkey, extended by vrunner (1) · [d0od](https://www.deviantart.com/www) (1) · [d0od + Kshegyaj](https://www.deviantart.com/www) (4) · DJD (DJDP) (1) · [gabriela2400](https://www.deviantart.com/www) (8) · Giorgi "DrAcid" Maghlakelidze (1) · idroy (2) · [jivebs](https://www.deviantart.com/www) (5) · Jordi Puigdellivol Hernandez (BadChoice) (3) · kzkggaara (1) · [larryni](https://www.deviantart.com/www) (3) · Laurent Baumann (1) · [leonardomdq](https://www.deviantart.com/www) (10) · [liliumcruentus](https://www.deviantart.com/www) (3) · [Nerten](https://www.deviantart.com/www) (1) · NowPlaying screenlet (magicrobomonkey, vrunner) (14) · noyth (1) · [orsobasso](https://www.deviantart.com/www) (1) · paran0idx (3) · Platter (2) · [rabra](https://www.deviantart.com/www) (1) · raizon1 (1) · [rikarud0](https://www.deviantart.com/www) (1) · [scherezada](https://www.deviantart.com/www) (1) · slaytanicdude (1) · sosoinlove (2) · [speedracker (uploader)](https://www.deviantart.com/www) (1) · [taylantatli](https://www.deviantart.com/www) (1) · [theconso](https://www.deviantart.com/www) (3) · Theconso (1) · tiz-huglife (1) · [Twentyeight-Ten](https://www.deviantart.com/www) (2) · [xegi90](https://www.deviantart.com/www) (3) · Author unrecorded (16)
+
+</details>
 
 <details>
 <summary><b>All 125 themes</b> — ✔ marks the 49 that ship with Platter</summary>
@@ -234,51 +264,57 @@ project can give its author.
 
 ### Where the permissions came from
 
-Most shipped themes came from the CoverGloobus and NowPlaying source packages,
-released as GPL works — CoverGloobus ships a GPL-3.0 `COPYING` and builds each
-theme as its own `Makefile.am` target, and NowPlaying's screenlet carries a full
-GPL-2-or-later header. Neither states separate terms for the themes it bundles.
+Most shipped themes rode in on the CoverGloobus and NowPlaying source
+packages, both released as GPL works — CoverGloobus ships a GPL-3.0 `COPYING`
+and builds each theme as its own `Makefile.am` target, and NowPlaying's
+screenlet carries a full GPL-2-or-later header. Neither package says anything
+different about the themes bundled inside it.
 
-Every `skin.xml` was then read for terms its author wrote into the file itself,
-which is where most of the remaining grants turned out to live — several of them
-stated nowhere else on the web.
+From there, every `skin.xml` got read line by line for whatever its author
+wrote into the file itself — and that turned out to be where most of the real
+permissions were hiding, several of them stated nowhere else on the whole web.
 
-Two themes inside those GPL packages are deliberately **not** shipped, because
-their authors stated their own terms in their own files and bundling does not
-override a third party: DJD's **iSticky** ("do not modify or redistribute
-without written permission") and Laurent Baumann's **Vinyl** (CC BY-NC-SA).
+Two themes that technically came along in those GPL packages are still
+deliberately left out: their authors wrote their own, stricter terms right
+into their own files, and riding along in someone else's tarball doesn't
+override what a person actually asked for. DJD's **iSticky** said no
+modification or redistribution without asking first, and Laurent Baumann's
+**Vinyl** is CC BY-NC-SA — so both stay put.
 
-Bundled fonts are stripped from every theme whatever its licence says — a font
-shipping inside a theme is not evidence its author had the right to ship it.
-See [docs/fonts.md](docs/fonts.md).
+Fonts bundled inside a theme get stripped out no matter what its licence says
+— a font showing up inside someone's download isn't proof they had the right
+to put it there. The full story's in [docs/fonts.md](docs/fonts.md).
 
 ### If one of these is yours
 
-- **Say it can be shipped** and it moves into the release, credited to you.
-- **Say it should not be here at all** and it goes, no argument, no delay.
+- **Say it's fine to ship** and it moves into the release, credited to you.
+- **Say it shouldn't be here at all** and it's gone — no argument, no delay.
 
-The same applies if the credit is wrong. Much of this was pieced together from
-`skin.xml` headers and readmes written fifteen years ago, and some is certainly
-mistaken.
+Same goes if we've got your credit wrong. Most of this was pieced together
+from `skin.xml` headers and readmes written a decade and a half ago, and a few
+of them are almost certainly mistaken.
 
 ## Making a theme
 
-A theme is a folder with a `theme.json` and some images in it. There is no
-build step and no packaging — drop it in `~/.local/share/platter/themes/` and
-it shows up.
+A theme is just a folder with a `theme.json` and some pictures in it. No build
+step, no packaging, nothing to compile — drop it in
+`~/.local/share/platter/themes/` and it's already there, waiting in the picker.
 
 **[docs/making-themes.md](docs/making-themes.md)** is the guide: a worked
-example, every layer type, how to test as you go, and an honest list of what
-the format describes but the renderer does not paint yet.
+example, every layer type, how to check your work as you go, and an honest
+list of what the format can already describe that the renderer can't paint
+yet.
 
-For the reasoning behind the format rather than how to use it, see
-[docs/theme-format-v0.md](docs/theme-format-v0.md), with an enforceable schema
-in [docs/platter-theme-v0.schema.json](docs/platter-theme-v0.schema.json). It is
-grounded in 93 distinct real themes and in CoverGloobus 1.7's own parser rather
-than designed top-down.
+Curious about the reasoning behind the format rather than just how to drive
+it? See [docs/theme-format-v0.md](docs/theme-format-v0.md), backed by an
+enforceable schema in
+[docs/platter-theme-v0.schema.json](docs/platter-theme-v0.schema.json). It was
+grown out of 93 real themes and CoverGloobus 1.7's own parser, not designed on
+a whiteboard.
 
-`platter-anno` is a theme written directly in the format rather than converted,
-so it is a reasonable thing to copy and edit.
+`platter-anno` and `gloobus-plain-simple` are both written directly in the
+format rather than converted from anything, so either is a good one to
+duplicate and start bending to your own taste.
 
 ## Building from a checkout
 
@@ -291,24 +327,28 @@ make lint       run eslint, if installed
 make help       everything else
 ```
 
-`tools/make-thumbnails` regenerates the previews in the theme picker after
-adding a theme. They are committed rather than built at pack time, so everyone
-sees the same ones.
+`tools/make-thumbnails` regenerates the previews in the theme picker whenever
+a theme's added or changed. They're committed rather than built at pack time,
+so everyone browsing the picker sees exactly the same pictures you do.
 
 Themes keep their author's full-size screenshot in the repository, but the
-bundle carries only the 320px preview: extensions.gnome.org will not accept a
-bundle over 5MB, and the full-size images were more than half of it. `make
-pack` stages that copy for you.
+shipped bundle only carries the 320px preview — extensions.gnome.org caps
+bundles at 5MB, and the full-size images alone were more than half of that.
+`make pack` stages the smaller copy for you automatically.
 
-The extension itself is `extension/`, and that whole directory is what gets
-packed — `metadata.json` ends up at the root of the bundle, which is all
-extensions.gnome.org requires. Everything outside it is repository furniture.
+The extension itself lives in `extension/`, and that whole directory is what
+gets packed — `metadata.json` ends up at the root of the bundle, which is all
+extensions.gnome.org actually needs. Everything else in this repo is just
+furniture around it.
 
 ## Licence
 
-The code is **GPL-2.0-or-later** — see [LICENSE](LICENSE) — which is the licence
-GNOME Shell itself uses and the one CoverGloobus was published under.
+The code is **GPL-2.0-or-later** — see [LICENSE](LICENSE) — the same licence
+GNOME Shell itself runs on, and the one CoverGloobus was originally published
+under.
 
-The themes are not. Each is its author's work under its author's terms; see
-[Themes and credits](#themes-and-credits). If you are an author there and want
-your theme removed, open an issue and it will be done.
+The themes are a different story. Each one belongs to its own author, under
+whatever terms that author actually set — see
+[Themes and credits](#themes-and-credits) for the full, honest accounting. If
+you're one of those authors and you'd rather your theme weren't here at all,
+open an issue and it's gone, no questions asked.

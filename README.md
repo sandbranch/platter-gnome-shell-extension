@@ -199,7 +199,7 @@ project can give its author.
 | ✔ | intrepid-ibex-mockup by d0od | *unrecorded* | CoverGloobus | GPL-3.0 | [link](https://launchpad.net/covergloobus) |
 | ✔ | Lucid-dark | *unrecorded* | CoverGloobus | GPL-3.0 | [link](https://launchpad.net/covergloobus) |
 |  | Panel | *unrecorded* | CoverGloobus | Pling licensetype-1 (unconfirmed) | [link](https://www.gnome-look.org/p/1111078/) |
-| ✔ | Photo | *unrecorded* | CoverGloobus | attribution-required | [link](https://www.xfce-look.org/p/1110988/) |
+| ✔ | Photo | Giorgi "DrAcid" Maghlakelidze | CoverGloobus | attribution-required | [link](https://www.xfce-look.org/p/1110988/) |
 | ✔ | polaroid | *unrecorded* | CoverGloobus | GPL-3.0 | [link](https://launchpad.net/covergloobus) |
 | ✔ | Postcard | *unrecorded* | CoverGloobus | GPL-3.0 | [link](https://launchpad.net/covergloobus) |
 | ✔ | Postcard | *unrecorded* | CoverGloobus | GPL-3.0 | [link](https://launchpad.net/covergloobus) |

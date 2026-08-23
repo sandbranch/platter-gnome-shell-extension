@@ -1,0 +1,153 @@
+{
+  "format": "platter-theme/0",
+  "id": "glass",
+  "name": "Glass",
+  "canvas": {
+    "width": 450,
+    "height": 150
+  },
+  "attribution": {
+    "author": "noyth",
+    "source_url": "https://www.deviantart.com/noyth/art/Glass-CoverGloobus-Theme-320540395",
+    "license": "CC BY-SA 3.0",
+    "original_app": "covergloobus",
+    "upstream_author": null,
+    "distribution": "non-free"
+  },
+  "fonts": [
+    {
+      "family": "Open Sans",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 450,
+      "height": 150,
+      "src": "background.png"
+    },
+    {
+      "type": "artwork",
+      "x": 15,
+      "y": 0,
+      "width": 150,
+      "height": 150,
+      "round": 0
+    },
+    {
+      "type": "text",
+      "x": 185,
+      "y": 10,
+      "width": 245,
+      "bind": "artist",
+      "font": {
+        "family": "Open Sans",
+        "size": 18,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "align": "left",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 20
+      }
+    },
+    {
+      "type": "text",
+      "x": 185,
+      "y": 50,
+      "width": 245,
+      "bind": "title",
+      "font": {
+        "family": "Open Sans",
+        "size": 12,
+        "weight": "normal",
+        "style": "italic"
+      },
+      "color": "#ffffffff",
+      "align": "left",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 37
+      }
+    },
+    {
+      "type": "button",
+      "x": 250,
+      "y": 105,
+      "action": "previous",
+      "states": {
+        "default": {
+          "normal": "prev.png",
+          "hover": "prev_hover.png",
+          "pressed": null
+        }
+      },
+      "width": 30,
+      "height": 30
+    },
+    {
+      "type": "button",
+      "x": 280,
+      "y": 105,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "play.png",
+          "hover": "play_hover.png",
+          "pressed": null
+        },
+        "playing": {
+          "normal": "pause.png",
+          "hover": "pause_hover.png",
+          "pressed": null
+        }
+      },
+      "width": 55,
+      "height": 30
+    },
+    {
+      "type": "button",
+      "x": 335,
+      "y": 105,
+      "action": "next",
+      "states": {
+        "default": {
+          "normal": "next.png",
+          "hover": "next_hover.png",
+          "pressed": null
+        }
+      },
+      "width": 30,
+      "height": 30
+    },
+    {
+      "type": "seekbar",
+      "x": 185,
+      "y": 90,
+      "width": 245,
+      "height": 1,
+      "back": "seekbar.png",
+      "fill": null,
+      "orientation": "horizontal",
+      "thumb": {
+        "src": "seekknob.png",
+        "width": 7,
+        "height": 7,
+        "slice": {
+          "top": -3,
+          "right": -3,
+          "bottom": 0,
+          "left": -3
+        }
+      }
+    }
+  ]
+}

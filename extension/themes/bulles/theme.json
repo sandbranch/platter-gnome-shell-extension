@@ -1,0 +1,119 @@
+{
+  "format": "platter-theme/0",
+  "id": "bulles",
+  "name": "Bulles",
+  "canvas": {
+    "width": 175,
+    "height": 181
+  },
+  "attribution": {
+    "author": "alezzacreative (MUSTAPHA ASBBAR)",
+    "source_url": "https://www.deviantart.com/alezzacreative/art/Bulles-Covergloobus-skin-312555790",
+    "license": "attribution-required",
+    "original_app": "covergloobus",
+    "upstream_author": null,
+    "distribution": "non-free"
+  },
+  "fonts": [
+    {
+      "family": "Sans",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 175,
+      "height": 181,
+      "src": "bg.png"
+    },
+    {
+      "type": "image",
+      "x": 14,
+      "y": 45,
+      "width": 117,
+      "height": 117,
+      "src": "nocover.png"
+    },
+    {
+      "type": "artwork",
+      "x": 14,
+      "y": 45,
+      "width": 117,
+      "height": 117,
+      "round": 0,
+      "mask": "mask.png"
+    },
+    {
+      "type": "image",
+      "x": 15,
+      "y": 40,
+      "width": 118,
+      "height": 115,
+      "src": "overlay.png"
+    },
+    {
+      "type": "text",
+      "x": 110,
+      "y": 15,
+      "width": 100,
+      "bind": "position",
+      "font": {
+        "family": "Sans",
+        "size": 10,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#dd4814ff",
+      "align": "left",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 25
+      }
+    },
+    {
+      "type": "text",
+      "x": 110,
+      "y": 39,
+      "width": 100,
+      "bind": "length",
+      "font": {
+        "family": "Sans",
+        "size": 10,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#dd4814ff",
+      "align": "left",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 25
+      }
+    },
+    {
+      "type": "button",
+      "x": 148,
+      "y": 60,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "play.png",
+          "hover": null,
+          "pressed": null
+        },
+        "playing": {
+          "normal": "pause.png",
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 11,
+      "height": 12
+    }
+  ]
+}

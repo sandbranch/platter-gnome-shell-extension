@@ -1,0 +1,151 @@
+{
+  "format": "platter-theme/0",
+  "id": "faenza-revisited",
+  "name": "Faenza Revisited",
+  "canvas": {
+    "width": 750,
+    "height": 400
+  },
+  "attribution": {
+    "author": "alespana (edit of arturoilhuitemoc/Ihuitemoc's Faenza Alternate)",
+    "source_url": "",
+    "license": "CC BY-SA 3.0",
+    "original_app": "covergloobus",
+    "upstream_author": null,
+    "distribution": "non-free"
+  },
+  "fonts": [
+    {
+      "family": "antipasto",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 192,
+      "height": 192,
+      "src": "audio-x-generic.svg"
+    },
+    {
+      "type": "artwork",
+      "x": 12,
+      "y": 12,
+      "width": 168,
+      "height": 168,
+      "round": 12
+    },
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 192,
+      "height": 192,
+      "src": "overlay.svg"
+    },
+    {
+      "type": "button",
+      "x": 14,
+      "y": 154,
+      "width": 28,
+      "height": 28,
+      "action": "previous",
+      "states": {
+        "default": {
+          "normal": "none.svg",
+          "hover": "media-skip-backward.svg",
+          "pressed": null
+        }
+      }
+    },
+    {
+      "type": "button",
+      "x": 80,
+      "y": 154,
+      "width": 28,
+      "height": 28,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "none.svg",
+          "hover": "media-playback-start.svg",
+          "pressed": null
+        },
+        "playing": {
+          "normal": "none.svg",
+          "hover": "media-playback-pause.svg",
+          "pressed": null
+        }
+      }
+    },
+    {
+      "type": "button",
+      "x": 150,
+      "y": 154,
+      "width": 28,
+      "height": 28,
+      "action": "next",
+      "states": {
+        "default": {
+          "normal": "none.svg",
+          "hover": "media-skip-forward.svg",
+          "pressed": null
+        }
+      }
+    },
+    {
+      "type": "rating",
+      "x": 35,
+      "y": 188,
+      "width": 19,
+      "height": 19,
+      "star": "star.svg",
+      "empty": "no-star.svg",
+      "spacing": 8,
+      "direction": "horizontal"
+    },
+    {
+      "type": "text",
+      "x": 195,
+      "y": 135,
+      "width": 930,
+      "bind": "title",
+      "font": {
+        "family": "antipasto",
+        "size": 15,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "align": "left",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 45
+      }
+    },
+    {
+      "type": "text",
+      "x": 195,
+      "y": 70,
+      "width": 930,
+      "bind": "artist",
+      "font": {
+        "family": "antipasto",
+        "size": 46,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#eeeeec59",
+      "align": "left",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 43
+      }
+    }
+  ]
+}

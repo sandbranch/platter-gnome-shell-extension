@@ -1,0 +1,33 @@
+{
+  "ported": "2026-08-23",
+  "porter": "platter/lib/port.js",
+  "source": {
+    "from": "/tmp/platter-import-MIZCU3/Bulles",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "bg.png",
+      "mask.png",
+      "nocover.png",
+      "overlay.png",
+      "pause.png",
+      "play.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [
+    {
+      "at": "playercontrols[6]/play[0]",
+      "taken": "width=11 from the asset"
+    },
+    {
+      "at": "playercontrols[6]/play[0]",
+      "taken": "height=12 from the asset"
+    }
+  ],
+  "lossy": [],
+  "inferred": [],
+  "notes": []
+}

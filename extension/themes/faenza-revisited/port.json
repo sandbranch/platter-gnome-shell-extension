@@ -1,0 +1,27 @@
+{
+  "ported": "2026-08-23",
+  "porter": "platter/lib/port.js",
+  "source": {
+    "from": "/tmp/platter-import-BUKIU3/Faenza Revisited/Faenza Revisited",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "audio-x-generic.svg",
+      "media-playback-pause.svg",
+      "media-playback-start.svg",
+      "media-skip-backward.svg",
+      "media-skip-forward.svg",
+      "no-star.svg",
+      "none.svg",
+      "overlay.svg",
+      "star.svg"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [],
+  "lossy": [],
+  "inferred": [],
+  "notes": []
+}

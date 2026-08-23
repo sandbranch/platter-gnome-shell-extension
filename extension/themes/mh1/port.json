@@ -1,0 +1,54 @@
+{
+  "ported": "2026-08-23",
+  "porter": "platter/lib/port.js",
+  "source": {
+    "from": "/tmp/platter-import-HEAHU3/mH1",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "bg.png",
+      "grip.png",
+      "mask.png",
+      "next.png",
+      "pause.png",
+      "play.png",
+      "prev.png",
+      "seekbar.back.png",
+      "seekbar.top.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [
+    {
+      "at": "playercontrols[7]/prev[0]",
+      "taken": "width=10 from the asset"
+    },
+    {
+      "at": "playercontrols[7]/prev[0]",
+      "taken": "height=7 from the asset"
+    },
+    {
+      "at": "playercontrols[7]/play[1]",
+      "taken": "width=5 from the asset"
+    },
+    {
+      "at": "playercontrols[7]/play[1]",
+      "taken": "height=7 from the asset"
+    },
+    {
+      "at": "playercontrols[7]/next[2]",
+      "taken": "width=10 from the asset"
+    },
+    {
+      "at": "playercontrols[7]/next[2]",
+      "taken": "height=7 from the asset"
+    }
+  ],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "<playercontrols> at 100,200 is ignored, exactly as 1.7 ignores it: its children carry absolute positions"
+  ]
+}

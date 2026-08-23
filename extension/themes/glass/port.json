@@ -1,0 +1,65 @@
+{
+  "ported": "2026-08-23",
+  "porter": "platter/lib/port.js",
+  "source": {
+    "from": "/tmp/platter-import-1OGBU3/Glass",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "background.png",
+      "next.png",
+      "next_hover.png",
+      "pause.png",
+      "pause_hover.png",
+      "play.png",
+      "play_hover.png",
+      "prev.png",
+      "prev_hover.png",
+      "seekbar.png",
+      "seekknob.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [
+    {
+      "at": "playercontrols[4]/prev[0]",
+      "taken": "width=30 from the asset"
+    },
+    {
+      "at": "playercontrols[4]/prev[0]",
+      "taken": "height=30 from the asset"
+    },
+    {
+      "at": "playercontrols[4]/play[1]",
+      "taken": "width=55 from the asset"
+    },
+    {
+      "at": "playercontrols[4]/play[1]",
+      "taken": "height=30 from the asset"
+    },
+    {
+      "at": "playercontrols[4]/next[2]",
+      "taken": "width=30 from the asset"
+    },
+    {
+      "at": "playercontrols[4]/next[2]",
+      "taken": "height=30 from the asset"
+    }
+  ],
+  "lossy": [
+    {
+      "at": "artistname[2]",
+      "dropped": "font weight \"Light\" flattened to normal"
+    },
+    {
+      "at": "titlename[3]",
+      "dropped": "font weight \"Light\" flattened to normal"
+    }
+  ],
+  "inferred": [],
+  "notes": [
+    "<playercontrols> at 250,105 is ignored, exactly as 1.7 ignores it: its children carry absolute positions"
+  ]
+}

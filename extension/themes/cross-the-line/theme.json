@@ -1,0 +1,133 @@
+{
+  "format": "platter-theme/0",
+  "id": "cross-the-line",
+  "name": "Cross The Line",
+  "canvas": {
+    "width": 380,
+    "height": 170
+  },
+  "attribution": {
+    "author": "jivebs",
+    "source_url": "https://www.deviantart.com/jivebs/art/Cross-The-Line-400125059",
+    "license": "CC BY 3.0",
+    "original_app": "covergloobus",
+    "upstream_author": null,
+    "distribution": "non-free"
+  },
+  "fonts": [
+    {
+      "family": "Raleway",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "artwork",
+      "x": 207,
+      "y": 0,
+      "width": 61,
+      "height": 61
+    },
+    {
+      "type": "text",
+      "x": 150,
+      "y": 70,
+      "width": 179,
+      "bind": "title",
+      "font": {
+        "family": "Raleway",
+        "size": 14,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "align": "center",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 28
+      }
+    },
+    {
+      "type": "text",
+      "x": 150,
+      "y": 100,
+      "width": 179,
+      "bind": "artist",
+      "font": {
+        "family": "Raleway",
+        "size": 9,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "align": "center",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 28
+      }
+    },
+    {
+      "type": "button",
+      "x": 200,
+      "y": 120,
+      "width": 10,
+      "height": 10,
+      "action": "previous",
+      "states": {
+        "default": {
+          "normal": "media-seek-backward.svg",
+          "hover": null,
+          "pressed": null
+        }
+      }
+    },
+    {
+      "type": "button",
+      "x": 235,
+      "y": 120,
+      "width": 10,
+      "height": 10,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "media-playback-start.svg",
+          "hover": null,
+          "pressed": null
+        },
+        "playing": {
+          "normal": "media-playback-pause.svg",
+          "hover": null,
+          "pressed": null
+        }
+      }
+    },
+    {
+      "type": "button",
+      "x": 270,
+      "y": 120,
+      "width": 10,
+      "height": 10,
+      "action": "next",
+      "states": {
+        "default": {
+          "normal": "media-seek-forward.svg",
+          "hover": null,
+          "pressed": null
+        }
+      }
+    },
+    {
+      "type": "seekbar",
+      "x": 90,
+      "y": 96,
+      "width": 300,
+      "height": 1,
+      "back": "seekbar.back.png",
+      "fill": "seekbar.top.png",
+      "orientation": "horizontal"
+    }
+  ]
+}

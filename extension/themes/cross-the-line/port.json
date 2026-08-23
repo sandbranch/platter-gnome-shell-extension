@@ -1,0 +1,26 @@
+{
+  "ported": "2026-08-23",
+  "porter": "platter/lib/port.js",
+  "source": {
+    "from": "/tmp/platter-import-9Z3DU3/cross the line",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "media-playback-pause.svg",
+      "media-playback-start.svg",
+      "media-seek-backward.svg",
+      "media-seek-forward.svg",
+      "seekbar.back.png",
+      "seekbar.top.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "<playercontrols> at 120,298 is ignored, exactly as 1.7 ignores it: its children carry absolute positions"
+  ]
+}

@@ -7,7 +7,9 @@
 <img src="extension/themes/jesse/screenshot.png" width="260" alt="Jesse theme">
 </p>
 
-**The album art of whatever you're playing, living right there on your desktop.**
+**A GNOME Shell extension that puts the album art of whatever you're playing
+right there on your desktop — like an old-school desklet, not a floating app
+window.**
 
 Ten-odd years ago there was a little Linux app called **CoverGloobus**, and it
 was wonderful: your desktop wallpaper, quietly decorated with whatever song
@@ -15,6 +17,10 @@ was playing, dressed up in one of hundreds of skins people made just because
 they felt like it. Then it vanished. Platter brings it back for GNOME Shell —
 same idea, same spirit, a whole shelf of those old skins restored and ready to
 wear.
+
+Worth saying plainly: this is **GNOME Shell only**. No KDE, no Xfce, no
+standalone version — it lives inside GNOME the way the original lived inside
+whatever desktop you had in 2010.
 
 **[→ Come look at the themes](https://sandbranch.github.io/platter-gnome-shell-extension/#themes)**
 

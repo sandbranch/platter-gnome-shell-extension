@@ -2,16 +2,16 @@
 
 **125 themes by 43 people**, dug up from DeviantArt, gnome-look, old source
 tarballs, and a few personal archives that never left anyone's hard drive
-until now. **49 of them ship with Platter**, marked ✔ below — but every single
+until now. **49 of them ship with Platter**, marked ✔ below, but every single
 one gets a link back to wherever it still lives, shipped or not, because
 somebody made this and that's worth remembering.
 
 None of the ones sitting on the sidelines are there because they're not good
-enough — plenty are gorgeous. They're sitting out because nobody's said it's
+enough; plenty are gorgeous. They're sitting out because nobody's said it's
 okay yet. Turning a `skin.xml` into a Platter theme means changing it, so a
 theme only joins the party here if its author signed off on both sharing it
 *and* changing it. If an author asked for less than that, or never said
-anything either way, we leave it be — quiet isn't the same as yes.
+anything either way, we leave it be: quiet isn't the same as yes.
 
 That's a limit on this repository, not on you, though. Grab any theme from its
 link, convert it on your own machine, and nobody's redistributed a thing:
@@ -19,7 +19,7 @@ link, convert it on your own machine, and nobody's redistributed a thing:
 
 These were made between roughly 2009 and 2012 by people posting skins purely
 because it was fun to do. Some of those pages haven't had a visitor in years.
-Where a theme is good — and honestly, a lot of them still are — the link
+Where a theme is good (and honestly, a lot of them still are), the link
 beside it is the only thank-you this project has left to give its author.
 
 ## The people who made them
@@ -67,7 +67,7 @@ beside it is the only thank-you this project has left to give its author.
 | ✔ | Box Of Tricks Mod By d0od | d0od + Kshegyaj | CoverGloobus | attribution-required | [link](https://web.archive.org/web/2015/http://www.gnome-look.org/CONTENT/content-files/113049-Box%20Of%20Tricks%20&%20Mod.tar.gz) |
 | ✔ | Shiki CD Case 1.2 | d0od + Kshegyaj | CoverGloobus | attribution-required | [link](https://www.deviantart.com/vicing/art/Shiki-CD-Case-for-covergloobus-155864031) |
 |  | iSticky | DJD (DJDP) | NowPlaying | no-derivatives, credit required | [link](https://launchpad.net/covergloobus) |
-|  | Blue Star | gabriela2400 | CoverGloobus | not stated | — |
+|  | Blue Star | gabriela2400 | CoverGloobus | not stated | – |
 |  | Florence | gabriela2400 | CoverGloobus | all rights reserved | [link](https://www.deviantart.com/gabriela2400/art/Florence-for-covergloobus-166227140) |
 |  | GAIA 10 Rdio | gabriela2400 | CoverGloobus | all rights reserved | [link](https://www.deviantart.com/gabriela2400/art/Gaia-Rdio-for-Covergloobus-183425403) |
 | ✔ | Lunatic | gabriela2400 | CoverGloobus | attribution-required | [link](https://www.deviantart.com/gabriela2400/art/Lunatic-for-Covergloobus-158037835) |
@@ -128,8 +128,8 @@ beside it is the only thank-you this project has left to give its author.
 |  | Glass | paran0idx | CoverGloobus | CC BY-NC-SA 3.0 | [link](https://www.deviantart.com/paran0idx/art/Glass-for-CoverGloobus-173855568) |
 |  | Chibi Left | paran0idx | CoverGloobus | CC BY-NC-SA 3.0 | [link](https://www.deviantart.com/paran0idx/art/Chibi-for-CoverGloobus-177538559) |
 |  | Chibi Right | paran0idx | CoverGloobus | CC BY-NC-SA 3.0 | [link](https://www.deviantart.com/paran0idx/art/Chibi-for-CoverGloobus-177538559) |
-| ✔ | Anno | Platter | Platter | CC0-1.0 | — |
-| ✔ | Gloobus Plain & Simple | Platter | Platter | CC0-1.0 | — |
+| ✔ | Anno | Platter | Platter | CC0-1.0 | – |
+| ✔ | Gloobus Plain & Simple | Platter | Platter | CC0-1.0 | – |
 |  | BowtieGloobus Classic | rabra | CoverGloobus | all rights reserved | [link](https://www.deviantart.com/rabra/art/BowtieGloobus-Classic-162570370) |
 |  | Light | rikarud0 | CoverGloobus | all rights reserved | [link](https://www.deviantart.com/rikarud0/art/RadiantLight-Covergloobus-158629423) |
 |  | Run Transparent | scherezada | CoverGloobus | not stated | [link](https://www.deviantart.com/scherezada/art/Run-Transparent-158104440) |
@@ -141,7 +141,7 @@ beside it is the only thank-you this project has left to give its author.
 |  | Clips porting for Covergloobus by Theconso | theconso | CoverGloobus | all rights reserved | [link](https://www.deviantart.com/theconso/art/Clips-for-Covergloobus-187899434) |
 |  | last.fm porting for Covergloobus by Theconso | theconso | CoverGloobus | all rights reserved | [link](https://www.deviantart.com/theconso/art/Last-fm2-for-Covegloobus-184787605) |
 |  | Round for Coovergloobus by Theconso [theconso.deviantart.com]  | theconso | CoverGloobus | all rights reserved | [link](https://www.deviantart.com/theconso/art/Round-for-Covergloobus-187042320) |
-|  | GrooveUp porting for Covergloobus by Theconso | Theconso | CoverGloobus | all rights reserved (author forbids reuse of the artwork without asking) | — |
+|  | GrooveUp porting for Covergloobus by Theconso | Theconso | CoverGloobus | all rights reserved (author forbids reuse of the artwork without asking) | – |
 |  | bitmap | Twentyeight-Ten | CoverGloobus | all rights reserved | [link](https://www.deviantart.com/twentyeight-ten/art/Bitmap-for-Covergloobus-163135772) |
 |  | NEON | Twentyeight-Ten | CoverGloobus | not stated | [link](https://www.deviantart.com/twentyeight-ten/art/NEON-for-Covergloobus-159703837) |
 |  | BadChoice2-Faenza | tiz-huglife | CoverGloobus | not stated | [link](https://www.deviantart.com/tiz-huglife/) |
@@ -171,13 +171,13 @@ beside it is the only thank-you this project has left to give its author.
 ## Where the permissions came from
 
 Most shipped themes rode in on the CoverGloobus and NowPlaying source
-packages, both released as GPL works — CoverGloobus ships a GPL-3.0 `COPYING`
+packages, both released as GPL works: CoverGloobus ships a GPL-3.0 `COPYING`
 and builds each theme as its own `Makefile.am` target, and NowPlaying's
 screenlet carries a full GPL-2-or-later header. Neither package says anything
 different about the themes bundled inside it.
 
 From there, every `skin.xml` got read line by line for whatever its author
-wrote into the file itself — and that turned out to be where most of the real
+wrote into the file itself, and that turned out to be where most of the real
 permissions were hiding, several of them stated nowhere else on the whole web.
 
 Two themes that technically came along in those GPL packages are still
@@ -185,16 +185,16 @@ deliberately left out: their authors wrote their own, stricter terms right
 into their own files, and riding along in someone else's tarball doesn't
 override what a person actually asked for. DJD's **iSticky** said no
 modification or redistribution without asking first, and Laurent Baumann's
-**Vinyl** is CC BY-NC-SA — so both stay put.
+**Vinyl** is CC BY-NC-SA, so both stay put.
 
-Fonts bundled inside a theme get stripped out no matter what its licence says
-— a font showing up inside someone's download isn't proof they had the right
+Fonts bundled inside a theme get stripped out no matter what its licence says:
+a font showing up inside someone's download isn't proof they had the right
 to put it there. The full story's in [fonts.md](fonts.md).
 
 ## If one of these is yours
 
 - **Say it's fine to ship** and it moves into the release, credited to you.
-- **Say it shouldn't be here at all** and it's gone — no argument, no delay.
+- **Say it shouldn't be here at all** and it's gone: no argument, no delay.
 
 Same goes if we've got your credit wrong. Most of this was pieced together
 from `skin.xml` headers and readmes written a decade and a half ago, and a few

@@ -8,31 +8,32 @@
 </p>
 
 **A GNOME Shell extension that puts the album art of whatever you're playing
-right there on your desktop — like an old-school desklet, not a floating app
+right there on your desktop, like an old-school desklet, not a floating app
 window.**
 
 Ten-odd years ago there was a little Linux app called **CoverGloobus**, and it
 was wonderful: your desktop wallpaper, quietly decorated with whatever song
 was playing, dressed up in one of hundreds of skins people made just because
-they felt like it. Then it vanished. Platter brings it back for GNOME Shell —
+they felt like it. Then it vanished. Platter brings it back for GNOME Shell:
 same idea, same spirit, a whole shelf of those old skins restored and ready to
 wear.
 
 Worth saying plainly: this is **GNOME Shell only**. No KDE, no Xfce, no
-standalone version — it lives inside GNOME the way the original lived inside
+standalone version: it lives inside GNOME the way the original lived inside
 whatever desktop you had in 2010.
 
 **[→ Come look at the themes](https://sandbranch.github.io/platter-gnome-shell-extension/#themes)**
 
 ## Get it
 
-From extensions.gnome.org, or straight from this repo:
+Submitted to [extensions.gnome.org](https://extensions.gnome.org/extension/10763/platter/) and
+awaiting review. Until it's approved, install straight from this repo:
 
 ```
 make install
 ```
 
-Log out and back in once — GNOME Shell needs a fresh session to notice new
+Log out and back in once: GNOME Shell needs a fresh session to notice new
 extensions, and everyone forgets this exactly one time.
 
 Needs GNOME Shell 48, 49, or 50.
@@ -40,9 +41,9 @@ Needs GNOME Shell 48, 49, or 50.
 ## Pick a look
 
 Open **Preferences**, pick a theme, and it's on your desktop. That's the whole
-interaction — no config files, no restart.
+interaction: no config files, no restart.
 
-One caveat worth knowing: buttons — play/pause, skip, the seekbar — only
+One caveat worth knowing: buttons (play/pause, skip, the seekbar) only
 respond to clicks in **Floating** placement. GNOME Shell doesn't route input
 to anything drawn behind your windows, so Desktop placement looks great but
 isn't clickable yet.
@@ -52,11 +53,11 @@ it to Platter and it just works: **Preferences → Theme → Add a theme**, poin
 it at the file, done. Whatever it looked like then is what it looks like now.
 
 Platter ships with **56 themes**, and the [full gallery is on the
-website](https://sandbranch.github.io/platter-gnome-shell-extension/#themes)
-— go look before you go hunting for more, there's a good chance your favourite
+website](https://sandbranch.github.io/platter-gnome-shell-extension/#themes).
+Go look before you go hunting for more, there's a good chance your favourite
 one from a decade ago is already sitting in there. Everything else this
-project has tracked down — 79 more skins, most of them still alive on the
-DeviantArt pages people posted them to years ago — is credited in
+project has tracked down (79 more skins, most of them still alive on the
+DeviantArt pages people posted them to years ago) is credited in
 [docs/credits.md](docs/credits.md), along with the honest explanation of why
 not every last one of them made it into the box.
 
@@ -64,7 +65,7 @@ not every last one of them made it into the box.
 
 A theme is nothing more than a folder: a `theme.json` describing where things
 go, and a handful of pictures. No build tools, no compiling, nothing to
-install — drop the folder in `~/.local/share/platter/themes/` and it shows up.
+install: drop the folder in `~/.local/share/platter/themes/` and it shows up.
 
 [docs/making-themes.md](docs/making-themes.md) walks through building one from
 nothing, with a worked example. `gloobus-plain-simple` and `platter-anno` are
@@ -73,7 +74,7 @@ copy and start messing with.
 
 ## Licence
 
-The extension itself is **GPL-2.0-or-later** — see [LICENSE](LICENSE).
+The extension itself is **GPL-2.0-or-later**. See [LICENSE](LICENSE).
 
 The themes are each their own author's work, under whatever terms that person
 actually set. The full, honest accounting is in

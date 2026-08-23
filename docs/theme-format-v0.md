@@ -29,7 +29,7 @@ are referenced by relative path and may be either.
 
 **Fonts are usually missing, and often unshippable.** Monocle names Pushkin and
 bundles nothing; Optic bundles Microsoft's Segoe UI, which nobody may
-redistribute. Fonts are therefore **declared, never assumed** — `fonts[]` lists
+redistribute. Fonts are therefore **declared, never assumed**: `fonts[]` lists
 what the theme wants and whether it travels with it.
 
 **One archive can hold several themes.** jivebs' single zip contains four. Each
@@ -72,7 +72,7 @@ it, origin top-left. The renderer scales the whole canvas as one, exactly as
 
 `distribution` records what the theme's author permitted: `free` (redistribution
 and modification both allowed), `free-nc` (both allowed, non-commercial only),
-or `non-free` (anything less, including terms nobody ever stated — silence is
+or `non-free` (anything less, including terms nobody ever stated; silence is
 not permission). Only `free` themes are distributed with Platter.
 
 It is a record, not a lock. A theme you converted yourself, from a file you
@@ -83,8 +83,8 @@ other.
 ## 3. Layers
 
 Every layer has `type`, `x`, `y`, `width`, `height`, and optional
-`visible`: `"always"` (default), `"playing"`, `"stopped"` — from
-`display="on-playing" | "on-stopped"`.
+`visible`: `"always"` (default), `"playing"`, `"stopped"` (derived from
+`display="on-playing" | "on-stopped"`).
 
 That attribute is NowPlaying's, and eight themes in the corpus set it. It has
 never once done anything: 1.6 parses it into every widget and then never draws
@@ -152,7 +152,7 @@ state exists only for `play_pause`, matching 1.7's StateButton.
   "thumb": { "src": "seek.png", "width": 20, "height": 20,
              "slice": { "top": -2, "right": 0, "bottom": -10, "left": -5 } } }
 ```
-`orientation` is derived the way 1.7 does it — wider than tall is horizontal.
+`orientation` is derived the way 1.7 does it: wider than tall is horizontal.
 The thumb's four offsets are kept as a `slice` because they are how themes
 nudge the knob into alignment, and several are negative.
 
@@ -172,16 +172,16 @@ Every converted bundle gets a `port.json` beside it, recording the `skin.xml`
 it came from and four kinds of finding, kept apart because they carry different
 weight:
 
-- **`repairs`** — the source was wrong and the porter fixed it: `widht` →
+- **`repairs`**: the source was wrong and the porter fixed it: `widht` →
   `width`, a six-digit colour padded to eight, a filename whose case doesn't
   match the file.
-- **`derived`** — nothing was wrong; a width or height was simply absent and
+- **`derived`**: nothing was wrong; a width or height was simply absent and
   came off the asset's own pixel size, which is what 1.7's `Image` does. Most
   themes never size their buttons.
-- **`lossy`** — something the source said and the format cannot: a bundled font
+- **`lossy`**: something the source said and the format cannot: a bundled font
   left behind, a Pango weight of `Book` flattened to `normal`, an asset the
   theme references and does not contain.
-- **`inferred`** — the porter had to guess geometry, which only happens with
+- **`inferred`**: the porter had to guess geometry, which only happens with
   NowPlaying's control rows, where the positions are implied by a row anchor
   and a spacing rather than written down. A theme with anything inferred is
   worth looking at before trusting: the guess follows NowPlaying's own default

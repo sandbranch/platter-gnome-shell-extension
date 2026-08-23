@@ -13,7 +13,7 @@ my-theme/
 
 Drop that folder in `~/.local/share/platter/themes/` and it appears in
 Platter's preferences. There is no build step, no packaging, and no install
-command — the folder *is* the theme.
+command: the folder *is* the theme.
 
 If you are looking for the reasoning behind the format rather than how to use
 it, that is [theme-format-v0.md](theme-format-v0.md). This page is the
@@ -30,7 +30,7 @@ extension/tools/platter-port ~/Downloads/that-theme.zip
 ```
 
 It reads the original `skin.xml`, converts it, copies the artwork, and installs
-the result. Then open the converted `theme.json` and edit from there — starting
+the result. Then open the converted `theme.json` and edit from there: starting
 from a real theme is far easier than starting from an empty file.
 
 Every conversion writes a `port.json` next to the theme saying what it
@@ -67,7 +67,7 @@ The smallest theme that works:
 }
 ```
 
-Here's what that kind of layer list turns into on screen — this is
+Here's what that kind of layer list turns into on screen: this is
 `gloobus-plain-simple`, one of Platter's own shipped themes, with every layer
 it declares outlined and labelled against the actual render:
 
@@ -87,23 +87,23 @@ Things worth knowing before you start:
   Platter scales the whole canvas as one, so design at whatever size is
   comfortable.
 - **Layers draw in the order they appear.** Later layers sit on top.
-- **Colours are `#RRGGBBAA`** — eight digits, alpha included. Six will be
+- **Colours are `#RRGGBBAA`**: eight digits, alpha included. Six will be
   rejected.
 - **`id` should match the folder name.** If it doesn't, Platter uses the folder.
 - **Fonts are named, never bundled.** Say the family; the user installs it.
   Shipping a font file inside a theme is almost never something you have the
-  right to do — see [fonts.md](fonts.md).
+  right to do. See [fonts.md](fonts.md).
 
 ## The layers
 
-### `image` — any picture
+### `image`: any picture
 ```json
 { "type": "image", "src": "case.png", "x": 0, "y": 0, "width": 220, "height": 288,
   "round": 20, "opacity": 0.6, "visible": "stopped" }
 ```
 Leave out `width`/`height` and Platter reads them off the file. `round` gives
 rounded corners in pixels. `visible` is `always` (default), `playing`, or
-`stopped` — which is how you show a placeholder only when nothing is on:
+`stopped` (which is how you show a placeholder only when nothing is on):
 
 ![The same theme playing, with real art, next to it stopped, showing the nocover placeholder instead](images/gloobus-plain-simple-states.png)
 
@@ -113,15 +113,15 @@ something's playing, the `artwork` layer draws over it and the icon never
 shows; when nothing is, `artwork` has nothing to draw and the icon underneath
 is all that's left to see.
 
-### `artwork` — the album cover
+### `artwork`: the album cover
 ```json
 { "type": "artwork", "x": 15, "y": 15, "width": 100, "height": 100, "round": 6 }
 ```
 Same as `image` without `src`; Platter supplies the picture. **`width` and
-`height` are required here** — there is no file to measure. Put a placeholder
+`height` are required here**: there is no file to measure. Put a placeholder
 `image` underneath with `"visible": "stopped"` for when nothing is playing.
 
-### `text` — track information
+### `text`: track information
 ```json
 { "type": "text", "bind": "title", "x": 21, "y": 218, "width": 180,
   "font": { "family": "Cantarell", "size": 11, "weight": "bold", "style": "normal" },
@@ -135,7 +135,7 @@ Same as `image` without `src`; Platter supplies the picture. **`width` and
 `ellipsize-char`, `clip` or `scroll`, and `maxchars` cuts the text at a
 character count.
 
-### `button` — playback controls
+### `button`: playback controls
 ```json
 { "type": "button", "action": "play_pause", "x": 113, "y": 152,
   "width": 16, "height": 16,
@@ -145,10 +145,10 @@ character count.
   } }
 ```
 `action` is `previous`, `play_pause`, `next`, `mute` or `quit`. Only
-`play_pause` uses the `playing` state — that is the one that has to change
+`play_pause` uses the `playing` state: that is the one that has to change
 picture depending on what the player is doing.
 
-### `seekbar` — track progress
+### `seekbar`: track progress
 ```json
 { "type": "seekbar", "x": 10, "y": 49, "width": 200, "height": 6,
   "back": "seekbar.png", "fill": "seek_fill.png" }
@@ -156,7 +156,7 @@ picture depending on what the player is doing.
 `back` is the trough, `fill` is the part that grows. Orientation follows the
 shape: wider than tall is horizontal.
 
-### `rating` — star rating
+### `rating`: star rating
 ```json
 { "type": "rating", "x": 20, "y": 60, "width": 15, "height": 15,
   "spacing": 3, "star": "star.png", "empty": "nostar.png" }
@@ -165,14 +165,14 @@ shape: wider than tall is horizontal.
 ## What is not drawn yet
 
 The format describes more than the renderer currently paints. These are
-accepted, validated, and preserved when converting — a theme using them is not
-broken and will improve on its own as they land — but they have no effect
+accepted, validated, and preserved when converting (a theme using them is not
+broken and will improve on its own as they land), but they have no effect
 today. Worth knowing before you spend an evening on a reflection.
 
 | Field | Where | Status |
 | --- | --- | --- |
-| `reflect` | `image`, `artwork` | Not drawn — no St equivalent |
-| `mask` | `image` | Not drawn — no St equivalent |
+| `reflect` | `image`, `artwork` | Not drawn (no St equivalent) |
+| `mask` | `image` | Not drawn (no St equivalent) |
 | `valign` | `text` | Not applied; `align` works |
 | `overflow.mode: "scroll"` | `text` | Falls back to no ellipsis |
 
@@ -189,14 +189,14 @@ extension/tools/platter-port --verify ~/my-themes
 ```
 
 It loads every theme the way the widget does and reports any whose layers it
-would silently drop — which is the failure you most want to hear about, because
+would silently drop, which is the failure you most want to hear about, because
 on screen it just looks like you positioned something badly.
 
 Two settings make design work much less painful:
 
-- **Stay visible with no player running** — keeps the widget on screen while
+- **Stay visible with no player running**: keeps the widget on screen while
   nothing is playing, so you are not starting music to check a margin.
-- **Floating above windows** — puts it above your editor instead of behind it.
+- **Floating above windows**: puts it above your editor instead of behind it.
 
 Platter rereads the theme when you change the setting, but GNOME Shell caches
 extension code for the life of a session: editing a **theme** takes effect
@@ -209,7 +209,7 @@ lineage, which is why one converter handles both.
 
 They were not the only ones. Bowtie, CD Art Display and Rainmeter all had
 now-playing skins, and themes were cross-ported between all of them at the
-time — the same artwork often exists in three formats. Support for reading
+time: the same artwork often exists in three formats. Support for reading
 those directly is intended, and the format was deliberately designed not to
 close the door: what it will not do is execute anything, so a Bowtie theme's
 HTML and JavaScript will be reported as lost rather than run.
@@ -218,7 +218,7 @@ If you have themes in one of those formats, they are worth keeping hold of.
 
 ## Sharing it
 
-Themes are just folders, so anything that moves a folder works — a git repo, a
+Themes are just folders, so anything that moves a folder works: a git repo, a
 zip, a synced drive. Platter's importer accepts a folder or an archive, and
 reads themes already in Platter's format as readily as original `skin.xml`
 ones, so whoever you send it to can import it the same way.

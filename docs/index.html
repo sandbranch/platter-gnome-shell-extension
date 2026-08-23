@@ -4,11 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Platter — a themeable now-playing widget for GNOME Shell</title>
-<meta name="description" content="Platter puts the album art and track info of whatever is playing back on your desktop. A revival of CoverGloobus, with 44 themes to choose from.">
+<meta name="description" content="Platter puts the album art and track info of whatever is playing back on your desktop. A revival of CoverGloobus, with 49 themes to choose from.">
 <style>
   :root {
     --bg: #f6f1e9;
     --bg-raised: #ffffff;
+    --tile-bg: #e6dfd0;
     --ink: #241f1a;
     --ink-soft: #5a5248;
     --line: #e2d8c8;
@@ -21,6 +22,7 @@
     :root {
       --bg: #1b1815;
       --bg-raised: #242019;
+      --tile-bg: #322d25;
       --ink: #f2ece1;
       --ink-soft: #b7ada0;
       --line: #3a332a;
@@ -68,9 +70,9 @@
   .btn-ghost { border-color: var(--line); color: var(--ink); }
   .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
-  .collage { position: relative; height: 320px; }
+  .collage { position: relative; height: 350px; }
   .collage img {
-    position: absolute; width: 190px; border-radius: 12px; border: 6px solid var(--bg-raised);
+    position: absolute; width: 215px; border-radius: 12px; border: 6px solid var(--bg-raised);
     box-shadow: 0 10px 30px rgba(36,31,26,0.18);
   }
   @media (prefers-color-scheme: dark) { .collage img { box-shadow: 0 10px 30px rgba(0,0,0,0.5); } }
@@ -107,18 +109,27 @@
     padding: 14px 18px; color: var(--ink-soft); font-size: 0.92rem; margin-top: 18px;
   }
 
-  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; margin-top: 24px; }
+  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 18px; margin-top: 24px; }
   .tile { margin: 0; }
   .tile-frame {
-    aspect-ratio: 1 / 1; background: var(--bg-raised); border: 1px solid var(--line);
+    aspect-ratio: 1 / 1; background: var(--tile-bg); border: 1px solid var(--line);
     border-radius: 10px; display: flex; align-items: center; justify-content: center;
     overflow: hidden; box-shadow: var(--shadow);
   }
-  .tile-frame img { max-width: 88%; max-height: 88%; object-fit: contain; }
+  .tile-frame img { max-width: 92%; max-height: 92%; object-fit: contain; }
   .tile figcaption { margin-top: 8px; display: flex; flex-direction: column; font-size: 0.82rem; }
   .tile-name { color: var(--ink); font-weight: 600; }
   .tile-author { color: var(--ink-soft); font-size: 0.78rem; }
   .gallery-more { color: var(--ink-soft); margin-top: 18px; font-size: 0.95rem; }
+
+  .showcase { display: flex; gap: 22px; margin-top: 28px; flex-wrap: wrap; justify-content: center; }
+  .showcase img {
+    height: 230px; border-radius: 12px; border: 6px solid var(--bg-raised);
+    box-shadow: var(--shadow);
+  }
+  .showcase figcaption { text-align: center; margin-top: 10px; font-size: 0.85rem; color: var(--ink-soft); }
+  .showcase figure { margin: 0; }
+  @media (max-width: 760px) { .showcase img { height: 170px; } }
 
   footer {
     border-top: 1px solid var(--line); padding: 32px 0 48px; color: var(--ink-soft); font-size: 0.9rem;
@@ -151,9 +162,9 @@
   <div class="wrap hero-grid">
     <div>
       <h1>The album art of whatever is playing, back on your desktop.</h1>
-      <p class="tagline">Platter revives <strong>CoverGloobus</strong>, a Linux now-playing widget from 2009–2012.
-      It sits behind your windows the way the original did, follows any MPRIS2 player, and draws itself
-      from a theme rather than one fixed design.</p>
+      <p class="tagline">Platter brings back <strong>CoverGloobus</strong>, a lovely little desktop widget
+      from 2009–2012 that the world mostly forgot. It sits behind your windows the way the original did,
+      follows whatever's playing, and shows up wearing a different outfit every time you feel like a change.</p>
       <div class="ctas">
         <a class="btn btn-primary" href="https://github.com/sandbranch/platter-gnome-shell-extension">View on GitHub</a>
         <a class="btn btn-ghost" href="#install">Install it</a>
@@ -172,10 +183,10 @@
   <div class="wrap">
     <h2>Why this exists</h2>
     <p class="lede">
-      Every maintained "now playing" extension today lives in the top bar, one look, take it or leave it.
-      The themeable desktop widget — the thing CoverGloobus and NowPlaying did well over a decade ago — went
-      missing when GNOME Shell moved on. Platter brings that back: it sits on the desktop, behind your
-      windows, drawn from a theme file rather than hard-coded.
+      Every "now playing" thing still around today lives crammed into the top bar — one look,
+      take it or leave it. What CoverGloobus got right a decade ago was a desktop widget with actual
+      personality, dressed however its owner wanted that week. Then it just quietly vanished. Platter
+      brings it back, sitting behind your windows the way the original always did.
     </p>
     <div class="cards">
       <div class="card">
@@ -183,7 +194,7 @@
         <p>Spotify, Rhythmbox, Plexamp, whatever you actually use — Platter follows whichever one is playing.</p>
       </div>
       <div class="card">
-        <h3>44 themes</h3>
+        <h3>49 themes</h3>
         <p>Mostly restored from the CoverGloobus and NowPlaying corpus of 2009–2012, plus a couple written from scratch — each with a preview in the picker.</p>
       </div>
       <div class="card">
@@ -191,6 +202,15 @@
         <p>Point Platter at a CoverGloobus or NowPlaying <code>skin.xml</code> theme, archive or folder, and it converts on the spot.</p>
       </div>
     </div>
+
+    <figure class="showcase">
+      <img src="assets/screenshots/mh1.png" alt="mH1 theme">
+      <img src="assets/screenshots/bulles.png" alt="Bulles theme">
+      <img src="assets/screenshots/glass.png" alt="Glass theme">
+    </figure>
+    <figcaption style="text-align:center; color:var(--ink-soft); font-size:0.9rem; margin-top:6px;">
+      Three of the newest arrivals — same idea, wildly different moods.
+    </figcaption>
   </div>
 </section>
 
@@ -216,12 +236,12 @@ make install</code></pre>
 
 <section id="themes">
   <div class="wrap">
-    <h2>44 themes, and counting</h2>
+    <h2>49 themes, and counting</h2>
     <p class="lede">
       Hundreds more were made for CoverGloobus at its peak, scattered across DeviantArt, gnome-look and
       file hosts that no longer exist. These are the ones cleared to ship — full credits, licences and
-      links to every author's original page are in the
-      <a href="https://github.com/sandbranch/platter-gnome-shell-extension#themes-and-credits">README</a>.
+      links to every author's original page are in
+      <a href="https://github.com/sandbranch/platter-gnome-shell-extension/blob/main/docs/credits.md">docs/credits.md</a>.
     </p>
     <div class="gallery">
         <figure class="tile">
@@ -257,12 +277,20 @@ make install</code></pre>
           <figcaption><span class="tile-name">Box Of Tricks Mod By d0od</span><span class="tile-author">d0od + Kshegyaj</span></figcaption>
         </figure>
         <figure class="tile">
+          <div class="tile-frame"><img src="assets/thumbs/bulles.jpg" alt="Bulles theme" loading="lazy"></div>
+          <figcaption><span class="tile-name">Bulles</span><span class="tile-author">alezzacreative (MUSTAPHA ASBBAR)</span></figcaption>
+        </figure>
+        <figure class="tile">
           <div class="tile-frame"><img src="assets/thumbs/corner.jpg" alt="Corner theme" loading="lazy"></div>
           <figcaption><span class="tile-name">Corner</span><span class="tile-author">unknown</span></figcaption>
         </figure>
         <figure class="tile">
           <div class="tile-frame"><img src="assets/thumbs/coversutra.jpg" alt="Coversutra theme" loading="lazy"></div>
           <figcaption><span class="tile-name">Coversutra</span><span class="tile-author">unknown</span></figcaption>
+        </figure>
+        <figure class="tile">
+          <div class="tile-frame"><img src="assets/thumbs/cross-the-line.jpg" alt="Cross The Line theme" loading="lazy"></div>
+          <figcaption><span class="tile-name">Cross The Line</span><span class="tile-author">jivebs</span></figcaption>
         </figure>
         <figure class="tile">
           <div class="tile-frame"><img src="assets/thumbs/dirty.jpg" alt="dirty theme" loading="lazy"></div>
@@ -275,6 +303,14 @@ make install</code></pre>
         <figure class="tile">
           <div class="tile-frame"><img src="assets/thumbs/faenza-alternate.jpg" alt="Faenza Alternate theme" loading="lazy"></div>
           <figcaption><span class="tile-name">Faenza Alternate</span><span class="tile-author">arturoilhuitemoc (Ihuitemoc)</span></figcaption>
+        </figure>
+        <figure class="tile">
+          <div class="tile-frame"><img src="assets/thumbs/faenza-revisited.jpg" alt="Faenza Revisited theme" loading="lazy"></div>
+          <figcaption><span class="tile-name">Faenza Revisited</span><span class="tile-author">alespana</span></figcaption>
+        </figure>
+        <figure class="tile">
+          <div class="tile-frame"><img src="assets/thumbs/glass.jpg" alt="Glass theme" loading="lazy"></div>
+          <figcaption><span class="tile-name">Glass</span><span class="tile-author">noyth</span></figcaption>
         </figure>
         <figure class="tile">
           <div class="tile-frame"><img src="assets/thumbs/glassy.jpg" alt="Glassy theme" loading="lazy"></div>
@@ -331,6 +367,10 @@ make install</code></pre>
         <figure class="tile">
           <div class="tile-frame"><img src="assets/thumbs/lunatic.jpg" alt="Lunatic theme" loading="lazy"></div>
           <figcaption><span class="tile-name">Lunatic</span><span class="tile-author">gabriela2400</span></figcaption>
+        </figure>
+        <figure class="tile">
+          <div class="tile-frame"><img src="assets/thumbs/mh1.jpg" alt="mH1 theme" loading="lazy"></div>
+          <figcaption><span class="tile-name">mH1</span><span class="tile-author">raizon1</span></figcaption>
         </figure>
         <figure class="tile">
           <div class="tile-frame"><img src="assets/thumbs/nowplaying-default.jpg" alt="NowPlaying Default theme" loading="lazy"></div>
@@ -402,8 +442,8 @@ make install</code></pre>
         </figure>
     </div>
     <p class="gallery-more">
-      Want to convert one of the sixty more that aren't shipped? See
-      <a href="https://github.com/sandbranch/platter-gnome-shell-extension#themes-and-credits">the full list</a>
+      Want to convert one of the 76 more that aren't shipped? See
+      <a href="https://github.com/sandbranch/platter-gnome-shell-extension/blob/main/docs/credits.md">the full list</a>
       and <a href="https://github.com/sandbranch/platter-gnome-shell-extension/blob/main/docs/making-themes.md">making a theme</a>.
     </p>
   </div>
@@ -413,7 +453,7 @@ make install</code></pre>
   <div class="wrap foot-grid">
     <div>
       Platter is GPL-2.0-or-later. Themes belong to their authors, under their own stated terms —
-      see <a href="https://github.com/sandbranch/platter-gnome-shell-extension#themes-and-credits">credits</a>.
+      see <a href="https://github.com/sandbranch/platter-gnome-shell-extension/blob/main/docs/credits.md">credits</a>.
     </div>
     <div>
       <a href="https://github.com/sandbranch/platter-gnome-shell-extension">GitHub</a>

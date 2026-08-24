@@ -26,4 +26,4 @@ if (!lib) {
 }
 
 const {main} = await import(`${lib.get_uri()}/cli.js`);
-imports.system.exit(main(ARGV));
+imports.system.exit(await main(ARGV));

@@ -18,6 +18,11 @@ export default class PlatterPreferences extends ExtensionPreferences {
         const settings = this.getSettings();
         window.add(this._themePage(window, settings));
         window.add(this._placementPage(settings));
+        window.connect('close-request', () => {
+            this._closed = true;
+            this._preview = null;
+            this._themes = null;
+        });
     }
 
     _themePage(window, settings) {
@@ -154,7 +159,7 @@ export default class PlatterPreferences extends ExtensionPreferences {
         return group;
     }
 
-    _runImport(path, status, themeRow, settings) {
+    async _runImport(path, status, themeRow, settings) {
         if (!path)
             return;
         // Conversion is quick but not instant, and a window that does nothing
@@ -165,7 +170,9 @@ export default class PlatterPreferences extends ExtensionPreferences {
 
         if (!result.installed.length)
             return;
-        this._fillThemes(themeRow, settings);
+        await this._fillThemes(themeRow, settings);
+        if (this._closed)
+            return;
         // Switch to what was just imported: it is what the user came here for,
         // and a theme they cannot see the effect of is a theme they will assume
         // failed to import.
@@ -197,9 +204,12 @@ export default class PlatterPreferences extends ExtensionPreferences {
         this._preview.set_visible(false);
     }
 
-    _fillThemes(row, settings) {
+    async _fillThemes(row, settings) {
         const paths = Theme.searchPaths(this.path, settings.get_string('theme-path'));
-        this._themes = Theme.listThemes(paths);
+        const themes = await Theme.listThemes(paths);
+        if (this._closed)
+            return;   // the window closed while themes were loading
+        this._themes = themes;
 
         const model = new Gtk.StringList();
         for (const theme of this._themes)

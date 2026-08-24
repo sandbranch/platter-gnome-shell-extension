@@ -36,7 +36,7 @@ Converted themes are recorded as non-free: yours to use, not yours to pass on.
 Say --license if you know better. Every conversion writes a port.json saying
 what it repaired, measured, or could not carry across.`;
 
-export function main(argv) {
+export async function main(argv) {
     const options = {out: Port.userThemeDir(), replace: false, quiet: false};
     const source = {};
     const targets = [];
@@ -58,7 +58,7 @@ export function main(argv) {
         case '--url': source.source_url = value(); break;
         case '--license': source.license = value(); break;
         case '--list': return list(options.out);
-        case '--verify': return verify(absolute(value()));
+        case '--verify': return await verify(absolute(value()));
         default:
             if (arg.startsWith('-')) {
                 printerr(`platter-port: unknown option ${arg}`);
@@ -108,15 +108,15 @@ export function main(argv) {
  * This asks both, because a theme quietly missing three layers is the failure
  * a theme author most needs told about.
  */
-function verify(base) {
-    const themes = Theme.listThemes([base]);
+async function verify(base) {
+    const themes = await Theme.listThemes([base]);
     if (!themes.length) {
         printerr(`no themes load from ${base}`);
         return 1;
     }
     let short = 0;
     for (const {id, path} of themes) {
-        const loaded = Theme.load(path);
+        const loaded = await Theme.load(path);
         const declared = declaredLayers(path);
         const drawn = loaded.layers.length;
         if (declared !== null && drawn < declared) {

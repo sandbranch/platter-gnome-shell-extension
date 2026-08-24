@@ -12,6 +12,8 @@ import Rsvg from 'gi://Rsvg';
 
 const cairo = imports.cairo;
 
+Gio._promisify(Gio.File.prototype, 'load_contents_async', 'load_contents_finish');
+
 export const FORMAT = 'platter-theme/0';
 
 const RASTER_CACHE_ROOT = GLib.build_filenamev([GLib.get_user_cache_dir(), 'platter', 'raster']);
@@ -28,7 +30,7 @@ export function searchPaths(extensionPath, extraPath) {
     return paths;
 }
 
-export function listThemes(paths) {
+export async function listThemes(paths) {
     const found = new Map();  // id -> {id, name, path}
     for (const base of paths) {
         const dir = Gio.File.new_for_path(base);
@@ -45,7 +47,7 @@ export function listThemes(paths) {
             if (found.has(id))
                 continue;  // nearer path already won
             const path = GLib.build_filenamev([base, id]);
-            const theme = load(path);
+            const theme = await load(path);
             if (theme)
                 found.set(id, {id, name: theme.name || id, path});
         }
@@ -63,13 +65,11 @@ export function find(id, paths) {
 }
 
 /** Read a theme directory, or null with a logged reason. */
-export function load(path) {
+export async function load(path) {
     const file = Gio.File.new_for_path(GLib.build_filenamev([path, 'theme.json']));
     let text;
     try {
-        const [ok, bytes] = file.load_contents(null);
-        if (!ok)
-            return null;
+        const [bytes] = await file.load_contents_async(null);
         text = new TextDecoder().decode(bytes);
     } catch (e) {
         return null;

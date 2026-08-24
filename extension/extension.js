@@ -32,7 +32,7 @@ export default class PlatterExtension extends Extension {
     enable() {
         this._settings = this.getSettings();
         this._watcher = new PlayerWatcher();
-        this._watcher.connect('changed', () => this._update());
+        this._watcher.connectObject('changed', () => this._update(), this);
 
         this._settings.connectObject(
             'changed::theme', () => this._rebuild(),
@@ -64,6 +64,7 @@ export default class PlatterExtension extends Extension {
     disable() {
         this._settings?.disconnectObject(this);
         Main.layoutManager.disconnectObject(this);
+        this._watcher?.disconnectObject(this);
         this._overviewIds?.forEach(id => Main.overview.disconnect(id));
         this._overviewIds = null;
         this._teardown();
@@ -75,6 +76,7 @@ export default class PlatterExtension extends Extension {
     _teardown() {
         if (!this._widget)
             return;
+        this._widget.disconnectObject(this);
         const parent = this._widget.get_parent();
         if (parent === Main.layoutManager.uiGroup) {
             Main.layoutManager.removeChrome(this._widget);
@@ -87,7 +89,7 @@ export default class PlatterExtension extends Extension {
     }
 
     /** Load the configured theme and put a widget on screen. */
-    _rebuild() {
+    async _rebuild() {
         this._teardown();
 
         const paths = Theme.searchPaths(this.path, this._settings.get_string('theme-path'));
@@ -97,12 +99,14 @@ export default class PlatterExtension extends Extension {
             log(`Platter: theme "${id}" not found in ${paths.join(', ')}`);
             return;
         }
-        const theme = Theme.load(dir);
+        const theme = await Theme.load(dir);
         if (!theme)
             return;   // load() has already said why
+        if (!this._settings)
+            return;   // disabled while the theme was loading
 
         this._widget = new PlatterWidget(theme, this._settings.get_double('scale'));
-        this._widget.connect('action', (widget, action) => this._act(action));
+        this._widget.connectObject('action', (widget, action) => this._act(action), this);
         this._addDragging();
 
         // desktop sits behind windows, the way the original did; floating rides
@@ -191,7 +195,7 @@ export default class PlatterExtension extends Extension {
         const widget = this._widget;
         let grab = null, startX = 0, startY = 0, originX = 0, originY = 0;
 
-        widget.connect('button-press-event', (actor, event) => {
+        widget.connectObject('button-press-event', (actor, event) => {
             if (this._settings.get_boolean('locked'))
                 return Clutter.EVENT_PROPAGATE;
             // A press that landed on a control belongs to that control. St.Button
@@ -209,17 +213,17 @@ export default class PlatterExtension extends Extension {
             [originX, originY] = widget.get_position();
             grab = global.stage.grab(widget);
             return Clutter.EVENT_STOP;
-        });
+        }, this);
 
-        widget.connect('motion-event', (actor, event) => {
+        widget.connectObject('motion-event', (actor, event) => {
             if (!grab)
                 return Clutter.EVENT_PROPAGATE;
             const [x, y] = event.get_coords();
             widget.set_position(originX + (x - startX), originY + (y - startY));
             return Clutter.EVENT_STOP;
-        });
+        }, this);
 
-        widget.connect('button-release-event', () => {
+        widget.connectObject('button-release-event', () => {
             if (!grab)
                 return Clutter.EVENT_PROPAGATE;
             grab.dismiss();
@@ -240,6 +244,6 @@ export default class PlatterExtension extends Extension {
             this._settings.set_int('position-y', Math.round(anchor.startsWith('bottom')
                 ? monitor.y + monitor.height - height - y : y - monitor.y));
             return Clutter.EVENT_STOP;
-        });
+        }, this);
     }
 }

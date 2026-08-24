@@ -13,7 +13,11 @@ INSTALLED := $(HOME)/.local/share/gnome-shell/extensions/$(UUID)
 SCHEMA   := schemas/org.gnome.shell.extensions.platter.gschema.xml
 
 # Directories that gnome-extensions pack does not know about on its own.
-EXTRA    := --extra-source=lib --extra-source=themes --extra-source=tools
+# tools/ (the platter-port CLI and lib/cli.js it runs) stays out of the
+# bundle: extensions.gnome.org's review only reaches files imported from
+# extension.js or prefs.js, and a file nothing in the shipped extension can
+# reach reads as unnecessary weight even though it is real, working code.
+EXTRA    := --extra-source=lib --extra-source=themes
 
 SOURCES  := $(shell find $(SOURCE) -type f -not -name '*.compiled')
 
@@ -44,6 +48,8 @@ $(BUNDLE): $(SOURCES) | $(BUILD)
 	mkdir -p $(BUILD)
 	cp -a $(SOURCE) $(BUILD)/$(SOURCE)
 	find $(BUILD)/$(SOURCE)/themes \( -name 'screenshot.*' -o -name 'preview.png' \) -delete
+	rm -rf $(BUILD)/$(SOURCE)/tools
+	rm -f $(BUILD)/$(SOURCE)/lib/cli.js
 	find $(BUILD)/$(SOURCE) -name 'gschemas.compiled' -delete
 	gnome-extensions pack $(BUILD)/$(SOURCE) --schema=$(SCHEMA) $(EXTRA) \
 		--podir=$(CURDIR)/po --gettext-domain=platter \

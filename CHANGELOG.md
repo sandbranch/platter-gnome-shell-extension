@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.1.1 (2026-08-24)
+
+- Fixed: a player started after login was never noticed, so Platter stayed
+  empty until the extension was reloaded. The D-Bus match rule watching for
+  players joining the bus was given the MPRIS prefix with its trailing dot,
+  which `arg0namespace` reads as asking for names under
+  `org.mpris.MediaPlayer2.` rather than for the players themselves, so no
+  name-owner change ever arrived. Only players already running when the
+  extension started were ever seen.
+- A player whose bus name passes straight from one owner to the next (a player
+  restarted quickly) is now rebuilt rather than left holding dead proxies.
+
 ## 0.1.0 (2026-08-24)
 
 First release.

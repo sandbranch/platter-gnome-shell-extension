@@ -10,5 +10,5 @@
   "settings-schema": "org.gnome.shell.extensions.platter",
   "gettext-domain": "platter",
   "url": "https://github.com/sandbranch/platter-gnome-shell-extension",
-  "version-name": "0.1.0"
+  "version-name": "0.1.1"
 }

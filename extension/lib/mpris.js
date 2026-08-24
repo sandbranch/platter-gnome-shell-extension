@@ -11,6 +11,13 @@ import GLib from 'gi://GLib';
 import GObject from 'gi://GObject';
 
 const MPRIS_PREFIX = 'org.mpris.MediaPlayer2.';
+/* The bus-name match rule wants the namespace without the trailing dot.
+ * arg0namespace matches a name that either equals the namespace or continues
+ * with a dot, so handing it the dotted prefix asked for names beginning
+ * 'org.mpris.MediaPlayer2..' - nothing has ever been called that, so no
+ * NameOwnerChanged ever arrived and a player started after login went unseen
+ * until the extension was reloaded and re-listed the bus. */
+const MPRIS_NAMESPACE = 'org.mpris.MediaPlayer2';
 const OBJECT_PATH = '/org/mpris/MediaPlayer2';
 const PLAYER_IFACE = 'org.mpris.MediaPlayer2.Player';
 const APP_IFACE = 'org.mpris.MediaPlayer2';
@@ -87,13 +94,20 @@ export const PlayerWatcher = GObject.registerClass({
         this._bus = Gio.DBus.session;
         this._watchId = this._bus.signal_subscribe(
             'org.freedesktop.DBus', 'org.freedesktop.DBus', 'NameOwnerChanged',
-            '/org/freedesktop/DBus', MPRIS_PREFIX, Gio.DBusSignalFlags.MATCH_ARG0_NAMESPACE,
+            '/org/freedesktop/DBus', MPRIS_NAMESPACE, Gio.DBusSignalFlags.MATCH_ARG0_NAMESPACE,
             (conn, sender, path, iface, signal, params) => {
-                const [name, oldOwner, newOwner] = params.deepUnpack();
-                if (newOwner && !oldOwner)
+                const [name, , newOwner] = params.deepUnpack();
+                // The namespace also matches the bare 'org.mpris.MediaPlayer2',
+                // which no player owns and which slicing would turn into an
+                // empty suffix.
+                if (!name.startsWith(MPRIS_PREFIX))
+                    return;
+                // Drop first either way: a name handed straight from one owner
+                // to the next (a player restarted quickly) keeps its old, dead
+                // proxies otherwise.
+                this._removePlayer(name);
+                if (newOwner)
                     this._addPlayer(name);
-                else if (!newOwner)
-                    this._removePlayer(name);
             });
 
         this._discover();

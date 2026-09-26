@@ -1,0 +1,40 @@
+{
+  "ported": "2026-09-26",
+  "porter": "tools/oneoff/coverz.py, then tools/port.py",
+  "source": {
+    "raw": "personal-archive-coverz-0.8.6/coverz-0.8.6.tar.xz:coverz-0.8.6/skins/Tooltip",
+    "skin_xml_sha256": "da0c032989d4afdcfc762907e1f2a562b5a7de85d36a2bf3ebf5f58f790bfa6c",
+    "app": "coverz",
+    "original_skin_xml_sha256": "8c205ac47cb1dd1ab45ed683bc5139f71c7498311250ae1c1869521b5396211a"
+  },
+  "assets": {
+    "copied": [
+      "bg.png",
+      "pause.png",
+      "pause2.png",
+      "play.png",
+      "play2.png",
+      "prev.png",
+      "prev2.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [],
+  "lossy": [
+    {
+      "at": "widget[1]",
+      "dropped": "widget skin='lcd': a coverz plug-in (visualizer), nothing to port it to"
+    },
+    {
+      "at": "text[2]",
+      "dropped": "format='now playing': Platter binds one field per text layer"
+    }
+  ],
+  "inferred": [],
+  "notes": [
+    "named after its folder: the skin's name= is coverz's copyright line",
+    "coverz hides text, buttons, seekbar and rating while stopped; Platter shows them throughout",
+    "distribution free: redistribution and modification both permitted"
+  ]
+}

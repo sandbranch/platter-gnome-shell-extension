@@ -1,0 +1,271 @@
+{
+  "format": "platter-theme/0",
+  "id": "lgd-n12",
+  "name": "LGD-N12",
+  "canvas": {
+    "width": 410,
+    "height": 108
+  },
+  "attribution": {
+    "author": "lagadesk",
+    "source_url": "https://www.deviantart.com/lagadesk/art/LGD-N12-for-CoverGloobus-270992712",
+    "license": "CC BY-SA 3.0",
+    "original_app": "covergloobus",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "Stated on the deviation page: creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "fonts": [
+    {
+      "family": "pftempestafivecondensed",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 23,
+      "y": 14,
+      "width": 70,
+      "height": 70,
+      "src": "nocover.png"
+    },
+    {
+      "type": "artwork",
+      "x": 23,
+      "y": 14,
+      "width": 70,
+      "height": 70
+    },
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 410,
+      "height": 108,
+      "src": "case.png"
+    },
+    {
+      "type": "text",
+      "x": 157,
+      "y": 18,
+      "width": 220,
+      "bind": "artist",
+      "font": {
+        "family": "pftempestafivecondensed",
+        "size": 6,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000ff",
+        "dx": 1,
+        "dy": 1
+      },
+      "align": "center",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 30
+      }
+    },
+    {
+      "type": "text",
+      "x": 157,
+      "y": 36,
+      "width": 220,
+      "bind": "title",
+      "font": {
+        "family": "pftempestafivecondensed",
+        "size": 6,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000ff",
+        "dx": 1,
+        "dy": 1
+      },
+      "align": "center",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 30
+      }
+    },
+    {
+      "type": "text",
+      "x": 157,
+      "y": 54,
+      "width": 220,
+      "bind": "album",
+      "font": {
+        "family": "pftempestafivecondensed",
+        "size": 6,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000ff",
+        "dx": 1,
+        "dy": 1
+      },
+      "align": "center",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 30
+      }
+    },
+    {
+      "type": "text",
+      "x": 154,
+      "y": 70,
+      "width": 300,
+      "bind": "position",
+      "font": {
+        "family": "pftempestafivecondensed",
+        "size": 6,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000ff",
+        "dx": 1,
+        "dy": 1
+      },
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 30
+      }
+    },
+    {
+      "type": "text",
+      "x": 350,
+      "y": 70,
+      "width": 30,
+      "bind": "length",
+      "font": {
+        "family": "pftempestafivecondensed",
+        "size": 6,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ff8d00ff",
+      "shadow": {
+        "color": "#000000ff",
+        "dx": 1,
+        "dy": 1
+      },
+      "align": "right",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 30
+      }
+    },
+    {
+      "type": "seekbar",
+      "x": 190,
+      "y": 75,
+      "width": 150,
+      "height": 4,
+      "back": "bar.png",
+      "fill": null,
+      "orientation": "horizontal",
+      "thumb": {
+        "src": "grip.png",
+        "width": 8,
+        "height": 4
+      }
+    },
+    {
+      "type": "button",
+      "x": 97,
+      "y": 40,
+      "action": "previous",
+      "states": {
+        "default": {
+          "normal": "prev.png",
+          "hover": "prev_prev.png",
+          "pressed": null
+        }
+      },
+      "width": 13,
+      "height": 13
+    },
+    {
+      "type": "button",
+      "x": 116,
+      "y": 40,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "play.png",
+          "hover": "play_prev.png",
+          "pressed": null
+        },
+        "playing": {
+          "normal": null,
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 13,
+      "height": 13
+    },
+    {
+      "type": "button",
+      "x": 133,
+      "y": 40,
+      "action": "next",
+      "states": {
+        "default": {
+          "normal": "next.png",
+          "hover": "next_prev.png",
+          "pressed": null
+        }
+      },
+      "width": 13,
+      "height": 13
+    },
+    {
+      "type": "button",
+      "x": 154,
+      "y": 18,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "1-pause.png",
+          "hover": null,
+          "pressed": null
+        },
+        "playing": {
+          "normal": "1-play.png",
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 10,
+      "height": 10
+    },
+    {
+      "type": "rating",
+      "x": 104,
+      "y": 64,
+      "width": 7,
+      "height": 8,
+      "star": "star.png",
+      "empty": "nostar.png",
+      "hover": "hover.png",
+      "spacing": 0,
+      "direction": "horizontal"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "format": "platter-theme/0",
+  "id": "plastik-coverz",
+  "name": "Plastik (coverz)",
+  "canvas": {
+    "width": 150,
+    "height": 150
+  },
+  "attribution": {
+    "author": "mickyz",
+    "source_url": "",
+    "license": "GPL-3.0-or-later",
+    "original_app": "coverz",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "The coverz source files state: \"This application is released under the GNU General Public License v3 (or, at your option, any later version)\". The skins are part of the package: the Makefile's deb target installs skins/ with the program, and every skin is signed \"mickyz(c)2012\", coverz's own author. Same basis as the CoverGloobus 1.6/1.7 tarball themes."
+  },
+  "fonts": [
+    {
+      "family": "Droid Monospace",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "src": "bg.png"
+    },
+    {
+      "type": "image",
+      "x": 12,
+      "y": 12,
+      "width": 103,
+      "height": 103,
+      "src": "cover.png"
+    },
+    {
+      "type": "artwork",
+      "x": 12,
+      "y": 12,
+      "width": 103,
+      "height": 103
+    },
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "src": "fg.png"
+    },
+    {
+      "type": "text",
+      "x": 0,
+      "y": 128,
+      "width": 128,
+      "height": 20,
+      "bind": "title",
+      "font": {
+        "family": "Droid Monospace",
+        "size": 7,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#999999cc",
+      "align": "center",
+      "wrap": false,
+      "overflow": {
+        "mode": "ellipsize-char"
+      }
+    },
+    {
+      "type": "button",
+      "x": 126,
+      "y": 110,
+      "width": 14,
+      "height": 14,
+      "action": "next",
+      "states": {
+        "default": {
+          "normal": "play.png",
+          "hover": null,
+          "pressed": "playh.png"
+        }
+      }
+    },
+    {
+      "type": "rating",
+      "x": 128,
+      "y": 46,
+      "width": 10,
+      "height": 10,
+      "star": "starred.png",
+      "empty": "star.png",
+      "spacing": 3,
+      "direction": "vertical"
+    }
+  ]
+}

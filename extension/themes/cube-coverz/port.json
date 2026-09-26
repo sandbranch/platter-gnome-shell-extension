@@ -1,0 +1,36 @@
+{
+  "ported": "2026-09-26",
+  "porter": "tools/oneoff/coverz.py, then tools/port.py",
+  "source": {
+    "raw": "personal-archive-coverz-0.8.6/coverz-0.8.6.tar.xz:coverz-0.8.6/skins/Cube",
+    "skin_xml_sha256": "426fcffd25fc4420d77dc5579ea0b2be968c3745661d345353a3c978c4e82c25",
+    "app": "coverz",
+    "original_skin_xml_sha256": "1882f3e3f6fe1d158d229b3019c94f53edfdda780f7ea080a27b19a7cf512e38"
+  },
+  "assets": {
+    "copied": [
+      "bg.png",
+      "bgh.png",
+      "fg.png",
+      "fgh.png",
+      "next.png",
+      "nexth.png",
+      "pause.png",
+      "pauseh.png",
+      "play.png",
+      "playh.png",
+      "prev.png",
+      "prevh.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "named after its folder: the skin's name= is coverz's copyright line",
+    "coverz hides text, buttons, seekbar and rating while stopped; Platter shows them throughout",
+    "distribution free: redistribution and modification both permitted"
+  ]
+}

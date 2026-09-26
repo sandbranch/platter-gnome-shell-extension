@@ -1,0 +1,110 @@
+{
+  "format": "platter-theme/0",
+  "id": "cube-coverz",
+  "name": "Cube (coverz)",
+  "canvas": {
+    "width": 168,
+    "height": 168
+  },
+  "attribution": {
+    "author": "mickyz",
+    "source_url": "",
+    "license": "GPL-3.0-or-later",
+    "original_app": "coverz",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "The coverz source files state: \"This application is released under the GNU General Public License v3 (or, at your option, any later version)\". The skins are part of the package: the Makefile's deb target installs skins/ with the program, and every skin is signed \"mickyz(c)2012\", coverz's own author. Same basis as the CoverGloobus 1.6/1.7 tarball themes."
+  },
+  "fonts": [],
+  "layers": [
+    {
+      "type": "image",
+      "x": 2,
+      "y": 2,
+      "width": 144,
+      "height": 144,
+      "src": "bg.png"
+    },
+    {
+      "type": "image",
+      "x": 10,
+      "y": 10,
+      "width": 128,
+      "height": 128,
+      "src": "bgh.png"
+    },
+    {
+      "type": "artwork",
+      "x": 10,
+      "y": 10,
+      "width": 128,
+      "height": 128
+    },
+    {
+      "type": "image",
+      "x": 10,
+      "y": 10,
+      "width": 128,
+      "height": 128,
+      "src": "fg.png"
+    },
+    {
+      "type": "image",
+      "x": 0,
+      "y": 92,
+      "width": 148,
+      "height": 46,
+      "src": "fgh.png"
+    },
+    {
+      "type": "button",
+      "x": 27,
+      "y": 100,
+      "width": 32,
+      "height": 32,
+      "action": "previous",
+      "states": {
+        "default": {
+          "normal": "prevh.png",
+          "hover": null,
+          "pressed": "prev.png"
+        }
+      }
+    },
+    {
+      "type": "button",
+      "x": 59,
+      "y": 100,
+      "width": 32,
+      "height": 32,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "playh.png",
+          "hover": null,
+          "pressed": "play.png"
+        },
+        "playing": {
+          "normal": "pauseh.png",
+          "hover": null,
+          "pressed": "pause.png"
+        }
+      }
+    },
+    {
+      "type": "button",
+      "x": 91,
+      "y": 100,
+      "width": 32,
+      "height": 32,
+      "action": "next",
+      "states": {
+        "default": {
+          "normal": "nexth.png",
+          "hover": null,
+          "pressed": "next.png"
+        }
+      }
+    }
+  ]
+}

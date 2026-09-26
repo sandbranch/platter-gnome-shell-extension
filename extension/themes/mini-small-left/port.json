@@ -1,0 +1,23 @@
+{
+  "ported": "2026-09-26",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "personal-archive-Mini/mini_for_covergloobus_by_gabriela2400.zip:Mini for covergloobus/Mini small left",
+    "skin_xml_sha256": "5791cf8361f53e1e14d303bc610070eb044b060e89b959118c751e6c46124966",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "case.png",
+      "nocover.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "distribution non-free: no terms found; silence is not permission"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "ported": "2026-09-26",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "personal-archive-Ambiance/ambiance_covergloobus_skin_by_alezzacreative_d54wftt.zip:Ambiance",
+    "skin_xml_sha256": "496d7a68120d7d3bbaefe10df59a9eb7a5bfae0b321951484b71cc7e2110ddf2",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "next.over.png",
+      "next.png",
+      "overlay.png",
+      "pause.over.png",
+      "pause.png",
+      "play.over.png",
+      "play.png",
+      "prev.over.png",
+      "prev.png",
+      "seekbar.back.png",
+      "seekbar.top.png",
+      "shadow.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [
+    {
+      "at": "playercontrols[6]/prev[0]",
+      "taken": "width=28 from the asset"
+    },
+    {
+      "at": "playercontrols[6]/prev[0]",
+      "taken": "height=28 from the asset"
+    },
+    {
+      "at": "playercontrols[6]/play[1]",
+      "taken": "width=40 from the asset"
+    },
+    {
+      "at": "playercontrols[6]/play[1]",
+      "taken": "height=40 from the asset"
+    },
+    {
+      "at": "playercontrols[6]/next[2]",
+      "taken": "width=28 from the asset"
+    },
+    {
+      "at": "playercontrols[6]/next[2]",
+      "taken": "height=28 from the asset"
+    }
+  ],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "distribution non-free: no terms found; silence is not permission"
+  ]
+}

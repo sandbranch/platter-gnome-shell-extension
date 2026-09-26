@@ -1,0 +1,52 @@
+{
+  "format": "platter-theme/0",
+  "id": "default-coverz",
+  "name": "Default (coverz)",
+  "canvas": {
+    "width": 128,
+    "height": 128
+  },
+  "attribution": {
+    "author": "mickyz",
+    "source_url": "",
+    "license": "GPL-3.0-or-later",
+    "original_app": "coverz",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "The coverz source files state: \"This application is released under the GNU General Public License v3 (or, at your option, any later version)\". The skins are part of the package: the Makefile's deb target installs skins/ with the program, and every skin is signed \"mickyz(c)2012\", coverz's own author. Same basis as the CoverGloobus 1.6/1.7 tarball themes."
+  },
+  "fonts": [],
+  "layers": [
+    {
+      "type": "image",
+      "x": 8,
+      "y": 8,
+      "width": 112,
+      "height": 112,
+      "src": "no.png"
+    },
+    {
+      "type": "artwork",
+      "x": 8,
+      "y": 8,
+      "width": 112,
+      "height": 112
+    },
+    {
+      "type": "image",
+      "x": 8,
+      "y": 8,
+      "width": 112,
+      "height": 112,
+      "src": "bg.png"
+    },
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "src": "fg.png"
+    }
+  ]
+}

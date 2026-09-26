@@ -1,0 +1,30 @@
+{
+  "ported": "2026-09-26",
+  "porter": "tools/oneoff/coverz.py, then tools/port.py",
+  "source": {
+    "raw": "personal-archive-coverz-0.8.6/coverz-0.8.6.tar.xz:coverz-0.8.6/skins/Edge",
+    "skin_xml_sha256": "08f355563109aac20a9979150f3fdf4bbe091ebc8503c89222c2831acbd34cfc",
+    "app": "coverz",
+    "original_skin_xml_sha256": "2503b68d86ba62baac3035e399cf5fd6775814e937debdef004ac70aa73d4546"
+  },
+  "assets": {
+    "copied": [
+      "bg.png",
+      "next.png",
+      "no.png",
+      "pause.png",
+      "play.png",
+      "prev.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "named after its folder: the skin's name= is coverz's copyright line",
+    "coverz hides text, buttons, seekbar and rating while stopped; Platter shows them throughout",
+    "distribution free: redistribution and modification both permitted"
+  ]
+}

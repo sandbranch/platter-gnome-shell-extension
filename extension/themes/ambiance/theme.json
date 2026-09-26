@@ -1,0 +1,151 @@
+{
+  "format": "platter-theme/0",
+  "id": "ambiance",
+  "name": "Ambiance",
+  "canvas": {
+    "width": 200,
+    "height": 220
+  },
+  "attribution": {
+    "author": "alezzacreative (MUSTAPHA ASBBAR)",
+    "source_url": "https://www.deviantart.com/alezzacreative/art/Ambiance-CoverGloobus-skin-310562849",
+    "license": "attribution-required",
+    "original_app": "covergloobus",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "skin.xml comment: \"this theme is free to distribute, mod and such as long as you accredit it back to MUSTAPHA ASBBAR\" (the same grant as Bulles)."
+  },
+  "fonts": [
+    {
+      "family": "Sans",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 0,
+      "y": 10,
+      "width": 186,
+      "height": 208,
+      "src": "shadow.png"
+    },
+    {
+      "type": "artwork",
+      "x": 10,
+      "y": 10,
+      "width": 168,
+      "height": 168,
+      "round": 0
+    },
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 189,
+      "height": 212,
+      "src": "overlay.png"
+    },
+    {
+      "type": "seekbar",
+      "x": 20,
+      "y": 187,
+      "width": 149,
+      "height": 2,
+      "back": "seekbar.back.png",
+      "fill": "seekbar.top.png",
+      "orientation": "horizontal"
+    },
+    {
+      "type": "text",
+      "x": 20,
+      "y": 172,
+      "width": 100,
+      "bind": "position",
+      "font": {
+        "family": "Sans",
+        "size": 8,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffff3f",
+      "align": "left",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 25
+      }
+    },
+    {
+      "type": "text",
+      "x": 138,
+      "y": 172,
+      "width": 100,
+      "bind": "length",
+      "font": {
+        "family": "Sans",
+        "size": 8,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffff3f",
+      "align": "left",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 25
+      }
+    },
+    {
+      "type": "button",
+      "x": 50,
+      "y": 150,
+      "action": "previous",
+      "states": {
+        "default": {
+          "normal": "prev.png",
+          "hover": "prev.over.png",
+          "pressed": null
+        }
+      },
+      "width": 28,
+      "height": 28
+    },
+    {
+      "type": "button",
+      "x": 75,
+      "y": 125,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "pause.png",
+          "hover": "pause.over.png",
+          "pressed": null
+        },
+        "playing": {
+          "normal": "play.png",
+          "hover": "play.over.png",
+          "pressed": null
+        }
+      },
+      "width": 40,
+      "height": 40
+    },
+    {
+      "type": "button",
+      "x": 113,
+      "y": 150,
+      "action": "next",
+      "states": {
+        "default": {
+          "normal": "next.png",
+          "hover": "next.over.png",
+          "pressed": null
+        }
+      },
+      "width": 28,
+      "height": 28
+    }
+  ]
+}

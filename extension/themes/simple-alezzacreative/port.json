@@ -1,0 +1,57 @@
+{
+  "ported": "2026-09-26",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "personal-archive-Simple-alezzacreative/simple_covergloobus_skin_by_alezzacreative_d54wfl8.zip:Simple",
+    "skin_xml_sha256": "5c8d6b314568eea80735a3f7f64a1c2d74e5c3fd801b5c621b1ff93901437546",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "next.over.png",
+      "next.png",
+      "note.png",
+      "pause.over.png",
+      "pause.png",
+      "play.over.png",
+      "play.png",
+      "prev.over.png",
+      "prev.png",
+      "seekbar.back.png",
+      "seekbar.top.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [
+    {
+      "at": "playercontrols[7]/prev[0]",
+      "taken": "width=28 from the asset"
+    },
+    {
+      "at": "playercontrols[7]/prev[0]",
+      "taken": "height=28 from the asset"
+    },
+    {
+      "at": "playercontrols[7]/play[1]",
+      "taken": "width=28 from the asset"
+    },
+    {
+      "at": "playercontrols[7]/play[1]",
+      "taken": "height=28 from the asset"
+    },
+    {
+      "at": "playercontrols[7]/next[2]",
+      "taken": "width=28 from the asset"
+    },
+    {
+      "at": "playercontrols[7]/next[2]",
+      "taken": "height=28 from the asset"
+    }
+  ],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "distribution non-free: no terms found; silence is not permission"
+  ]
+}

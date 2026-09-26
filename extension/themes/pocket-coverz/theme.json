@@ -1,0 +1,126 @@
+{
+  "format": "platter-theme/0",
+  "id": "pocket-coverz",
+  "name": "Pocket (coverz)",
+  "canvas": {
+    "width": 200,
+    "height": 160
+  },
+  "attribution": {
+    "author": "mickyz",
+    "source_url": "",
+    "license": "GPL-3.0-or-later",
+    "original_app": "coverz",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "The coverz source files state: \"This application is released under the GNU General Public License v3 (or, at your option, any later version)\". The skins are part of the package: the Makefile's deb target installs skins/ with the program, and every skin is signed \"mickyz(c)2012\", coverz's own author. Same basis as the CoverGloobus 1.6/1.7 tarball themes."
+  },
+  "fonts": [
+    {
+      "family": "Fatboy",
+      "bundled": false,
+      "reason": "Fatboy.ttf ships with the theme, but whether it may be redistributed is unresolved"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 14,
+      "y": 0,
+      "width": 160,
+      "height": 160,
+      "src": "coverz-image0-cd.png"
+    },
+    {
+      "type": "artwork",
+      "x": 15,
+      "y": 1,
+      "width": 158,
+      "height": 158,
+      "mask": "coverz-cover-mask.png"
+    },
+    {
+      "type": "image",
+      "x": 0,
+      "y": 65,
+      "width": 200,
+      "height": 80,
+      "src": "fg.png"
+    },
+    {
+      "type": "text",
+      "x": 20,
+      "y": 84,
+      "width": 150,
+      "height": 24,
+      "bind": "title",
+      "font": {
+        "family": "Fatboy",
+        "size": 10,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#dddddde6",
+      "shadow": {
+        "color": "#444444e6",
+        "dx": 0,
+        "dy": -1
+      },
+      "align": "center",
+      "wrap": false,
+      "overflow": {
+        "mode": "ellipsize-char"
+      }
+    },
+    {
+      "type": "button",
+      "x": 72,
+      "y": 102,
+      "width": 16,
+      "height": 16,
+      "action": "previous",
+      "states": {
+        "default": {
+          "normal": "prev.png",
+          "hover": null,
+          "pressed": "prev1.png"
+        }
+      }
+    },
+    {
+      "type": "button",
+      "x": 88,
+      "y": 102,
+      "width": 16,
+      "height": 16,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "play.png",
+          "hover": null,
+          "pressed": "play1.png"
+        },
+        "playing": {
+          "normal": "pause.png",
+          "hover": null,
+          "pressed": "pause1.png"
+        }
+      }
+    },
+    {
+      "type": "button",
+      "x": 104,
+      "y": 102,
+      "width": 16,
+      "height": 16,
+      "action": "next",
+      "states": {
+        "default": {
+          "normal": "next.png",
+          "hover": null,
+          "pressed": "next1.png"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "format": "platter-theme/0",
+  "id": "mini-small-left",
+  "name": "Mini Small (Left)",
+  "canvas": {
+    "width": 155,
+    "height": 45
+  },
+  "attribution": {
+    "author": "gabriela2400 (port of superherothomas's original CD Art Display skin)",
+    "source_url": "",
+    "license": "attribution-required",
+    "original_app": "covergloobus",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "skin.xml comment: \"this theme is free to distribute, mod and such as long as you accredit it back to http://superherothomas.deviantart.com/ who made the skin for cad and ~gabriela2400 (gabriela2400.deviantart.com) who ported it for covergloobus\". Same basis as TrickLine."
+  },
+  "fonts": [
+    {
+      "family": "Gnuolane",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 151,
+      "height": 41,
+      "src": "case.png"
+    },
+    {
+      "type": "image",
+      "x": 7,
+      "y": 6,
+      "width": 26,
+      "height": 26,
+      "src": "nocover.png"
+    },
+    {
+      "type": "artwork",
+      "x": 7,
+      "y": 7,
+      "width": 27,
+      "height": 27
+    },
+    {
+      "type": "text",
+      "x": 50,
+      "y": 8,
+      "width": 240,
+      "bind": "artist",
+      "font": {
+        "family": "Gnuolane",
+        "size": 8,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#04b404ff",
+      "align": "left",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 25
+      }
+    },
+    {
+      "type": "text",
+      "x": 50,
+      "y": 18,
+      "width": 240,
+      "bind": "title",
+      "font": {
+        "family": "Gnuolane",
+        "size": 8,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "align": "left",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 25
+      }
+    }
+  ]
+}

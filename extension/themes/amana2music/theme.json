@@ -1,0 +1,76 @@
+{
+  "format": "platter-theme/0",
+  "id": "amana2music",
+  "name": "AMANA2music",
+  "canvas": {
+    "width": 153,
+    "height": 138
+  },
+  "attribution": {
+    "author": "athranz (port of mangosango's original CD Art Display skin)",
+    "source_url": "https://www.deviantart.com/athranz/art/AMANA2-COVERGLOOBUS-328196339",
+    "license": "CC BY-SA 3.0",
+    "original_app": "covergloobus",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "skin.xml comment: \"AMANA2 covergloobus theme by ATHRANZ ... Based on AMANA2 CAD by mangosango ... Licensed under CC Attribution-ShareAlike 3.0\". The deviation page sets no licence; the grant is in the file."
+  },
+  "fonts": [],
+  "layers": [
+    {
+      "type": "image",
+      "x": 26,
+      "y": 5,
+      "width": 120,
+      "height": 120,
+      "src": "nocover.png",
+      "round": 3
+    },
+    {
+      "type": "artwork",
+      "x": 26,
+      "y": 5,
+      "width": 120,
+      "height": 120,
+      "round": 3
+    },
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 154,
+      "height": 135,
+      "src": "Case.png"
+    },
+    {
+      "type": "button",
+      "x": 70,
+      "y": 10,
+      "width": 32,
+      "height": 32,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "none.png",
+          "hover": "play.png",
+          "pressed": null
+        },
+        "playing": {
+          "normal": "none.png",
+          "hover": "play2.png",
+          "pressed": null
+        }
+      }
+    },
+    {
+      "type": "seekbar",
+      "x": 32,
+      "y": 110,
+      "width": 109,
+      "height": 10,
+      "back": "back.png",
+      "fill": "fill.png",
+      "orientation": "horizontal"
+    }
+  ]
+}

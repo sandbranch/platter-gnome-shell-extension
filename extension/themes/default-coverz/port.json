@@ -1,0 +1,27 @@
+{
+  "ported": "2026-09-26",
+  "porter": "tools/oneoff/coverz.py, then tools/port.py",
+  "source": {
+    "raw": "personal-archive-coverz-0.8.6/coverz-0.8.6.tar.xz:coverz-0.8.6/skins",
+    "skin_xml_sha256": "26191052f9cd3ef8ffb816cce022a7bfecdf72a6d2622012492ab056423f4ec4",
+    "app": "coverz",
+    "original_skin_xml_sha256": "ed6454a8a0bf79dc792ed6530b4ab0b80ddd2aac917c795e94e639d98c00ae17"
+  },
+  "assets": {
+    "copied": [
+      "bg.png",
+      "fg.png",
+      "no.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "named after its folder: the skin's name= is coverz's copyright line",
+    "coverz hides text, buttons, seekbar and rating while stopped; Platter shows them throughout",
+    "distribution free: redistribution and modification both permitted"
+  ]
+}

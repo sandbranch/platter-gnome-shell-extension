@@ -1,0 +1,36 @@
+{
+  "ported": "2026-09-26",
+  "porter": "tools/oneoff/coverz.py, then tools/port.py",
+  "source": {
+    "raw": "personal-archive-coverz-0.8.6/coverz-0.8.6.tar.xz:coverz-0.8.6/skins/Plastik",
+    "skin_xml_sha256": "da9022d3feb6c0ae9249df9e2ab1e9ce1bfd2e361a431b1181fb4fa6486fe5af",
+    "app": "coverz",
+    "original_skin_xml_sha256": "5e8401e6a17fd5751ce14d40e50e1518770db7d9694384e836f749eb57f92aea"
+  },
+  "assets": {
+    "copied": [
+      "bg.png",
+      "cover.png",
+      "fg.png",
+      "play.png",
+      "playh.png",
+      "star.png",
+      "starred.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [],
+  "lossy": [
+    {
+      "at": "title[3]",
+      "dropped": "reflect: coverz's gap,height,opacity is not drawn by Platter either way"
+    }
+  ],
+  "inferred": [],
+  "notes": [
+    "named after its folder: the skin's name= is coverz's copyright line",
+    "coverz hides text, buttons, seekbar and rating while stopped; Platter shows them throughout",
+    "distribution free: redistribution and modification both permitted"
+  ]
+}

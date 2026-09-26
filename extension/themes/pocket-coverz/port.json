@@ -1,0 +1,53 @@
+{
+  "ported": "2026-09-26",
+  "porter": "tools/oneoff/coverz.py, then tools/port.py",
+  "source": {
+    "raw": "personal-archive-coverz-0.8.6/coverz-0.8.6.tar.xz:coverz-0.8.6/skins/Pocket",
+    "skin_xml_sha256": "b055ca03542a11fea31d32d211d8ced8a9d69d4f82855e50ed0b64f5dd852d66",
+    "app": "coverz",
+    "original_skin_xml_sha256": "5097700bb214978bd49b4339b89b84501e8be81ce22abdc63d9ef89fd76d7d10"
+  },
+  "assets": {
+    "copied": [
+      "coverz-cover-mask.png",
+      "coverz-image0-cd.png",
+      "fg.png",
+      "next.png",
+      "next1.png",
+      "pause.png",
+      "pause1.png",
+      "play.png",
+      "play1.png",
+      "prev.png",
+      "prev1.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [
+    {
+      "at": "image[0]",
+      "from": "coverz",
+      "to": "platter",
+      "why": "mask/clip baked into coverz-image0-cd.png: coverz erases where its mask is opaque"
+    },
+    {
+      "at": "cover[1]",
+      "from": "coverz",
+      "to": "platter",
+      "why": "cover mask inverted into coverz-cover-mask.png: coverz erases where its mask is opaque"
+    }
+  ],
+  "derived": [],
+  "lossy": [
+    {
+      "at": "fonts",
+      "dropped": "Fatboy.ttf left behind: a bundled font is not a licensed font"
+    }
+  ],
+  "inferred": [],
+  "notes": [
+    "named after its folder: the skin's name= is coverz's copyright line",
+    "coverz hides text, buttons, seekbar and rating while stopped; Platter shows them throughout",
+    "distribution free: redistribution and modification both permitted"
+  ]
+}

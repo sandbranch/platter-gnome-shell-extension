@@ -9,6 +9,17 @@
   terms are not overridden by being bundled in the tarball. Non-commercial
   terms are the reason Platter's other NC themes sit outside the release too.
   It is still listed in `docs/credits.md` with a link to BigRZA's page.
+- Eighteen more themes, 73 in all. Six are the skins bundled with coverz
+  0.8.6, mickyz's later cover app, which is GPL v3 or later; the rest carry
+  their permission in their own files: LGD-N12 and AMANA2music are CC BY-SA
+  3.0, and Ambiance, Simple (alezzacreative) and gabriela2400's Mini and
+  Plastic Beach, four variants each, say "free to distribute, mod and such as
+  long as you accredit it back". Two coverz skins, Retro and Sticked, wait:
+  their only line of text joins artist and title in one layer, which Platter
+  cannot yet say.
+- `docs/credits.md` lists every theme found, 263 of them, and each author now
+  links to their own gallery: every link in the list of people used to point at
+  `deviantart.com/www`.
 
 ## 0.1.1 (2026-08-24)
 

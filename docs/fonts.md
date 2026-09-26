@@ -59,7 +59,7 @@ find is always written down:
 
 ## Where to get each one
 
-Two of the families named across the 43 shipped themes are already covered on
+Two of the families named across the 73 shipped themes are already covered on
 any mainstream Linux desktop (`Sans` is a fontconfig alias, not a font;
 `DejaVu Sans`/`DejaVu Sans Mono` ship everywhere). No action needed for those.
 Everything else below is a gap a theme will render into a fallback font unless
@@ -72,12 +72,17 @@ Genuinely free. Install and `fc-cache -f`:
 
 | Font | Used by | Get it |
 | --- | --- | --- |
-| Bebas (Bebas Neue) | lunatic | [Google Fonts](https://fonts.google.com/specimen/Bebas+Neue) |
+| Bebas (Bebas Neue) | lunatic, plastic-beach-dark, plastic-beach-light, plastic-beach-punched, plastic-beach-white | [Google Fonts](https://fonts.google.com/specimen/Bebas+Neue) |
 | DIRT2 DEATH | lunatic | [dafont.com](https://www.dafont.com/dirt2-death.font): free for personal use; commercial use means asking the designer, per the listing |
 | Vibrocentric | h-k-nowplaying, sweeth-bleu | [dafont.com](https://www.dafont.com/vibrocentric.font): Typodermic Fonts; the install-and-use case is exactly what its licence permits, see above |
 | Sansation | ics-1, ics-2 | [Font Squirrel](https://www.fontsquirrel.com/fonts/sansation) |
 | Santana | ics-2 | [dafont.com](https://www.dafont.com/santana.font) |
-| Droid Sans | box-of-tricks-by-d0od, faenza-alternate | [Font Squirrel](https://www.fontsquirrel.com/fonts/droid-sans): Apache-2.0, from Google |
+| Droid Sans | box-of-tricks-by-d0od, edge-coverz, faenza-alternate | [Font Squirrel](https://www.fontsquirrel.com/fonts/droid-sans): Apache-2.0, from Google |
+| Droid Sans Mono ("Droid Monospace" in the skin) | plastik-coverz | [Font Squirrel](https://www.fontsquirrel.com/fonts/droid-sans-mono): Apache-2.0, from Google |
+| Gnuolane | mini-down, mini-up, mini-small-left, mini-small-right | [1001 Fonts](https://www.1001fonts.com/gnuolane-free-font.html): Ray Larabie, under the Typodermic desktop licence, which permits installing and using it |
+| PF Tempesta Five Condensed | lgd-n12 | [dafont.com](https://www.dafont.com/pf-tempesta-five.font): Yusuke Kamiyamane |
+| Zero Twos | tooltip-coverz | [Abstract Fonts](https://www.abstractfonts.com/font/1651): Ray Larabie, 1999; the file itself says "This font is freeware" |
+| Fatboy | pocket-coverz | No known source. coverz 0.8.6 bundles a `Fatboy.ttf` whose only credit is an email address, kentpw@norwich.net, with no terms; it is not dafont's Fatboy Slim. The theme falls back to a system face without it |
 | Purisa | photo | Ubuntu/Debian: `sudo apt install fonts-tlwg-purisa` (Thai Linux Working Group; other distros package it as `thai-scalable-purisa` or similar) |
 | Trebuchet MS | box-of-tricks-mod-by-d0od(-2) | Ubuntu/Debian: `sudo apt install ttf-mscorefonts-installer`; the [package](https://packages.ubuntu.com/ttf-mscorefonts-installer) fetches it under Microsoft's own EULA, which is the legitimate route, not a mirror |
 | URW Gothic L | intrepid-ibex-mockup-by-d0od | Ubuntu/Debian: `sudo apt install gsfonts` ([fonts-urw-base35](https://packages.debian.org/sid/fonts-urw-base35) on newer releases) |

@@ -1,0 +1,69 @@
+{
+  "ported": "2026-09-26",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "personal-archive-LGD-N12/lgd_n12_for_covergloobus_by_lagadesk_d4hcbbc.zip:LGD-N12",
+    "skin_xml_sha256": "3151d56f6978f02eeb79eeb99c0977afeda7a3322425999c3736e74a3fed8dea",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "1-pause.png",
+      "1-play.png",
+      "bar.png",
+      "case.png",
+      "grip.png",
+      "hover.png",
+      "next.png",
+      "next_prev.png",
+      "nocover.png",
+      "nostar.png",
+      "play.png",
+      "play_prev.png",
+      "prev.png",
+      "prev_prev.png",
+      "star.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [
+    {
+      "at": "playercontrols[9]/prev[0]",
+      "taken": "width=13 from the asset"
+    },
+    {
+      "at": "playercontrols[9]/prev[0]",
+      "taken": "height=13 from the asset"
+    },
+    {
+      "at": "playercontrols[9]/play[1]",
+      "taken": "width=13 from the asset"
+    },
+    {
+      "at": "playercontrols[9]/play[1]",
+      "taken": "height=13 from the asset"
+    },
+    {
+      "at": "playercontrols[9]/next[2]",
+      "taken": "width=13 from the asset"
+    },
+    {
+      "at": "playercontrols[9]/next[2]",
+      "taken": "height=13 from the asset"
+    },
+    {
+      "at": "playercontrols[10]/play[0]",
+      "taken": "width=10 from the asset"
+    },
+    {
+      "at": "playercontrols[10]/play[0]",
+      "taken": "height=10 from the asset"
+    }
+  ],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "distribution non-free: no terms found; silence is not permission"
+  ]
+}

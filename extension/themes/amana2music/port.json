@@ -1,0 +1,36 @@
+{
+  "ported": "2026-09-26",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "personal-archive-AMANA2/amana2_covergloobus_by_athranz_d5fedwz.zip:COVERGLOOBUS/AMANA2music",
+    "skin_xml_sha256": "77637613ff0bf175501d1cb8f388f198950c4becfc15287d554cf1ec6b16758e",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "Case.png",
+      "back.png",
+      "fill.png",
+      "nocover.png",
+      "play.png",
+      "play2.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [],
+  "lossy": [
+    {
+      "at": "playercontrols[3]/play[0]",
+      "dropped": "asset 'none.png' is not in the theme"
+    },
+    {
+      "at": "playercontrols[3]/play[0]",
+      "dropped": "asset 'none.png' is not in the theme"
+    }
+  ],
+  "inferred": [],
+  "notes": [
+    "distribution non-free: no terms found; silence is not permission"
+  ]
+}

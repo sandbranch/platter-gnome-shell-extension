@@ -2,7 +2,7 @@
 
 **125 themes by 43 people**, dug up from DeviantArt, gnome-look, old source
 tarballs, and a few personal archives that never left anyone's hard drive
-until now. **49 of them ship with Platter**, marked ✔ below, but every single
+until now. **55 of them ship with Platter**, marked ✔ below, but every single
 one gets a link back to wherever it still lives, shipped or not, because
 somebody made this and that's worth remembering.
 
@@ -24,11 +24,11 @@ beside it is the only thank-you this project has left to give its author.
 
 ## The people who made them
 
-[73ll0](https://www.deviantart.com/www) (2) · [Aaron (awhite92)](https://www.deviantart.com/www) (1) · [aaron-a-arts](https://www.deviantart.com/www) (3) · alespana (1) · [Alex Almeida (arcanamoon)](https://www.deviantart.com/www) (7) · [alezzacreative (MUSTAPHA ASBBAR)](https://www.deviantart.com/www) (7) · [Algalord-Gnome](https://www.deviantart.com/www) (1) · [artbhatta](https://www.deviantart.com/www) (1) · [arturoilhuitemoc (Ihuitemoc)](https://www.deviantart.com/www) (1) · BigRZA (1) · cowanh00 (modification); NowPlaying screenlet by magicrobomonkey, extended by vrunner (1) · [d0od](https://www.deviantart.com/www) (2) · [d0od + Kshegyaj](https://www.deviantart.com/www) (4) · DJD (DJDP) (1) · [gabriela2400](https://www.deviantart.com/www) (8) · gabriela2400 (port of Slifer2006's original CD Art Display skin) (6) · gabriela2400 (port of murasaki55's original CD Art Display skin) (1) · Giorgi "DrAcid" Maghlakelidze (1) · idroy (2) · [jivebs](https://www.deviantart.com/www) (5) · Jordi Puigdellivol Hernandez (BadChoice) (13) · Jordi Puigdellivol Hernandez (BadChoice); mirrored by Platter (1) · kzkggaara (1) · [larryni](https://www.deviantart.com/www) (3) · Laurent Baumann (1) · [leonardomdq](https://www.deviantart.com/www) (10) · [liliumcruentus](https://www.deviantart.com/www) (3) · m4he (1) · Naf71 (Dr Naf) (1) · [Nerten](https://www.deviantart.com/www) (1) · NowPlaying screenlet (magicrobomonkey, vrunner) (14) · noyth (1) · [orsobasso](https://www.deviantart.com/www) (1) · paran0idx (3) · Platter (2) · [rabra](https://www.deviantart.com/www) (1) · raizon1 (1) · [rikarud0](https://www.deviantart.com/www) (1) · [scherezada](https://www.deviantart.com/www) (1) · slaytanicdude (1) · sosoinlove (2) · [speedracker (uploader)](https://www.deviantart.com/www) (1) · [taylantatli](https://www.deviantart.com/www) (1) · [theconso](https://www.deviantart.com/www) (3) · Theconso (1) · tiz-huglife (1) · [Twentyeight-Ten](https://www.deviantart.com/www) (2) · [xegi90](https://www.deviantart.com/www) (3) · Author unrecorded (4)
+[73ll0](https://www.deviantart.com/www) (2) · [Aaron (awhite92)](https://www.deviantart.com/www) (1) · [aaron-a-arts](https://www.deviantart.com/www) (3) · alespana (1) · [Alex Almeida (arcanamoon)](https://www.deviantart.com/www) (7) · [alezzacreative (MUSTAPHA ASBBAR)](https://www.deviantart.com/www) (7) · [Algalord-Gnome](https://www.deviantart.com/www) (1) · [artbhatta](https://www.deviantart.com/www) (1) · [arturoilhuitemoc (Ihuitemoc)](https://www.deviantart.com/www) (1) · BigRZA (2) · cowanh00 (modification); NowPlaying screenlet by magicrobomonkey, extended by vrunner (1) · [d0od](https://www.deviantart.com/www) (2) · [d0od + Kshegyaj](https://www.deviantart.com/www) (4) · DJD (DJDP) (1) · [gabriela2400](https://www.deviantart.com/www) (8) · gabriela2400 (port of Slifer2006's original CD Art Display skin) (6) · gabriela2400 (port of murasaki55's original CD Art Display skin) (1) · Giorgi "DrAcid" Maghlakelidze (1) · idroy (2) · [jivebs](https://www.deviantart.com/www) (5) · Jordi Puigdellivol Hernandez (BadChoice) (12) · Jordi Puigdellivol Hernandez (BadChoice); mirrored by Platter (1) · kzkggaara (1) · [larryni](https://www.deviantart.com/www) (3) · Laurent Baumann (1) · [leonardomdq](https://www.deviantart.com/www) (10) · [liliumcruentus](https://www.deviantart.com/www) (3) · m4he (1) · Naf71 (Dr Naf) (1) · [Nerten](https://www.deviantart.com/www) (1) · NowPlaying screenlet (magicrobomonkey, vrunner) (14) · noyth (1) · [orsobasso](https://www.deviantart.com/www) (1) · paran0idx (3) · Platter (2) · [rabra](https://www.deviantart.com/www) (1) · raizon1 (1) · [rikarud0](https://www.deviantart.com/www) (1) · [scherezada](https://www.deviantart.com/www) (1) · slaytanicdude (1) · sosoinlove (2) · [speedracker (uploader)](https://www.deviantart.com/www) (1) · [taylantatli](https://www.deviantart.com/www) (1) · [theconso](https://www.deviantart.com/www) (3) · Theconso (1) · tiz-huglife (1) · [Twentyeight-Ten](https://www.deviantart.com/www) (2) · [xegi90](https://www.deviantart.com/www) (3) · Author unrecorded (4)
 
 ## All 125 themes
 
-✔ marks the 56 that ship with Platter.
+✔ marks the 55 that ship with Platter.
 
 | | Theme | Author | For | Stated terms | Where it lives |
 | --- | --- | --- | --- | --- | --- |
@@ -58,7 +58,8 @@ beside it is the only thank-you this project has left to give its author.
 | ✔ | Faenza Alternate | arturoilhuitemoc (Ihuitemoc) | CoverGloobus | CC BY-SA 3.0 | [link](https://www.deviantart.com/arturoilhuitemoc/art/Faenza-Alternate-CoverGloobus-197373411) |
 | ✔ | Faenza Revisited | alespana (edit of arturoilhuitemoc/Ihuitemoc's Faenza Alternate) | CoverGloobus | CC BY-SA 3.0 | [link](https://www.deviantart.com/alespana/) |
 | ✔ | simpleOne_v2 | cowanh00 (modification); NowPlaying screenlet by magicrobomonkey, extended by vrunner | NowPlaying | GPL-2.0-or-later | [link](https://web.archive.org/web/2015/http://www.gnome-look.org/CONTENT/content-files/77435-NowPlaying.tar.gz) |
-|  | ToolTip2 | BigRZA (remix of the shipped t-tip theme's design, by Jordi Puigdellivol Hernandez / BadChoice) | CoverGloobus | CC BY-NC 3.0 | [link](https://www.deviantart.com/bigrza/art/ToolTip2-for-Covergloobus-186519312) |
+|  | T-tip | BigRZA (1.7 shipped it under this name, committed by Jordi Puigdellivol Hernandez) | CoverGloobus | CC BY-NC 3.0 | [link](https://www.deviantart.com/bigrza/art/ToolTip-for-CoverGloobus-164478623) |
+|  | ToolTip2 | BigRZA (ToolTip with a seekbar added) | CoverGloobus | CC BY-NC 3.0 | [link](https://www.deviantart.com/bigrza/art/ToolTip2-for-Covergloobus-186519312) |
 |  | Faenzoobus pointoo | d0od | CoverGloobus | all rights reserved | [link](https://www.deviantart.com/d0od/art/Faenza-CoverGloobus-Theme-2-176871146) |
 |  | Faenzoobus Dark | idroy (remix of d0od's Faenzoobus, using thieum's Faenza icon set and BigRZA's ToolTip2 seek-bar button) | CoverGloobus | CC BY-NC-SA 3.0 | [link](https://www.deviantart.com/idroy/art/Faenza-CovergloobusTheme-Remix-255445460) |
 |  | Faenzoobus Light | idroy (remix of d0od's Faenzoobus, using thieum's Faenza icon set and BigRZA's ToolTip2 seek-bar button) | CoverGloobus | CC BY-NC-SA 3.0 | [link](https://www.deviantart.com/idroy/art/Faenza-CovergloobusTheme-Remix-255445460) |
@@ -166,7 +167,6 @@ beside it is the only thank-you this project has left to give its author.
 | ✔ | simple | Jordi Puigdellivol Hernandez (BadChoice) | CoverGloobus | GPL-3.0 | [link](https://launchpad.net/covergloobus) |
 |  | simple | *unrecorded* | CoverGloobus | Pling licensetype-1 (unconfirmed) | [link](https://www.gnome-look.org/p/1110965/) |
 |  | Sphere | *unrecorded* | CoverGloobus | Pling licensetype-1 (unconfirmed) | [link](https://www.gnome-look.org/p/1111161/) |
-| ✔ | T-tip | Jordi Puigdellivol Hernandez (BadChoice) | CoverGloobus | GPL-3.0 | [link](https://github.com/deepin-espanol/covergloobus) |
 
 ## Where the permissions came from
 

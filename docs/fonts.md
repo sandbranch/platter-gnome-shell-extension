@@ -80,7 +80,7 @@ Genuinely free. Install and `fc-cache -f`:
 | Droid Sans | box-of-tricks-by-d0od, faenza-alternate | [Font Squirrel](https://www.fontsquirrel.com/fonts/droid-sans): Apache-2.0, from Google |
 | Purisa | photo | Ubuntu/Debian: `sudo apt install fonts-tlwg-purisa` (Thai Linux Working Group; other distros package it as `thai-scalable-purisa` or similar) |
 | Trebuchet MS | box-of-tricks-mod-by-d0od(-2) | Ubuntu/Debian: `sudo apt install ttf-mscorefonts-installer`; the [package](https://packages.ubuntu.com/ttf-mscorefonts-installer) fetches it under Microsoft's own EULA, which is the legitimate route, not a mirror |
-| URW Gothic L | intrepid-ibex-mockup-by-d0od, t-tip | Ubuntu/Debian: `sudo apt install gsfonts` ([fonts-urw-base35](https://packages.debian.org/sid/fonts-urw-base35) on newer releases) |
+| URW Gothic L | intrepid-ibex-mockup-by-d0od | Ubuntu/Debian: `sudo apt install gsfonts` ([fonts-urw-base35](https://packages.debian.org/sid/fonts-urw-base35) on newer releases) |
 
 No legitimate free source: these are proprietary faces bundled with a specific
 OS or sold by their foundry. The corpus names them because that's what the

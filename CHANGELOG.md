@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased
+
+- T-tip no longer ships, and is credited to BigRZA. It was credited to Jordi
+  Puigdellivol Hernandez, who committed it to CoverGloobus 1.7, and shipped as
+  GPL-3.0 on that basis. But BigRZA posted it on DeviantArt the day before, as
+  "ToolTip for CoverGloobus", under CC BY-NC 3.0, and a theme's own stated
+  terms are not overridden by being bundled in the tarball. Non-commercial
+  terms are the reason Platter's other NC themes sit outside the release too.
+  It is still listed in `docs/credits.md` with a link to BigRZA's page.
+
 ## 0.1.1 (2026-08-24)
 
 - Fixed: a player started after login was never noticed, so Platter stayed

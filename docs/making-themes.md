@@ -172,7 +172,6 @@ today. Worth knowing before you spend an evening on a reflection.
 | Field | Where | Status |
 | --- | --- | --- |
 | `reflect` | `image`, `artwork` | Not drawn (no St equivalent) |
-| `mask` | `image` | Not drawn (no St equivalent) |
 | `valign` | `text` | Not applied; `align` works |
 | `overflow.mode: "scroll"` | `text` | Falls back to no ellipsis |
 

@@ -94,10 +94,18 @@ export default class PlatterExtension extends Extension {
 
         const paths = Theme.searchPaths(this.path, this._settings.get_string('theme-path'));
         const id = this._settings.get_string('theme');
-        const dir = Theme.find(id, paths);
+        let dir = Theme.find(id, paths);
         if (!dir) {
-            log(`Platter: theme "${id}" not found in ${paths.join(', ')}`);
-            return;
+            // A theme can leave the bundle (T-tip did, over its licence), or
+            // live in an extra directory that is not mounted today. Draw the
+            // default rather than nothing, and leave the setting alone, so
+            // the chosen theme comes back by itself once it can be found.
+            const fallback = this._settings.get_default_value('theme').unpack();
+            log(`Platter: theme "${id}" not found in ${paths.join(', ')}; ` +
+                `showing "${fallback}" instead`);
+            dir = fallback !== id ? Theme.find(fallback, paths) : null;
+            if (!dir)
+                return;
         }
         const theme = await Theme.load(dir);
         if (!theme)

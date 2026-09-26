@@ -102,6 +102,11 @@ porter, not a faithful reproduction.
 `reflect` comes from 1.7's `"gap-height-alpha-resize"` string: two pixel values
 then two percentages, alpha defaulting to 50% and resize to 100%.
 
+`mask` names an image whose alpha channel becomes the layer's, as 1.7's
+`DEST_IN` composite did. It is stretched to the layer's `width` and `height`,
+so it need not be drawn at that size, and only its alpha is read: what the mask
+is coloured makes no difference.
+
 ### artwork
 The album cover. Same fields as `image` minus `src`; the renderer supplies the
 image. A theme normally stacks a placeholder `image` underneath with

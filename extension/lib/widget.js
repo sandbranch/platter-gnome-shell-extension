@@ -8,16 +8,18 @@
  * handler fires every frame, where a bad actor is inert.
  *
  * The cost is the effects. round turned out to be free - St applies CSS
- * border-radius to a background image - but reflect and mask have no St
- * equivalent and are still unimplemented. If they turn out to matter, those
- * layers, and only those, can become St.DrawingArea children. Everything the
- * format knows how to say stays behind this one file, so that swap does not
- * spread.
+ * border-radius to a background image - and mask turned out not to need St at
+ * all: the cut is done to the pixels before St ever sees them, in Theme.masked.
+ * reflect has no St equivalent and is still unimplemented. If it turns out to
+ * matter, those layers, and only those, can become St.DrawingArea children.
+ * Everything the format knows how to say stays behind this one file, so that
+ * swap does not spread.
  */
 
 import Clutter from 'gi://Clutter';
 import GObject from 'gi://GObject';
 import Gio from 'gi://Gio';
+import GLib from 'gi://GLib';
 import St from 'gi://St';
 
 import * as Theme from './theme.js';
@@ -98,7 +100,10 @@ export const PlatterWidget = GObject.registerClass({
     _build(layer) {
         switch (layer.type) {
         case 'image': {
-            const path = Theme.assetAtScale(this._theme, layer.src, this._scale);
+            let path = Theme.assetAtScale(this._theme, layer.src, this._scale);
+            if (layer.mask)
+                path = Theme.masked(this._theme, path, layer.mask,
+                    layer.width * this._scale, layer.height * this._scale);
             const bin = new St.Bin({
                 style: `${backgroundStyle(path)} ${roundStyle((layer.round || 0) * this._scale)}`,
             });
@@ -113,6 +118,8 @@ export const PlatterWidget = GObject.registerClass({
                 style: roundStyle((layer.round || 0) * this._scale),
             });
             bin._round = (layer.round || 0) * this._scale;
+            bin._mask = layer.mask || null;
+            bin._cutSize = [layer.width * this._scale, layer.height * this._scale];
             this._place(bin, layer);
             this._artwork.push(bin);
             break;
@@ -228,6 +235,29 @@ export const PlatterWidget = GObject.registerClass({
         button.set_style(backgroundStyle(Theme.assetAtScale(this._theme, name, this._scale)));
     }
 
+    /* The cover cut to an artwork layer's mask, or null to draw it uncut: a
+     * cover Platter cannot reach as a file (a player that hands out an http
+     * URL) or a cut that failed. Called once a second, since update() is, but
+     * the cut itself only happens when Theme.masked has nothing cached - and
+     * asking it every time is what keeps a player that rewrites one cover file
+     * for every track from showing the cut it made for the last one. */
+    _cutToMask(bin, artUrl) {
+        let path = null;
+        if (artUrl.startsWith('/')) {
+            path = artUrl;
+        } else {
+            try {
+                [path] = GLib.filename_from_uri(artUrl);
+            } catch (e) {
+                return null;   // not a local file, so there is nothing to cut
+            }
+        }
+
+        const [w, h] = bin._cutSize;
+        const cut = Theme.masked(this._theme, path, bin._mask, w, h);
+        return cut === path ? null : cut;
+    }
+
     /** Point the widget at a track. Called on every MPRIS change. */
     update(track, progress) {
         this._playing = track.status === 'Playing';
@@ -247,10 +277,15 @@ export const PlatterWidget = GObject.registerClass({
         }
 
         for (const bin of this._artwork) {
-            const art = track.artUrl
-                ? `background-image: url("${track.artUrl}"); background-size: cover;`
+            const cut = bin._mask && track.artUrl ? this._cutToMask(bin, track.artUrl) : null;
+            const art = cut ? backgroundStyle(cut)
+                : track.artUrl ? `background-image: url("${track.artUrl}"); background-size: cover;`
                 : '';
-            bin.set_style(`${art} ${roundStyle(bin._round)}`);
+            // The stylesheet's faint tint marks where a missing cover goes. A
+            // real cover hides it only while the cover is square: one cut to
+            // a mask leaves it showing in the corners, so it goes with the art.
+            const tint = art ? 'background-color: transparent;' : '';
+            bin.set_style(`${art} ${tint} ${roundStyle(bin._round)}`);
         }
 
         for (const {clip, full} of this._seekbars)

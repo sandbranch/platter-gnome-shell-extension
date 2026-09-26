@@ -20,6 +20,23 @@
 - `docs/credits.md` lists every theme found, 263 of them, and each author now
   links to their own gallery: every link in the list of people used to point at
   `deviantart.com/www`.
+- Fixed: `mask` is now painted. A theme that cuts its cover to a shape (Bulles
+  to a circle, mH1 to a disc, DRK to a fade) was drawing the whole square
+  cover instead, spilling past the frame the theme had drawn around it.
+  St has no equivalent of the DEST_IN composite CoverGloobus did in cairo, so
+  the cut is made to the pixels before St sees them: the cover is scaled to the
+  layer, the mask's alpha becomes the cover's, and the result is cached in
+  `~/.cache/platter/masked` and handed to `background-image` like any other
+  asset. A coverz mask works the other way round, erasing where it is opaque, so
+  the coverz themes had theirs inverted when they were converted.
+- Fixed: a cover cut to a mask showed a faint square around it. The
+  stylesheet tints the artwork box to mark where a missing cover goes, and a
+  square cover hid it; a round one left it showing in the corners. The tint
+  now goes when a cover arrives.
+- A theme that cannot be found, because it has left the bundle or lives in an
+  extra directory that is not there today, now shows the default theme instead
+  of nothing. The setting is left alone, so the chosen theme returns when it
+  can be found again.
 
 ## 0.1.1 (2026-08-24)
 
@@ -63,7 +80,7 @@ First release.
 
 ### Known gaps
 
-`reflect`, `mask`, `valign` and scrolling text are carried through conversion
+`reflect`, `valign` and scrolling text are carried through conversion
 and stored, but not painted. `docs/making-themes.md` lists them so nobody
 wastes an evening on one.
 

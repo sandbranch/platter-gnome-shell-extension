@@ -17,6 +17,11 @@ Gio._promisify(Gio.File.prototype, 'load_contents_async', 'load_contents_finish'
 export const FORMAT = 'platter-theme/0';
 
 const RASTER_CACHE_ROOT = GLib.build_filenamev([GLib.get_user_cache_dir(), 'platter', 'raster']);
+const MASK_CACHE_ROOT = GLib.build_filenamev([GLib.get_user_cache_dir(), 'platter', 'masked']);
+
+/* How many cut covers to keep. Every distinct cover, mask and size is its own
+ * small PNG, so this is a few megabytes at the sizes themes actually use. */
+const MASK_CACHE_KEEP = 200;
 
 const LAYER_TYPES = new Set(['image', 'artwork', 'text', 'rating', 'button', 'seekbar']);
 
@@ -180,4 +185,99 @@ function rasterizeRaster(path, outPath, scale) {
     const w = Math.max(1, Math.round(width * scale));
     const h = Math.max(1, Math.round(height * scale));
     GdkPixbuf.Pixbuf.new_from_file_at_scale(path, w, h, false).savev(outPath, 'png', [], []);
+}
+
+/* mask= is CoverGloobus 1.7's one non-negotiable effect: image.py paints the
+ * image, then paints the mask over it with cairo's DEST_IN, so the mask's
+ * alpha channel becomes the image's - which is how Bulles gets a round cover
+ * out of a square one. St has no equivalent, and border-radius only covers the
+ * masks that happen to be circles, so the composite happens here with
+ * GdkPixbuf and lands in the cache as an ordinary PNG the widget can hand to
+ * background-image like any other asset.
+ *
+ * Album art changes with the track, so unlike assetAtScale this cache grows
+ * with what the user listens to, and prune() keeps a lid on it. */
+export function masked(theme, imagePath, maskName, width, height) {
+    const maskPath = asset(theme, maskName);
+    if (!imagePath || !maskPath || !(width >= 1) || !(height >= 1))
+        return imagePath;
+
+    const w = Math.round(width);
+    const h = Math.round(height);
+    const key = GLib.compute_checksum_for_string(GLib.ChecksumType.SHA256,
+        `${imagePath}|${maskPath}|${w}x${h}`, -1).slice(0, 32);
+    const cachePath = GLib.build_filenamev([MASK_CACHE_ROOT, `${key}.png`]);
+
+    if (isFresh(cachePath, imagePath) && isFresh(cachePath, maskPath))
+        return cachePath;
+
+    try {
+        GLib.mkdir_with_parents(MASK_CACHE_ROOT, 0o755);
+        cutOut(imagePath, maskPath, w, h, cachePath);
+        prune(MASK_CACHE_ROOT, MASK_CACHE_KEEP);
+        return cachePath;
+    } catch (e) {
+        logError(e, `Platter: could not cut ${imagePath} to ${maskName}`);
+        return imagePath;   // a square cover beats no cover at all
+    }
+}
+
+function cutOut(imagePath, maskPath, w, h, outPath) {
+    // add_alpha copies whether or not there is an alpha channel already, which
+    // is what makes get_pixels() safe to write into below.
+    const image = fill(imagePath, w, h).add_alpha(false, 0, 0, 0);
+    const mask = GdkPixbuf.Pixbuf.new_from_file_at_scale(maskPath, w, h, false)
+        .add_alpha(false, 0, 0, 0);
+
+    const pixels = image.get_pixels();
+    const cut = mask.get_pixels();
+    const imageStride = image.get_rowstride();
+    const maskStride = mask.get_rowstride();
+    for (let y = 0; y < h; y++) {
+        const imageRow = y * imageStride;
+        const maskRow = y * maskStride;
+        for (let x = 0; x < w; x++) {
+            const at = imageRow + x * 4 + 3;
+            pixels[at] = Math.round(pixels[at] * cut[maskRow + x * 4 + 3] / 255);
+        }
+    }
+
+    GdkPixbuf.Pixbuf.new_from_bytes(new GLib.Bytes(pixels), GdkPixbuf.Colorspace.RGB,
+        true, 8, w, h, imageStride).savev(outPath, 'png', [], []);
+}
+
+/* The widget draws art with background-size: cover, so the cut has to see the
+ * same pixels the uncut cover would have shown: scaled to fill the box, then
+ * cropped to it. (1.7 stretched instead. Covers are square and so are the
+ * boxes that hold them, so the two agree on everything the corpus contains.) */
+function fill(path, w, h) {
+    const [, width, height] = GdkPixbuf.Pixbuf.get_file_info(path);
+    if (!width || !height)
+        return GdkPixbuf.Pixbuf.new_from_file_at_scale(path, w, h, false);
+
+    const scale = Math.max(w / width, h / height);
+    const full = GdkPixbuf.Pixbuf.new_from_file_at_scale(path,
+        Math.max(w, Math.round(width * scale)), Math.max(h, Math.round(height * scale)), false);
+    if (full.get_width() === w && full.get_height() === h)
+        return full;
+    return full.new_subpixbuf(Math.floor((full.get_width() - w) / 2),
+        Math.floor((full.get_height() - h) / 2), w, h).copy();
+}
+
+function prune(dir, keep) {
+    try {
+        const enumerator = Gio.File.new_for_path(dir).enumerate_children(
+            'standard::name,time::modified', Gio.FileQueryInfoFlags.NONE, null);
+        const files = [];
+        let info;
+        while ((info = enumerator.next_file(null)))
+            files.push([info.get_modification_date_time(), info.get_name()]);
+        if (files.length <= keep)
+            return;
+        files.sort((a, b) => a[0].compare(b[0]));
+        for (const [, name] of files.slice(0, files.length - keep))
+            Gio.File.new_for_path(GLib.build_filenamev([dir, name])).delete(null);
+    } catch (e) {
+        // A cache that will not tidy itself is not worth a word to the user.
+    }
 }

@@ -1,0 +1,44 @@
+{
+  "format": "platter-theme/0",
+  "id": "last-fm",
+  "name": "Last.fm",
+  "canvas": {
+    "width": 115,
+    "height": 115
+  },
+  "attribution": {
+    "author": "theconso (port of Clubberry's original CD Art Display skin)",
+    "source_url": "https://www.deviantart.com/theconso/art/.%3A-Last.fm-for-Covergloobus-%3A.-184422562",
+    "license": "attribution-required",
+    "original_app": "covergloobus",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "Stated on the deviation page: \"If you use this skin, please give some credit!\" Read 2026-09-27. A port of Clubberry's CD Art Display skin, made with permission: skin.xml says \"Special thanks to Clubberry for give me the permission to port this skin\"."
+  },
+  "fonts": [],
+  "layers": [
+    {
+      "type": "image",
+      "x": 11,
+      "y": 10,
+      "width": 90,
+      "height": 90,
+      "src": "nocover.png"
+    },
+    {
+      "type": "artwork",
+      "x": 11,
+      "y": 10,
+      "width": 91,
+      "height": 91
+    },
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 115,
+      "height": 115,
+      "src": "case.png"
+    }
+  ]
+}

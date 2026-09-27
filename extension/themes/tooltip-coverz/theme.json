@@ -34,6 +34,27 @@
     {
       "type": "text",
       "x": 12,
+      "y": 9,
+      "width": 156,
+      "height": 16,
+      "bind": "title",
+      "font": {
+        "family": "Zero Twos",
+        "size": 8,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ddddddff",
+      "align": "center",
+      "wrap": false,
+      "format": "now playing",
+      "overflow": {
+        "mode": "ellipsize-char"
+      }
+    },
+    {
+      "type": "text",
+      "x": 12,
       "y": 23,
       "width": 156,
       "height": 16,

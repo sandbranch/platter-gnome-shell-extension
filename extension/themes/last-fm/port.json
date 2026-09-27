@@ -1,0 +1,30 @@
+{
+  "ported": "2026-09-27",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "personal-archive-Last-fm/___last_fm_for_covergloobus____by_theconso-d31stcy.zip:Last.fm for Covergloobus/Last.fm",
+    "skin_xml_sha256": "958e43892c236494211ad2087e311a5c6d4e6984417c597ce169ecf18fa23b7b",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "case.png",
+      "nocover.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [
+    {
+      "at": "image[0]",
+      "from": "widht",
+      "to": "width",
+      "why": "known misspelling"
+    }
+  ],
+  "derived": [],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "distribution free: redistribution and modification both permitted"
+  ]
+}

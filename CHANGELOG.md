@@ -14,9 +14,17 @@
   their permission in their own files: LGD-N12 and AMANA2music are CC BY-SA
   3.0, and Ambiance, Simple (alezzacreative) and gabriela2400's Mini and
   Plastic Beach, four variants each, say "free to distribute, mod and such as
-  long as you accredit it back". Two coverz skins, Retro and Sticked, wait:
-  their only line of text joins artist and title in one layer, which Platter
-  cannot yet say.
+  long as you accredit it back".
+- Nine more after that, 82 in all. theconso's Clips, Round, Last.fm and
+  Last.fm 2, and leonardomdq's Jet LP, Plastico and SnowCover Pro, whose pages
+  say "If you use this skin, please give some credit!", the basis TrickLine
+  already ships on; and coverz's Retro and Sticked, which needed the next two.
+- Text layers take `format`, several fields in one line such as
+  `"%artist - %title"`, or a fixed caption. `bind` stays, as the fallback for
+  anything that reads the format without it.
+- Images and covers take `rotate`, in degrees clockwise about the layer's
+  centre, so a coverz cover can lean on its record or sit square in a
+  taped-down frame.
 - `docs/credits.md` lists every theme found, 263 of them, and each author now
   links to their own gallery: every link in the list of people used to point at
   `deviantart.com/www`.

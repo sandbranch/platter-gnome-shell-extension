@@ -2,7 +2,7 @@
 
 **263 themes by 61 people**, dug up from DeviantArt, gnome-look, old source
 tarballs, and a few personal archives that never left anyone's hard drive
-until now. **73 of them ship with Platter**, marked ✔ below, but every single
+until now. **82 of them ship with Platter**, marked ✔ below, but every single
 one gets a link back to wherever it still lives, shipped or not, because
 somebody made this and that's worth remembering.
 
@@ -28,7 +28,7 @@ beside it is the only thank-you this project has left to give its author.
 
 ## All 263 themes
 
-✔ marks the 73 that ship with Platter.
+✔ marks the 82 that ship with Platter.
 
 | | Theme | Author | For | Stated terms | Where it lives |
 | --- | --- | --- | --- | --- | --- |
@@ -96,8 +96,8 @@ beside it is the only thank-you this project has left to give its author.
 |  | Edge (coverz) | mickyz | coverz | GPL-3.0-or-later | not recorded |
 |  | Plastik (coverz) | mickyz | coverz | GPL-3.0-or-later | not recorded |
 |  | Pocket (coverz) | mickyz | coverz | GPL-3.0-or-later | not recorded |
-|  | Retro (coverz) | mickyz | coverz | GPL-3.0-or-later | not recorded |
-|  | Sticked (coverz) | mickyz | coverz | GPL-3.0-or-later | not recorded |
+| ✔ | Retro (coverz) | mickyz | coverz | GPL-3.0-or-later | not recorded |
+| ✔ | Sticked (coverz) | mickyz | coverz | GPL-3.0-or-later | not recorded |
 |  | Tooltip (coverz) | mickyz | coverz | GPL-3.0-or-later | not recorded |
 | ✔ | Cube (coverz) | mickyz | coverz | GPL-3.0-or-later | not recorded |
 | ✔ | Default (coverz) | mickyz | coverz | GPL-3.0-or-later | not recorded |
@@ -185,13 +185,13 @@ beside it is the only thank-you this project has left to give its author.
 |  | Vinyl | Laurent Baumann | NowPlaying | CC BY-NC-SA 3.0 | [link](https://launchpad.net/covergloobus) |
 |  | Bad Romance | leonardomdq | CoverGloobus | all rights reserved | [link](https://www.deviantart.com/leonardomdq/art/Bad-Romance-for-Covergloobus-158164088) |
 |  | Elegante | leonardomdq | NowPlaying | all rights reserved | [link](https://www.deviantart.com/leonardomdq/art/Elegante-Skin-for-Covergloobus-157735702) |
-|  | Jet LP port by leonardomdq | leonardomdq | CoverGloobus | all rights reserved | [link](https://www.deviantart.com/leonardomdq/art/Jet-LP-for-Covergloobus-162591457) |
+| ✔ | Jet LP | leonardomdq (port of Jet-Stream's original Bowtie skin) | CoverGloobus | attribution-required | [link](https://www.deviantart.com/leonardomdq/art/Jet-LP-for-Covergloobus-162591457) |
 |  | Lighting | leonardomdq | CoverGloobus | all rights reserved | [link](https://www.deviantart.com/leonardomdq/art/Lighting-Skin-for-Covergloobus-157599685) |
 |  | Long Play | leonardomdq | CoverGloobus | CC BY-NC 3.0 | [link](https://www.deviantart.com/leonardomdq/art/Long-Play-for-Covergloobus-161473582) |
 |  | Maebow port by leonardomdq | leonardomdq | CoverGloobus | CC BY-NC-ND 3.0 | [link](https://www.deviantart.com/leonardomdq/art/Maebow-for-Covergloobus-162082420) |
 |  | Micro | leonardomdq | CoverGloobus | not stated | [link](https://www.deviantart.com/leonardomdq/art/Micro-for-Covergloobus-161281834) |
-|  | Plastico port by leonardomdq | leonardomdq | CoverGloobus | not stated | [link](https://www.deviantart.com/leonardomdq/art/Plastico-for-Covergloobus-161905982) |
-|  | SnowCover Pro | leonardomdq | CoverGloobus | not stated | [link](https://www.deviantart.com/leonardomdq/art/SnowCover-Pro-for-Covergloobus-162264528) |
+| ✔ | Plastico | leonardomdq (port of AquaTemple's original CD Art Display skin) | CoverGloobus | attribution-required | [link](https://www.deviantart.com/leonardomdq/art/Plastico-for-Covergloobus-161905982) |
+| ✔ | SnowCover Pro | leonardomdq | CoverGloobus | attribution-required | [link](https://www.deviantart.com/leonardomdq/art/SnowCover-Pro-for-Covergloobus-162264528) |
 |  | twquet port by leonardomdq | leonardomdq | CoverGloobus | CC BY-NC-ND 3.0 | [link](https://www.deviantart.com/leonardomdq/art/Twquet-for-Covergloobus-162053013) |
 |  | Rounded Shadow Bottom Black | leonardomdq | CoverGloobus | not stated | not recorded |
 |  | Rounded Shadow Bottom White | leonardomdq | CoverGloobus | not stated | not recorded |
@@ -237,12 +237,12 @@ beside it is the only thank-you this project has left to give its author.
 |  | Lifted for CoverGloobus | sosoinlove | CoverGloobus | not stated | [link](https://www.deviantart.com/sosoinlove/) |
 | ✔ | Jesse | speedracker (uploader) | CoverGloobus | attribution-required | [link](https://www.deviantart.com/speedracker/art/Rustycage-New-Covergloobus-Theme-525980027) |
 |  | Path | taylantatli | rainmeter | CC BY-NC-SA 3.0 | [link](https://www.deviantart.com/taylantatli/art/Path-Covergloobus-Theme-Rainmeter-Port-472383561) |
-|  | Clips porting for Covergloobus by Theconso | theconso | CoverGloobus | all rights reserved | [link](https://www.deviantart.com/theconso/art/Clips-for-Covergloobus-187899434) |
-|  | last.fm porting for Covergloobus by Theconso | theconso | CoverGloobus | all rights reserved | [link](https://www.deviantart.com/theconso/art/Last-fm2-for-Covegloobus-184787605) |
-|  | Round for Coovergloobus by Theconso [theconso.deviantart.com]  | theconso | CoverGloobus | all rights reserved | [link](https://www.deviantart.com/theconso/art/Round-for-Covergloobus-187042320) |
+| ✔ | Clips | theconso | CoverGloobus | attribution-required | [link](https://www.deviantart.com/theconso/art/Clips-for-Covergloobus-187899434) |
+| ✔ | Last.fm 2 | theconso (port of Clubberry's original CD Art Display skin) | CoverGloobus | attribution-required | [link](https://www.deviantart.com/theconso/art/Last-fm2-for-Covegloobus-184787605) |
+| ✔ | Round | theconso | CoverGloobus | attribution-required | [link](https://www.deviantart.com/theconso/art/Round-for-Covergloobus-187042320) |
 |  | GrooveUp porting for Covergloobus by Theconso | theconso | CoverGloobus | all rights reserved (author forbids reuse of the artwork without asking) | not recorded |
 |  | GrooveUp porting for Covergloobus by Theconso | theconso | CoverGloobus | all rights reserved (author forbids reuse of the artwork without asking) | [link](https://www.deviantart.com/theconso/art/GrooveUp-for-Covergloobus-190228937) |
-|  | last.fm porting for Covergloobus by Theconso | theconso | CoverGloobus | all rights reserved | [link](https://www.deviantart.com/theconso/art/.%3A-Last.fm-for-Covergloobus-%3A.-184422562) |
+| ✔ | Last.fm | theconso (port of Clubberry's original CD Art Display skin) | CoverGloobus | attribution-required | [link](https://www.deviantart.com/theconso/art/.%3A-Last.fm-for-Covergloobus-%3A.-184422562) |
 |  | bitmap | Twentyeight-Ten | CoverGloobus | all rights reserved | [link](https://www.deviantart.com/twentyeight-ten/art/Bitmap-for-Covergloobus-163135772) |
 |  | NEON | Twentyeight-Ten | CoverGloobus | not stated | [link](https://www.deviantart.com/twentyeight-ten/art/NEON-for-Covergloobus-159703837) |
 |  | BadChoice2-Faenza | tiz-huglife | CoverGloobus | not stated | [link](https://www.deviantart.com/tiz-huglife/) |

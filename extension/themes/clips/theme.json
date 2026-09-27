@@ -1,0 +1,44 @@
+{
+  "format": "platter-theme/0",
+  "id": "clips",
+  "name": "Clips",
+  "canvas": {
+    "width": 85,
+    "height": 100
+  },
+  "attribution": {
+    "author": "theconso",
+    "source_url": "https://www.deviantart.com/theconso/art/Clips-for-Covergloobus-187899434",
+    "license": "attribution-required",
+    "original_app": "covergloobus",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "Stated on the deviation page: \"If you use this skin, please give some credit!\" Read from the DeviantArt RSS description 2026-09-27. Same basis as TrickLine (\"If use please credit\")."
+  },
+  "fonts": [],
+  "layers": [
+    {
+      "type": "image",
+      "x": 5,
+      "y": 20,
+      "width": 77,
+      "height": 77,
+      "src": "nocover.png"
+    },
+    {
+      "type": "artwork",
+      "x": 5,
+      "y": 20,
+      "width": 77,
+      "height": 77
+    },
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 85,
+      "height": 100,
+      "src": "case.png"
+    }
+  ]
+}

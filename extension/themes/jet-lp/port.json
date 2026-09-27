@@ -1,0 +1,36 @@
+{
+  "ported": "2026-09-27",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "personal-archive-Jet-LP",
+    "skin_xml_sha256": "cbfba50d6b5fec08dc07fe03d2ef48d27bd94fcd9f508f11f8567eb79626bd71",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "case.png",
+      "nocover.png",
+      "popup.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [
+    {
+      "at": "image[0]",
+      "from": "widht",
+      "to": "width",
+      "why": "known misspelling"
+    }
+  ],
+  "derived": [],
+  "lossy": [
+    {
+      "at": "fonts",
+      "dropped": "Helvetica.ttf left behind: a bundled font is not a licensed font"
+    }
+  ],
+  "inferred": [],
+  "notes": [
+    "distribution free: redistribution and modification both permitted"
+  ]
+}

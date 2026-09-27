@@ -1,0 +1,67 @@
+{
+  "format": "platter-theme/0",
+  "id": "round",
+  "name": "Round",
+  "canvas": {
+    "width": 100,
+    "height": 100
+  },
+  "attribution": {
+    "author": "theconso",
+    "source_url": "https://www.deviantart.com/theconso/art/Round-for-Covergloobus-187042320",
+    "license": "attribution-required",
+    "original_app": "covergloobus",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "Stated on the deviation page: \"If you use this skin, please give some credit!\" Read from the DeviantArt RSS description 2026-09-27. Same basis as TrickLine (\"If use please credit\")."
+  },
+  "fonts": [],
+  "layers": [
+    {
+      "type": "artwork",
+      "x": 0,
+      "y": 0,
+      "width": 100,
+      "height": 100,
+      "round": 0,
+      "mask": "Maschera.png"
+    },
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 100,
+      "height": 100,
+      "src": "Cerchio.png",
+      "opacity": 0.7
+    },
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 100,
+      "height": 100,
+      "src": "Riflesso.png"
+    },
+    {
+      "type": "button",
+      "x": 34,
+      "y": 35,
+      "width": 30,
+      "height": 30,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "nul.png",
+          "hover": "Play.png",
+          "pressed": null
+        },
+        "playing": {
+          "normal": "Nul.png",
+          "hover": "Pause.png",
+          "pressed": null
+        }
+      }
+    }
+  ]
+}

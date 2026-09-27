@@ -1,0 +1,35 @@
+{
+  "ported": "2026-09-27",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "deviantart-Round/round_for_covergloobus_by_theconso_d33cys0.zip:Round",
+    "skin_xml_sha256": "66a879c32a27938de7b4a1783f717adff4c7d257e28725d745371252ece9212c",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "Cerchio.png",
+      "Maschera.png",
+      "Pause.png",
+      "Play.png",
+      "Riflesso.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [],
+  "lossy": [
+    {
+      "at": "playercontrols[3]/play[0]",
+      "dropped": "asset 'nul.png' is not in the theme"
+    },
+    {
+      "at": "playercontrols[3]/play[0]",
+      "dropped": "asset 'Nul.png' is not in the theme"
+    }
+  ],
+  "inferred": [],
+  "notes": [
+    "distribution free: redistribution and modification both permitted"
+  ]
+}

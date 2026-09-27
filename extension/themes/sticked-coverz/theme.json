@@ -1,0 +1,124 @@
+{
+  "format": "platter-theme/0",
+  "id": "sticked-coverz",
+  "name": "Sticked (coverz)",
+  "canvas": {
+    "width": 200,
+    "height": 200
+  },
+  "attribution": {
+    "author": "mickyz",
+    "source_url": "",
+    "license": "GPL-3.0-or-later",
+    "original_app": "coverz",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "The coverz source files state: \"This application is released under the GNU General Public License v3 (or, at your option, any later version)\". The skins are part of the package: the Makefile's deb target installs skins/ with the program, and every skin is signed \"mickyz(c)2012\", coverz's own author. Same basis as the CoverGloobus 1.6/1.7 tarball themes."
+  },
+  "fonts": [
+    {
+      "family": "Hand Of Sean",
+      "bundled": false,
+      "reason": "named by the theme, never bundled with it"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 44,
+      "y": 37,
+      "width": 110,
+      "height": 110,
+      "rotate": 20.0,
+      "src": "coverz-nocover-no.png"
+    },
+    {
+      "type": "artwork",
+      "x": 44,
+      "y": 37,
+      "width": 110,
+      "height": 110,
+      "rotate": 20.0,
+      "mask": "coverz-cover-mask.png"
+    },
+    {
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "width": 192,
+      "height": 192,
+      "src": "fg.png"
+    },
+    {
+      "type": "text",
+      "x": 0,
+      "y": 170,
+      "width": 190,
+      "height": 40,
+      "bind": "artist",
+      "font": {
+        "family": "Hand Of Sean",
+        "size": 10,
+        "weight": "normal",
+        "style": "normal"
+      },
+      "color": "#ffffffb2",
+      "align": "center",
+      "wrap": false,
+      "format": "%artist - %title",
+      "overflow": {
+        "mode": "ellipsize-char"
+      }
+    },
+    {
+      "type": "button",
+      "x": 34,
+      "y": 145,
+      "width": 24,
+      "height": 24,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "play.png",
+          "hover": null,
+          "pressed": null
+        },
+        "playing": {
+          "normal": "pause.png",
+          "hover": null,
+          "pressed": null
+        }
+      }
+    },
+    {
+      "type": "button",
+      "x": 12,
+      "y": 145,
+      "width": 24,
+      "height": 24,
+      "action": "previous",
+      "states": {
+        "default": {
+          "normal": "prev.png",
+          "hover": null,
+          "pressed": null
+        }
+      }
+    },
+    {
+      "type": "button",
+      "x": 56,
+      "y": 145,
+      "width": 24,
+      "height": 24,
+      "action": "next",
+      "states": {
+        "default": {
+          "normal": "next.png",
+          "hover": null,
+          "pressed": null
+        }
+      }
+    }
+  ]
+}

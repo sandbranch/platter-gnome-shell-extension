@@ -1,0 +1,53 @@
+{
+  "ported": "2026-09-27",
+  "porter": "tools/oneoff/coverz.py, then tools/port.py",
+  "source": {
+    "raw": "personal-archive-coverz-0.8.6/coverz-0.8.6.tar.xz:coverz-0.8.6/skins/Retro",
+    "skin_xml_sha256": "77d967aaf4a4d5f8082026ceaedf8f7d6a5eae83762134f5e72469589eb51386",
+    "app": "coverz",
+    "original_skin_xml_sha256": "49e162a7ed85e69b72240939eeafc73a1f15540114b7e60c3f7b32beecc2a1c5"
+  },
+  "assets": {
+    "copied": [
+      "coverz-cover-mask.png",
+      "coverz-image1-fg.png",
+      "coverz-nocover-bg.png",
+      "next.png",
+      "pause.png",
+      "play.png",
+      "prev.png",
+      "star.png",
+      "starred.png",
+      "thumb.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [
+    {
+      "at": "cover[0]",
+      "from": "coverz",
+      "to": "platter",
+      "why": "mask/clip baked into coverz-nocover-bg.png: coverz erases where its mask is opaque"
+    },
+    {
+      "at": "cover[0]",
+      "from": "coverz",
+      "to": "platter",
+      "why": "cover mask inverted into coverz-cover-mask.png: coverz erases where its mask is opaque"
+    },
+    {
+      "at": "image[1]",
+      "from": "coverz",
+      "to": "platter",
+      "why": "mask/clip baked into coverz-image1-fg.png: coverz erases where its mask is opaque"
+    }
+  ],
+  "derived": [],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "named after its folder: the skin's name= is coverz's copyright line",
+    "coverz hides text, buttons, seekbar and rating while stopped; Platter shows them throughout",
+    "distribution free: redistribution and modification both permitted"
+  ]
+}

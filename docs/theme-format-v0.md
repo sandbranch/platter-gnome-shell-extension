@@ -102,6 +102,10 @@ porter, not a faithful reproduction.
 `reflect` comes from 1.7's `"gap-height-alpha-resize"` string: two pixel values
 then two percentages, alpha defaulting to 50% and resize to 100%.
 
+`rotate`, optional, turns the layer by that many degrees clockwise about its
+centre; negative turns it the other way. It comes from coverz, whose skins
+tilt a cover to lie on a record or under a taped-down frame.
+
 `mask` names an image whose alpha channel becomes the layer's, as 1.7's
 `DEST_IN` composite did. It is stretched to the layer's `width` and `height`,
 so it need not be drawn at that size, and only its alpha is read: what the mask
@@ -124,6 +128,13 @@ image. A theme normally stacks a placeholder `image` underneath with
 `bind` is one of `title`, `artist`, `album`, `genre`, `track`, `year`,
 `length`, `position`, `player`. The last two exist because 1.7 has `time` and
 `length`, and NowPlaying has `playername`.
+
+`format`, optional, puts several fields in one line, as coverz skins do:
+`"%artist - %title"`. Each `%name` is one of the `bind` values (`%number` is
+accepted for `track`); anything else is left as written. When every field it
+names is empty the line is empty, so a stopped player does not leave a stray
+` - `, and a `format` naming no field at all is a fixed caption. `bind` is
+still required and is what a reader without `format` support shows.
 
 `overflow.mode` is `scroll`, `ellipsize-word`, `ellipsize-char` or `clip`;
 `maxchars` is kept alongside because most themes only ever set that.

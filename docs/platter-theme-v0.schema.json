@@ -74,6 +74,7 @@
             "type": { "const": "image" },
             "src": { "type": "string" },
             "round": { "type": "integer", "minimum": 0 },
+            "rotate": { "type": "number" },
             "opacity": { "type": "number", "minimum": 0, "maximum": 1 },
             "mask": { "type": "string" },
             "reflect": { "$ref": "#/$defs/reflect" }
@@ -84,6 +85,7 @@
           "properties": {
             "type": { "const": "artwork" },
             "round": { "type": "integer", "minimum": 0 },
+            "rotate": { "type": "number" },
             "opacity": { "type": "number" },
             "mask": { "type": "string" },
             "reflect": { "$ref": "#/$defs/reflect" }
@@ -96,6 +98,7 @@
               "enum": ["title", "artist", "album", "genre", "track", "year",
                        "length", "position", "player"]
             },
+            "format": { "type": "string" },
             "font": {
               "type": "object",
               "properties": {

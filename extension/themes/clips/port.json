@@ -1,0 +1,23 @@
+{
+  "ported": "2026-09-27",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "deviantart-Clips/clips_for_covergloobus_by_theconso_d33vc4q.zip:Clips",
+    "skin_xml_sha256": "9ded938b4e5b7ee6506da61e329af7b3ff4f40b8f4ecabc978149e4dc8befbf4",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "case.png",
+      "nocover.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [],
+  "derived": [],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "distribution free: redistribution and modification both permitted"
+  ]
+}

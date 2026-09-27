@@ -1,0 +1,133 @@
+{
+  "format": "platter-theme/0",
+  "id": "jet-lp",
+  "name": "Jet LP",
+  "canvas": {
+    "width": 300,
+    "height": 150
+  },
+  "attribution": {
+    "author": "leonardomdq (port of Jet-Stream's original Bowtie skin)",
+    "source_url": "https://www.deviantart.com/leonardomdq/art/Jet-LP-for-Covergloobus-162591457",
+    "license": "attribution-required",
+    "original_app": "covergloobus",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "Stated on the deviation page: \"Jet LP ported for Covergloobus Ported from the Bowtie Skin Jet LP by ~ Jet-Stream ... If you use this skin, please give some credit!\" Read 2026-09-27. Same basis as TrickLine."
+  },
+  "fonts": [
+    {
+      "family": "Helvetica",
+      "bundled": false,
+      "reason": "Helvetica.ttf ships with the theme, but whether it may be redistributed is unresolved"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 13,
+      "y": 46,
+      "width": 58,
+      "height": 58,
+      "src": "nocover.png"
+    },
+    {
+      "type": "artwork",
+      "x": 13,
+      "y": 46,
+      "width": 58,
+      "height": 58
+    },
+    {
+      "type": "image",
+      "x": 0,
+      "y": 44,
+      "width": 96,
+      "height": 66,
+      "src": "case.png"
+    },
+    {
+      "type": "image",
+      "x": 62,
+      "y": -3,
+      "width": 184,
+      "height": 81,
+      "src": "popup.png"
+    },
+    {
+      "type": "text",
+      "x": 85,
+      "y": 10,
+      "width": 150,
+      "bind": "title",
+      "font": {
+        "family": "Helvetica",
+        "size": 8,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000ff",
+        "dx": 1,
+        "dy": 1
+      },
+      "align": "center",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 40
+      }
+    },
+    {
+      "type": "text",
+      "x": 85,
+      "y": 25,
+      "width": 150,
+      "bind": "album",
+      "font": {
+        "family": "Helvetica",
+        "size": 7,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000ff",
+        "dx": 1,
+        "dy": 1
+      },
+      "align": "center",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 40
+      }
+    },
+    {
+      "type": "text",
+      "x": 85,
+      "y": 39,
+      "width": 150,
+      "bind": "artist",
+      "font": {
+        "family": "Helvetica",
+        "size": 7,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000ff",
+        "dx": 1,
+        "dy": 1
+      },
+      "align": "center",
+      "wrap": false,
+      "overflow": {
+        "mode": "scroll",
+        "maxchars": 40
+      }
+    }
+  ]
+}

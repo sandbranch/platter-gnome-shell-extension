@@ -1,0 +1,175 @@
+{
+  "format": "platter-theme/0",
+  "id": "plastico",
+  "name": "Plastico",
+  "canvas": {
+    "width": 300,
+    "height": 150
+  },
+  "attribution": {
+    "author": "leonardomdq (port of AquaTemple's original CD Art Display skin)",
+    "source_url": "https://www.deviantart.com/leonardomdq/art/Plastico-for-Covergloobus-161905982",
+    "license": "attribution-required",
+    "original_app": "covergloobus",
+    "upstream_author": null,
+    "distribution": "free",
+    "license_note": "Stated on the deviation page: \"A Plastico Skin for Covergloobus is Ported from the CAD Skin Plastico by ~ AquaTemple ... If you use this skin, please give some credit!\" Read 2026-09-27. Same basis as TrickLine."
+  },
+  "fonts": [
+    {
+      "family": "Lucida Grande",
+      "bundled": false,
+      "reason": "LucidaGrande.ttf ships with the theme, but whether it may be redistributed is unresolved"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "x": 13,
+      "y": 46,
+      "width": 100,
+      "height": 98,
+      "src": "nocover.png"
+    },
+    {
+      "type": "artwork",
+      "x": 13,
+      "y": 46,
+      "width": 100,
+      "height": 100
+    },
+    {
+      "type": "image",
+      "x": 8,
+      "y": 46,
+      "width": 110,
+      "height": 105,
+      "src": "case.png"
+    },
+    {
+      "type": "text",
+      "x": 130,
+      "y": 60,
+      "width": 280,
+      "bind": "title",
+      "font": {
+        "family": "Lucida Grande",
+        "size": 8,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000ff",
+        "dx": 1,
+        "dy": 1
+      },
+      "align": "left",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 20
+      }
+    },
+    {
+      "type": "text",
+      "x": 130,
+      "y": 75,
+      "width": 280,
+      "bind": "album",
+      "font": {
+        "family": "Lucida Grande",
+        "size": 8,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000ff",
+        "dx": 1,
+        "dy": 1
+      },
+      "align": "left",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 20
+      }
+    },
+    {
+      "type": "text",
+      "x": 130,
+      "y": 90,
+      "width": 280,
+      "bind": "artist",
+      "font": {
+        "family": "Lucida Grande",
+        "size": 8,
+        "weight": "bold",
+        "style": "normal"
+      },
+      "color": "#ffffffff",
+      "shadow": {
+        "color": "#000000ff",
+        "dx": 1,
+        "dy": 1
+      },
+      "align": "left",
+      "wrap": false,
+      "overflow": {
+        "mode": "clip",
+        "maxchars": 20
+      }
+    },
+    {
+      "type": "button",
+      "x": 130,
+      "y": 110,
+      "action": "previous",
+      "states": {
+        "default": {
+          "normal": "prev.png",
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 18,
+      "height": 14
+    },
+    {
+      "type": "button",
+      "x": 160,
+      "y": 110,
+      "action": "play_pause",
+      "states": {
+        "default": {
+          "normal": "play.png",
+          "hover": null,
+          "pressed": null
+        },
+        "playing": {
+          "normal": null,
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 11,
+      "height": 14
+    },
+    {
+      "type": "button",
+      "x": 181,
+      "y": 110,
+      "action": "next",
+      "states": {
+        "default": {
+          "normal": "next.png",
+          "hover": null,
+          "pressed": null
+        }
+      },
+      "width": 18,
+      "height": 14
+    }
+  ]
+}

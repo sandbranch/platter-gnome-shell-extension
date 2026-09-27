@@ -58,6 +58,29 @@ function roundStyle(radius) {
     return radius ? `border-radius: ${radius}px;` : '';
 }
 
+/* format= puts several fields in one text layer, "%artist - %title", which
+ * coverz skins do and a single bind cannot. Unknown %names are left as
+ * written, and a line whose every field is empty is empty, so a stopped
+ * player shows nothing rather than a stray " - ". A format naming no field
+ * at all is a fixed caption ("now playing") and is shown as written. coverz
+ * spells the track number %number. */
+const FORMAT_FIELDS = new Set(['title', 'artist', 'album', 'genre', 'track',
+    'year', 'length', 'position', 'player']);
+
+function fillFormat(format, track) {
+    let named = false, filled = false;
+    const text = format.replace(/%(\w+)/g, (whole, name) => {
+        const field = name === 'number' ? 'track' : name;
+        if (!FORMAT_FIELDS.has(field))
+            return whole;
+        const value = track[field] ?? '';
+        named = true;
+        filled ||= value !== '';
+        return value;
+    });
+    return filled || !named ? text : '';
+}
+
 export const PlatterWidget = GObject.registerClass({
     Signals: {'action': {param_types: [GObject.TYPE_STRING]}},
 }, class PlatterWidget extends St.Widget {
@@ -93,6 +116,12 @@ export const PlatterWidget = GObject.registerClass({
         if (layer.height)
             actor.set_height(layer.height * this._scale);
         actor._visibleWhen = layer.visible || 'always';
+        // rotate= is degrees clockwise about the layer's centre, as coverz
+        // turned a cover to lie on a tilted record or under a taped frame.
+        if (layer.rotate) {
+            actor.set_pivot_point(0.5, 0.5);
+            actor.rotation_angle_z = layer.rotate;
+        }
         this.add_child(actor);
         return actor;
     }
@@ -144,6 +173,7 @@ export const PlatterWidget = GObject.registerClass({
             label.set_x_align(Clutter.ActorAlign.FILL);
             this._place(label, layer);
             label._bind = layer.bind;
+            label._format = typeof layer.format === 'string' ? layer.format : null;
             label._maxchars = layer.overflow?.maxchars ?? 0;
             this._texts.push(label);
             break;
@@ -270,7 +300,8 @@ export const PlatterWidget = GObject.registerClass({
         }
 
         for (const label of this._texts) {
-            let value = track[label._bind] ?? '';
+            let value = label._format ? fillFormat(label._format, track)
+                : track[label._bind] ?? '';
             if (label._maxchars && value.length > label._maxchars)
                 value = `${value.slice(0, label._maxchars)}…`;
             label.set_text(value);

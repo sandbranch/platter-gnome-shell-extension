@@ -1,0 +1,61 @@
+{
+  "ported": "2026-09-27",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "deviantart-Last-fm2-for-Covegloobus/___last_fm2_for_covegloobus____by_theconso_d320n11.zip:Last.fm2 for Covergloobus/Last.fm2",
+    "skin_xml_sha256": "4bbae8f71c5455c9e186ccb631d75ee8ea1f01e61340d4eeaccb1ce29d175c30",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "case.png",
+      "next.png",
+      "nocover.png",
+      "nul.png",
+      "pause.png",
+      "play.png",
+      "prev.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [
+    {
+      "at": "image[0]",
+      "from": "widht",
+      "to": "width",
+      "why": "known misspelling"
+    }
+  ],
+  "derived": [
+    {
+      "at": "playercontrols[3]/prev[0]",
+      "taken": "width=20 from the asset"
+    },
+    {
+      "at": "playercontrols[3]/prev[0]",
+      "taken": "height=16 from the asset"
+    },
+    {
+      "at": "playercontrols[3]/play[1]",
+      "taken": "width=20 from the asset"
+    },
+    {
+      "at": "playercontrols[3]/play[1]",
+      "taken": "height=16 from the asset"
+    },
+    {
+      "at": "playercontrols[3]/next[2]",
+      "taken": "width=20 from the asset"
+    },
+    {
+      "at": "playercontrols[3]/next[2]",
+      "taken": "height=16 from the asset"
+    }
+  ],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "<playercontrols> at 15,110 is ignored, exactly as 1.7 ignores it: its children carry absolute positions",
+    "distribution free: redistribution and modification both permitted"
+  ]
+}

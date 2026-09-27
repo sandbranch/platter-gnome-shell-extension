@@ -1,0 +1,44 @@
+{
+  "ported": "2026-09-27",
+  "porter": "tools/oneoff/coverz.py, then tools/port.py",
+  "source": {
+    "raw": "personal-archive-coverz-0.8.6/coverz-0.8.6.tar.xz:coverz-0.8.6/skins/Sticked",
+    "skin_xml_sha256": "c2405e8df4c2cdf1090344ca8a1c18fa8546a985d4b21f6477c5f7fc25d5c114",
+    "app": "coverz",
+    "original_skin_xml_sha256": "9bc6c8be5470d3d634634166cfad9fdb27ca1fb3e1b9312de4e2bf22f1f1d3ef"
+  },
+  "assets": {
+    "copied": [
+      "coverz-cover-mask.png",
+      "coverz-nocover-no.png",
+      "fg.png",
+      "next.png",
+      "pause.png",
+      "play.png",
+      "prev.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [
+    {
+      "at": "cover[0]",
+      "from": "coverz",
+      "to": "platter",
+      "why": "mask/clip baked into coverz-nocover-no.png: coverz erases where its mask is opaque"
+    },
+    {
+      "at": "cover[0]",
+      "from": "coverz",
+      "to": "platter",
+      "why": "cover mask inverted into coverz-cover-mask.png: coverz erases where its mask is opaque"
+    }
+  ],
+  "derived": [],
+  "lossy": [],
+  "inferred": [],
+  "notes": [
+    "named after its folder: the skin's name= is coverz's copyright line",
+    "coverz hides text, buttons, seekbar and rating while stopped; Platter shows them throughout",
+    "distribution free: redistribution and modification both permitted"
+  ]
+}

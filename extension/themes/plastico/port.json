@@ -1,0 +1,64 @@
+{
+  "ported": "2026-09-27",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "personal-archive-Plastico",
+    "skin_xml_sha256": "ec3884b464d9c67f7373c1dfa976d693e62f13797b12aea5cdc4d0fdbbd225c0",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "case.png",
+      "next.png",
+      "nocover.png",
+      "play.png",
+      "prev.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [
+    {
+      "at": "image[0]",
+      "from": "widht",
+      "to": "width",
+      "why": "known misspelling"
+    }
+  ],
+  "derived": [
+    {
+      "at": "playercontrols[6]/prev[0]",
+      "taken": "width=18 from the asset"
+    },
+    {
+      "at": "playercontrols[6]/prev[0]",
+      "taken": "height=14 from the asset"
+    },
+    {
+      "at": "playercontrols[6]/play[1]",
+      "taken": "width=11 from the asset"
+    },
+    {
+      "at": "playercontrols[6]/play[1]",
+      "taken": "height=14 from the asset"
+    },
+    {
+      "at": "playercontrols[6]/next[2]",
+      "taken": "width=18 from the asset"
+    },
+    {
+      "at": "playercontrols[6]/next[2]",
+      "taken": "height=14 from the asset"
+    }
+  ],
+  "lossy": [
+    {
+      "at": "fonts",
+      "dropped": "LucidaGrande.ttf left behind: a bundled font is not a licensed font"
+    }
+  ],
+  "inferred": [],
+  "notes": [
+    "<playercontrols> at 100,1000 is ignored, exactly as 1.7 ignores it: its children carry absolute positions",
+    "distribution free: redistribution and modification both permitted"
+  ]
+}

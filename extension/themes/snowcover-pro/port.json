@@ -1,0 +1,38 @@
+{
+  "ported": "2026-09-27",
+  "porter": "tools/port.py",
+  "source": {
+    "raw": "personal-archive-SnowCover-Pro",
+    "skin_xml_sha256": "3e8a5bc3a85ca229c8abc8a1ae5b2d4df10fd3753f50ce642dcbabb52d162919",
+    "app": "covergloobus"
+  },
+  "assets": {
+    "copied": [
+      "case.png",
+      "nocover.png",
+      "nostar.png",
+      "panel.png",
+      "star.png"
+    ],
+    "not_shipped": []
+  },
+  "repairs": [
+    {
+      "at": "image[0]",
+      "from": "widht",
+      "to": "width",
+      "why": "known misspelling"
+    }
+  ],
+  "derived": [],
+  "lossy": [
+    {
+      "at": "fonts",
+      "dropped": "miso-bold.ttf left behind: a bundled font is not a licensed font"
+    }
+  ],
+  "inferred": [],
+  "notes": [
+    "distribution free: redistribution and modification both permitted"
+  ]
+}

@@ -1,9 +1,9 @@
 {
-  "ported": "2026-09-26",
+  "ported": "2026-09-27",
   "porter": "tools/oneoff/coverz.py, then tools/port.py",
   "source": {
     "raw": "personal-archive-coverz-0.8.6/coverz-0.8.6.tar.xz:coverz-0.8.6/skins/Tooltip",
-    "skin_xml_sha256": "da0c032989d4afdcfc762907e1f2a562b5a7de85d36a2bf3ebf5f58f790bfa6c",
+    "skin_xml_sha256": "86b604a07df65577bc921da82364575963106c0c9cd280eb241086ef0fa7b57a",
     "app": "coverz",
     "original_skin_xml_sha256": "8c205ac47cb1dd1ab45ed683bc5139f71c7498311250ae1c1869521b5396211a"
   },
@@ -25,10 +25,6 @@
     {
       "at": "widget[1]",
       "dropped": "widget skin='lcd': a coverz plug-in (visualizer), nothing to port it to"
-    },
-    {
-      "at": "text[2]",
-      "dropped": "format='now playing': Platter binds one field per text layer"
     }
   ],
   "inferred": [],

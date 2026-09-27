@@ -59,7 +59,7 @@ find is always written down:
 
 ## Where to get each one
 
-Two of the families named across the 73 shipped themes are already covered on
+Two of the families named across the 82 shipped themes are already covered on
 any mainstream Linux desktop (`Sans` is a fontconfig alias, not a font;
 `DejaVu Sans`/`DejaVu Sans Mono` ship everywhere). No action needed for those.
 Everything else below is a gap a theme will render into a fallback font unless
@@ -74,6 +74,7 @@ Genuinely free. Install and `fc-cache -f`:
 | --- | --- | --- |
 | Bebas (Bebas Neue) | lunatic, plastic-beach-dark, plastic-beach-light, plastic-beach-punched, plastic-beach-white | [Google Fonts](https://fonts.google.com/specimen/Bebas+Neue) |
 | DIRT2 DEATH | lunatic | [dafont.com](https://www.dafont.com/dirt2-death.font): free for personal use; commercial use means asking the designer, per the listing |
+| Hand Of Sean | sticked-coverz | [dafont.com](https://www.dafont.com/hand-of-sean.font): Nice and Ripe; free for personal use, a commercial licence is sold through MyFonts |
 | Vibrocentric | h-k-nowplaying, sweeth-bleu | [dafont.com](https://www.dafont.com/vibrocentric.font): Typodermic Fonts; the install-and-use case is exactly what its licence permits, see above |
 | Sansation | ics-1, ics-2 | [Font Squirrel](https://www.fontsquirrel.com/fonts/sansation) |
 | Santana | ics-2 | [dafont.com](https://www.dafont.com/santana.font) |
@@ -83,6 +84,8 @@ Genuinely free. Install and `fc-cache -f`:
 | PF Tempesta Five Condensed | lgd-n12 | [dafont.com](https://www.dafont.com/pf-tempesta-five.font): Yusuke Kamiyamane |
 | Zero Twos | tooltip-coverz | [Abstract Fonts](https://www.abstractfonts.com/font/1651): Ray Larabie, 1999; the file itself says "This font is freeware" |
 | Fatboy | pocket-coverz | No known source. coverz 0.8.6 bundles a `Fatboy.ttf` whose only credit is an email address, kentpw@norwich.net, with no terms; it is not dafont's Fatboy Slim. The theme falls back to a system face without it |
+| Mint Spirit | retro-coverz | [1001 Fonts](https://www.1001fonts.com/mint-spirit-font.html): Arkandis Digital Foundry; the font file says GPL v2 or later with the font exception |
+| Miso | snowcover-pro | [Font Squirrel](https://www.fontsquirrel.com/fonts/miso): Mårten Nettelbladt; free for personal and commercial use, sharing allowed with its licence file |
 | Purisa | photo | Ubuntu/Debian: `sudo apt install fonts-tlwg-purisa` (Thai Linux Working Group; other distros package it as `thai-scalable-purisa` or similar) |
 | Trebuchet MS | box-of-tricks-mod-by-d0od(-2) | Ubuntu/Debian: `sudo apt install ttf-mscorefonts-installer`; the [package](https://packages.ubuntu.com/ttf-mscorefonts-installer) fetches it under Microsoft's own EULA, which is the legitimate route, not a mirror |
 | URW Gothic L | intrepid-ibex-mockup-by-d0od | Ubuntu/Debian: `sudo apt install gsfonts` ([fonts-urw-base35](https://packages.debian.org/sid/fonts-urw-base35) on newer releases) |
@@ -97,7 +100,8 @@ kind of unlicensed redistribution this project won't do for its own themes:
 | --- | --- | --- |
 | Tahoma | shiki-cd-case-1-2 | Microsoft: not even in `ttf-mscorefonts-installer`; only legitimately available if you already have a licensed Windows/Office install to copy it from |
 | Gabriola | jesse | Microsoft, ships with Windows Vista and later / Office: same as above |
-| Lucida Grande | badchoice, badchoice-2, badchoice-3, coversutra, dirty, lucid-dark, polaroid, postcard, postcard-2, simple-2 | Apple, ships with macOS: only available from a licensed Mac |
+| Lucida Grande | badchoice, badchoice-2, badchoice-3, coversutra, dirty, lucid-dark, plastico, polaroid, postcard, postcard-2, simple-2 | Apple, ships with macOS: only available from a licensed Mac |
+| Helvetica | jet-lp | Linotype, sold commercially, and ships with macOS: only legitimately available from a licensed Mac or a purchase |
 | Frutiger Linotype | aeroplay, lucid-dark-2, lucid-light, simpleone-dark, simpleone-v2, simpleone-v2-2, simpleone-v2-3 | Monotype/Linotype, sold commercially: no free tier |
 | HandelGotDLig (Handel Gothic D Light) | 45-controls | Elsner+Flake, sold commercially: no free tier |
 

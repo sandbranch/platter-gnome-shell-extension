@@ -77,6 +77,11 @@
   there, the widget now sits directly above it, still below every ordinary
   window, and moves back above it whenever the window stack changes. Where
   the widget overlaps desktop icons, it is now drawn over them.
+- Fixed: opening the preferences switched the widget to the first theme in
+  the list. Filling the theme list selects its first entry, and that was
+  saved as if it had been chosen, before the theme in use was selected.
+  Typing in the extra theme directory field, or importing a theme, did the
+  same. The list now shows the theme in use and saves only what is picked.
 - `platter-port --list` honours `--out` wherever it appears, lists the rest
   of a folder when one theme in it will not read, and the tool now works from
   a path with a space in it.

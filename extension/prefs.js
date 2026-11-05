@@ -54,6 +54,8 @@ export default class PlatterPreferences extends ExtensionPreferences {
 
         this._fillThemes(row, settings);
         row.connect('notify::selected', () => {
+            if (this._filling)
+                return;   // the list being refilled, not the user choosing
             const chosen = this._themes[row.get_selected()];
             if (!chosen)
                 return;
@@ -228,18 +230,29 @@ export default class PlatterPreferences extends ExtensionPreferences {
         const model = new Gtk.StringList();
         for (const theme of this._themes)
             model.append(`${theme.name}  (${theme.id})`);
-        row.set_model(model);
+
+        // A new model selects its first entry, and notify::selected cannot
+        // tell that from the user picking it, so opening the preferences
+        // saved the first theme in the list over the one in use, and the
+        // running widget switched to it. Nothing the list does while it is
+        // being filled is a choice.
+        const current = this._themes.findIndex(
+            t => t.id === settings.get_string('theme'));
+        this._filling = true;
+        try {
+            row.set_model(model);
+            if (current >= 0)
+                row.set_selected(current);
+        } finally {
+            this._filling = false;
+        }
         row.set_subtitle(this._themes.length
             ? '' : _('No themes found'));
 
-        const current = this._themes.findIndex(
-            t => t.id === settings.get_string('theme'));
-        if (current >= 0) {
-            row.set_selected(current);
+        if (current >= 0)
             this._showPreview(this._themes[current]);
-        } else if (this._preview) {
+        else if (this._preview)
             this._preview.set_visible(false);
-        }
     }
 
     /* ---- placement ------------------------------------------------------ */

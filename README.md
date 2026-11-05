@@ -1,11 +1,6 @@
 # Platter
 
-<p align="center"><img src="extension/themes/cross-the-line/screenshot.png" width="420" alt="Cross The Line theme"></p>
-<p align="center">
-<img src="extension/themes/coversutra/screenshot.png" width="260" alt="Coversutra theme">
-&nbsp;&nbsp;
-<img src="extension/themes/jesse/screenshot.png" width="260" alt="Jesse theme">
-</p>
+<p align="center"><img src="docs/assets/screenshots/desktop.png" width="720" alt="Platter on the desktop, showing the album art, title, artist, album and rating of the song playing in Plexamp"></p>
 
 **A GNOME Shell extension that puts the album art of whatever you're playing
 right there on your desktop, like an old-school desklet, not a floating app
@@ -27,7 +22,15 @@ whatever desktop you had in 2010.
 ## Get it
 
 Submitted to [extensions.gnome.org](https://extensions.gnome.org/extension/10763/platter/) and
-awaiting review. Until it's approved, install straight from this repo:
+awaiting review. Until it's approved, download the zip from the [latest
+release](https://github.com/sandbranch/platter-gnome-shell-extension/releases/latest)
+and install it:
+
+```
+gnome-extensions install --force platter-*.shell-extension.zip
+```
+
+Or install straight from this repo:
 
 ```
 make install
@@ -46,6 +49,14 @@ interaction: no config files, no restart.
 Got an old CoverGloobus or NowPlaying skin sitting around from way back? Feed
 it to Platter and it just works: **Preferences → Theme → Add a theme**, point
 it at the file, done. Whatever it looked like then is what it looks like now.
+
+<p align="center">
+<img src="extension/themes/cross-the-line/screenshot.png" width="260" alt="Cross The Line theme">
+&nbsp;
+<img src="extension/themes/coversutra/screenshot.png" width="260" alt="Coversutra theme">
+&nbsp;
+<img src="extension/themes/jesse/screenshot.png" width="260" alt="Jesse theme">
+</p>
 
 Platter ships with **82 themes**, and the [full gallery is on the
 website](https://sandbranch.github.io/platter-gnome-shell-extension/#themes).

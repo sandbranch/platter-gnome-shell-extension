@@ -104,6 +104,9 @@
     width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--accent-ink);
     font-size: 0.85rem; font-weight: 700; display: flex; align-items: center; justify-content: center;
   }
+  #install h3 { font-size: 1.25rem; margin: 1.6em 0 0.2em; }
+  #install p { margin-top: 0.8em; }
+  .steps pre { margin-top: 10px; }
   .note {
     background: var(--bg-raised); border: 1px dashed var(--line); border-radius: 10px;
     padding: 14px 18px; color: var(--ink-soft); font-size: 0.92rem; margin-top: 18px;
@@ -215,18 +218,37 @@
 <section id="install">
   <div class="wrap">
     <h2>Installing</h2>
-    <p class="lede">Requires GNOME Shell 48, 49 or 50. Submitted to
-      <a href="https://extensions.gnome.org/extension/10763/platter/">extensions.gnome.org</a> and awaiting review;
-      until it's approved, install from a checkout:</p>
-    <pre><code>git clone git@github.com:sandbranch/platter-gnome-shell-extension.git
+    <p class="lede">Requires GNOME Shell 48, 49 or 50. Platter has been submitted to
+      <a href="https://extensions.gnome.org/extension/10763/platter/">extensions.gnome.org</a> and is
+      waiting for review. Once it's approved, installing will be one click there. Until then, it takes
+      a couple of minutes by hand.</p>
+    <h3>The easy way: the release zip</h3>
+    <ol class="steps">
+      <li>Download the <code>.shell-extension.zip</code> file from the
+        <a href="https://github.com/sandbranch/platter-gnome-shell-extension/releases/latest">latest release</a>.
+        Leave it zipped.</li>
+      <li>Open a terminal in the folder you saved it to (usually <strong>Downloads</strong>: right-click
+        inside it in Files and pick <strong>Open in Terminal</strong>), and run:
+        <pre><code>gnome-extensions install --force platter-*.shell-extension.zip</code></pre></li>
+      <li><strong>Log out and back in.</strong> GNOME Shell only notices new extensions in a fresh
+        session, and everyone forgets this exactly one time.</li>
+      <li>Turn Platter on, either in the <strong>Extensions</strong> app or with:
+        <pre><code>gnome-extensions enable platter@sandbranch.github.io</code></pre></li>
+      <li>Pick a theme, a placement and a monitor in Platter's preferences (the gear next to it in
+        <strong>Extensions</strong>, or <code>gnome-extensions prefs platter@sandbranch.github.io</code>),
+        and start some music.</li>
+    </ol>
+    <p>Updating to a newer release is the same steps 1 to 3; your settings and imported themes stay
+      where they are.</p>
+    <h3>From source</h3>
+    <p>If you'd rather build it yourself, or want what's on <code>main</code> before it's released, you
+      need <code>git</code> and <code>make</code> (on Ubuntu or Debian: <code>sudo apt install git make</code>).
+      Then:</p>
+    <pre><code>git clone https://github.com/sandbranch/platter-gnome-shell-extension.git
 cd platter-gnome-shell-extension
 make install</code></pre>
-    <ol class="steps">
-      <li>Log out and back in. GNOME Shell caches extension modules for the life of the session, so
-        disabling and re-enabling keeps running the old code.</li>
-      <li>Enable Platter in the Extensions app.</li>
-      <li>Open its preferences to pick a theme, a placement, and a monitor.</li>
-    </ol>
+    <p>and carry on from step 3 above. To update later, <code>git pull</code> and <code>make install</code>
+      again, then log out and back in.</p>
     <div class="note">
       Adding a theme of your own: <strong>Preferences → Theme → Add a theme → Folder… or Archive…</strong>,
       pointed at the theme exactly as you downloaded it.

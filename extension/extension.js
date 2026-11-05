@@ -49,6 +49,9 @@ export default class PlatterExtension extends Extension {
             this);
 
         Main.layoutManager.connectObject('monitors-changed', () => this._position(), this);
+        // A desktop window (DING) can arrive, leave, or be restacked at any
+        // time, and a desktop-placed widget has to stay just above it.
+        global.display.connectObject('restacked', () => this._stackOnDesktop(), this);
 
         // The overview transforms the workspaces in 3D, but chrome is never
         // transformed with them, so a floating widget hangs flat in front of
@@ -64,6 +67,7 @@ export default class PlatterExtension extends Extension {
     disable() {
         this._settings?.disconnectObject(this);
         Main.layoutManager.disconnectObject(this);
+        global.display.disconnectObject(this);
         this._watcher?.disconnectObject(this);
         this._overviewIds?.forEach(id => Main.overview.disconnect(id));
         this._overviewIds = null;
@@ -132,7 +136,7 @@ export default class PlatterExtension extends Extension {
         if (this._settings.get_string('placement') === 'floating') {
             Main.layoutManager.addTopChrome(this._widget, {trackFullscreen: true});
         } else {
-            Main.layoutManager._backgroundGroup.add_child(this._widget);
+            this._stackOnDesktop();
             // Tracked as chrome so the widget is treated as part of the shell
             // rather than as a window - it hides for fullscreen and survives the
             // overview. Shell 50 has no stage input region left to ask about:
@@ -144,6 +148,35 @@ export default class PlatterExtension extends Extension {
         this._applyOpacity();
         this._position();
         this._update();
+    }
+
+    /* Behind the windows, the way CoverGloobus sat, and still clickable.
+     *
+     * The background group takes clicks: the shell hangs its own right-click
+     * menu there. But a desktop icons extension (DING, which Ubuntu runs by
+     * default) covers the whole desktop with a transparent window of the
+     * desktop type, stacked above the background, and that window took every
+     * click meant for the widget's buttons. So when there is one, the widget
+     * goes into the window stack directly above it, which is still below every
+     * ordinary window. Mutter reorders window actors on every restack, so this
+     * runs again each time; with no desktop window it is the background group,
+     * as before. */
+    _stackOnDesktop() {
+        const widget = this._widget;
+        if (!widget || this._settings.get_string('placement') === 'floating')
+            return;
+
+        const group = global.window_group;
+        const desktop = group.get_children().filter(actor =>
+            actor.get_meta_window?.()?.get_window_type() === Meta.WindowType.DESKTOP).at(-1);
+        const parent = desktop ? group : Main.layoutManager._backgroundGroup;
+
+        if (widget.get_parent() !== parent) {
+            widget.get_parent()?.remove_child(widget);
+            parent.add_child(widget);
+        }
+        if (desktop)
+            group.set_child_above_sibling(widget, desktop);
     }
 
     _act(action) {

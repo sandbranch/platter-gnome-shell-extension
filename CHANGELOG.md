@@ -69,6 +69,14 @@
 - A `skin.xml` with a comment that is never closed is now repaired or
   refused, rather than quietly losing everything after the comment. A
   character reference beyond Unicode no longer fails the whole theme.
+- Buttons now work in desktop placement too, not only floating. The cause
+  turned out not to be GNOME Shell, which does deliver clicks behind the
+  windows, but a desktop icons extension: Desktop Icons NG, which Ubuntu runs
+  by default, covers the desktop with a transparent window of its own, and
+  that window took every click meant for the widget. When such a window is
+  there, the widget now sits directly above it, still below every ordinary
+  window, and moves back above it whenever the window stack changes. Where
+  the widget overlaps desktop icons, it is now drawn over them.
 - `platter-port --list` honours `--out` wherever it appears, lists the rest
   of a folder when one theme in it will not read, and the tool now works from
   a path with a space in it.
@@ -124,21 +132,6 @@ wastes an evening on one.
 **Other now-playing apps of the same era**: Bowtie, CD Art Display, Rainmeter,
 whose skins were widely cross-ported with CoverGloobus's. The format was
 designed not to preclude it.
-
-**Clickable buttons in desktop placement.** `desktop` placement draws the
-widget in `Main.layoutManager._backgroundGroup`, a layer modern Mutter/Shell
-excludes from input routing entirely: buttons there are dead regardless of
-whether anything covers the widget, confirmed empirically on Shell 50.1, and
-there is no supported flag left to opt an actor back in (the old
-`affectsInputRegion` chrome-tracking hook is gone). Desktop Icons NG works
-around the same wall by not drawing inside the shell process at all: it
-launches its own window and re-lowers it to the bottom of the stack every time
-something tries to raise it, so it gets real input as a genuine client
-surface rather than a shell actor. Giving desktop placement working buttons
-would mean the same move (a windowed surface instead of a `_backgroundGroup`
-actor, plus the raise-and-relower dance DING needs), which is a real
-rearchitecture, not a tweak, so it stays a later idea rather than something
-this release blocks on.
 
 ### Theme ideas
 

@@ -82,6 +82,17 @@
   saved as if it had been chosen, before the theme in use was selected.
   Typing in the extra theme directory field, or importing a theme, did the
   same. The list now shows the theme in use and saves only what is picked.
+- Seekbars can be clicked to jump through the track, and dragged, showing
+  where they will land until let go. Bars a pixel or two thick take clicks a
+  little either side of themselves, so they can actually be hit.
+- Seekbars draw their thumb, the knob that marks the position, and vertical
+  seekbars draw at all: they fill from the bottom, as in CoverGloobus 1.7,
+  and were a static line before. Seven shipped themes have a thumb, among
+  them glass, ICS, mH1 and badchoice-3, whose upright bar turns out to be a
+  seekbar and not the volume control it was taken for: 1.7 binds every
+  seekbar to the track's position.
+- The `mute` button action works: it sets the player's volume to nothing,
+  and a second press puts it back.
 - `platter-port --list` honours `--out` wherever it appears, lists the rest
   of a folder when one theme in it will not read, and the tool now works from
   a path with a space in it.

@@ -82,7 +82,11 @@ function fillFormat(format, track) {
 }
 
 export const PlatterWidget = GObject.registerClass({
-    Signals: {'action': {param_types: [GObject.TYPE_STRING]}},
+    Signals: {
+        'action': {param_types: [GObject.TYPE_STRING]},
+        // A seekbar was clicked or dragged to this fraction of the track.
+        'seek': {param_types: [GObject.TYPE_DOUBLE]},
+    },
 }, class PlatterWidget extends St.Widget {
     constructor(theme, scale = 1) {
         super({
@@ -178,31 +182,9 @@ export const PlatterWidget = GObject.registerClass({
             this._texts.push(label);
             break;
         }
-        case 'seekbar': {
-            const width = layer.width * this._scale, height = layer.height * this._scale;
-            const group = new St.Widget({layout_manager: new Clutter.FixedLayout()});
-            const back = new St.Bin({
-                style: backgroundStyle(Theme.assetAtScale(this._theme, layer.back, this._scale)),
-                width, height,
-            });
-            const fill = new St.Bin({
-                style: backgroundStyle(Theme.assetAtScale(this._theme, layer.fill, this._scale)),
-                height,
-            });
-            // The fill asset must not squash as it grows, so it keeps the full
-            // width and the group clips it - which is what "progress" looks like.
-            fill.set_width(width);
-            const clip = new St.Widget({
-                layout_manager: new Clutter.FixedLayout(),
-                width: 0, height, clip_to_allocation: true,
-            });
-            clip.add_child(fill);
-            group.add_child(back);
-            group.add_child(clip);
-            this._place(group, layer);
-            this._seekbars.push({clip, full: width});
+        case 'seekbar':
+            this._buildSeekbar(layer);
             break;
-        }
         case 'button': {
             const states = layer.states || {};
             const button = new St.Button({
@@ -248,6 +230,151 @@ export const PlatterWidget = GObject.registerClass({
             };
             break;
         }
+        }
+    }
+
+    /* A seekbar, drawn and clicked the way CoverGloobus 1.7's seekbar.py
+     * does it, since that is what every theme's offsets were tuned against.
+     * Horizontal fills from the left and vertical from the bottom; the thumb
+     * travels the bar inset by its own size and the slice offsets, which can
+     * be negative and push it outside the bar. 1.7 binds every seekbar,
+     * either way up, to the track's position: none is ever volume. */
+    _buildSeekbar(layer) {
+        const k = this._scale;
+        const w = layer.width * k, h = layer.height * k;
+        const vertical = (layer.orientation ??
+            (layer.width > layer.height ? 'horizontal' : 'vertical')) === 'vertical';
+
+        const group = new St.Widget({layout_manager: new Clutter.FixedLayout()});
+        const back = new St.Bin({
+            style: backgroundStyle(Theme.assetAtScale(this._theme, layer.back, k)),
+            width: w, height: h,
+        });
+        group.add_child(back);
+
+        // The fill keeps the bar's full size and is clipped, so it is revealed
+        // rather than squashed as the track plays.
+        const clip = new St.Widget({
+            layout_manager: new Clutter.FixedLayout(),
+            width: vertical ? w : 0, height: vertical ? 0 : h,
+            clip_to_allocation: true,
+        });
+        const fill = new St.Bin({
+            style: backgroundStyle(Theme.assetAtScale(this._theme, layer.fill, k)),
+            width: w, height: h,
+        });
+        clip.add_child(fill);
+        group.add_child(clip);
+
+        let thumb = null;
+        const t = layer.thumb;
+        const slice = {top: 0, right: 0, bottom: 0, left: 0, ...t?.slice};
+        for (const side in slice)
+            slice[side] = (slice[side] || 0) * k;
+        if (t?.src) {
+            thumb = new St.Bin({
+                style: backgroundStyle(Theme.assetAtScale(this._theme, t.src, k)),
+                width: (t.width || 0) * k, height: (t.height || 0) * k,
+            });
+            group.add_child(thumb);
+        }
+
+        // Many bars are one or two pixels thick, which nobody can hit, so the
+        // area that takes clicks covers the bar and the thumb's travel and is
+        // at least this thick across the bar.
+        const GRIP = 12 * Math.max(1, k);
+        const tw = thumb?.width ?? 0, th = thumb?.height ?? 0;
+        let x0 = Math.min(0, slice.left), y0 = Math.min(0, slice.top);
+        let x1 = vertical ? Math.max(w, slice.left + tw) : Math.max(w, w - slice.right);
+        let y1 = vertical ? Math.max(h, h - slice.bottom) : Math.max(h, slice.top + th);
+        if (vertical && x1 - x0 < GRIP) {
+            const mid = (x0 + x1) / 2;
+            [x0, x1] = [mid - GRIP / 2, mid + GRIP / 2];
+        } else if (!vertical && y1 - y0 < GRIP) {
+            const mid = (y0 + y1) / 2;
+            [y0, y1] = [mid - GRIP / 2, mid + GRIP / 2];
+        }
+        const hit = new St.Widget({
+            reactive: true, track_hover: true,
+            x: x0, y: y0, width: x1 - x0, height: y1 - y0,
+        });
+        group.add_child(hit);
+
+        // At native size the group is the bar; thumb and hit area hang off it
+        // where their offsets put them, as 1.7 drew them.
+        this._place(group, {...layer, width: 0, height: 0});
+        group.set_size(w, h);
+
+        const bar = {vertical, w, h, clip, thumb, slice, value: 0, dragging: false};
+        this._seekbars.push(bar);
+
+        // Where along the bar a pointer is, as a fraction: 1.7 measures from
+        // the left, or up from the bottom.
+        const fractionAt = event => {
+            const [sx, sy] = event.get_coords();
+            const [ok, lx, ly] = hit.transform_stage_point(sx, sy);
+            if (!ok)
+                return null;
+            const f = vertical ? (h - (ly + y0)) / h : (lx + x0) / w;
+            return Math.min(1, Math.max(0, f));
+        };
+        let grab = null;
+        hit.connect('button-press-event', (actor, event) => {
+            if (event.get_button() !== Clutter.BUTTON_PRIMARY)
+                return Clutter.EVENT_PROPAGATE;
+            const f = fractionAt(event);
+            if (f === null)
+                return Clutter.EVENT_PROPAGATE;
+            bar.dragging = true;
+            grab = global.stage.grab(hit);
+            this._showSeek(bar, f);
+            return Clutter.EVENT_STOP;
+        });
+        hit.connect('motion-event', (actor, event) => {
+            if (!bar.dragging)
+                return Clutter.EVENT_PROPAGATE;
+            const f = fractionAt(event);
+            if (f !== null)
+                this._showSeek(bar, f);
+            return Clutter.EVENT_STOP;
+        });
+        hit.connect('button-release-event', (actor, event) => {
+            if (!bar.dragging)
+                return Clutter.EVENT_PROPAGATE;
+            grab?.dismiss();
+            grab = null;
+            bar.dragging = false;
+            const f = fractionAt(event) ?? bar.value;
+            this._showSeek(bar, f);
+            this.emit('seek', f);
+            return Clutter.EVENT_STOP;
+        });
+        hit.connect('destroy', () => {
+            grab?.dismiss();
+            grab = null;
+        });
+        this._showSeek(bar, 0);
+    }
+
+    _showSeek(bar, fraction) {
+        const {vertical, w, h, clip, thumb, slice} = bar;
+        bar.value = fraction;
+        if (vertical) {
+            const fh = Math.round(h * fraction);
+            clip.set_position(0, h - fh);
+            clip.set_height(fh);
+            clip.get_first_child().set_position(0, -(h - fh));
+        } else {
+            clip.set_width(Math.round(w * fraction));
+        }
+        if (!thumb)
+            return;
+        if (vertical) {
+            const travel = h - thumb.height - slice.bottom - slice.top;
+            thumb.set_position(slice.left, Math.round(slice.top + travel - fraction * travel));
+        } else {
+            const travel = w - slice.right - thumb.width - slice.left;
+            thumb.set_position(Math.round(slice.left + fraction * travel), slice.top);
         }
     }
 
@@ -330,8 +457,11 @@ export const PlatterWidget = GObject.registerClass({
             bin.set_style(`${art} ${tint} ${roundStyle(bin._round)}`);
         }
 
-        for (const {clip, full} of this._seekbars)
-            clip.set_width(Math.round(full * (progress || 0)));
+        // A bar being dragged shows where it will land, not where it is.
+        for (const bar of this._seekbars) {
+            if (!bar.dragging)
+                this._showSeek(bar, progress || 0);
+        }
 
         // Hover and press repaint their own button; only playing changes the
         // look of all of them.

@@ -127,7 +127,10 @@ export default class PlatterExtension extends Extension {
             return;   // disabled, or superseded, while the theme was loading
 
         this._widget = new PlatterWidget(theme, this._settings.get_double('scale'));
-        this._widget.connectObject('action', (widget, action) => this._act(action), this);
+        this._widget.connectObject(
+            'action', (widget, action) => this._act(action),
+            'seek', (widget, fraction) => this._watcher.seek(fraction),
+            this);
         this._addDragging();
 
         // desktop sits behind windows, the way the original did; floating rides
@@ -185,6 +188,8 @@ export default class PlatterExtension extends Extension {
         }[action];
         if (method)
             this._watcher.invoke(method);
+        else if (action === 'mute')
+            this._watcher.toggleMute();
         else if (action === 'quit')
             this._settings.set_boolean('hide-when-stopped', true);
         else

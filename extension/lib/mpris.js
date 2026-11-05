@@ -26,7 +26,7 @@ const APP_IFACE = 'org.mpris.MediaPlayer2';
 export const EMPTY_TRACK = {
     title: '', artist: '', album: '', genre: '', track: '', year: '',
     length: '', position: '', player: '', artUrl: '', status: 'Stopped',
-    lengthUs: 0, positionUs: 0, rating: 0,
+    lengthUs: 0, positionUs: 0, rating: 0, trackId: '',
 };
 
 function formatTime(microseconds) {
@@ -57,6 +57,7 @@ function readMetadata(variant) {
     out.album = str('xesam:album');
     out.genre = str('xesam:genre');
     out.artUrl = str('mpris:artUrl');
+    out.trackId = str('mpris:trackid');
 
     const number = key => {
         const value = meta[key];
@@ -313,6 +314,64 @@ export const PlayerWatcher = GObject.registerClass({
     get progress() {
         const t = this.track;
         return t.lengthUs > 0 ? Math.min(1, Math.max(0, t.positionUs / t.lengthUs)) : 0;
+    }
+
+    /* Jump to a fraction of the current track. SetPosition is the absolute
+     * form and needs the track's id, so a stale click cannot move the next
+     * track; a player that gives no id gets the relative Seek instead. The
+     * position is moved here at once rather than at the next poll, so the bar
+     * does not spring back for a second after the click. */
+    seek(fraction) {
+        const entry = this._entry();
+        const track = entry?.track;
+        if (!entry?.proxy || !(track.lengthUs > 0))
+            return;
+        if (entry.proxy.get_cached_property('CanSeek')?.deepUnpack() === false) {
+            log(`Platter: ${track.player} says it cannot seek`);
+            return;
+        }
+        const target = Math.round(Math.min(1, Math.max(0, fraction)) * track.lengthUs);
+        const [method, args] = track.trackId.startsWith('/')
+            ? ['SetPosition', new GLib.Variant('(ox)', [track.trackId, target])]
+            : ['Seek', new GLib.Variant('(x)', [target - track.positionUs])];
+        entry.proxy.call(method, args, Gio.DBusCallFlags.NONE, -1, this._cancellable, (p, res) => {
+            try {
+                p.call_finish(res);
+            } catch (e) {
+                if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                    logError(e, `Platter: ${method} was refused`);
+            }
+        });
+        track.positionUs = target;
+        track.position = formatTime(target);
+        this.emit('changed');
+    }
+
+    /* Mute by setting Volume to nothing, and unmute by putting back what it
+     * was. MPRIS has no mute of its own; a theme's mute button is the only
+     * thing that asks. */
+    toggleMute() {
+        const entry = this._entry();
+        if (!entry?.proxy)
+            return;
+        const volume = entry.proxy.get_cached_property('Volume')?.deepUnpack();
+        if (typeof volume !== 'number') {
+            log(`Platter: ${entry.track.player} has no volume to mute`);
+            return;
+        }
+        const next = volume > 0 ? 0 : (entry.unmuted || 1);
+        if (volume > 0)
+            entry.unmuted = volume;
+        this._bus.call(entry.proxy.g_name, OBJECT_PATH, 'org.freedesktop.DBus.Properties', 'Set',
+            new GLib.Variant('(ssv)', [PLAYER_IFACE, 'Volume', new GLib.Variant('d', next)]),
+            null, Gio.DBusCallFlags.NONE, -1, this._cancellable, (bus, res) => {
+                try {
+                    bus.call_finish(res);
+                } catch (e) {
+                    if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                        logError(e, 'Platter: the player would not change its volume');
+                }
+            });
     }
 
     invoke(method) {

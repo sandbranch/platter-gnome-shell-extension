@@ -158,7 +158,8 @@ parse Pango.
     "playing": { "normal": "pause.png", "hover": "pause_hover.png", "pressed": null }
   } }
 ```
-`action` is `previous`, `play_pause`, `next`, `mute` or `quit`. The `playing`
+`action` is `previous`, `play_pause`, `next`, `mute` or `quit`. `mute` sets
+the player's MPRIS volume to nothing and a second press puts it back. The `playing`
 state exists only for `play_pause`, matching 1.7's StateButton.
 
 ### seekbar
@@ -171,6 +172,14 @@ state exists only for `play_pause`, matching 1.7's StateButton.
 `orientation` is derived the way 1.7 does it: wider than tall is horizontal.
 The thumb's four offsets are kept as a `slice` because they are how themes
 nudge the knob into alignment, and several are negative.
+
+A seekbar always shows, and sets, the position in the current track, whichever
+way up it is: CoverGloobus 1.7 bound every seekbar to the track's time and
+never to volume, and so does Platter. A horizontal bar fills from the left and
+a vertical one from the bottom. Clicking a bar jumps the track to that point,
+and dragging along it previews where it will land until the button is let go.
+Because many bars are only a pixel or two thick, the area that takes the click
+is padded to a usable size across the bar.
 
 ---
 

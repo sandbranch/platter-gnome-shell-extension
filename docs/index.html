@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Platter: a themeable now-playing widget for GNOME Shell</title>
 <meta name="description" content="A GNOME Shell extension that puts the album art and track info of whatever is playing back on your desktop, like an old-school desklet. A revival of CoverGloobus, with 82 themes to choose from.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Platter: album art on your GNOME desktop">
+<meta property="og:description" content="A GNOME Shell extension that puts the album art and track info of whatever is playing back on your desktop, like an old-school desklet. A revival of CoverGloobus, with 82 themes to choose from.">
+<meta property="og:url" content="https://sandbranch.github.io/platter-gnome-shell-extension/">
+<meta property="og:image" content="https://sandbranch.github.io/platter-gnome-shell-extension/assets/screenshots/desktop.jpg">
+<meta property="og:image:alt" content="Platter on a GNOME desktop, showing the album art, title, artist, album and rating of the song playing in Plexamp">
+<meta name="twitter:card" content="summary_large_image">
 <style>
   :root {
     --bg: #f6f1e9;
@@ -126,6 +133,12 @@
   .tile-author { color: var(--ink-soft); font-size: 0.78rem; }
   .gallery-more { color: var(--ink-soft); margin-top: 18px; font-size: 0.95rem; }
 
+  .desktop-shot { margin: 0 auto; max-width: 900px; }
+  .desktop-shot img {
+    display: block; width: 100%; height: auto; border-radius: 14px;
+    border: 8px solid var(--bg-raised); box-shadow: var(--shadow);
+  }
+  .desktop-shot figcaption { text-align: center; margin-top: 12px; font-size: 0.9rem; color: var(--ink-soft); }
   .showcase { display: flex; gap: 22px; margin-top: 28px; flex-wrap: wrap; justify-content: center; }
   .showcase img {
     height: 230px; border-radius: 12px; border: 6px solid var(--bg-raised);
@@ -184,6 +197,16 @@
       <img src="assets/thumbs/coversutra.jpg" alt="Coversutra theme">
       <img src="assets/thumbs/platter-anno.jpg" alt="Anno theme">
     </div>
+  </div>
+</section>
+
+<section style="border-top: none; padding-top: 0;">
+  <div class="wrap">
+    <figure class="desktop-shot">
+      <img src="assets/screenshots/desktop.jpg" width="1070" height="1026"
+        alt="Platter on a GNOME desktop, showing the album art, title, artist, album and rating of the song playing in Plexamp">
+      <figcaption>On the desktop, following Plexamp: the cover, the song, and your rating, right on the wallpaper.</figcaption>
+    </figure>
   </div>
 </section>
 

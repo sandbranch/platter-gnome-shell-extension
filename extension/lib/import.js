@@ -17,7 +17,7 @@ import * as Unpack from './unpack.js';
  * that way and splitting the pack up by hand is work the user should not have
  * to do. Returns {installed, failures, source}; neither list throws.
  */
-export function importFrom(path, {outBase = Port.userThemeDir(),
+export async function importFrom(path, {outBase = Port.userThemeDir(),
     replace = false, source = {}} = {}) {
     const installed = [];
     const failures = [];
@@ -31,7 +31,7 @@ export function importFrom(path, {outBase = Port.userThemeDir(),
         if (GLib.file_test(path, GLib.FileTest.IS_DIR)) {
             bases.push(path);
             // A folder may hold themes outright, archives of them, or both.
-            const inside = Unpack.unpackInside(path);
+            const inside = await Unpack.unpackInside(path);
             if (inside) {
                 temporary.push(inside);
                 bases.push(inside);
@@ -41,7 +41,7 @@ export function importFrom(path, {outBase = Port.userThemeDir(),
                 throw new Error('that is a file, not a theme folder or an ' +
                     'archive Platter recognises');
             }
-            const out = Unpack.unpack(path);
+            const out = await Unpack.unpack(path);
             temporary.push(out);
             bases.push(out);
         }
@@ -55,6 +55,7 @@ export function importFrom(path, {outBase = Port.userThemeDir(),
         }
 
         for (const root of roots) {
+            await yieldToMainLoop();
             try {
                 installed.push(Port.install(root, outBase, {source, replace}));
             } catch (e) {
@@ -64,6 +65,7 @@ export function importFrom(path, {outBase = Port.userThemeDir(),
         // Themes somebody already converted are copied rather than ported, so
         // a shared folder of them imports as readily as an original download.
         for (const root of ported) {
+            await yieldToMainLoop();
             try {
                 installed.push(Port.copyPorted(root, outBase, {replace}));
             } catch (e) {
@@ -77,6 +79,15 @@ export function importFrom(path, {outBase = Port.userThemeDir(),
     }
 
     return {installed, failures, source: path};
+}
+
+/* Porting one theme is quick, but a pack can hold dozens. Let the window
+ * that asked paint between them rather than freeze for the whole pack. */
+function yieldToMainLoop() {
+    return new Promise(resolve => GLib.idle_add(GLib.PRIORITY_DEFAULT_IDLE, () => {
+        resolve();
+        return GLib.SOURCE_REMOVE;
+    }));
 }
 
 function shortName(path, bases) {

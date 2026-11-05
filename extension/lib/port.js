@@ -117,8 +117,16 @@ class Report {
 
 /* ---- the theme directory on disk ---------------------------------------- */
 
+/* A regular file, and not a link to one. Themes arrive as downloads, and a
+ * link in one (bg.png -> ~/.ssh/id_rsa) would otherwise be followed and its
+ * target copied into the themes folder, the folder people share. */
 function isFile(path) {
-    return GLib.file_test(path, GLib.FileTest.IS_REGULAR);
+    try {
+        return Gio.File.new_for_path(path).query_file_type(
+            Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS, null) === Gio.FileType.REGULAR;
+    } catch (e) {
+        return false;
+    }
 }
 
 function join(...parts) {
@@ -130,12 +138,15 @@ function suffix(name) {
     return dot < 0 ? '' : name.slice(dot).toLowerCase();
 }
 
-/** Every file under `root`, as paths relative to it, depth first. */
+/** Every regular file under `root`, as paths relative to it, depth first.
+ * Links are not followed, to files or to folders: a folder linked to itself
+ * (loop -> .) made one archive install some forty copies of its theme, and
+ * two such links grew the walk past anything that would finish. */
 function walk(root, prefix = '', out = []) {
     let enumerator;
     try {
         enumerator = Gio.File.new_for_path(join(root, prefix)).enumerate_children(
-            'standard::name,standard::type', Gio.FileQueryInfoFlags.NONE, null);
+            'standard::name,standard::type', Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS, null);
     } catch (e) {
         return out;
     }
@@ -148,7 +159,7 @@ function walk(root, prefix = '', out = []) {
         const relative = prefix ? `${prefix}/${name}` : name;
         if (type === Gio.FileType.DIRECTORY)
             walk(root, relative, out);
-        else
+        else if (type === Gio.FileType.REGULAR)
             out.push(relative);
     }
     return out;
@@ -168,6 +179,7 @@ class Porter {
         this.assets = new Map();   // emitted name -> real path
         this.fonts = new Set();
         this.files = walk(root);
+        this.fileSet = new Set(this.files);
         this.xml = readText(join(root, 'skin.xml'));
     }
 
@@ -272,7 +284,9 @@ class Porter {
 
         let name = parts.join('/');
         let path = join(this.root, ...parts);
-        if (!isFile(path)) {
+        // Looked up in the walk rather than tested on disk: a folder in the
+        // path could be a link (assets -> ~/.ssh) that a test would follow.
+        if (!this.fileSet.has(name)) {
             const wanted = parts[parts.length - 1].toLowerCase();
             const match = this.files.find(f =>
                 f.split('/').pop().toLowerCase() === wanted);

@@ -7,8 +7,10 @@
 import GLib from 'gi://GLib';
 import Gio from 'gi://Gio';
 
+// filename_from_uri, not a regex: the URL is percent-escaped, so a space in
+// the install path would otherwise be looked for as a literal %20.
 const HERE = Gio.File.new_for_path(
-    GLib.canonicalize_filename(import.meta.url.replace(/^file:\/\//, ''), null))
+    GLib.canonicalize_filename(GLib.filename_from_uri(import.meta.url)[0], null))
     .get_parent();
 
 // The repo has tools/ beside extension/; an installed extension has tools/

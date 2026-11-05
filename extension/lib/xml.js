@@ -26,7 +26,9 @@ export function decode(text) {
         if (body[0] === '#') {
             const code = body[1] === 'x' || body[1] === 'X'
                 ? parseInt(body.slice(2), 16) : parseInt(body.slice(1), 10);
-            return Number.isFinite(code) && code > 0
+            // fromCodePoint throws past U+10FFFF, and a theme is not worth
+            // failing over one bad character.
+            return Number.isFinite(code) && code > 0 && code <= 0x10FFFF
                 ? String.fromCodePoint(code) : whole;
         }
         const named = ENTITIES[body.toLowerCase()];
@@ -145,10 +147,11 @@ export function parse(text) {
 
         if (reader.peek('<!--')) {
             reader.at += 4;
-            const before = reader.at;
-            reader.until('-->');
-            if (reader.done && reader.at === before)
+            // until() runs to the end when there is no close, which made an
+            // unclosed comment quietly swallow the rest of the skin.
+            if (reader.text.indexOf('-->', reader.at) < 0)
                 throw new Error('a comment is never closed');
+            reader.until('-->');
             continue;
         }
         if (reader.peek('<![CDATA[')) {

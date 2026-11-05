@@ -67,6 +67,7 @@ export default class PlatterExtension extends Extension {
         this._watcher?.disconnectObject(this);
         this._overviewIds?.forEach(id => Main.overview.disconnect(id));
         this._overviewIds = null;
+        this._generation = (this._generation ?? 0) + 1;   // strand any rebuild in flight
         this._teardown();
         this._watcher?.destroy();
         this._watcher = null;
@@ -76,6 +77,9 @@ export default class PlatterExtension extends Extension {
     _teardown() {
         if (!this._widget)
             return;
+        // A rebuild can land mid-drag; the stage grab would outlive the widget.
+        this._grab?.dismiss();
+        this._grab = null;
         this._widget.disconnectObject(this);
         const parent = this._widget.get_parent();
         if (parent === Main.layoutManager.uiGroup) {
@@ -91,6 +95,11 @@ export default class PlatterExtension extends Extension {
     /** Load the configured theme and put a widget on screen. */
     async _rebuild() {
         this._teardown();
+        // Settings arrive in bursts (prefs writes theme and scale together),
+        // and each change starts a rebuild that waits on the theme loading.
+        // Only the latest may put a widget on screen: an earlier one finishing
+        // last used to add a second widget nothing would ever remove.
+        const generation = this._generation = (this._generation ?? 0) + 1;
 
         const paths = Theme.searchPaths(this.path, this._settings.get_string('theme-path'));
         const id = this._settings.get_string('theme');
@@ -110,8 +119,8 @@ export default class PlatterExtension extends Extension {
         const theme = await Theme.load(dir);
         if (!theme)
             return;   // load() has already said why
-        if (!this._settings)
-            return;   // disabled while the theme was loading
+        if (!this._settings || generation !== this._generation)
+            return;   // disabled, or superseded, while the theme was loading
 
         this._widget = new PlatterWidget(theme, this._settings.get_double('scale'));
         this._widget.connectObject('action', (widget, action) => this._act(action), this);
@@ -201,7 +210,7 @@ export default class PlatterExtension extends Extension {
     /** Drag to move, unless locked. Where it lands is where it stays. */
     _addDragging() {
         const widget = this._widget;
-        let grab = null, startX = 0, startY = 0, originX = 0, originY = 0;
+        let startX = 0, startY = 0, originX = 0, originY = 0;
 
         widget.connectObject('button-press-event', (actor, event) => {
             if (this._settings.get_boolean('locked'))
@@ -219,12 +228,12 @@ export default class PlatterExtension extends Extension {
                 return Clutter.EVENT_PROPAGATE;
             [startX, startY] = event.get_coords();
             [originX, originY] = widget.get_position();
-            grab = global.stage.grab(widget);
+            this._grab = global.stage.grab(widget);
             return Clutter.EVENT_STOP;
         }, this);
 
         widget.connectObject('motion-event', (actor, event) => {
-            if (!grab)
+            if (!this._grab)
                 return Clutter.EVENT_PROPAGATE;
             const [x, y] = event.get_coords();
             widget.set_position(originX + (x - startX), originY + (y - startY));
@@ -232,10 +241,10 @@ export default class PlatterExtension extends Extension {
         }, this);
 
         widget.connectObject('button-release-event', () => {
-            if (!grab)
+            if (!this._grab)
                 return Clutter.EVENT_PROPAGATE;
-            grab.dismiss();
-            grab = null;
+            this._grab.dismiss();
+            this._grab = null;
             const monitor = this._monitor();
             if (!monitor)
                 return Clutter.EVENT_STOP;

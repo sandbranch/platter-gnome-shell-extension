@@ -38,6 +38,7 @@ what it repaired, measured, or could not carry across.`;
 
 export async function main(argv) {
     const options = {out: Port.userThemeDir(), replace: false, quiet: false};
+    let listing = false;
     const source = {};
     const targets = [];
 
@@ -57,7 +58,9 @@ export async function main(argv) {
         case '--author': source.author = value(); break;
         case '--url': source.source_url = value(); break;
         case '--license': source.license = value(); break;
-        case '--list': return list(options.out);
+        // Not acted on until every option is read, so --list --out DIR
+        // lists DIR rather than the default.
+        case '--list': listing = true; break;
         case '--verify': return await verify(absolute(value()));
         default:
             if (arg.startsWith('-')) {
@@ -69,6 +72,8 @@ export async function main(argv) {
         }
     }
 
+    if (listing)
+        return list(options.out);
     if (!targets.length) {
         printerr(USAGE);
         return 2;
@@ -76,7 +81,7 @@ export async function main(argv) {
 
     let failed = 0;
     for (const target of targets) {
-        const result = Import.importFrom(target, {
+        const result = await Import.importFrom(target, {
             outBase: options.out, replace: options.replace, source,
         });
         for (const {id, path, report} of result.installed) {
@@ -155,9 +160,18 @@ function list(base) {
             const path = GLib.build_filenamev([base, info.get_name(), 'theme.json']);
             if (!GLib.file_test(path, GLib.FileTest.EXISTS))
                 continue;
-            const [, bytes] = GLib.file_get_contents(path);
-            const theme = JSON.parse(new TextDecoder().decode(bytes));
-            themes.push([info.get_name(), theme.name || '', theme.attribution?.author || '']);
+            // One unreadable theme is that theme's problem, not a reason to
+            // report the whole folder as empty.
+            let theme;
+            try {
+                const [, bytes] = GLib.file_get_contents(path);
+                theme = JSON.parse(new TextDecoder().decode(bytes));
+            } catch (e) {
+                printerr(`${info.get_name()}: theme.json does not read: ${e.message}`);
+                continue;
+            }
+            const text = v => (typeof v === 'string' ? v : '');
+            themes.push([info.get_name(), text(theme?.name), text(theme?.attribution?.author)]);
         }
     } catch (e) {
         print(`no themes installed in ${base}`);

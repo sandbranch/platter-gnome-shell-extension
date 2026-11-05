@@ -267,10 +267,11 @@ export const PlatterWidget = GObject.registerClass({
 
     /* The cover cut to an artwork layer's mask, or null to draw it uncut: a
      * cover Platter cannot reach as a file (a player that hands out an http
-     * URL) or a cut that failed. Called once a second, since update() is, but
-     * the cut itself only happens when Theme.masked has nothing cached - and
-     * asking it every time is what keeps a player that rewrites one cover file
-     * for every track from showing the cut it made for the last one. */
+     * URL) or a cut that failed. Called when the track changes, not on every
+     * position tick, and the cut itself only happens when Theme.masked has
+     * nothing fresh cached: asking again for each track is what keeps a player
+     * that rewrites one cover file for every track from showing the cut it
+     * made for the last one. */
     _cutToMask(bin, artUrl) {
         let path = null;
         if (artUrl.startsWith('/')) {
@@ -288,8 +289,10 @@ export const PlatterWidget = GObject.registerClass({
         return cut === path ? null : cut;
     }
 
-    /** Point the widget at a track. Called on every MPRIS change. */
+    /** Point the widget at a track. Called on every MPRIS change, which
+     * while playing means every second, for the position. */
     update(track, progress) {
+        const wasPlaying = this._playing;
         this._playing = track.status === 'Playing';
 
         for (const actor of this.get_children()) {
@@ -307,7 +310,15 @@ export const PlatterWidget = GObject.registerClass({
             label.set_text(value);
         }
 
+        // The cover only changes with the track, so the cut (a checksum and
+        // several stats even when cached) and the restyle wait for that. The
+        // key is the track as well as the URL, since some players rewrite one
+        // cover file for every track.
+        const artKey = [track.artUrl, track.title, track.artist, track.album].join('\n');
         for (const bin of this._artwork) {
+            if (bin._artKey === artKey)
+                continue;
+            bin._artKey = artKey;
             const cut = bin._mask && track.artUrl ? this._cutToMask(bin, track.artUrl) : null;
             const art = cut ? backgroundStyle(cut)
                 : track.artUrl ? `background-image: url("${track.artUrl}"); background-size: cover;`
@@ -322,12 +333,19 @@ export const PlatterWidget = GObject.registerClass({
         for (const {clip, full} of this._seekbars)
             clip.set_width(Math.round(full * (progress || 0)));
 
-        for (const button of this._buttons)
-            this._paintButton(button);
+        // Hover and press repaint their own button; only playing changes the
+        // look of all of them.
+        if (this._playing !== wasPlaying) {
+            for (const button of this._buttons)
+                this._paintButton(button);
+        }
 
         if (this._rating) {
             const {stars, full, empty} = this._rating;
             const filled = Math.max(0, Math.min(5, track.rating || 0));
+            if (filled === this._rating.shown)
+                return;
+            this._rating.shown = filled;
             stars.forEach((bin, i) => bin.set_style(backgroundStyle(i < filled ? full : empty)));
         }
     }

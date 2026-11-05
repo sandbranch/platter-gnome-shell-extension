@@ -90,6 +90,10 @@ export const PlayerWatcher = GObject.registerClass({
         this._preferred = '';
         this._current = null;
         this._pollId = 0;
+        // Discovery, proxy setup and position reads all answer later. One that
+        // answered after destroy() used to add a player and start a poll that
+        // nothing would ever stop, so every one of them is cancelled together.
+        this._cancellable = new Gio.Cancellable();
 
         this._bus = Gio.DBus.session;
         this._watchId = this._bus.signal_subscribe(
@@ -137,12 +141,13 @@ export const PlayerWatcher = GObject.registerClass({
     _discover() {
         this._bus.call('org.freedesktop.DBus', '/org/freedesktop/DBus',
             'org.freedesktop.DBus', 'ListNames', null, null,
-            Gio.DBusCallFlags.NONE, -1, null, (bus, res) => {
+            Gio.DBusCallFlags.NONE, -1, this._cancellable, (bus, res) => {
                 try {
                     const [names] = bus.call_finish(res).deepUnpack();
                     names.filter(n => n.startsWith(MPRIS_PREFIX)).forEach(n => this._addPlayer(n));
                 } catch (e) {
-                    logError(e, 'Platter: could not list D-Bus names');
+                    if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                        logError(e, 'Platter: could not list D-Bus names');
                 }
             });
     }
@@ -154,10 +159,13 @@ export const PlayerWatcher = GObject.registerClass({
         this._players.set(busName, entry);
 
         Gio.DBusProxy.new(this._bus, Gio.DBusProxyFlags.NONE, null, busName,
-            OBJECT_PATH, PLAYER_IFACE, null, (src, res) => {
+            OBJECT_PATH, PLAYER_IFACE, this._cancellable, (src, res) => {
                 try {
                     entry.proxy = Gio.DBusProxy.new_finish(res);
                 } catch (e) {
+                    if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED) ||
+                        this._players.get(busName) !== entry)
+                        return;
                     // Unlike _removePlayer, nothing else re-picks after this, so
                     // a proxy that never resolves used to leave _current
                     // pointing at an entry no longer in _players.
@@ -165,12 +173,20 @@ export const PlayerWatcher = GObject.registerClass({
                     this._pick();
                     return;
                 }
-                entry.proxy.connect('g-properties-changed', () => this._refresh(busName));
+                if (this._players.get(busName) !== entry)
+                    return;   // the player left, or restarted, while this was built
+                // Checked against the map, not just the bus name: a player that
+                // restarted under the same name has a new entry, and the old
+                // proxy's late signals must not overwrite it.
+                entry.proxyId = entry.proxy.connect('g-properties-changed', () => {
+                    if (this._players.get(busName) === entry)
+                        this._refresh(busName);
+                });
                 this._refresh(busName);
             });
 
         Gio.DBusProxy.new(this._bus, Gio.DBusProxyFlags.NONE, null, busName,
-            OBJECT_PATH, APP_IFACE, null, (src, res) => {
+            OBJECT_PATH, APP_IFACE, this._cancellable, (src, res) => {
                 try {
                     entry.appProxy = Gio.DBusProxy.new_finish(res);
                     this._refresh(busName);
@@ -181,6 +197,9 @@ export const PlayerWatcher = GObject.registerClass({
     }
 
     _removePlayer(busName) {
+        const entry = this._players.get(busName);
+        if (entry?.proxyId)
+            entry.proxy.disconnect(entry.proxyId);
         this._players.delete(busName);
         if (this._current === busName)
             this._current = null;
@@ -269,7 +288,7 @@ export const PlayerWatcher = GObject.registerClass({
         this._bus.call(busName, OBJECT_PATH,
             'org.freedesktop.DBus.Properties', 'Get',
             new GLib.Variant('(ss)', [PLAYER_IFACE, 'Position']),
-            new GLib.VariantType('(v)'), Gio.DBusCallFlags.NONE, 1000, null,
+            new GLib.VariantType('(v)'), Gio.DBusCallFlags.NONE, 1000, this._cancellable,
             (bus, res) => {
                 let us = 0;
                 try {
@@ -315,6 +334,7 @@ export const PlayerWatcher = GObject.registerClass({
     }
 
     destroy() {
+        this._cancellable.cancel();
         if (this._pollId) {
             GLib.source_remove(this._pollId);
             this._pollId = 0;
@@ -322,6 +342,10 @@ export const PlayerWatcher = GObject.registerClass({
         if (this._watchId) {
             this._bus.signal_unsubscribe(this._watchId);
             this._watchId = 0;
+        }
+        for (const entry of this._players.values()) {
+            if (entry.proxyId)
+                entry.proxy.disconnect(entry.proxyId);
         }
         this._players.clear();
         this._current = null;

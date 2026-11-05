@@ -45,6 +45,33 @@
   extra directory that is not there today, now shows the default theme instead
   of nothing. The setting is left alone, so the chosen theme returns when it
   can be found again.
+- Fixed: two widgets could end up on screen. Changing the theme and the scale
+  together started two rebuilds, and the one that finished last added its
+  widget beside the other's rather than replacing it. Only the latest rebuild
+  now draws.
+- Fixed: player discovery, and the D-Bus calls behind it, could answer after
+  the extension was disabled and start a once-a-second poll nothing would ever
+  stop. They are now cancelled when the extension goes.
+- A drag in progress when the widget is rebuilt no longer leaves the pointer
+  grabbed.
+- While playing, the widget no longer re-cuts and restyles the cover and
+  buttons every second along with the seekbar, only when the track or the
+  playing state changes.
+- Importing no longer follows symbolic links inside a theme. An archive
+  with a folder linked to itself installed some forty copies of its theme or
+  never finished, and a file linked to somewhere else on the computer was
+  copied into the themes folder along with the theme.
+- Importing no longer freezes the preferences window: archives unpack in the
+  background, and "Converting…" now actually shows while they do.
+- An import that leaves a read-only folder in its temporary copy no longer
+  leaves the whole copy behind, and a tool that fails partway through
+  unpacking no longer leaves its half for the next tool to trip over.
+- A `skin.xml` with a comment that is never closed is now repaired or
+  refused, rather than quietly losing everything after the comment. A
+  character reference beyond Unicode no longer fails the whole theme.
+- `platter-port --list` honours `--out` wherever it appears, lists the rest
+  of a folder when one theme in it will not read, and the tool now works from
+  a path with a space in it.
 
 ## 0.1.1 (2026-08-24)
 

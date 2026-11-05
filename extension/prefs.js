@@ -109,7 +109,8 @@ export default class PlatterPreferences extends ExtensionPreferences {
                 } catch (e) {
                     return;  // the user changed their mind, which is not an error
                 }
-                this._runImport(chosen.get_path(), status, themeRow, settings);
+                this._runImport(chosen.get_path(), status, themeRow, settings)
+                    .catch(e => logError(e, 'Platter: import failed'));
             });
         });
 
@@ -136,7 +137,8 @@ export default class PlatterPreferences extends ExtensionPreferences {
                 } catch (e) {
                     return;
                 }
-                this._runImport(chosen.get_path(), status, themeRow, settings);
+                this._runImport(chosen.get_path(), status, themeRow, settings)
+                    .catch(e => logError(e, 'Platter: import failed'));
             });
         });
 
@@ -165,7 +167,19 @@ export default class PlatterPreferences extends ExtensionPreferences {
         // Conversion is quick but not instant, and a window that does nothing
         // for a second looks broken. Say what is happening before starting.
         status.set_subtitle(_('Converting…'));
-        const result = Import.importFrom(path);
+        let result;
+        try {
+            result = await Import.importFrom(path);
+        } catch (e) {
+            // importFrom reports failures in its result; this is only for a
+            // bug in it, which should still say something rather than leave
+            // "Converting…" up for good.
+            logError(e, 'Platter: import failed');
+            status.set_subtitle(_('The import failed: %s').format(e.message));
+            return;
+        }
+        if (this._closed)
+            return;
         status.set_subtitle(Import.summarise(result));
 
         if (!result.installed.length)

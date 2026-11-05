@@ -15,6 +15,8 @@
 import GLib from 'gi://GLib';
 import Gio from 'gi://Gio';
 
+Gio._promisify(Gio.Subprocess.prototype, 'communicate_utf8_async', 'communicate_utf8_finish');
+
 /* bsdtar first: one binary reads zip, 7z, tar and everything else here, and it
  * is what GNOME's own archive handling is built on. */
 const EXTRACTORS = [
@@ -53,7 +55,7 @@ function extractorsFor(path) {
  * The caller owns the directory and should hand it to `discard` when done.
  * Throws with a readable reason if nothing here can open the file.
  */
-export function unpack(archive) {
+export async function unpack(archive) {
     const candidates = extractorsFor(archive);
     if (!candidates.length) {
         throw new Error(haveExtractor()
@@ -66,11 +68,14 @@ export function unpack(archive) {
     const failures = [];
     for (const extractor of candidates) {
         try {
-            run(extractor.args(archive, out));
-            descend(out);
+            await run(extractor.args(archive, out));
+            await descend(out);
             return out;
         } catch (e) {
             failures.push(`${extractor.binary}: ${e.message}`);
+            // What a failed tool got out before giving up must not be
+            // mistaken for the next tool's work.
+            empty(out);
         }
     }
     discard(out);
@@ -83,7 +88,7 @@ export function unpack(archive) {
  * tree of files however deeply it was wrapped. */
 const MAX_DEPTH = 3;
 
-function descend(directory, depth = 0) {
+async function descend(directory, depth = 0) {
     if (depth >= MAX_DEPTH)
         return;
     for (const child of listFiles(directory)) {
@@ -94,11 +99,12 @@ function descend(directory, depth = 0) {
             GLib.mkdir_with_parents(into, 0o700);
             for (const extractor of extractorsFor(child)) {
                 try {
-                    run(extractor.args(child, into));
-                    descend(into, depth + 1);
+                    await run(extractor.args(child, into));
+                    await descend(into, depth + 1);
                     break;
                 } catch (e) {
                     // try the next tool that claims to read this
+                    empty(into);
                 }
             }
         } catch (e) {
@@ -136,7 +142,7 @@ function listFiles(directory, prefix = '', out = []) {
  * with theme archives in it is what a download directory actually looks like.
  * Returns the temporary path, or null when there was nothing to unpack.
  */
-export function unpackInside(directory) {
+export async function unpackInside(directory) {
     const archives = listFiles(directory).filter(f =>
         isArchive(f) && extractorsFor(f).length);
     if (!archives.length)
@@ -144,21 +150,22 @@ export function unpackInside(directory) {
 
     const out = GLib.Dir.make_tmp('platter-import-XXXXXX');
     let unpacked = 0;
-    archives.forEach((archive, n) => {
+    for (const [n, archive] of archives.entries()) {
         const into = GLib.build_filenamev([out,
             `${String(n).padStart(3, '0')}-${archive.split('/').pop()}`]);
         GLib.mkdir_with_parents(into, 0o700);
         for (const extractor of extractorsFor(archive)) {
             try {
-                run(extractor.args(archive, into));
-                descend(into, 1);
+                await run(extractor.args(archive, into));
+                await descend(into, 1);
                 unpacked++;
                 break;
             } catch (e) {
                 // a corrupt archive should not stop the others
+                empty(into);
             }
         }
-    });
+    }
 
     if (!unpacked) {
         discard(out);
@@ -167,10 +174,13 @@ export function unpackInside(directory) {
     return out;
 }
 
-function run(argv) {
+/* Asynchronous, so the preferences window keeps painting (and shows that it
+ * is converting) while a big pack unpacks, rather than freezing until it is
+ * done. */
+async function run(argv) {
     const process = Gio.Subprocess.new(argv,
         Gio.SubprocessFlags.STDOUT_SILENCE | Gio.SubprocessFlags.STDERR_PIPE);
-    const [, , stderr] = process.communicate_utf8(null, null);
+    const [, , stderr] = await process.communicate_utf8_async(null, null);
     if (!process.get_successful()) {
         const said = (stderr || '').trim().split('\n')[0];
         throw new Error(said || `exited ${process.get_exit_status()}`);
@@ -188,17 +198,43 @@ export function discard(path) {
     }
 }
 
+/* Best effort, entry by entry: one entry that will not go must not leave the
+ * rest behind. tar keeps an archive's folder modes, so a folder packed
+ * read-only (0555) has to be made writable before what is in it can go. */
 function remove(file) {
+    empty(file);
+    deleteQuietly(file);
+}
+
+/** Remove what is inside a directory this module made, keeping the directory. */
+function empty(dir) {
     let enumerator;
     try {
-        enumerator = file.enumerate_children('standard::name,standard::type',
+        enumerator = dir.enumerate_children('standard::name,standard::type',
             Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS, null);
     } catch (e) {
-        file.delete(null);
-        return;
+        return;   // not a directory, or already gone
+    }
+    try {
+        dir.set_attribute_uint32('unix::mode', 0o700,
+            Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS, null);
+    } catch (e) {
+        // the deletes below will say whether it mattered
     }
     let info;
-    while ((info = enumerator.next_file(null)))
-        remove(file.get_child(info.get_name()));
-    file.delete(null);
+    while ((info = enumerator.next_file(null))) {
+        const child = dir.get_child(info.get_name());
+        if (info.get_file_type() === Gio.FileType.DIRECTORY)
+            remove(child);
+        else
+            deleteQuietly(child);
+    }
+}
+
+function deleteQuietly(file) {
+    try {
+        file.delete(null);
+    } catch (e) {
+        // keep going; the rest can still be removed
+    }
 }

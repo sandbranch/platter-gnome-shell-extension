@@ -21,23 +21,52 @@ whatever desktop you had in 2010.
 
 ## Get it
 
-Submitted to [extensions.gnome.org](https://extensions.gnome.org/extension/10763/platter/) and
-awaiting review. Until it's approved, download the zip from the [latest
-release](https://github.com/sandbranch/platter-gnome-shell-extension/releases/latest)
-and install it:
+Platter has been submitted to
+[extensions.gnome.org](https://extensions.gnome.org/extension/10763/platter/)
+and is waiting for review. Once it's approved, installing will be one click
+there. Until then, it takes a couple of minutes by hand.
+
+### The easy way: the release zip
+
+1. Download the `.shell-extension.zip` file from the [latest
+   release](https://github.com/sandbranch/platter-gnome-shell-extension/releases/latest).
+   Leave it zipped.
+2. Open a terminal in the folder you saved it to (usually **Downloads**:
+   right-click inside it in Files and pick **Open in Terminal**), and run:
+
+   ```
+   gnome-extensions install --force platter-*.shell-extension.zip
+   ```
+
+3. **Log out and back in.** GNOME Shell only notices new extensions in a
+   fresh session, and everyone forgets this exactly one time.
+4. Turn Platter on, either in the **Extensions** app or with:
+
+   ```
+   gnome-extensions enable platter@sandbranch.github.io
+   ```
+
+5. Pick a theme in Platter's preferences (the gear next to it in
+   **Extensions**, or `gnome-extensions prefs platter@sandbranch.github.io`)
+   and start some music.
+
+Updating to a newer release is the same steps 1 to 3; your settings and
+imported themes stay where they are.
+
+### From source
+
+If you'd rather build it yourself, or want what's on `main` before it's
+released, you need `git` and `make` (on Ubuntu or Debian:
+`sudo apt install git make`). Then:
 
 ```
-gnome-extensions install --force platter-*.shell-extension.zip
-```
-
-Or install straight from this repo:
-
-```
+git clone https://github.com/sandbranch/platter-gnome-shell-extension.git
+cd platter-gnome-shell-extension
 make install
 ```
 
-Log out and back in once: GNOME Shell needs a fresh session to notice new
-extensions, and everyone forgets this exactly one time.
+and carry on from step 3 above. To update later, `git pull` and
+`make install` again, then log out and back in.
 
 Needs GNOME Shell 48, 49, or 50.
 

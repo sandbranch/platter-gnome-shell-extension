@@ -11,8 +11,10 @@
  * person best placed to judge a bad conversion is the one looking at it.
  */
 
+import GdkPixbuf from 'gi://GdkPixbuf';
 import GLib from 'gi://GLib';
 import Gio from 'gi://Gio';
+import Rsvg from 'gi://Rsvg';
 
 import * as XML from './xml.js';
 
@@ -65,12 +67,10 @@ export function slug(text) {
 export function measure(path) {
     try {
         if (path.toLowerCase().endsWith('.svg')) {
-            const Rsvg = imports.gi.Rsvg;
             const handle = Rsvg.Handle.new_from_file(path);
             const [ok, width, height] = handle.get_intrinsic_size_in_pixels();
             return ok ? [Math.round(width), Math.round(height)] : null;
         }
-        const GdkPixbuf = imports.gi.GdkPixbuf;
         const [format, width, height] = GdkPixbuf.Pixbuf.get_file_info(path);
         return format ? [width, height] : null;
     } catch (e) {

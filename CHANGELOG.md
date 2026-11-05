@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.2.0 (2026-11-05)
 
 - T-tip no longer ships, and is credited to BigRZA. It was credited to Jordi
   Puigdellivol Hernandez, who committed it to CoverGloobus 1.7, and shipped as

@@ -9,8 +9,7 @@ import Gio from 'gi://Gio';
 import GLib from 'gi://GLib';
 import GdkPixbuf from 'gi://GdkPixbuf';
 import Rsvg from 'gi://Rsvg';
-
-const cairo = imports.cairo;
+import Cairo from 'cairo';
 
 Gio._promisify(Gio.File.prototype, 'load_contents_async', 'load_contents_finish');
 
@@ -173,8 +172,8 @@ function rasterizeSvg(path, outPath, scale) {
     const dim = handle.get_dimensions();
     const w = Math.max(1, Math.round(dim.width * scale));
     const h = Math.max(1, Math.round(dim.height * scale));
-    const surface = new cairo.ImageSurface(cairo.Format.ARGB32, w, h);
-    const cr = new cairo.Context(surface);
+    const surface = new Cairo.ImageSurface(Cairo.Format.ARGB32, w, h);
+    const cr = new Cairo.Context(surface);
     cr.scale(w / dim.width, h / dim.height);
     handle.render_cairo(cr);
     surface.writeToPNG(outPath);
